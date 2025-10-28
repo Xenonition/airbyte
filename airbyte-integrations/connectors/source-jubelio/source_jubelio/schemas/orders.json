@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "salesorder_id": {
+      "type": ["null", "integer"],
+      "description": "Sales Order ID"
+    },
+    "salesorder_no": {
+      "type": ["null", "string"],
+      "description": "Sales Order Number"
+    },
+    "invoice_no": {
+      "type": ["null", "string"],
+      "description": "Invoice Number"
+    },
+    "invoice_created_date": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "description": "Invoice Created Date"
+    },
+    "shipping_full_name": {
+      "type": ["null", "string"],
+      "description": "Shipping Full Name (Receiver)"
+    },
+    "customer_name": {
+      "type": ["null", "string"],
+      "description": "Contact Name (Customer)"
+    },
+    "transaction_date": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "description": "Transaction Date"
+    },
+    "created_date": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "description": "Created Date"
+    },
+    "location_name": {
+      "type": ["null", "string"],
+      "description": "Location Name"
+    },
+    "grand_total": {
+      "type": ["null", "string"],
+      "description": "Grand Total"
+    },
+    "channel_status": {
+      "type": ["null", "string"],
+      "description": "Channel Status"
+    },
+    "internal_status": {
+      "type": ["null", "string"],
+      "description": "Internal Status"
+    },
+    "is_paid": {
+      "type": ["null", "boolean"],
+      "description": "Whether Purchase Order have been Paid"
+    },
+    "is_canceled": {
+      "type": ["null", "boolean"],
+      "description": "Whether Purchase Order have been Canceled"
+    },
+    "channel_name": {
+      "type": ["null", "string"],
+      "description": "Channel Name"
+    },
+    "store_name": {
+      "type": ["null", "string"],
+      "description": "Source Name"
+    },
+    "shipper": {
+      "type": ["null", "string"],
+      "description": "Shipper"
+    },
+    "marked_as_complete": {
+      "type": ["null", "boolean"],
+      "description": "Whether Purchase Order have been completed"
+    },
+    "store_id": {
+      "type": ["null", "string"],
+      "description": "Store ID"
+    },
+    "channel_id": {
+      "type": ["null", "integer"],
+      "description": "Channel ID"
+    },
+    "internal_do_number": {
+      "type": ["null", "string"],
+      "description": "Internal DO Number"
+    },
+    "internal_so_number": {
+      "type": ["null", "integer"],
+      "description": "Internal SO Number"
+    },
+    "awb_created_date": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "description": "AWB Created date"
+    },
+    "source": {
+      "type": ["null", "string"],
+      "description": "Source"
+    },
+    "store": {
+      "type": ["null", "string"],
+      "description": "Store Name"
+    },
+    "shipment_type": {
+      "type": ["null", "string"],
+      "description": "Type of Shipment"
+    },
+    "status_details": {
+      "type": ["null", "string"],
+      "description": "Status detail"
+    },
+    "is_instant_courier": {
+      "type": ["null", "boolean"],
+      "description": "Is instant courier"
+    },
+    "is_po": {
+      "type": ["null", "boolean"],
+      "description": "Is PO"
+    },
+    "label_printed_count": {
+      "type": ["null", "integer"],
+      "description": "Label printed count"
+    },
+    "is_fbm": {
+      "type": ["null", "boolean"],
+      "description": "Is FBM"
+    },
+    "last_modified": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "description": "Last Modified Time"
+    },
+    "package_count": {
+      "type": ["null", "integer"],
+      "description": "Package count"
+    },
+    "cancel_reason": {
+      "type": ["null", "string"],
+      "description": "Cancel reason"
+    },
+    "cancel_reason_detail": {
+      "type": ["null", "string"],
+      "description": "Cancel reason detail"
+    },
+    "wms_status": {
+      "type": ["null", "string"],
+      "description": "WMS Status"
+    },
+    "note": {
+      "type": ["null", "string"],
+      "description": "Note"
+    },
+    "action": {
+      "type": ["null", "string"],
+      "description": "Action"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "item_group_id": {
+      "type": ["null", "integer"],
+      "description": "Item Group ID"
+    },
+    "item_name": {
+      "type": ["null", "string"],
+      "description": "Item Name"
+    },
+    "last_modified": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "description": "Last Modified Time"
+    },
+    "item_category_id": {
+      "type": ["null", "integer"],
+      "description": "Item Category ID"
+    },
+    "thumbnail": {
+      "type": ["null", "string"],
+      "description": "Item Thumbnail URL"
+    },
+    "variations": {
+      "type": ["null", "array"],
+      "description": "List Item Variations",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": ["null", "string"],
+            "description": "Variation Label"
+          },
+          "values": {
+            "type": ["null", "array"],
+            "description": "List Variation Values",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "variants": {
+      "type": ["null", "array"],
+      "description": "List Item Variants",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item_group_id": {
+            "type": ["null", "integer"],
+            "description": "Item Group ID"
+          },
+          "item_id": {
+            "type": ["null", "integer"],
+            "description": "Item ID"
+          },
+          "item_code": {
+            "type": ["null", "string"],
+            "description": "Item Code/SKU"
+          },
+          "end_qty": {
+            "type": ["null", "number"],
+            "description": "Total Inventory on Hand"
+          },
+          "order_qty": {
+            "type": ["null", "number"],
+            "description": "Total Inventory on Order"
+          },
+          "item_name": {
+            "type": ["null", "string"],
+            "description": "Item Name"
+          },
+          "available_qty": {
+            "type": ["null", "number"],
+            "description": "Total Available Inventory"
+          },
+          "sell_price": {
+            "type": ["null", "number"],
+            "description": "Item Sell Price"
+          },
+          "is_bundle": {
+            "type": ["null", "boolean"],
+            "description": "Is bundle"
+          },
+          "thumbnail": {
+            "type": ["null", "string"],
+            "description": "Item Thumbnail"
+          },
+          "barcode": {
+            "type": ["null", "string"],
+            "description": "Item Barcode"
+          },
+          "tax_rate": {
+            "type": ["null", "number"],
+            "description": "Item Tax Rate"
+          },
+          "variation_values": {
+            "type": ["null", "array"],
+            "description": "Item Variations",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": ["null", "string"],
+                  "description": "Variation Label"
+                },
+                "value": {
+                  "type": ["null", "string"],
+                  "description": "Variation Value"
+                }
+              }
+            }
+          },
+          "store_names": {
+            "type": ["null", "array"],
+            "description": "List Store Names where Item Exists",
+            "items": {
+              "type": "object",
+              "properties": {
+                "store_name": {
+                  "type": ["null", "string"],
+                  "description": "Store Name"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "online_status": {
+      "type": ["null", "array"],
+      "description": "List Channel where Item Exists",
+      "items": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": ["null", "integer"],
+            "description": "Channel ID"
+          },
+          "store_id": {
+            "type": ["null", "string"],
+            "description": "Store ID"
+          },
+          "store_name": {
+            "type": ["null", "string"],
+            "description": "Store Name"
+          },
+          "channel_group_id": {
+            "type": ["null", "string"],
+            "description": "Channel Group ID"
+          },
+          "channel_url": {
+            "type": ["null", "string"],
+            "description": "Channel URL"
+          },
+          "shop_id": {
+            "type": ["null", "integer"],
+            "description": "Shop ID"
+          }
+        }
+      }
+    }
+  }
+}

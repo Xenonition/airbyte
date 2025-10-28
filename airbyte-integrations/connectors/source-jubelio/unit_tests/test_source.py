@@ -65,7 +65,9 @@ class TestSourceJubelio:
         """Test that streams are returned"""
         source = SourceJubelio()
         streams = source.streams(config)
-        assert len(streams) == 2
+        assert len(streams) == 4
         stream_names = [stream.name for stream in streams]
         assert "products" in stream_names
         assert "orders" in stream_names
+        assert "contacts" in stream_names
+        assert "categories" in stream_names

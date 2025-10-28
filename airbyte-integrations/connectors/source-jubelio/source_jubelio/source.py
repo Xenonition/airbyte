@@ -10,7 +10,7 @@ from airbyte_cdk.models import AirbyteConnectionStatus, Status
 from airbyte_cdk.sources import AbstractSource
 from airbyte_cdk.sources.streams import Stream
 
-from .streams import JubelioStream, Products, Orders
+from .streams import JubelioStream, Products, Orders, Contacts, Categories
 
 
 class SourceJubelio(AbstractSource):
@@ -109,8 +109,9 @@ class SourceJubelio(AbstractSource):
         Returns:
             List of streams
         """
-        # TODO: Add your actual streams here
         return [
             Products(config=config),
             Orders(config=config),
+            Contacts(config=config),
+            Categories(config=config),
         ]

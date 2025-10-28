@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "contact_id": {
+      "type": ["null", "integer"],
+      "description": "Contact ID"
+    },
+    "contact_name": {
+      "type": ["null", "string"],
+      "description": "Contact Name"
+    },
+    "contact_type": {
+      "type": ["null", "integer"],
+      "description": "Contact Type [0 = Customer/1 = Vendor/2 = Customer and Vendor]"
+    },
+    "primary_contact": {
+      "type": ["null", "string"],
+      "description": "Primary Contact Name"
+    },
+    "contact_position": {
+      "type": ["null", "string"],
+      "description": "Contact Position"
+    },
+    "email": {
+      "type": ["null", "string"],
+      "description": "Contact Email"
+    },
+    "phone": {
+      "type": ["null", "string"],
+      "description": "Contact Phone Number"
+    },
+    "mobile": {
+      "type": ["null", "string"],
+      "description": "Contact Mobile Phone Number"
+    },
+    "fax": {
+      "type": ["null", "string"],
+      "description": "Contact Fax Number"
+    },
+    "npwp": {
+      "type": ["null", "string"],
+      "description": "Contact NPWP Number"
+    },
+    "payment_term": {
+      "type": ["null", "integer"],
+      "description": "Payment Term in days"
+    },
+    "billing_address": {
+      "type": ["null", "string"],
+      "description": "Billing Address"
+    },
+    "billing_address_detail": {
+      "type": ["null", "string"],
+      "description": "Billing Address Detail"
+    },
+    "billing_city": {
+      "type": ["null", "string"],
+      "description": "Billing City"
+    },
+    "billing_province": {
+      "type": ["null", "string"],
+      "description": "Billing Province"
+    },
+    "billing_zip_code": {
+      "type": ["null", "string"],
+      "description": "Billing Zip Code"
+    },
+    "billing_country": {
+      "type": ["null", "string"],
+      "description": "Billing Country"
+    },
+    "shipping_address": {
+      "type": ["null", "string"],
+      "description": "Shipping Address"
+    },
+    "shipping_address_detail": {
+      "type": ["null", "string"],
+      "description": "Shipping Address Detail"
+    },
+    "shipping_city": {
+      "type": ["null", "string"],
+      "description": "Shipping City"
+    },
+    "shipping_province": {
+      "type": ["null", "string"],
+      "description": "Shipping Province"
+    },
+    "shipping_zip_code": {
+      "type": ["null", "string"],
+      "description": "Shipping Zip Code"
+    },
+    "shipping_country": {
+      "type": ["null", "string"],
+      "description": "Shipping Country"
+    },
+    "created_date": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "description": "Created Date"
+    },
+    "last_modified": {
+      "type": ["null", "string"],
+      "format": "date-time",
+      "description": "Last Modified Time"
+    }
+  }
+}

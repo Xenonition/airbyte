@@ -3,6 +3,24 @@
 This is the repository for the Jubelio source connector, written in Python.
 For information about how to use this connector within Airbyte, see [the documentation](https://docs.airbyte.com/integrations/sources/jubelio).
 
+## Features
+
+- **Full Refresh Sync**: All streams support full refresh synchronization
+- **Incremental Sync**: Orders and Contacts streams support incremental sync for efficient data replication
+- **Authentication**: Direct API key authentication
+- **Comprehensive Schema**: Detailed schema definitions for all data types
+
+## Supported Streams
+
+| Stream | Incremental Sync | Primary Key | Cursor Field |
+|--------|------------------|-------------|--------------|
+| Products | ❌ | `item_group_id` | - |
+| Orders | ✅ | `salesorder_id` | `last_modified` |
+| Contacts | ✅ | `contact_id` | `last_modified` |
+| Categories | ❌ | `category_id` | - |
+
+For more details on incremental sync, see [Incremental Sync Documentation](docs/incremental-sync.md).
+
 ## Local development
 
 ### Prerequisites

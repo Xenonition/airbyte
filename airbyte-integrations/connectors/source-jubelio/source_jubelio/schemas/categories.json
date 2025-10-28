@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "category_id": {
+      "type": ["null", "integer"],
+      "description": "Category ID"
+    },
+    "category_name": {
+      "type": ["null", "string"],
+      "description": "Category Name"
+    },
+    "parent_id": {
+      "type": ["null", "integer"],
+      "description": "Category Parent ID"
+    },
+    "has_children": {
+      "type": ["null", "boolean"],
+      "description": "Whether Category has Children"
+    }
+  }
+}
