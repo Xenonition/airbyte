@@ -1,0 +1,120 @@
+type: object
+description: Adjustment Items
+properties:
+  ar_acct_id:
+    type: number
+    example: 3
+  ap_acct_id:
+    type: number
+    example: 14
+  sales_disc_acct_id:
+    type: number
+    example: 29
+  retained_earning_acct_id:
+    type: number
+    example: 25
+  invt_acct_id:
+    type: number
+    example: 4
+  cogs_acct_id:
+    type: number
+    example: 30
+  sales_acct_id:
+    type: number
+    example: 32
+  purch_acct_id:
+    type: number
+    example: 48
+  shipping_acct_id:
+    type: number
+    example: 46
+  insurance_acct_id:
+    type: number
+    example: 61
+  cash_acct_id:
+    type: number
+    example: 1
+  bank_acct_id:
+    type: number
+    example: 2
+  adjp_acct_id:
+    type: number
+    example: 75
+  adjm_acct_id:
+    type: number
+    example: 72
+  sales_add_disc_account_id:
+    type: number
+    example: 76
+  sales_add_fee_account_id:
+    type: number
+    example: 77
+  supplier_deposit_acct_id:
+    type: number
+    example: 80
+  customer_deposit_acct_id:
+    type: number
+    example: 1
+  service_fee_account_id:
+    type: number
+    example: 83
+  ar_account_name:
+    type: string
+    example: 1-1100 - Piutang Usaha
+  ap_account_name:
+    type: string
+    example: 2-2000 - Hutang Usaha
+  sales_disc_account_name:
+    type: string
+    example: 4-4001 - Diskon Penjualan
+  retained_earning_account_name:
+    type: string
+    example: 3-3001 - Laba Ditahan
+  historical_bal_account_name:
+    type: string
+    example: 3-3003 - Pengimbang Neraca
+  invt_account_name:
+    type: string
+    example: 1-1200 - Persediaan Barang
+  cogs_account_name:
+    type: string
+    example: 5-5000 - Harga Pokok Penjualan (COGS)
+  sales_account_name:
+    type: string
+    example: 4-4000 - Penjualan
+  purch_account_name:
+    type: string
+    example: 6-6017 - Biaya Administrasi & Umum Lainnya
+  shipping_account_name:
+    type: string
+    example: 7-7005 - Ongkos Kirim
+  insurance_account_name:
+    type: string
+    example: 6-6030 - Asuransi
+  cash_account_name:
+    type: string
+    example: 1-1000 - Kas
+  bank_account_name:
+    type: string
+    example: 1-1001 - Bank
+  adjp_account_name:
+    type: string
+    example: 7-7004 - Penyesuaian Persediaan Barang
+  adjm_account_name:
+    type: string
+    example: 8-8004 - Penyesuaian Persediaan Barang
+  sales_add_disc_account_name:
+    type: string
+    example: 4-4002 - Diskon Lainnya
+  sales_add_fee_account_name:
+    type: string
+    example: 8-8006 - Biaya Penjualan Lainnya
+  supplier_deposit_account_name:
+    type: string
+    example: null
+  customer_deposit_account_name:
+    type: string
+    example: null
+  service_fee_account_name:
+    type: string
+    example: 8-8035 - Biaya Layanan

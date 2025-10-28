@@ -1,0 +1,18 @@
+type: object
+required:
+  - shipment_header_id
+  - salesorder_id
+  - employee_id
+properties:
+  shipment_header_id:
+    type: number
+    description: Shipment Header ID
+    example: 10487
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 2499885
+  employee_id:
+    type: string
+    description: Employee Email
+    example: ririn@staffgudang.com

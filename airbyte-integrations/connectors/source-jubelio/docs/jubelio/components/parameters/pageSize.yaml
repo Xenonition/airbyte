@@ -1,0 +1,10 @@
+name: pageSize
+in: query
+required: true
+style: form
+explode: true
+description: Page Size. Max. page size is 200.
+schema:
+  minimum: 1
+  type: number
+  format: int32

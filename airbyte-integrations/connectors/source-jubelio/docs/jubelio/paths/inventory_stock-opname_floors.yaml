@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Inventory
+  summary: Get the rack location by floors where the items are placed
+  description: You can sort by **floor_code**.
+  operationId: getInventoryStockOpnameFloors
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/locationId.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/q.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getInventoryStockOpnameFloorsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

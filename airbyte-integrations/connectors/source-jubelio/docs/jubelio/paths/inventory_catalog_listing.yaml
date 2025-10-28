@@ -1,0 +1,30 @@
+post:
+  tags:
+    - Product Listing
+  summary: Create/Update Product Listing
+  description: >
+    Use this endpoint to create your product listing before uploading your
+    product to marketplace channel. If the product is already listed on the
+    marketplace, use this endpoint to update your product listing in the
+    marketplace.
+  operationId: saveProductListing
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/saveProductListing.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveProductListingResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

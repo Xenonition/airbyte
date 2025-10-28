@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Inventory
+  summary: Get Purchase Return Items Detail
+  operationId: getInventoryItemsByBill
+  description: You can sort by **item_code**
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/q.yaml
+    - name: doc_id
+      in: path
+      required: true
+      description: Doc ID
+      schema:
+        type: number
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getInventoryItemsbyBillResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

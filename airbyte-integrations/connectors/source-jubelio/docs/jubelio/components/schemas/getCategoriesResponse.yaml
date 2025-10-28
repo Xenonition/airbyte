@@ -1,0 +1,24 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        category_id:
+          type: number
+          description: Category ID
+          example: 1
+        category_name:
+          type: string
+          description: Category Name
+          example: Komputer
+        parent_id:
+          type: number
+          description: Category Parent ID
+          example: 0
+        has_children:
+          type: boolean
+          description: Whether Category has Childern
+          example: true

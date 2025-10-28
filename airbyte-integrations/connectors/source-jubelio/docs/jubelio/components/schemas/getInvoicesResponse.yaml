@@ -1,0 +1,74 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        doc_id:
+          type: number
+          description: Document ID
+          example: 2
+        doc_number:
+          type: string
+          description: Document Number
+          example: INV-000000222
+        contact_id:
+          type: number
+          description: Contact ID (Customer)
+          example: 32
+        customer_name:
+          type: string
+          description: Contact Name (Customer)
+          example: Andy
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        due_date:
+          type: string
+          format: date
+          description: Due Date
+          example: '2018-10-20T17:00:00.000Z'
+        is_opening_balance:
+          type: boolean
+          description: Whether Invoice is an Opening Balance
+          example: false
+        grand_total:
+          type: string
+          description: Invoice Grand Total
+          example: 4400000
+        due:
+          type: string
+          description: Invoice Due Total
+          example: 4400000
+        doc_type:
+          type: string
+          description: Document Type
+          example: invoice
+        age:
+          type: number
+          description: Invoice Age
+          example: 8
+        age_due:
+          type: number
+          description: Invoice Age Due
+          example: 8
+        payment_id:
+          type: number
+          description: Invoice Payment ID
+          example: 1
+        ref_no:
+          type: string
+          description: Ref number
+          example: null
+        so_customer_name:
+          type: string
+          description: Customer Name
+          example: null
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

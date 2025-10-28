@@ -1,0 +1,22 @@
+required:
+  - file
+  - uid
+  - name
+type: object
+properties:
+  file:
+    type: string
+    description: Image File
+    format: binary
+  name:
+    type: string
+    description: Image Name
+    example: Termurah__Rice_Cooker_Miyako_Mcm_606_A___Magic_Com_06l___Pen.jpg
+  TotalFileSize:
+    type: number
+    description: Image Total File Size (Optional)
+    example: 49741
+  uid:
+    type: string
+    description: Image ID
+    example: 636d4589-f8b3-4271-aa96-403d11ce3a6f

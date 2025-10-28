@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Inventory
+  summary: Assign Staff to do Putaway
+  operationId: postInventoryItemsReceivedAuthor
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/AssignStaffRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PutawayPostResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

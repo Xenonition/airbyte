@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Sales
+  summary: Get Invoice Payment
+  operationId: getSalesPaymentsId
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: Purchase Payment ID
+      example: 17
+      schema:
+        type: number
+        format: int32
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getSalesPaymentResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

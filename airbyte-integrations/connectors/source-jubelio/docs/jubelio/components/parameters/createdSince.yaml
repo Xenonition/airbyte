@@ -1,0 +1,9 @@
+name: createdSince
+in: query
+required: false
+style: form
+explode: true
+description: Created Since
+schema:
+  type: string
+  format: date

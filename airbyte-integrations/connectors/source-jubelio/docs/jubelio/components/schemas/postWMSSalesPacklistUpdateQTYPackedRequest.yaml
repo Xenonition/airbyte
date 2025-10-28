@@ -1,0 +1,38 @@
+required:
+  - packer_id
+  - item_id
+  - packlist_detail_id
+  - packlist_id
+  - qty_packed
+  - salesorder_id
+  - set_finish_all
+type: object
+properties:
+  packer_id:
+    type: string
+    description: Email Packer Staff
+    example: ririn@staffgudang.com
+  item_id:
+    type: number
+    description: Item ID
+    example: 66253
+  packlist_detail_id:
+    type: number
+    description: Packlist Detail ID
+    example: 12
+  packlist_id:
+    type: number
+    description: Packlist ID
+    example: 9
+  qty_packed:
+    type: number
+    description: Quantity Packed
+    example: 1
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 2499885
+  set_finish_all:
+    type: boolean
+    description: Set Finish All
+    example: false

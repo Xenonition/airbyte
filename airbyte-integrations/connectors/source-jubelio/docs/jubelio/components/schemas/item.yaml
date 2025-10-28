@@ -1,0 +1,70 @@
+required:
+  - amount
+  - account_id
+  - unit
+  - cost
+  - qty_in_base
+  - item_adj_detail_id
+  - item_id
+  - bin_id
+type: object
+properties:
+  item_adj_detail_id:
+    type: number
+    description: Adjustment Detail ID [0 = create]
+    example: 0
+  item_id:
+    type: number
+    description: Item Adjustment ID
+    example: 1
+  description:
+    type: string
+    description: Item Description
+    example: Item Example Description
+  serial_no:
+    type: string
+    description: Serial Number
+    example: S000121
+  batch_no:
+    type: string
+    description: Batch number
+    example: null
+  qty_in_base:
+    type: number
+    description: >-
+      Item quantity to adjust. For example, set value as 10 if you want to add
+      10 items, or you can set -5 if you want to reduce your stock items as much
+      as 5. Please note you cannot set the value below your on-hand stock.
+    example: 5
+  original_item_adj_detail_id:
+    type: number
+    description: Original Item Adjustment Detail ID [0 = create]
+    example: 0
+  unit:
+    type: string
+    description: Unit Name
+    example: Buah
+  amount:
+    type: number
+    description: qty_in_base multiplied with cost
+    example: 100000
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  account_id:
+    type: number
+    description: User Account that do the Adjustment [default is 75]
+    example: 75
+  expired_date:
+    type: string
+    format: date-time
+    example: null
+  bin_id:
+    type: number
+    description: Bin ID
+    example: 25
+  cost:
+    type: number
+    description: Item Cost/Price.
+    example: 2747

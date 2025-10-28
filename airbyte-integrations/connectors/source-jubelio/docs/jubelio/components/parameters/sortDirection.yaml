@@ -1,0 +1,9 @@
+name: sortDirection
+in: query
+required: false
+style: form
+explode: true
+description: Sort Direction [ASC/DESC]
+example: ASC
+schema:
+  type: string

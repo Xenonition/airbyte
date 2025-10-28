@@ -1,0 +1,174 @@
+required:
+  - customer_name
+  - due_date
+  - invoice_no
+  - is_opening_balance
+  - location_id
+type: object
+properties:
+  invoice_id:
+    type: number
+    description: |
+      Invoice ID <br>
+      To create new invoice => "invoice_id": 0 <br>
+      To edit invoice => "invoice_id": {invoice_id}
+    example: 0
+  invoice_no:
+    type: string
+    description: |
+      Invoice Number <br>
+      To create new invoice => "invoice_no": "[auto]" <br>
+      To edit invoice => "invoice_no": {invoice_no}
+    example: '[auto]'
+  contact_id:
+    type: number
+    description: Contact ID (Customer)
+    example: 1
+  salesmen_id:
+    type: number
+    description: Salesman ID
+    example: null
+  customer_name:
+    type: string
+    description: Contact Name (Customer)
+    example: Customer Name
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2020-10-20T17:00:00.000Z'
+  due_date:
+    type: string
+    format: date
+    description: Due Date
+    example: '2020-10-20T17:00:00.000Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Invoice inlcude Tax
+    example: false
+  note:
+    type: string
+    description: Invoice Note
+    example: Beli Tas Selempang
+  payment_acct_id:
+    type: number
+    description: Payment Account ID
+    example: 1
+  payment:
+    type: number
+    description: Invoice Payment
+    example: 40000
+  sub_total:
+    type: number
+    description: Items Total Price
+    example: 30000
+  total_disc:
+    type: number
+    description: Items Total Discount
+    example: 0
+  total_tax:
+    type: number
+    description: Items Total Tax
+    example: 0
+  grand_total:
+    type: number
+    description: Invoice Grand Total
+    example: 40000
+  ref_no:
+    type: string
+    description: Reference Number
+    example: 99
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  is_opening_balance:
+    type: boolean
+    description: Whether Invoice is an Opening Balance
+    example: false
+  shipping_cost:
+    type: number
+    description: Shipping Cost
+    example: 5000
+  insurance_cost:
+    type: number
+    description: Inssurance Cost
+    example: 5000
+  add_disc:
+    type: number
+    description: >-
+      Additional Discount NB: You Need to Calculate the tax for every item if
+      you are using tax like PPN
+    example: 0
+  add_fee:
+    type: number
+    description: Additional Fee
+    example: 0
+  items:
+    type: array
+    description: List Items in Invoice
+    items:
+      type: object
+      properties:
+        invoice_detail_id:
+          type: number
+          description: Invoice Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 5
+        serial_no:
+          type: string
+          description: Item Serial Number
+          example: SN001
+        description:
+          type: string
+          description: Item Description
+          example: Tas selempang Biru Dongker
+        sales_acct_id:
+          type: number
+          description: Sales Account ID
+          example: 28
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        price:
+          type: number
+          description: Item Price
+          example: 30000
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity Item that will be reduced
+          example: 1
+        disc:
+          type: number
+          description: Item Discount
+          example: 0
+        disc_amount:
+          type: number
+          description: Item Total Amount
+          example: 0
+        tax_amount:
+          type: number
+          description: >-
+            Item Tax Amount NB: You Need to Calculate the tax for every item if
+            you are using tax like PPN
+          example: 0
+        amount:
+          type: number
+          description: Item Total Amount
+          example: 30000
+        cogs:
+          type: number
+          description: Cost of Goods Sold
+          example: 11666.666667
+        location_id:
+          type: number
+          description: Location ID
+          example: -1

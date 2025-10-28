@@ -1,0 +1,121 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        location_name:
+          type: string
+          description: Location Name
+          example: Kutabumi
+        is_pos_outlet:
+          type: boolean
+          description: Is Location a POS Outlet
+          example: false
+        address:
+          type: string
+          description: Location Full Address
+          example: >-
+            Jl. Raya Kutabumi Ruko Pondok Permai blok CA 1 no 6, Kutabaru, Pasar
+            Kemis, Tangerang /nKec. Pasar Kemis, Kota/Kab. Kab. Tangerang
+        city:
+          type: string
+          description: Location Address City
+          example: Tangerang
+        phone:
+          type: string
+          description: Location Contact Number
+          example: 215442490
+        email:
+          type: string
+          description: Location Contact Email
+          example: kutabumi.warehouse@example.com
+        province:
+          type: string
+          description: Location Address Province
+          example: Banten
+        post_code:
+          type: string
+          description: Location Address Post Code
+          example: 15560
+        is_fbl:
+          type: boolean
+          description: Is Location a FBL
+          example: null
+        is_tcb:
+          type: boolean
+          description: Is Location a TCB
+          example: null
+        location_code:
+          type: string
+          description: Location code
+          example: null
+        area:
+          type: string
+          description: Location code
+          example: null
+        warehouse_id:
+          type: string
+          description: Warehouse ID
+          example: null
+        warehouse_store_id:
+          type: string
+          description: Warehouse Store ID
+          example: null
+        pos_discount:
+          type: number
+          description: Discount Value.
+          example: 10
+        pos_discount_type:
+          type: number
+          description: Discount Type. Describe as 1 = percentage, 2 = real price/value.
+          example: 1
+        pos_email_struct_id:
+          type: number
+          example: -1
+        pos_struct_id:
+          type: number
+          example: -1
+        pos_tax:
+          type: number
+          example: 1
+        is_active:
+          type: boolean
+          example: true
+        pos_discount_max:
+          type: number
+          description: Maximum discount that applies when using a percentage.
+          example: 25000
+        is_sbs:
+          type: boolean
+          example: false
+        is_multi_origin:
+          type: boolean
+          example: true
+        is_warehouse:
+          type: boolean
+          example: true
+        wms_migration_date:
+          type: string
+          format: date-time
+          example: '2021-09-28T06:49:05.851Z'
+        default_warehouse_user:
+          type: string
+          description: email PIC of the Warehouse
+          example: wms222@gmail.com
+        source_replenishment:
+          type: number
+          example: 1
+        location_type:
+          type: string
+          example: Gudang
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Region
+  summary: Get Cities
+  operationId: GetCities
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: province_id
+      in: path
+      description: Province ID
+      required: true
+      schema:
+        type: string
+        example: 11
+  responses:
+    '200':
+      description: Successfull
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getCities.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

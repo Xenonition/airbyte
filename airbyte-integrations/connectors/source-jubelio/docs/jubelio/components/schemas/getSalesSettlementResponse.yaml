@@ -1,0 +1,89 @@
+type: object
+properties:
+  invoice_amount:
+    type: string
+    description: Invoice amount
+    example: '0.0000'
+  note:
+    type: string
+    description: Note
+    example: null
+  payment_amount:
+    type: string
+    description: Payment amount
+    example: '0.00000'
+  receive_amount:
+    type: string
+    description: Receive amount
+    example: '10811049.0000'
+  settlement_header_id:
+    type: number
+    description: Settlement header Id
+    example: 38
+  settlement_no:
+    type: string
+    description: Settlement No
+    example: STL-000000038
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-20T17:00:00.000Z'
+  items:
+    type: array
+    description: List Item in Purchase
+    items:
+      type: object
+      properties:
+        account_id:
+          type: number
+          description: Account Id
+          example: 1
+        account_name:
+          type: string
+          description: Account Name
+          example: 1-1000 - Kas
+        adjust_amount:
+          type: number
+          description: Adjust amount
+          example: 0
+        date:
+          type: string
+          format: date-time
+          example: '2021-01-31T13:01:28.000Z'
+        diff_amount:
+          type: string
+          description: The different amount
+          example: '84843.0000'
+        internal_invoice_amount:
+          type: string
+          description: Internal invoice amount
+          example: '0.0000'
+        invoice_id:
+          type: number
+          description: Invoice ID
+          example: 22
+        invoice_no:
+          type: string
+          description: Invoice Number
+          example: INV-000000222
+        salesorder_id:
+          type: number
+          description: Salesorder Id
+          example: 220
+        settlement_detail_id:
+          type: number
+          description: settlement_detail_id
+          example: 8503
+        status:
+          type: boolean
+          description: settlement_detail_id
+          example: 8503
+        store_order_amount:
+          type: number
+          description: Store order amount
+          example: '84843.0000'
+        store_ref_no:
+          type: string
+          description: store ref no
+          example: TP-INV/20210126/XXI/I/736301728

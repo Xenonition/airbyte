@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Reports
+  summary: Print Shipping Label
+  description: >
+    This API returns the URL shipping lable in inside object or the HTML for
+    Lazada. <br>
+
+    **This only can use for one Id since Lazada returns the HTML by itself.**
+  operationId: reportShippingLabelPrint
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: ids
+      in: query
+      required: true
+      style: form
+      description: 'Sales Order ID <br> Example: [255200]'
+      schema:
+        type: array
+        items:
+          type: object
+    - name: useJubelioLazadaLable
+      in: query
+      required: false
+      description: 'Use Jubelio Lazada Lable <br> Example: true'
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getReportShippingLabel.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

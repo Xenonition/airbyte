@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Reports
+  summary: Print Stock Adjustment Report
+  operationId: getReportsAdjustmentStock
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: tz
+      in: query
+      required: true
+      style: form
+      explode: true
+      description: Input default value = Asia%2FBangkok
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getReportsAdjustmentStockResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Product Listing
+  summary: Product Listing
+  operationId: getProductListing
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: Item Group ID
+      example: 1
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getProductListingResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

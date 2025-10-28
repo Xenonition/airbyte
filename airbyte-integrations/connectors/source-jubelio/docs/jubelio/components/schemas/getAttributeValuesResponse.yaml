@@ -1,0 +1,22 @@
+type: array
+description: List Items that exists in System
+items:
+  type: object
+  properties:
+    attribute_id:
+      type: number
+      description: Attribute Id
+      example: 2637
+    last_modified:
+      type: string
+      format: date
+      description: Last modified
+      example: '2020-10-20T17:00:00.000Z'
+    value_id:
+      type: number
+      description: Value Id
+      example: 34233
+    value_name:
+      type: string
+      description: Value Name
+      example: 1 Month

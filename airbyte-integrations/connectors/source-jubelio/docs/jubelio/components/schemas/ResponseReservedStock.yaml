@@ -1,0 +1,10 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Reserved Stock Status
+    example: ok
+  id:
+    type: number
+    description: reservedstock_id
+    example: 19

@@ -1,0 +1,178 @@
+type: object
+properties:
+  purchaseorder_id:
+    type: number
+    description: Purchase Order ID
+    example: 0
+  purchaseorder_no:
+    type: string
+    description: Purchase Order Number
+    example: PO-000000005
+  bill_id:
+    type: string
+    description: Bill ID
+    example: 31
+  bill_number:
+    type: string
+    description: Bill No.
+    example: BIL-0000031
+  payment_method:
+    type: number
+    description: Payment Method
+    example: -1
+  contact_id:
+    type: number
+    description: Contact (Supplier) ID
+    example: 2
+  supplier_name:
+    type: string
+    description: Supplier Name
+    example: PTANYWAY
+  transaction_date:
+    type: string
+    format: date-time
+    description: Transaction Date
+    example: '2018-10-02T04:00:00.000Z'
+  created_date:
+    type: string
+    format: date-time
+    description: Created Date
+    example: '2018-10-02T04:00:00.000Z'
+  last_modified:
+    type: string
+    format: date-time
+    description: Last Modified Date
+    example: '2018-11-02T04:00:00.000Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Tax Included
+    example: false
+  note:
+    type: string
+    description: Purchase Order Note
+    example: Note
+  sub_total:
+    type: string
+    description: Purchase Order sub Total
+    example: 154000
+  total_disc:
+    type: string
+    description: Purchase Order Total Discount
+    example: 0
+  total_tax:
+    type: string
+    description: Purchase Order Total Tax
+    example: 0
+  grand_total:
+    type: string
+    description: Purchase Order Grand Total
+    example: 154000
+  ref_no:
+    type: string
+    description: Reference Number
+    example: 112233
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  location_name:
+    type: string
+    description: Location Name
+    example: Pusat
+  source:
+    type: number
+    description: Source
+    example: 1
+  is_closed:
+    type: boolean
+    description: Is closed
+    example: true
+  close_reason:
+    type: string
+    description: Closed reason
+    example: Tidak sesuai
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        purchaseorder_detail_id:
+          type: number
+          description: Purchase Order Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        item_code:
+          type: string
+          description: Item Code
+          example: BTY-L
+        item_name:
+          type: number
+          description: Item Name
+          example: Kaos DreamCatcher Born to Be Yours
+        description:
+          type: string
+          description: Item Description
+          example: -1
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        price:
+          type: string
+          description: Item Price
+          example: 77000
+        buy_price:
+          type: string
+          description: Item Buy Price
+          example: 77000
+        original_price:
+          type: string
+          description: Item Original Price
+          example: 77000
+        rate:
+          type: string
+          description: Item Rate
+          example: 0
+        tax_name:
+          type: string
+          description: Tax Name
+          example: No Tax
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty:
+          type: string
+          description: Item Quantity
+          example: 0
+        uom_id:
+          type: number
+          description: Unit of Measure ID
+          example: 1
+        qty_in_base:
+          type: number
+          description: Quantity that will be add
+          example: 1
+        disc:
+          type: string
+          description: Discount
+          example: 5
+        disc_amount:
+          type: string
+          description: Discount Amount
+          example: 3850
+        tax_amount:
+          type: string
+          description: Tax Amount
+          example: 0
+        amount:
+          type: string
+          description: Total Amount
+          example: 73150
+        location_id:
+          type: number
+          description: Location ID
+          example: -1

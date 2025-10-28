@@ -1,0 +1,84 @@
+type: object
+required:
+  - is_completed
+  - is_warehouse
+  - items
+  - merge_location
+  - picker_id
+  - picklist_id
+  - picklist_no
+  - salesorderIds
+properties:
+  is_completed:
+    type: boolean
+    description: Whether the picking process is already done
+  is_warehouse:
+    type: boolean
+    description: If the location is the warehouse
+    example: true
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: 5533730
+        item_id:
+          type: number
+          description: >-
+            Item ID. if item is a bundle product, set the value with their
+            bundling **item_id**.
+          example: 56801
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        qty_ordered:
+          type: number
+          description: Qty Ordered
+          example: 10
+        qty_picked:
+          type: number
+          description: Qty Picked
+          example: 10
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 2499709
+        bundle_item_id:
+          type: number
+          description: >-
+            Bundle Item ID, 0 = if item is not a bundle product. Set value as
+            item_id if item is a bundle product.
+          example: 0
+        package_detail_id:
+          type: number
+          description: Package Detail ID
+          example: 0
+        package_id:
+          type: number
+          description: Package ID
+          example: 0
+  merge_location:
+    type: boolean
+    description: Merge Location
+    example: false
+  picker_id:
+    type: string
+    description: Email of the Picker Staff
+    example: juberlians@jubelio.com
+  picklist_id:
+    type: number
+    description: To Create, set value as 0.
+    example: 0
+  picklist_no:
+    type: string
+    description: Picklist No.
+    example: '[auto]'
+  salesorderIds:
+    type: array
+    items:
+      type: object
+      example: 2499709

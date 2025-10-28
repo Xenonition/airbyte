@@ -1,0 +1,59 @@
+get:
+  tags:
+    - Purchasing
+  summary: Get All Purchase Returns
+  description: You can sort by **transaction_date**
+  operationId: getPurchasePurchasereturns
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/warehouse.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter Query [Purchase Return Number/Supplier Name]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getPurchaseReturnsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Purchasing
+  summary: Create/Edit Purchase Return
+  operationId: postPurchasePurchasereturns
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/savePurchaseReturnRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

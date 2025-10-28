@@ -1,0 +1,9 @@
+type: object
+properties:
+  status:
+    type: string
+    example: success
+    description: Response Status
+  locationFailed:
+    type: string
+    example: ''

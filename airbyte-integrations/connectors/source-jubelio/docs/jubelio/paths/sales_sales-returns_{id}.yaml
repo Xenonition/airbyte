@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Sales
+  summary: Get Sales Return
+  operationId: getSalesSalesreturnsId
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: Sales Return ID
+      example: 1
+      schema:
+        type: number
+        format: int32
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getSalesReturnResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

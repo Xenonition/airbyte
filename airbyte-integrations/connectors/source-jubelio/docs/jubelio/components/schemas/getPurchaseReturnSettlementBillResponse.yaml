@@ -1,0 +1,88 @@
+type: object
+properties:
+  settlement_id:
+    type: number
+    description: Purchase Return Settlement ID
+    example: 0
+  settlement_no:
+    type: string
+    description: Purchase Return Settlement Number
+    example: '[auto]'
+  return_id:
+    type: number
+    description: Purchase Return ID
+    example: 2
+  return_no:
+    type: string
+    description: Purchase Return Number
+    example: PR-000000001
+  contact_id:
+    type: number
+    description: Contact ID (Supplier)
+    example: 3
+  supplier_id:
+    type: number
+    description: Contact ID (Supplier)
+    example: 3
+  supplier_name:
+    type: string
+    description: Contact Name (Supplier)
+    example: PTANYWAY
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-02T04:00:00.000Z'
+  created_date:
+    type: string
+    format: date
+    description: Created Date
+    example: '2018-10-02T04:00:00.000Z'
+  amount:
+    type: string
+    description: Amount
+    example: 25000
+  total:
+    type: string
+    description: Total Amount
+    example: 25000
+  bills:
+    type: array
+    description: List Bills Detail
+    items:
+      type: object
+      properties:
+        settlement_detail_id:
+          type: number
+          description: Purchase Return Settlement Detail ID
+          example: 1
+        payment_amount:
+          type: string
+          description: Payment Amount
+          example: 25000
+        doc_id:
+          type: number
+          description: Document ID
+          example: 14
+        doc_number:
+          type: string
+          description: Document Number
+          example: BIL-000000014
+        trx_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-02T04:00:00.000Z'
+        due_date:
+          type: string
+          format: date
+          description: Due Date
+          example: '2018-10-02T04:00:00.000Z'
+        grand_total:
+          type: string
+          description: Grand Total
+          example: 25000
+        due:
+          type: string
+          description: Due Amount
+          example: 0

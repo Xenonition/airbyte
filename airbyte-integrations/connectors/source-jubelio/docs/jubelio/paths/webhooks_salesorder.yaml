@@ -1,0 +1,20 @@
+post:
+  tags:
+    - Webhooks
+  summary: Update Sales Order
+  operationId: getSalesOrderWebhook
+  description: >
+    This Webhook will be called when there are additions or changes to orders
+    such as 'Created' to 'In Progress'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/webhookSalesOrder.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml

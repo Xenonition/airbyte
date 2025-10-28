@@ -1,0 +1,20 @@
+post:
+  tags:
+    - Webhooks
+  summary: Update Price
+  operationId: getPriceWebhook
+  description: >
+    This Webhook will be called when there is a price change from the
+    application.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/webhookPrice.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml

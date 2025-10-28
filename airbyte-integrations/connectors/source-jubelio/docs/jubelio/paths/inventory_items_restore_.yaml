@@ -1,0 +1,22 @@
+post:
+  tags:
+    - Product
+  summary: Restore Product From Archive
+  operationId: setItemToRestore
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/idsRestore.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/statusOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

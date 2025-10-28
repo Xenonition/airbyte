@@ -1,0 +1,12 @@
+type: object
+properties:
+  status:
+    type: string
+    example: ok
+  url:
+    type: string
+    example: >-
+      https://report3.jubelio.com/?&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXBvcnROYW1lIjoiU3VyYXQgSmFsYW4gV01TIiwiY29tcGFueUlkIjozMjA4MiwidGVuYW50SWQiOiJzempncHp6aXJlYzJ4Zm56NW5iYmNhIiwibG9nb191cmwiOm51bGwsImFkZHJlc3MiOiIiLC
+  title:
+    type: string
+    example: Surat Jalan WMS

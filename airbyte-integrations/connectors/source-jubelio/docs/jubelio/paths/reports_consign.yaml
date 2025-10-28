@@ -1,0 +1,21 @@
+get:
+  tags:
+    - Reports
+  summary: Print Receive Bill for Consignment Products
+  operationId: getReportsConsign
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/tz.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getReportsConsignResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

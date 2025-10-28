@@ -1,0 +1,252 @@
+properties:
+  invoice_id:
+    type: number
+    description: Invoice ID
+    example: 0
+  invoice_no:
+    type: string
+    description: Invoice Number
+    example: '[auto]'
+  contact_id:
+    type: number
+    description: Contact ID (Customer)
+    example: 1
+  customer_name:
+    type: string
+    description: Contact Name (Customer)
+    example: 0
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-20T17:00:00.000Z'
+  created_date:
+    type: string
+    format: date
+    description: Created Date
+    example: '2018-10-20T17:00:00.000Z'
+  last_modified:
+    type: string
+    format: date
+    description: Last Modified Date
+    example: '2018-10-20T17:00:00.000Z'
+  due_date:
+    type: string
+    format: date
+    description: Due Date
+    example: '2018-10-20T17:00:00.000Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Invoice inlcude Tax
+    example: false
+  note:
+    type: string
+    description: Invoice Note
+    example: Beli Tas Selempang
+  payment_acct_id:
+    type: number
+    description: Payment Account ID
+    example: 1
+  payment:
+    type: number
+    description: Invoice Payment
+    example: 40000
+  payment_amount:
+    type: number
+    description: Invoice Payment Amount
+    example: 40000
+  sub_total:
+    type: string
+    description: Items Total Price
+    example: 30000
+  total_disc:
+    type: string
+    description: Items Total Discount
+    example: 0
+  total_tax:
+    type: string
+    description: Items Total Tax
+    example: 0
+  grand_total:
+    type: string
+    description: Invoice Grand Total
+    example: 40000
+  ref_no:
+    type: string
+    description: Reference Number
+    example: 99
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  location_name:
+    type: number
+    description: Location Name
+    example: Pusat
+  is_opening_balance:
+    type: boolean
+    description: Whether Invoice is an Opening Balance
+    example: false
+  shipping_cost:
+    type: string
+    description: Shipping Cost
+    example: 5000
+  insurance_cost:
+    type: string
+    description: Inssurance Cost
+    example: 5000
+  buyer_id:
+    type: number
+    description: Buyer ID
+    example: null
+  buyer_name:
+    type: string
+    description: Buyer Name
+    example: null
+  running_no:
+    type: string
+    description: Running Number
+    example: null
+  running_date:
+    type: string
+    format: date
+    description: Running Date
+    example: null
+  salesmen_id:
+    type: number
+    description: Salesman ID
+    example: null
+  salesmen_name:
+    type: string
+    description: Salesman Name
+    example: null
+  add_disc:
+    type: string
+    description: .
+    example: null
+  add_fee:
+    type: string
+    description: Additional Fee
+    example: null
+  service_fee:
+    type: string
+    description: Service Fee
+    example: null
+  items:
+    type: array
+    description: List Items in Invoice
+    items:
+      type: object
+      properties:
+        invoice_detail_id:
+          type: number
+          description: Invoice Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 5
+        item_name:
+          type: number
+          description: Item Name
+          example: Tas selempang Biru Dongker
+        item_code:
+          type: string
+          description: Item Code
+          example: 1203578196
+        serial_no:
+          type: string
+          description: Item Serial Number
+          example: SN001
+        description:
+          type: string
+          description: Item Description
+          example: Tas selempang Biru Dongker
+        sales_acct_id:
+          type: number
+          description: Sales Account ID
+          example: 28
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        price:
+          type: string
+          description: Item Price
+          example: 30000
+        sell_price:
+          type: number
+          description: Sell Price
+          example: 30000
+        original_price:
+          type: string
+          description: Original Price
+          example: 30000
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty:
+          type: number
+          description: item Quantity
+          example: 0
+        qty_in_base:
+          type: string
+          description: Quantity Item that will be reduced
+          example: 1
+        disc:
+          type: string
+          description: Item Discount
+          example: 0
+        disc_amount:
+          type: string
+          description: Item Total Amount
+          example: 0
+        tax_amount:
+          type: number
+          description: Item Tax Amount
+          example: 0
+        amount:
+          type: number
+          description: Item Total Amount
+          example: 30000
+        cogs:
+          type: number
+          description: Cost of Goods Sold
+          example: 11666.666667
+        location_id:
+          type: number
+          description: Location ID
+          example: -1
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: -1
+        rate:
+          type: string
+          description: Rate
+          example: 0
+        tax_name:
+          type: string
+          description: Tax Name
+          example: No Tax
+        account_name:
+          type: string
+          description: Account Name
+          example: 4-4000 - Penjualan
+        uom_id:
+          type: number
+          description: Uom ID
+          example: -1
+        batch_no:
+          type: string
+          description: Batch number
+          example: null
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: null
+        loc_id:
+          type: number
+          description: Location ID
+          example: null

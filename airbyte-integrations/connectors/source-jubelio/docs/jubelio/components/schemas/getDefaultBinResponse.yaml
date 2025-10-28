@@ -1,0 +1,14 @@
+type: object
+properties:
+  bin_id:
+    type: string
+    description: Bin ID
+    example: 3
+  location_id:
+    type: string
+    description: Location ID
+    example: 1
+  bin_final_code:
+    type: string
+    description: Complete Rack Code
+    example: LX-BX-KX-R1

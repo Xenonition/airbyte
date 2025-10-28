@@ -1,0 +1,12 @@
+type: array
+items:
+  type: object
+  properties:
+    column_id:
+      type: number
+      description: Column ID
+      example: 1
+    column_code:
+      type: string
+      description: Column Code
+      example: BX-KX

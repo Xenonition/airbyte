@@ -1,0 +1,45 @@
+type: object
+description: Adjustment Items
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        credit:
+          type: string
+          description: Credit
+          example: '1300000.0000'
+        debit:
+          type: string
+          description: Debit
+          example: '1300000.0000'
+        journal_id:
+          type: number
+          description: Journal Id
+          example: 5615
+        journal_no:
+          type: string
+          description: Journal Number
+          example: GJ-0005615
+        journal_type:
+          type: string
+          description: The type of journal. Could be 'Manual Jurnal' or null
+          example: null
+        notes:
+          type: string
+          description: Journal Note
+          example: ''
+        source_doc_no:
+          type: string
+          description: The source of document
+          example: ADJS-000001428
+        transaction_date:
+          type: string
+          description: The transaction date
+          example: '2020-07-24T07:33:46.357Z'
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

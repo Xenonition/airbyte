@@ -1,0 +1,48 @@
+get:
+  tags:
+    - Reports
+  summary: Print Lazada Invoice/Label
+  operationId: printLazadaInvoiceLabel
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: ids
+      in: query
+      required: true
+      description: List Sales Order ID
+      schema:
+        type: array
+        items:
+          type: object
+    - name: document_type
+      in: query
+      required: true
+      schema:
+        type: string
+        enum:
+          - shippingLabel
+          - invoice
+      description: |
+        Type:
+          * `shippingLabel` - for Print Label
+          * `invoice` - for Print Invoice
+    - name: store_id
+      in: query
+      schema:
+        type: string
+      required: true
+      description: Store ID
+    - name: title
+      in: query
+      description: Title
+      schema:
+        type: string
+        example: Shipping Label Lazada
+  responses:
+    '200':
+      description: Response as HTML
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

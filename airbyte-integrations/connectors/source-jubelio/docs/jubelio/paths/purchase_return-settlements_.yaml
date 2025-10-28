@@ -1,0 +1,20 @@
+delete:
+  tags:
+    - Purchasing
+  summary: Delete Purchase Return Settlement
+  operationId: deletePurchaseReturnsettlements
+  requestBody:
+    $ref: ../components/requestBodies/deleteStringRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleteOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

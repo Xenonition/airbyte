@@ -1,0 +1,16 @@
+type: object
+description: List Item to Pick
+properties:
+  status:
+    type: string
+    description: Status
+    example: OK
+  url:
+    type: string
+    description: URL
+    example: >-
+      https://report.jubelio.com/?&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXBvcnROYW1lIjoiTGFiZWwgUGVuZ2lyaW1hbiIsImNvbXBhbnlJZCI6MTU4MCwidGVuYW50SWQiOiJqc3pkOXN2c3J4azRiOXZpbm92aHh3Ii
+  title:
+    type: string
+    description: Title
+    example: Label Pengiriman

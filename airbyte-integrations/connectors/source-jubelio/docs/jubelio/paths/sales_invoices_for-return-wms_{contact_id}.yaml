@@ -1,0 +1,36 @@
+get:
+  tags:
+    - Sales
+  summary: Get Invoice ID from Sales Return
+  operationId: getSalesInvoicesbyContactID
+  description: You can sort by **invoice_no**
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/q.yaml
+    - name: contact_id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: Contact ID
+      example: 1
+      schema:
+        type: number
+        format: int32
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getSalesInvoicesbyContactIDResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,72 @@
+type: object
+properties:
+  accounts:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        account_id:
+          type: number
+          description: The account Id
+          example: 4
+        account_name:
+          type: string
+          description: The account Name
+          example: 1-1200 - Persediaan Barang
+        credit:
+          type: string
+          description: The credit
+          example: '0.0000'
+        debit:
+          type: string
+          description: Debit
+          example: '1000.0000'
+        description:
+          type: string
+          description: The description of the journal
+          example: null
+        journal_detail_id:
+          type: number
+          description: The journal detail Id
+          example: 21353
+  amount:
+    type: string
+    description: Amount
+    example: '500000'
+  cashbank_account_id:
+    type: number
+    description: Cashbank Account Id
+    example: 2
+  cashbank_account_name:
+    type: string
+    description: Cashbank Account Number
+    example: 1-1001 - Bank
+  contact_id:
+    type: number
+    description: Contact Id
+    example: 2
+  contact_name:
+    type: string
+    description: Contact Name
+    example: PT. Name
+  note:
+    type: string
+    description: Note
+    example: ''
+  payment_id:
+    type: number
+    description: Contact Id
+    example: 2260
+  payment_no:
+    type: string
+    description: Payment Number
+    example: REC-000000100
+  payment_type:
+    type: number
+    description: Payment Type
+    example: 4
+  transaction_date:
+    type: string
+    description: The transaction date
+    example: '2020-07-24T07:33:46.357Z'

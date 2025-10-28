@@ -1,0 +1,31 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 1
+        store_id:
+          type: string
+          description: Store ID
+          example: 1
+        store_name:
+          type: string
+          description: Store Name
+          example: Jubelio
+        extra_info:
+          type: object
+          description: Store Extra Info
+        channel_user_id:
+          type: string
+          description: Channel User ID
+          example: ck_f32377ac8c68fa9081
+        channel_user_secret:
+          type: boolean
+          description: Channel User Secret
+          example: cs_751447bb22ad60a278dfb5a3

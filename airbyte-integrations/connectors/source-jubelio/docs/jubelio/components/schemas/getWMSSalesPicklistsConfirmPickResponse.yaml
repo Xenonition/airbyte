@@ -1,0 +1,117 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Sales Orders that are on picking process
+    items:
+      type: object
+      properties:
+        picklist_id:
+          type: number
+          description: Picklist ID
+          example: 32455
+        picklist_no:
+          type: string
+          description: Picklist Number
+          example: PICK-000032455
+        b_picklist_no:
+          type: string
+          example: PICK-000032455 *|contain invalid orders|1
+        b_salesorder_no:
+          type: string
+          example: false|LZ-695761768601247-3239|
+        status:
+          type: string
+          description: Status
+          example: Dalam Proses
+        salesorder_no:
+          type: string
+          description: Sales Order No.
+          example: LZ-695761768601247-3239
+        status_details:
+          type: string
+          example: pending
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 2499178
+        source:
+          type: number
+          description: Source
+          example: 4
+        store_id:
+          type: string
+          description: Store ID
+          example: 3239
+        source_name:
+          type: string
+          example: LAZADA
+        store_name:
+          type: number
+          example: LAZADA - INDOBABY
+        transaction_date:
+          type: string
+          format: date-time
+          description: Transaction Date
+          example: '2021-09-24T08:11:08.000Z'
+        location_name:
+          type: string
+          description: Location Name
+          example: Gudang Besar
+        customer_name:
+          type: string
+          description: Customer Name
+          example: Lilis Karlina
+        serial_number:
+          type: string
+          description: Serial Number
+          example: null
+        shipper:
+          type: string
+          description: Shipper
+          example: LEX MP
+        due_date:
+          type: number
+          description: Due Date
+          example: 0
+        is_instant_courier:
+          type: boolean
+          example: false
+        label_printed_count:
+          type: number
+          example: 2
+        shipment_type:
+          type: string
+          description: Shipment Type
+          example: null
+        package_count:
+          type: number
+          description: Package Count
+          example: 2
+        to_no:
+          type: number
+          description: Total Quantity to Pick
+          example: 10
+        from_no:
+          type: number
+          description: Quantity Items that already picked
+          example: 0
+        total_salesorder:
+          type: number
+          description: Total Sales Order
+          example: 4
+        picker_name:
+          type: string
+          description: Picker Name
+          example: Avi
+        duration:
+          type: string
+          example: 1498 menit
+        percentage:
+          type: number
+          description: Picking Process Percentage
+          example: 0
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

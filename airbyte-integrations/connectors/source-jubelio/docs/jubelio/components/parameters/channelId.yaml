@@ -1,0 +1,6 @@
+name: channelId
+in: query
+description: Item on Channel ID
+schema:
+  type: number
+  format: int32

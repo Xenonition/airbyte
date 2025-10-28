@@ -1,0 +1,106 @@
+get:
+  tags:
+    - Product
+  summary: Get All Promotions
+  operationId: getInventoryPromotions
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter Query [Promotion Name]
+      schema:
+        type: string
+    - $ref: ../components/parameters/createdSince.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getPromotionsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Product
+  summary: Create Promotion
+  description: >
+    ![](https://drive.google.com/uc?id=1b-BvVyMEfRpVzN6CqZc2Bu3hXwQnwvkv)
+
+
+    | No   | Endpoints                  |
+    Function                                                     |
+
+    | ---- | -------------------------- |
+    ------------------------------------------------------------ |
+
+    | 1    |
+    [GET/inventory/items/](https://docs-wms.jubelio.com/#operation/getInventoryItems)      
+    | Obtain all of item details that are going to have promotion (**item_id,
+    item_group_id, store_id** to later use in endpoint no. 2) |
+
+    | 2    |
+    [POST/inventory/promotions/](https://docs-wms.jubelio.com/#operation/postInventoryPromotions)
+    | Create promotions.  Fill in the value as described in the schema and the
+    value that you've got from endpoint no. 1. |
+
+
+    <br>
+
+    Please make sure that you are setting the right SKU, date, and price when
+    creating a promotion, because some marketplace doesn't allow changing when
+    the promotion is already active.
+  operationId: postInventoryPromotions
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/savePromotionRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/savePromotionResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+delete:
+  tags:
+    - Product
+  summary: Delete Promotion
+  operationId: deleteInventoryPromotions
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/deleteNumberRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleteOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

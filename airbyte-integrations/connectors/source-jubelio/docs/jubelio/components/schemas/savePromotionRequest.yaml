@@ -1,0 +1,70 @@
+required:
+  - end_date
+  - promotion_id
+  - promotion_name
+  - start_date
+  - channels
+  - details
+type: object
+properties:
+  promotion_id:
+    type: number
+    description: Promotion ID. To first create, set value as 0.
+    example: 0
+  promotion_name:
+    type: string
+    description: Promotion Name
+    example: BLACK FRIDAY
+  start_date:
+    type: string
+    format: date-time
+    description: Start Promotion Date
+    example: '2018-10-02T04:00:00.000Z'
+  end_date:
+    type: string
+    description: End Promotion Date
+    example: '2018-10-03T05:00:00.000Z'
+  channels:
+    required:
+      - store_id
+      - channel_id
+    type: array
+    description: List Channels where Promotions applied
+    items:
+      type: object
+      properties:
+        store_id:
+          type: string
+          description: Store ID
+          example: 359
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 64
+  details:
+    required:
+      - promotion_detail_id
+      - item_group_id
+      - item_id
+      - promotion_price
+    type: array
+    description: List Promotion Detail
+    items:
+      type: object
+      properties:
+        promotion_detail_id:
+          type: number
+          description: Promotion Detail ID
+          example: 0
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 20
+        item_id:
+          type: number
+          description: Item ID
+          example: 105147
+        promotion_price:
+          type: number
+          description: Promotion Price
+          example: 250000

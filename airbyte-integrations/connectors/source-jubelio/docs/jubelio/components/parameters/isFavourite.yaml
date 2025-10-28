@@ -1,0 +1,6 @@
+name: isFavourite
+in: query
+description: Whether the item is favourite item
+schema:
+  type: boolean
+  example: true

@@ -1,0 +1,157 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        opname_detail_id:
+          type: number
+          description: Opname Detail ID
+          example: 13
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        serial_no:
+          type: string
+          description: Serial Number
+          example: null
+        batch_no:
+          type: string
+          description: Batch Number
+          example: null
+        bin_id:
+          type: number
+          description: Bin ID
+          example: 1
+        quantity:
+          type: number
+          description: Quantity of items to opname
+          example: 0
+        qty_system:
+          type: number
+          description: Current quantity of items
+          example: 900
+        reason_type:
+          type: string
+          description: Reason Type
+          example: null
+        expired_date:
+          type: string
+          format: date-time
+          description: Expired Date
+          example: null
+        has_expired_date:
+          type: boolean
+          example: false
+        bin_final_code:
+          type: string
+          description: Bin Final Code
+          example: LX-BX-KX-RX
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: SAR-TAN-BAG-BAN-HIJ - SARUNG TANGAN BAGUS BANGET - Hijau
+        use_serial_number:
+          type: boolean
+          example: false
+        user_batch_number:
+          type: boolean
+          example: false
+        qty_differ:
+          type: number
+          example: -900
+  opname_header_id:
+    type: number
+    description: Opname Header ID
+    example: 3
+  opname_no:
+    type: string
+    description: Opname No.
+    example: OP-00000003
+  location_id:
+    type: number
+    description: Location ID
+    example: 1
+  created_date:
+    type: string
+    description: Created Date
+    example: '2022-02-17T07:20:41.361Z'
+  created_by:
+    type: string
+    description: Warehouse Staff
+    example: ririn@staffgudang.com
+  process_by:
+    type: string
+    example: ririn@staffgudang.com
+  note:
+    type: string
+    example: ''
+  finalized_date:
+    type: string
+    format: date-time
+    example: null
+  finalized_by:
+    type: string
+    example: null
+  item_adj_id:
+    type: number
+    example: null
+  status:
+    type: number
+    example: 1
+  filter_floor_id:
+    type: number
+    example: 1
+  filter_row_ids:
+    type: array
+    items:
+      type: number
+      example: 2
+  filter_column_ids:
+    type: array
+    items:
+      type: number
+      example: 2
+  printed_by:
+    type: string
+    example: ririn@staffgudang.com
+  printed_date:
+    type: string
+    format: date-time
+    example: '2022-02-17T07:20:59.282Z'
+  location_name:
+    type: string
+    description: Location Name
+    example: Pusat
+  selected_filter_floor:
+    type: object
+    properties:
+      id:
+        type: number
+        description: Floor ID
+        example: 1
+      text:
+        type: string
+        example: LX
+  selected_filter_row:
+    type: object
+    properties:
+      id:
+        type: number
+        description: Row ID
+        example: 1
+      text:
+        type: string
+        example: BX
+  selected_filter_column:
+    type: object
+    properties:
+      id:
+        type: number
+        description: Column ID
+        example: 1
+      text:
+        type: string
+        example: KX

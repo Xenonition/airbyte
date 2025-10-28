@@ -1,0 +1,13 @@
+type: array
+description: List Items that exists in System
+items:
+  type: object
+  properties:
+    attribute_id:
+      type: number
+      description: Attribute Id
+      example: 1
+    attribute_name:
+      type: string
+      description: Attribute Name
+      example: Periode Garansi

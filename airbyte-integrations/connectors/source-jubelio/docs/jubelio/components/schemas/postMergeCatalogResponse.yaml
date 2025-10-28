@@ -1,0 +1,6 @@
+type: object
+properties:
+  status:
+    type: string
+    description: status
+    example: Successfully Update

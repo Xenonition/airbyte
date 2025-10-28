@@ -1,0 +1,18 @@
+required:
+  - packlist_id
+  - salesorder_id
+  - item_code
+type: object
+properties:
+  packlist_id:
+    type: number
+    description: Packlist ID
+    example: 9
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 2499885
+  item_code:
+    type: string
+    description: Item Code
+    example: BC90 - MERAH

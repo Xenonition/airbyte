@@ -1,0 +1,16 @@
+type: object
+required:
+  - data
+properties:
+  data:
+    type: array
+    description: List of putaway ID that has already finished putaway
+    items:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: number
+          description: putaway_id
+          example: 172

@@ -1,0 +1,20 @@
+type: array
+items:
+  type: object
+  properties:
+    item_id:
+      type: string
+      description: Item ID
+      example: 17
+    item_group_source:
+      type: string
+      description: Item Group ID (Parent Group) which will be merge
+      example: 16
+    item_group_id:
+      type: string
+      description: New Item Group ID after merge
+      example: 16
+    is_master:
+      type: boolean
+      description: If the item is going to be set as master product
+      example: false

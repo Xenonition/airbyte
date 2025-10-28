@@ -1,0 +1,26 @@
+get:
+  tags:
+    - Sales
+  summary: Get Items Picklist
+  operationId: getSalesPicklistsbyPicklistID
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: picklist_id
+      in: path
+      required: true
+      description: Picklist ID
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getSalesPicklistsbyPicklistIDResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

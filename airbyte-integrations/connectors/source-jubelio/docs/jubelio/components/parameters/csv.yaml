@@ -1,0 +1,9 @@
+name: csv
+in: query
+required: false
+style: form
+explode: true
+description: Get Response as CSV File
+example: true
+schema:
+  type: string

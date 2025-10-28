@@ -1,0 +1,52 @@
+type: array
+items:
+  type: object
+  properties:
+    item_id:
+      type: number
+      description: Item ID
+      example: 1
+    item_full_name:
+      type: string
+      description: Item Full Name
+      example: SAR-TAN-BAG-BAN-HIJ - SARUNG TANGAN BAGUS BANGET - Hijau
+    bin_id:
+      type: number
+      description: Bin ID
+      example: 1
+    bin_final_code:
+      type: string
+      description: Bin Final Code
+      example: LX-BX-KX-RX-1
+    serial_no:
+      type: string
+      description: Serial No.
+      example: null
+    batch_no:
+      type: string
+      description: Batch No.
+      example: null
+    qty_system:
+      type: number
+      description: Quantity System
+      example: 900
+    qty:
+      type: number
+      description: Quantity
+      example: 0
+    qty_diff:
+      type: number
+      example: 900
+    use_serial_number:
+      type: boolean
+      example: false
+    use_batch_number:
+      type: boolean
+      example: false
+    expired_date:
+      type: string
+      format: date-time
+      example: null
+    has_expired_date:
+      type: boolean
+      example: false

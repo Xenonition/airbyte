@@ -1,0 +1,50 @@
+type: array
+description: List Item to Pick
+items:
+  type: object
+  description: Item to Pick
+  properties:
+    salesorder_id:
+      type: number
+      description: Sales Order ID
+      example: 12
+    salesorder_detail_id:
+      type: number
+      description: Sales Order Detail ID
+      example: 82
+    item_id:
+      type: number
+      description: Item ID
+      example: 2
+    item_full_name:
+      type: string
+      description: Item Full Name
+      example: BAR-1-PIN - Barang 1
+    location_id:
+      type: number
+      description: Location ID
+      example: -1
+    location_name:
+      type: number
+      description: Location Name
+      example: Pusat
+    qty_ordered:
+      type: string
+      description: Ordered Quantity
+      example: 1
+    unit:
+      type: string
+      description: Unit Name
+      example: Buah
+    salesorder_no:
+      type: string
+      description: Sales Order Number
+      example: SO-000000062
+    bundle_item_id:
+      type: number
+      description: Bundle Item ID
+      example: 0
+    end_qty:
+      type: string
+      description: End Quantity
+      example: 6

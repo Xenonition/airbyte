@@ -1,0 +1,82 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Sales Return Items
+    items:
+      type: object
+      properties:
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 2434615
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: 5390844
+        qty_in_base:
+          type: string
+          description: Quantity Item that will be reduced
+          example: 1
+        item_code:
+          type: string
+          description: Item Code
+          example: 1203578196
+        item_name:
+          type: number
+          description: Item Name
+          example: Tas selempang Biru Dongker
+        reject_return_reason:
+          type: string
+          description: Reject Return Reason
+          example: ''
+        is_return_resolved:
+          type: boolean
+          example: null
+        customer_name:
+          type: string
+          description: Customer Name
+          example: Nabila Naimi
+        salesorder_no:
+          type: string
+          description: Salesorder Number
+          example: SP-734845GGE
+        transaction_date:
+          type: string
+          format: date-time
+          example: '2021-09-19T11:55:58.000Z'
+        payment_method:
+          type: string
+          description: Payment Method
+          example: COD
+        source_name:
+          type: string
+          example: SHOPEE
+        created_date:
+          type: string
+          format: date-time
+          example: '2021-09-09T16:34:45.509Z'
+        store:
+          type: string
+          description: Store
+          example: Indo Ultimate
+        courier:
+          type: string
+          description: Courier Name
+          example: siCepat
+        location_id:
+          type: string
+          description: Location ID
+          example: -1
+        location_name:
+          type: string
+          description: Gudang Retail
+          example: Gudang Retail
+        store_name:
+          type: string
+          description: Store Name
+          example: Shopee Indo Ultimate
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

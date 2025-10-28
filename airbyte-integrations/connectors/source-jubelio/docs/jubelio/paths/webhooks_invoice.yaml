@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Webhooks
+  summary: New Invoice
+  operationId: getInvoicekWebhook
+  description: |
+    This Webhook will be called when Invoice created or updated from Application
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/webhookInvoice.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml

@@ -1,0 +1,115 @@
+required:
+  - item_adj_id
+  - >-
+    is_opening_balance - item_adj_no - location_id - transaction_date -
+    is_opening_balance - items
+type: object
+properties:
+  item_adj_id:
+    type: number
+    description: |
+      Adjustment ID <br>
+      To create new adjustment => "item_adj_id": 0 <br>
+      To edit adjustment => "item_adj_id": {item_adj_id}
+    example: 0
+  item_adj_no:
+    type: string
+    description: |
+      Adjustment Number <br>
+      To create new adjustment => "item_adj_no": "[auto]" <br>
+      To edit adjustment => "item_adj_no": {item_adj_no}
+    example: '[auto]'
+  transaction_date:
+    type: string
+    format: date-time
+    description: Adjustment Transaction Date
+    example: '2018-10-20T17:00:00.000Z'
+  note:
+    type: string
+    description: Adjustment Note
+    example: Saldo Awal Persediaan
+  location_id:
+    type: number
+    description: Adjustment Location
+    example: -1
+  is_opening_balance:
+    type: boolean
+    description: Is Adjustment an Opening Balance
+    example: false
+  items:
+    type: array
+    items:
+      type: object
+      required:
+        - amount
+        - account_id
+        - unit
+        - cost
+        - qty_in_base
+        - item_adj_detail_id
+        - item_id
+        - bin_id
+      properties:
+        item_adj_detail_id:
+          type: number
+          description: Adjustment Detail ID [0 = create]
+          example: 0
+        item_id:
+          type: number
+          description: Item Adjustment ID
+          example: 1
+        serial_no:
+          type: string
+          description: Serial Number
+          example: S000121
+        qty_in_base:
+          type: number
+          description: >-
+            Item Quantity to Adjust. For example, set value as 10 if you want to
+            add 10 items, or you can set -5 if you want to reduce your stock
+            items as much as 5. Please note you cannot set the value below your
+            on-hand stock.
+          example: 5
+        original_item_adj_detail_id:
+          type: number
+          description: Original Item Adjustment Detail ID [0 = create]
+          example: 0
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        amount:
+          type: number
+          description: qty_in_base multiplied with cost.
+          example: 100000
+        location_id:
+          type: number
+          description: Location ID
+          example: -1
+        account_id:
+          type: number
+          description: User Account that do the Adjustment [default is 75]
+          example: 75
+        description:
+          type: string
+          description: Item Description
+          example: Item Example Description
+        batch_no:
+          type: string
+          description: Batch number
+          example: null
+        expired_date:
+          type: string
+          format: date-time
+          description: >-
+            Set this attribute only if the products have serial number/batch
+            number
+          example: null
+        bin_id:
+          type: number
+          description: Bin ID
+          example: 25
+        cost:
+          type: number
+          description: Item Price
+          example: 100000

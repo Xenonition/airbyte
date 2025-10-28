@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Sales
+  summary: Delete Cancelled items
+  operationId: postSalesOrdersDeleteCanceled
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/saveDeleteCanceledRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

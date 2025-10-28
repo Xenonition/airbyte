@@ -1,0 +1,6 @@
+type: object
+properties:
+  id:
+    type: number
+    description: Shipment Header ID
+    example: 10492

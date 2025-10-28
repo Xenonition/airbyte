@@ -1,0 +1,24 @@
+post:
+  tags:
+    - Authentication
+  summary: Login
+  description: Login API is used to get Token. And the Token is to used to call other API.
+  operationId: postLogin
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/loginRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/loginResponse.yaml
+    '500':
+      description: Invalid Username or Password
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/loginError.yaml

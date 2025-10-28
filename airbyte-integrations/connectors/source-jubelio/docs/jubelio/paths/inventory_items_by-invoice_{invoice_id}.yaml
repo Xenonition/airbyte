@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Inventory
+  summary: Get Items List by Invoice No.
+  operationId: getInventoryItemsbyInvoice
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: invoice_id
+      in: path
+      required: true
+      explode: false
+      description: Invoice ID
+      schema:
+        type: string
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/q.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getInventoryItemsbyInvoiceResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

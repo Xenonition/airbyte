@@ -1,0 +1,27 @@
+post:
+  tags:
+    - Inventory
+  summary: Create/Edit Amount Adjustment
+  description: |
+    This API is used to create/edit adjustment amount.
+  operationId: postInventoryAmountAdjustments
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/adjustmentAmountRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

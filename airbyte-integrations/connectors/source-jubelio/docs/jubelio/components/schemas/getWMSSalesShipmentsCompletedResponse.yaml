@@ -1,0 +1,51 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        shipment_date:
+          type: string
+          example: 09:16 - 12 Mar 2022
+        shipments:
+          type: array
+          items:
+            type: object
+            properties:
+              shipment_header_id:
+                type: number
+                description: Shipment Header ID
+                example: 10495
+              shipment_no:
+                type: string
+                description: Shipment No.
+                example: SHP-000010495
+              courier_id:
+                type: number
+                description: Courier ID
+                example: 1
+              courier_new_id:
+                type: number
+                description: Courier New ID
+                example: 1
+              is_completed:
+                type: boolean
+                example: null
+              total_weight_in_kg:
+                type: number
+                example: 0.21
+              location_name:
+                type: string
+                example: Gudang Besar
+              shipment_date:
+                type: string
+                format: date-time
+                example: '2022-03-12T02:16:44.879Z'
+              total_salesorder:
+                type: number
+                example: 1
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

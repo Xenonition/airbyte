@@ -1,0 +1,18 @@
+type: object
+properties:
+  statusCode:
+    type: string
+    description: Error Status Code
+    example: 500
+  error:
+    type: string
+    description: Error Title
+    example: Internal Server Error
+  message:
+    type: string
+    description: Error Message
+    example: An internal server error occurred
+  code:
+    type: string
+    description: Error Code
+    example: 42601

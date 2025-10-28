@@ -1,0 +1,774 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Action Name
+    example: update-salesorder
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 1
+  salesorder_no:
+    type: string
+    description: Sales Order Number
+    example: WB000000001
+  source:
+    type: string
+    description: Source
+    example: WEBSTORE
+  store:
+    type: string
+    description: Store Name
+    example: WEBSTORE
+  status:
+    type: string
+    description: Sales Order Status
+    example: Created
+  contact_id:
+    type: number
+    description: Contact ID (Customer)
+    example: 1
+  customer_name:
+    type: string
+    description: Contact Name (Customer)
+    example: Radit
+  customer_phone:
+    type: string
+    description: Contact Phone (Customer)
+    example: 8111111111
+  customer_email:
+    type: string
+    description: Contact Email (Customer)
+    example: test@jubelio.com
+  payment_date:
+    type: string
+    format: date-time
+    description: Payment Date
+    example: '2018-10-20T17:00:00.000Z'
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-20T17:00:00.000Z'
+  created_date:
+    type: string
+    format: date
+    description: Created Date
+    example: '2018-10-20T17:00:00.000Z'
+  invoice_id:
+    type: number
+    description: Invoice ID
+    example: 22
+  invoice_no:
+    type: string
+    description: Invoice Number
+    example: INV-000000222
+  is_tax_included:
+    type: boolean
+    description: Whether Tax Included
+    example: false
+  note:
+    type: string
+    description: Sales Order note
+    example: Tlg packingan yg aman ya kk
+  sub_total:
+    type: number
+    description: Sub Total
+    example: 120000
+  total_disc:
+    type: number
+    description: Total Discount
+    example: 0
+  total_tax:
+    type: number
+    description: Total Tax
+    example: 0
+  grand_total:
+    type: number
+    description: Grand Total
+    example: 120000
+  ref_no:
+    type: string
+    description: Reference Number
+    example: 99
+  payment_method:
+    type: string
+    description: Reference Number
+    example: cod
+  location_id:
+    type: number
+    description: Header Location ID
+    example: -1
+  is_canceled:
+    type: boolean
+    description: Whether So is canceled
+    example: false
+  cancel_reason:
+    type: string
+    description: Cancel Reason
+    example: Tidak Punya Uang
+  cancel_reason_detail:
+    type: string
+    description: Cancel Reason Detail
+    example: Tidak Punya Uang
+  channel_status:
+    type: string
+    description: Channel Status
+    example: Pending
+  shipping_cost:
+    type: number
+    description: Shipping Cost
+    example: 5000
+  insurance_cost:
+    type: number
+    description: Insurance Cost
+    example: 5000
+  is_paid:
+    type: boolean
+    description: Whether so is paid
+    example: true
+  shipping_full_name:
+    type: string
+    description: Shipping Full Name (Receiver Name)
+    example: Radit
+  shipping_phone:
+    type: string
+    description: Shipping Phone (Receiver)
+    example: 87788124444
+  shipping_address:
+    type: string
+    description: Shipping Address
+    example: Kutabumi
+  shipping_area:
+    type: string
+    description: Shipping Area
+    example: Pasar Kemis
+  shipping_city:
+    type: string
+    description: Shipping City
+    example: Tangerang
+  shipping_province:
+    type: string
+    description: Shipping Province
+    example: Banten
+  shipping_post_code:
+    type: string
+    description: Shipping Post COde
+    example: 11750
+  shipping_country:
+    type: string
+    description: Shipping Country
+    example: Indonesia
+  last_modified:
+    type: string
+    description: Last Modified
+    example: '2020-04-08T13:30:05.319Z'
+  register_session_id:
+    type: number
+    description: Register Session ID
+    example: 1
+  user_name:
+    type: string
+    description: User Name
+    example: user
+  ordprdseq:
+    type: string
+    description: .
+    example: null
+  store_id:
+    type: string
+    description: Store ID
+    example: 1
+  marked_as_complete:
+    type: string
+    description: Mark as Complete
+    example: null
+  is_tracked:
+    type: string
+    description: Is Tracked
+    example: null
+  store_so_number:
+    type: string
+    description: Store SO Number
+    example: null
+  is_deleted_from_picklist:
+    type: boolean
+    description: Deleted from picklist
+    example: false
+  deleted_from_picklist_by:
+    type: string
+    description: Deleted from picklist by
+    example: username
+  dropshipper:
+    type: string
+    description: Dropshipper
+    example: null
+  dropshipper_note:
+    type: string
+    description: Dropshipper Note
+    example: null
+  dropshipper_address:
+    type: string
+    description: Dropshipper Address
+    example: null
+  is_shipped:
+    type: string
+    description: Is Shipped
+    example: null
+  due_date:
+    type: string
+    description: Due date
+    example: null
+  received_date:
+    type: string
+    description: Received date
+    example: '2020-04-08T13:30:05.319Z'
+  salesmen_id:
+    type: number
+    description: Salesmen ID
+    example: 1
+  salesmen_name:
+    type: string
+    description: Salesmen Name
+    example: salesname
+  escrow_amount:
+    type: string
+    description: Escrow amount
+    example: null
+  is_acknowledge:
+    type: boolean
+    description: Is acknowledge
+    example: true
+  acknowledge_status:
+    type: string
+    description: Acknowledge status
+    example: null
+  is_label_printed:
+    type: boolean
+    description: Label printed
+    example: true
+  is_invoice_printed:
+    type: boolean
+    description: Invoice printed
+    example: false
+  total_amount_mp:
+    type: number
+    description: Total Amount Marketplace
+    example: null
+  internal_do_number:
+    type: string
+    description: Internal DO number
+    example: null
+  internal_status:
+    type: string
+    description: Internal Status
+    example: PROCESSING
+  internal_so_number:
+    type: string
+    description: Internal SO number
+    example: null
+  tracking_number:
+    type: string
+    description: Tracking number
+    example: null
+  courier:
+    type: string
+    description: Courier
+    example: J&T REG
+  username:
+    type: string
+    description: Username
+    example: user
+  is_po:
+    type: boolean
+    description: Is PO
+    example: false
+  picked_in:
+    type: string
+    description: Picked In
+    example: null
+  district_cd:
+    type: string
+    description: District CD
+    example: null
+  sort_code:
+    type: string
+    description: Sort Code
+    example: null
+  shipment_type:
+    type: string
+    description: Shipment Type
+    example: null
+  status_details:
+    type: string
+    description: Status detail
+    example: null
+  service_fee:
+    type: string
+    description: Service fee
+    example: '0.0000'
+  source_name:
+    type: string
+    description: Channel name
+    example: INTERNAL
+  store_name:
+    type: string
+    description: Store name
+    example: Store Name
+  location_name:
+    type: string
+    description: Header Location Name
+    example: Pusat
+  shipper:
+    type: string
+    description: Shipper
+    example: J&T REG
+  tracking_no:
+    type: string
+    description: Tracking Number / AWB
+    example: 2958792875272589000
+  add_disc:
+    type: number
+    description: Additional Discount
+    example: 0
+  add_fee:
+    type: number
+    description: Additional Fee
+    example: 0
+  total_weight_in_kg:
+    type: string
+    description: The weight of order in KG
+    example: '0.30'
+  is_cod:
+    type: boolean
+    description: Whether COD or not
+    example: false
+  disc_marketplace:
+    type: string
+    description: Discount marketplace
+    example: 0
+  is_canceled_item:
+    type: string
+    description: Whether so is canceled item
+    example: null
+  is_bundle:
+    type: boolean
+    description: Whether so is bundle
+    example: false
+  weight_in_gram:
+    type: number
+    escription: Weight of in gram
+    example: 450
+  loc_name:
+    type: string
+    description: Location name
+    example: Pusat
+  dlvmthdcd:
+    type: string
+    description: dlvmthdcd
+    example: null
+  dlvetprscd:
+    type: string
+    description: dlvetprscd
+    example: null
+  dlvetprsnm:
+    type: string
+    description: dlvetprsnm
+    example: null
+  dlvno:
+    type: string
+    description: dlvno
+    example: null
+  closure_id:
+    type: string
+    description: Closure ID
+    example: null
+  tn_created_date:
+    type: string
+    description: tn_created_date
+    example: null
+  location_tax:
+    type: string
+    description: Location Tax
+    example: null
+  location_discount:
+    type: string
+    description: Location Discount
+    example: null
+  mp_timestamp:
+    type: string
+    description: MP timestamp
+    example: null
+  mp_cancel_reason:
+    type: string
+    description: MP cancel reason
+    example: null
+  mp_cancel_by:
+    type: string
+    description: MP cancel by
+    example: null
+  mp_cancel_date:
+    type: string
+    description: MP cancel by
+    example: null
+  label_printed_count:
+    type: string
+    description: Label printed count
+    example: null
+  package_count:
+    type: string
+    description: Package count
+    example: null
+  pickup_time_id:
+    type: string
+    description: Pickup time ID
+    example: null
+  pickup_time_value:
+    type: string
+    description: Pickup time value
+    example: null
+  is_escrow_updated:
+    type: string
+    description: Whether escrow updated
+    example: null
+  pos_outlet_discount:
+    type: string
+    description: POS outlet discount
+    example: null
+  pos_promotion_discount:
+    type: string
+    description: POS promotion discount
+    example: null
+  pos_cashier_input_discount:
+    type: string
+    description: POS cashier input discount
+    example: null
+  pos_payment_fee:
+    type: string
+    description: POS payment fee
+    example: null
+  pos_payment_charge:
+    type: string
+    description: POS payment charge
+    example: null
+  is_instant_courier:
+    type: string
+    description: Whether instant courier
+    example: false
+  dealpos_sales_note:
+    type: string
+    description: Dealpos sales note
+    example: null
+  dealpos_sales_type:
+    type: string
+    description: Dealpos sales type
+    example: null
+  shipping_provider_type:
+    type: string
+    description: Shipping provider type
+    example: null
+  is_fast_shiping_lz:
+    type: string
+    description: Whether fast shipping lz
+    example: null
+  pos_is_shipping:
+    type: string
+    description: Whether pos is shipping
+    example: false
+  shipping_subdistric:
+    type: string
+    description: Shipping subdistric
+    example: Setiabudi
+  shipping_province_id:
+    type: number
+    description: Shipping province ID
+    example: 31
+  shipping_city_id:
+    type: number
+    description: Shipping city ID
+    example: 3174
+  shipping_district_id:
+    type: number
+    description: Shipping district ID
+    example: 317402
+  shipping_subdistrict_id:
+    type: number
+    description: Shipping subdistrict ID
+    example: 3174021001
+  shipping_coordinate:
+    type: string
+    description: Shipping coordinate
+    example: null
+  awb_printed_count:
+    type: number
+    description: AWB printed count
+    example: 0
+  sub_status:
+    type: string
+    description: Sub status
+    example: null
+  wms_status:
+    type: string
+    description: WMS status
+    example: PAID
+  zone_name:
+    type: string
+    description: Zone name
+    example: null
+  zone_id:
+    type: string
+    description: Zone ID
+    example: null
+  override_courier:
+    type: string
+    description: Override courier
+    example: null
+  failed_order_date:
+    type: string
+    description: Failed order date
+    example: null
+  warehouse_type:
+    type: string
+    description: Warehouse type
+    example: null
+  voucher_amount:
+    typr: string
+    description: Voucher amount
+    example: null
+  original_shipment_cost:
+    type: number
+    description: Original shipment cost
+    example: 0
+  is_tokopedia_plus:
+    type: string
+    description: Whether tokopedia plus
+    example: null
+  use_shipping_insurance:
+    type: string
+    description: Use shipping insurance
+    example: false
+  shipment_promotion_id:
+    type: string
+    description: Shipment promotion ID
+    example: null
+  shipping_cost_discount:
+    type: number
+    description: Shipping cost discount
+    example: 0
+  priority_fulfillment_tag:
+    type: string
+    description: Priority fulfillment tag
+    example: null
+  fulfillment_sla:
+    type: string
+    description: Fulfillment sla
+    example: null
+  is_sameday:
+    type: string
+    description: Whether sameday
+    example: null
+  return_zone_id:
+    type: string
+    description: Return zone ID
+    example: null
+  internal_cancel_date:
+    type: string
+    format: date
+    example: null
+  is_edit_value:
+    type: string
+    description: Whether is edit or not
+    example: true
+  extra_info:
+    type: string
+    description: Extra info
+    example: null
+  picklist_exist:
+    type: string
+    description: Picklist exist
+    example: false
+  picklist_completed:
+    type: string
+    description: Picklist completed
+    example: null
+  picker:
+    type: string
+    description: Picker
+    example: null
+  is_payment_gateway_invoice_paid:
+    type: string
+    description: Whether payment gateway invoice paid or not
+    example: null
+  payment_url:
+    type: string
+    description: Payment URL
+    example: null
+  buyer_shipping_cost:
+    type: number
+    description: Buyer shipping cost
+    example: 0
+  discount_marketplace:
+    type: number
+    description: Discount marketplace
+    example: 0
+  salesman_name:
+    type: string
+    description: Salesman name
+    example: Radit
+  location_code:
+    type: string
+    description: Location code
+    example: Pusat
+  picklist_no:
+    type: string
+    description: Picklist No
+    example: null
+  items:
+    type: array
+    description: List Item in Purchase
+    items:
+      type: object
+      properties:
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 14
+        serial_no:
+          type: string
+          description: Serial Number
+          example: SN001
+        description:
+          type: string
+          description: Item Description
+          example: Kaos DreamCatcher Born to Be Yours
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        price:
+          type: number
+          description: Item Price
+          example: 120000
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity that will be order
+          example: 1
+        disc:
+          type: number
+          description: Item Discount
+          example: 0
+        disc_amount:
+          type: number
+          description: Item Discount Amount
+          example: 0
+        tax_amount:
+          type: number
+          description: Item Tax Amount
+          example: 0
+        amount:
+          type: number
+          description: Item Total Amount
+          example: 120000
+        location_id:
+          type: number
+          description: Item Location ID
+          example: -1
+        shipper:
+          type: string
+          description: Shipper
+          example: J&T REG
+        qty:
+          type: number
+          description: Quantity
+          example: 1
+        uom_id:
+          type: number
+          example: -1
+        shipped_date:
+          type: string
+          format: date
+          example: null
+        channel_order_detail_id:
+          type: number
+          example: null
+        is_return_resolved:
+          type: boolean
+          description: Return is resolved
+          example: false
+        reject_return_reason:
+          type: string
+          description: Reject return reason
+          example: ''
+        awb_created_date:
+          type: string
+          format: date-time
+          description: awb created date
+          example: null
+        ticket_no:
+          type: string
+          example: null
+        pack_scanned_date:
+          type: string
+          format: date-time
+          example: null
+        pick_scanned_date:
+          type: string
+          format: date-time
+          example: null
+        destination_code:
+          type: string
+          example: null
+        origin_code:
+          type: string
+          example: null
+        status:
+          type: string
+          example: null
+        item_code:
+          type: string
+          description: Item code
+          example: brg001
+        item_name:
+          type: string
+          description: Item name
+          example: Barang 1
+        sell_price:
+          type: number
+          description: Sell price
+          example: Barang 1
+        original_price:
+          type: string
+          description: Original price
+          example: '10.000'
+        rate:
+          type: string
+          example: '0.00'
+        tax_name:
+          type: string
+          description: Tax name
+          example: No Tax
+        item_group_id:
+          type: number
+          description: .
+          example: 1
+        loc_id:
+          type: number
+          description: .
+          example: null
+        thumbnail:
+          type: string
+          description: Thumbnail link
+          example: >-
+            https://truzteedev.blob.core.windows.net/images/rxayuyour32vvi5jygo4eq/cc05d0ef-9e0a-4a49-b617-d430819fa724_thumb.jpg
+        fbm:
+          type: string
+          description: .
+          example: null

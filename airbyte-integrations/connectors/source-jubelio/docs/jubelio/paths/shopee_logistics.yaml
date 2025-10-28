@@ -1,0 +1,35 @@
+get:
+  tags:
+    - Product Listing
+  summary: Get Shopee Logistics
+  description: >
+    For shopee, we need to add the logistics before uploading product to the MP.
+    <br>
+
+    Pick at least 1 logistic based on the response from this API.
+  operationId: getShopeeLogistics
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: store_id
+      in: query
+      required: true
+      style: form
+      explode: false
+      description: Store ID
+      example: 1
+      schema:
+        type: number
+        format: int32
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getShopeeLogisticResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,49 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        doc_id:
+          type: number
+          description: Document ID
+          example: 4
+        doc_no:
+          type: string
+          description: Document Number
+          example: SR-000000001
+        customer_name:
+          type: string
+          description: Contact Name
+          example: Mikha Januardi Millen
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        return_id:
+          type: string
+          description: Return ID
+          example: 1
+        return_no:
+          type: string
+          description: Return Number
+          example: SR-000000001
+        trx_type:
+          type: string
+          description: Transaction Type
+          example: settlement
+        amount:
+          type: string
+          description: Amount
+          example: 120000
+        doc_type:
+          type: string
+          description: Document Type
+          example: Potong Faktur
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

@@ -1,0 +1,9 @@
+type: object
+required:
+  - salesorder_ids
+properties:
+  salesorder_ids:
+    type: array
+    items:
+      type: number
+      example: 2238493

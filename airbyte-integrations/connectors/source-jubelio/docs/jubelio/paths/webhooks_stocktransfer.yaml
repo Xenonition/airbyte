@@ -1,0 +1,20 @@
+post:
+  tags:
+    - Webhooks
+  summary: New Stock Transfer
+  operationId: getStockTransferWebhook
+  description: >
+    This Webhook will be called when a new Stock Transfer is created from
+    Application
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/webhookStockTransfer.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml

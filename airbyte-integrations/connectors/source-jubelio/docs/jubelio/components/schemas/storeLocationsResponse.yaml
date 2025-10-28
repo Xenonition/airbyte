@@ -1,0 +1,37 @@
+type: object
+description: Adjustment Items
+properties:
+  data:
+    type: array
+    description: List Items that exists in Store Location
+    items:
+      type: object
+      properties:
+        channel_name:
+          type: string
+          example: TOKOPEDIA
+          description: The Channel Name
+        location_id:
+          type: number
+          example: -1
+          description: The Location Id
+        location_name:
+          type: string
+          example: PUSAT
+          description: The Location Name
+        location_code:
+          type: string
+          example: PST
+          description: The Location Code
+        store_id:
+          type: string
+          example: 6668
+          description: The Store Id
+        store_name:
+          type: string
+          example: Raicha Store
+          description: The Store Name
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

@@ -1,0 +1,25 @@
+type: array
+items:
+  type: object
+  properties:
+    category_id:
+      type: number
+      description: Category ID
+      example: 1
+    category_name:
+      type: string
+      description: Category Name
+      example: Komputer
+    parent_id:
+      type: number
+      description: Category Parent ID
+      example: 0
+    last_modified:
+      type: string
+      format: date
+      description: Last Modified
+      example: '2022-09-14T06:57:51.521Z'
+    has_children:
+      type: boolean
+      description: Has Children
+      example: true

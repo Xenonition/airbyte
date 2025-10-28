@@ -1,0 +1,13 @@
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          description: Fill in with salesorder_detail_id
+          items:
+            type: number
+            example: 1

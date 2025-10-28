@@ -1,0 +1,180 @@
+type: object
+properties:
+  store_id:
+    type: string
+    description: Store ID
+    example: 1
+  channel_id:
+    type: number
+    description: Channel ID
+    example: 2
+  item_group_id:
+    type: number
+    description: Item Group ID
+    example: 10
+  mp_group_id:
+    type: number
+    description: Marketplace Group ID
+    example: 1
+  sell_price:
+    type: number
+    description: Sell Price
+    example: 20000000
+  item_group_name:
+    type: number
+    description: Item Group Name
+    example: 1
+  brand_name:
+    type: string
+    description: Brand Name
+    example: ASUS ROG
+  description:
+    type: string
+    description: Description
+    example: <p>Laptop ROG</p>
+  package_length:
+    type: number
+    description: Package Length
+    example: 100
+  package_width:
+    type: number
+    description: Package Width
+    example: 100
+  package_height:
+    type: number
+    description: Package Height
+    example: 100
+  package_weight:
+    type: number
+    description: Package Weight
+    example: 100
+  package_content:
+    type: string
+    description: Package Content
+    example: Laptop
+  channel_category_id:
+    type: number
+    description: Channel Category ID
+    example: 1
+  images:
+    type: array
+    description: List Images
+    items:
+      type: object
+      properties:
+        group_image_id:
+          type: number
+          description: Group Image ID
+          example: 1
+        url:
+          type: string
+          description: Image URL
+          example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+        thumbnail:
+          type: string
+          description: Image Thumbnail
+          example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+        file_name:
+          type: string
+          description: Image Name
+          example: fde755988e7d8931bea57bdb3c8a64e6
+        sequence_number:
+          type: number
+          description: Image Sequence Number
+          example: 0
+  variations:
+    type: array
+    description: List Item Variations
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 1
+        store_id:
+          type: string
+          description: Store ID
+          example: 20
+        channel_url:
+          type: string
+          description: Channel URL
+          example: https://www.bukalapak.com/p/category/xxxxx
+        channel_item_id:
+          type: number
+          description: Channel Item ID
+          example: 1
+        channel_group_id:
+          type: number
+          description: Channel Group ID
+          example: 2
+        sell_price:
+          type: number
+          description: Sell Price
+          example: 20000000
+        item_code:
+          type: string
+          description: Item Code
+          example: SKU-001
+        variation_values:
+          type: array
+          description: Item Variations
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: Variation Label
+                example: color_family
+              value:
+                type: string
+                description: Variation Value
+                example: Black
+        variation_name:
+          type: string
+          description: Variation Name
+          example: Variation name
+  variation_images:
+    type: array
+    description: List Item Variations
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        store_id:
+          type: string
+          description: Store ID
+          example: 1
+        images:
+          type: array
+          description: List Images
+          items:
+            type: object
+            properties:
+              group_image_id:
+                type: number
+                description: Group Image ID
+                example: 1
+              url:
+                type: string
+                description: Image URL
+                example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+              thumbnail:
+                type: string
+                description: Image Thumbnail
+                example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+              file_name:
+                type: string
+                description: Image Name
+                example: fde755988e7d8931bea57bdb3c8a64e6
+              sequence_number:
+                type: number
+                description: Image Sequence Number
+                example: 0

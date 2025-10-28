@@ -1,0 +1,12 @@
+type: object
+properties:
+  status:
+    type: string
+    example: ok
+  url:
+    type: string
+    example: >-
+      https://report2.jubelio.com/?&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXBvcnROYW1lIjoiTGFwb3JhbiBQdXRhd2F5IiwiY29tcGFueUlkIjozMjA4MiwidGVuYW50SWQiOiJzempncHp6aXJlYzJ4Zm56NW5iYmNhIiwibG9nb19
+  title:
+    type: string
+    example: Daftar Barang Belum Ditempatkan

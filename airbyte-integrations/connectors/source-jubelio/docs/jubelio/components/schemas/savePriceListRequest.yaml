@@ -1,0 +1,31 @@
+type: array
+items:
+  required:
+    - item_group_id
+    - item_id
+  type: object
+  properties:
+    item_group_id:
+      type: number
+      description: Item Group ID
+      example: 984
+    item_id:
+      type: number
+      description: Item ID
+      example: 2286
+    prices:
+      type: array
+      description: List Prices for Every Store
+      items:
+        required:
+          - store_id
+        type: object
+        properties:
+          store_id:
+            type: string
+            description: Store ID
+            example: -1
+          price:
+            type: number
+            description: Price
+            example: 150000

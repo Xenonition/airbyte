@@ -1,0 +1,4 @@
+type: array
+description: List Stores ID that connect with Location (Can be filled with empty array [])
+items:
+  type: number

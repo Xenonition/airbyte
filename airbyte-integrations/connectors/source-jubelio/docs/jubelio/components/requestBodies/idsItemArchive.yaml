@@ -1,0 +1,14 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: number
+            example: 1
+        is_item_bundle:
+          type: boolean
+          description: Whether product is an item bundle
+          example: false

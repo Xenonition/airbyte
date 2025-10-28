@@ -1,0 +1,45 @@
+get:
+  tags:
+    - System Setting
+  summary: Get Sales Return Setting
+  operationId: getSalesReturnSetting
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getSalesReturnSetting.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - System Setting
+  summary: Create Sales Return Setting
+  operationId: postSalesReturnSetting
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postSalesReturnSetting.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/responseSalesReturnSetting.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

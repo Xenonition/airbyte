@@ -1,0 +1,144 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        shipment_detail_id:
+          type: number
+          description: Shipment Detail ID
+          example: 594721
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 2499915
+        tracking_no:
+          type: string
+          description: Tracking No.
+          example: ''
+        reason:
+          type: string
+          description: Reason
+          example: null
+        marketplace_status:
+          type: string
+          description: Marketplace Status
+          example: Shipped
+        ticket_no:
+          type: string
+          description: Ticket No.
+          example: null
+        destination_code:
+          type: string
+          description: Destination Code
+          example: null
+        origin_code:
+          type: string
+          description: Origin Code
+          example: null
+        misc:
+          type: string
+          description: Misc
+          example: null
+        salesorder_no:
+          type: string
+          description: Sales Order No.
+          example: SO-002499915
+        source:
+          type: number
+          description: Source
+          example: 1
+        source_name:
+          type: string
+          description: Source Name
+          example: INTERNAL
+        customer_name:
+          type: string
+          description: Customer Name
+          example: Ina Namora Putri Siregar
+        address:
+          type: string
+          description: Address
+          example: Jl. Wahyu Raya No. 112
+        is_tracked:
+          type: boolean
+          example: null
+        store_id:
+          type: string
+          description: Store ID
+          example: null
+        ref_no:
+          type: string
+          description: Reference No.
+          example: ''
+        total_weight_in_kg:
+          type: number
+          example: 0.5
+        total_qty:
+          type: number
+          example: 20
+        is_picked:
+          type: boolean
+          example: true
+  shipment_header_id:
+    type: number
+    description: Shipment Header ID
+    example: 10495
+  shipment_no:
+    type: string
+    description: Shipment Number
+    example: SHP-000010495
+  courier_id:
+    type: number
+    description: Courier ID
+    example: 1
+  transaction_date:
+    type: string
+    format: date-time
+    description: Transaction Date
+    example: '2022-03-09T02:16:53.523Z'
+  location_id:
+    type: number
+    description: Location ID
+    example: 1
+  note:
+    type: string
+    description: Note
+    example: null
+  shipment_type:
+    type: string
+    description: Shipment Type
+    example: 2
+  shipment_date:
+    type: string
+    format: date-time
+    description: Shipment Date
+    example: '2022-03-12T02:16:44.879Z'
+  is_completed:
+    type: boolean
+    example: null
+  employee_id:
+    type: string
+    example: ririn@gudangstaff.com
+  courier_new_id:
+    type: number
+    description: Courier New ID
+    example: 1
+  completed_date:
+    type: string
+    format: date-time
+    description: Completed Date
+    example: null
+  courier_name:
+    type: string
+    description: Courier Name
+    example: JNE
+  employee_name:
+    type: string
+    description: Employee Name
+    example: RIRIN
+  location_name:
+    type: string
+    description: Location Name
+    example: Gudang Besar

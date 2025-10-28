@@ -1,0 +1,7 @@
+name: ids%5B0%5D
+in: query
+description: Picklist ID
+required: true
+schema:
+  type: number
+  example: 5479

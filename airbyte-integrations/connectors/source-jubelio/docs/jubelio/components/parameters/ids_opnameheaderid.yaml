@@ -1,0 +1,8 @@
+name: ids
+in: query
+required: true
+style: form
+description: Opname Header ID
+schema:
+  type: number
+  example: 3

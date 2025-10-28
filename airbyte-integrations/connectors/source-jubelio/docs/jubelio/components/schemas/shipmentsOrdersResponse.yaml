@@ -1,0 +1,73 @@
+type: array
+description: List Item to Pick
+items:
+  type: object
+  properties:
+    salesorder_id:
+      type: number
+      description: Sales order ID
+      example: 1
+    shipment_header_id:
+      type: number
+      description: Shipment header ID
+      example: 1
+    salesorder_no:
+      type: string
+      description: Reff number of Sales order
+      example: SO-000000001
+    shipment_no:
+      type: string
+      description: Reff number of Shipment
+      example: SO-000000001
+    transaction_date:
+      type: string
+      description: Transaction date
+      example: '2020-04-13T04:01:31.399Z'
+    source:
+      type: number
+      description: Channel ID
+      example: 1
+    shipment_date:
+      type: string
+      description: Shipping date
+      example: '2020-04-13T04:01:31.399Z'
+    shipping_full_name:
+      type: string
+      description: Shipping full name
+      example: null
+    shipping_full_address:
+      type: string
+      description: Shipping full Address
+      example: Jl. Jakarta
+    location_id:
+      type: number
+      description: Location ID
+      example: null
+    tracking_no:
+      type: string
+      description: Tracking number
+      example: AWB-00001
+    shipper:
+      type: string
+      description: Shipper
+      example: null
+    ticket_no:
+      type: string
+      description: Ticker no
+      example: null
+    marketplace_status:
+      type: string
+      description: Marketplace status
+      example: Pesanan berikut tidak memiliki kurir
+    courier_id:
+      type: number
+      description: Courier ID
+      example: null
+    shipment_type:
+      type: string
+      description: Shipment type
+      example: null
+    store_id:
+      type: string
+      description: Store ID
+      example: null

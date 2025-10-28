@@ -1,0 +1,74 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Putaway ID that are done putaway
+    items:
+      type: object
+      properties:
+        putaway_id:
+          type: string
+          description: Putaway ID
+          example: 151
+        putaway_no:
+          type: string
+          description: Putaway Number
+          example: PUT-000000151
+        start_date:
+          type: string
+          format: date-time
+          description: Time when putaway process has started
+          example: '2022-02-14T09:13:38.416Z'
+        complete_date:
+          type: string
+          format: date-time
+          description: Time when putaway process has ended
+          example: '2022-02-14T09:13:38.416Z'
+        note:
+          type: string
+          example: null
+        created_by:
+          type: string
+          description: Employee ID
+          example: ririn@staffgudang.com
+        doing_by:
+          type: string
+          description: Employee who is doing the putaway process
+          example: ririn@staffgudang.com
+        item_receive:
+          type: string
+          description: Transaction ID (Which can be bill_id, transfer_id, return_id)
+          example: BIL-000009706
+        location_id:
+          type: number
+          description: Location ID
+          example: 11
+        from_no:
+          type: number
+          description: Quantity of item that has been putaway already
+          example: 8
+        to_no:
+          type: number
+          description: Total quantity of item that needs to be putaway
+          example: 8
+        percentage:
+          type: number
+          description: Progress of putaway process in percentage
+          example: 100
+        button_msg:
+          type: string
+          example: Selesai
+        location_name:
+          type: string
+          description: Warehouse Name
+          example: VIVI_WMS
+        created_name:
+          type: string
+          example: RIRIN
+        doing_name:
+          type: string
+          example: RIRIN
+  totalCount:
+    type: number
+    description: total count of all data
+    example: 110

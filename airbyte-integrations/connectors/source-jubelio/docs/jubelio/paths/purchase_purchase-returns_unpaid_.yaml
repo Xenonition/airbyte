@@ -1,0 +1,34 @@
+get:
+  tags:
+    - Purchasing
+  summary: Get All 'Outstanding' Purchase Returns
+  operationId: getPurchasePurchasereturnsUnpaid
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/csv.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter Query [Purchase Return Number/Supplier Name]
+      schema:
+        type: string
+    - $ref: ../components/parameters/createdSince.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getPurchaseReturnsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

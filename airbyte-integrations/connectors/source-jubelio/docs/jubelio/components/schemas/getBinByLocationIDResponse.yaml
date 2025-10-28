@@ -1,0 +1,55 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Bin ID based on Location ID
+    items:
+      type: object
+      properties:
+        bin_id:
+          type: string
+          example: 147
+          description: Bin ID
+        location_id:
+          type: string
+          description: Location ID
+          example: 1
+        floor_id:
+          type: string
+          description: Floor ID
+          example: 3
+        row_id:
+          type: string
+          description: Row ID
+          example: 3
+        column_id:
+          type: string
+          description: Column ID
+          example: 3
+        bin_code:
+          type: string
+          description: Bin Code
+          example: 11111
+        bin_final_code:
+          type: string
+          description: Complete Bin Code
+          example: 11111
+        max_qty:
+          type: number
+          description: Maximum Quantity
+          example: 200000
+        acknowledge_stock:
+          type: boolean
+          description: stock in those bin is recognize and can be sold on the sales channel
+          example: true
+        is_default:
+          type: boolean
+          example: null
+        is_inbound:
+          type: boolean
+          description: If the bin is used only for inbound place
+          example: false
+  totalCount:
+    type: number
+    description: total count of all data
+    example: 110

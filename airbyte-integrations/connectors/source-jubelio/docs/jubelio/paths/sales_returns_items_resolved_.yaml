@@ -1,0 +1,37 @@
+get:
+  tags:
+    - Sales
+  summary: Get 'Resolved/Approved - Returned' Sales Orders
+  operationId: getApprovedItemReturns
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: >-
+        Filter Query [Sales Order Number/Customer Name/Channel Name/Item
+        Code/Item Name]
+      schema:
+        type: string
+    - $ref: ../components/parameters/createdSince.yaml
+    - $ref: ../components/parameters/transactionDateFrom.yaml
+    - $ref: ../components/parameters/transactionDateTo.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getApprovedReturnsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

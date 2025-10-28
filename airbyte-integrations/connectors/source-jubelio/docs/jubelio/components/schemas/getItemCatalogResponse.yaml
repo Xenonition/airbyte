@@ -1,0 +1,371 @@
+type: object
+properties:
+  item_group_id:
+    type: number
+    description: Item Group ID
+    example: 2
+  item_group_name:
+    type: string
+    description: Item Group Name
+    example: 10.4 10W40
+  description:
+    type: string
+    description: Item Description
+    example: semi-synthetic lubricant for 4-stroke motorcycles that ensures
+  notes:
+    type: string
+    description: Item Description
+    example: semi-synthetic lubricant for 4-stroke motorcycles that ensures
+  sell_tax_id:
+    type: number
+    description: Sell Tax ID
+    example: -1
+  buy_tax_id:
+    type: number
+    description: Buy Tax ID
+    example: -1
+  sales_acct_id:
+    type: number
+    description: Sales Account ID
+    example: 28
+  cogs_acct_id:
+    type: number
+    description: Cost of Goods Sold (COGS) Account Account ID
+    example: 30
+  invt_acct_id:
+    type: number
+    description: Inventory Account ID
+    example: 4
+  sell_this:
+    type: boolean
+    description: Whether Item can be sell
+    example: true
+  buy_this:
+    type: boolean
+    description: Whether Item can be bought
+    example: true
+  stock_this:
+    type: boolean
+    description: Whether Item can be stock
+    example: true
+  dropship_this:
+    type: boolean
+    description: Whether Item can be drop ship
+    example: false
+  uom_id:
+    type: number
+    description: Unit of Measure ID
+    example: -1
+  sell_unit:
+    type: string
+    description: Sell Unit
+    example: Botol
+  buy_unit:
+    type: string
+    description: Buy Unit
+    example: Botol
+  is_active:
+    type: boolean
+    description: Whether Item is active
+    example: true
+  purch_acct_id:
+    type: number
+    description: Purchase Account ID
+    example: -1
+  status:
+    type: number
+    description: Status
+    example: 'null'
+  item_category_id:
+    type: number
+    description: Item Category ID
+    example: 454
+  package_content:
+    type: string
+    description: Package Content
+    example: Plastik and How to Use
+  package_weight:
+    type: string
+    description: Package Weight
+    example: 1000
+  package_height:
+    type: string
+    description: Package Height
+    example: 29
+  package_width:
+    type: string
+    description: Package Width
+    example: 49
+  package_length:
+    type: string
+    description: Package Length
+    example: 39.5
+  variations:
+    type: array
+    description: List Item Variations
+    items:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Variation Label
+          example: color_family
+        values:
+          type: array
+          description: List Variation Values
+          items:
+            type: string
+            example: Black
+  sell_price:
+    type: number
+    description: Item Sell Price
+    example: 3600000
+  buy_price:
+    type: string
+    description: Item Buy Price
+    example: 1500000
+  last_modified:
+    type: string
+    format: date-time
+    description: Last Modified Time
+    example: '2019-01-07T07:53:35.100Z'
+  brand_id:
+    type: number
+    description: Brand ID
+    example: 11087
+  rop:
+    type: number
+    description: Return of Purchase
+    example: 10
+  is_favourite:
+    type: boolean
+    description: Whether Item a favourite
+    example: false
+  use_single_image_set:
+    type: boolean
+    description: Whether Item use Single Image Set
+    example: false
+  use_serial_number:
+    type: boolean
+    description: Whether Item use Serial Number
+    example: true
+  brand_name:
+    type: string
+    description: Another Brand Name
+    example: Mikoooo
+  sell_tax_name:
+    type: string
+    description: Sell Tax Name
+    example: No Tax
+  buy_tax_name:
+    type: string
+    description: Buy Tax Name
+    example: No Tax
+  sales_acct_name:
+    type: string
+    description: Sales Account Name
+    example: 4-4000 - Penjualan
+  invt_acct_name:
+    type: string
+    description: Inventory Account Name
+    example: 1-1200 - Persediaan Barang
+  cogs_acct_name:
+    type: string
+    description: Cost of Goods Sold (COGS) Account Name
+    example: 5-5000 - Harga Pokok Penjualan (COGS)
+  purch_acct_name:
+    type: string
+    description: Purchase Account Name
+    example: 5-5000 - Harga Pokok Penjualan (COGS)
+  uom_name:
+    type: string
+    description: Unit of Measure Name
+    example: Buah
+  product_skus:
+    type: array
+    description: List Item SKUs
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 2270
+        item_code:
+          type: string
+          description: Item Code
+          example: RIC-COO-MIY-RCM-PIN
+        sell_price:
+          type: number
+          description: Item Sell Price Variant
+          example: 240000
+        end_qty:
+          type: number
+          description: Total Inventory on Hand
+          example: 10
+        average_cost:
+          type: number
+          description: Average Cost
+          example: 240000
+        amount:
+          type: number
+          description: Amount
+          example: 240000
+        barcode:
+          type: string
+          description: Barcode
+          example: null
+        variation_values:
+          type: array
+          description: Item Variations
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: Variation Label
+                example: color_family
+              value:
+                type: string
+                description: Variation Value
+                example: Black
+        prices:
+          type: array
+          description: List Price on Channels
+          items:
+            type: object
+            properties:
+              store_id:
+                type: string
+                description: Store ID
+                example: 125
+              channel_id:
+                type: number
+                description: Channel ID
+                example: 4
+              sell_price:
+                type: number
+                description: Sell Price on Channel
+                example: 260000
+        images:
+          type: array
+          description: List Item Variations
+          items:
+            type: object
+            properties:
+              item_id:
+                type: number
+                description: Item ID
+                example: 1028
+              image_id:
+                type: number
+                description: Image ID
+                example: 4
+              cloud_key:
+                type: string
+                description: Image URL
+                example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+              thumbnail:
+                type: string
+                description: Image Thumbnail
+                example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+              file_name:
+                type: string
+                description: Image Name
+                example: fde755988e7d8931bea57bdb3c8a64e6
+              sequence_number:
+                type: number
+                description: Image Sequence Number
+                example: 0
+              channel_info:
+                type: array
+                description: List Image URL on Channels
+                items:
+                  type: object
+                  properties:
+                    image_url:
+                      type: string
+                      description: Image URL
+                      example: >-
+                        http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+                    channel_id:
+                      type: number
+                      description: Channel ID
+                      example: 4
+  min:
+    type: number
+    description: Minimal Item Purchase
+    example: 1
+  max:
+    type: number
+    description: Maximal Item Purchase
+    example: 10
+  selected_brand_name:
+    type: string
+    description: Selected Brand Name
+    example: Miyako
+  bom_id:
+    type: number
+    description: .
+    example: null
+  store_priority_qty_treshold:
+    type: number
+    description: Store priority Quantity
+    example: null
+  created_date:
+    type: string
+    format: date-time
+    description: Last Modified Time
+    example: '2019-01-07T07:53:35.100Z'
+  lead_time:
+    type: string
+    description: Lead time
+    example: null
+  is_po:
+    type: boolean
+    description: Is ProOrder
+    example: null
+  use_batch_number:
+    type: boolean
+    description: .
+    example: null
+  variation_images:
+    type: array
+    description: List Item Variations
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        store_id:
+          type: string
+          description: Store ID
+          example: 1
+        images:
+          type: array
+          description: List Images
+          items:
+            type: object
+            properties:
+              group_image_id:
+                type: number
+                description: Group Image ID
+                example: 1
+              url:
+                type: string
+                description: Image URL
+                example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+              thumbnail:
+                type: string
+                description: Image Thumbnail
+                example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+              file_name:
+                type: string
+                description: Image Name
+                example: fde755988e7d8931bea57bdb3c8a64e6
+              sequence_number:
+                type: number
+                description: Image Sequence Number
+                example: 0

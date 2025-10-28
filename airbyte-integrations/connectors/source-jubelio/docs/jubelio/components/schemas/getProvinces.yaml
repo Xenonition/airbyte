@@ -1,0 +1,10 @@
+type: object
+properties:
+  province_id:
+    type: string
+    description: Province ID
+    example: 36
+  name:
+    type: string
+    description: Province Name
+    example: BANTEN

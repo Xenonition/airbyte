@@ -1,0 +1,8 @@
+name: rowIds
+in: query
+required: true
+style: form
+description: Rack Location by row
+schema:
+  type: string
+  example: '[%20%201]'

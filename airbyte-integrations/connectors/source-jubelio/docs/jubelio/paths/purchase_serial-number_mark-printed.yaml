@@ -1,0 +1,27 @@
+post:
+  tags:
+    - Purchasing
+  summary: Print Product Barcodes to Putaway
+  operationId: postPurchaseSerialNumberMarkPrinted
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: >-
+            ../components/schemas/postPurchaseSerialNumberMarkPrintedRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/postPurchaseSerialNumberMarkPrintedResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

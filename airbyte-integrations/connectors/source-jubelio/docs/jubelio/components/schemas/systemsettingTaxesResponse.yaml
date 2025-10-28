@@ -1,0 +1,28 @@
+type: object
+description: Adjustment Items
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        rate:
+          type: string
+          example: '10.00'
+        tax_id:
+          type: number
+          example: -1
+        tax_in:
+          type: string
+          example: 1-1303 PPN Masukan
+        tax_name:
+          type: string
+          example: PPN
+        tax_out:
+          type: string
+          example: 2-2103 PPN Pengeluaran
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

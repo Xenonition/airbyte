@@ -1,0 +1,62 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        doc_id:
+          type: number
+          description: Document ID
+          example: 4
+        doc_number:
+          type: string
+          description: Document Number
+          example: SR-000000001
+        contact_id:
+          type: number
+          description: Contact ID
+          example: 1
+        customer_name:
+          type: string
+          description: Contact Name
+          example: Mikha Januardi Millen
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        due_date:
+          type: string
+          format: date
+          description: Due Date
+          example: '2018-10-20T17:00:00.000Z'
+        is_opening_balance:
+          type: boolean
+          description: Whether Transaction is an Opening Balance
+          example: false
+        grand_total:
+          type: string
+          description: Payment Amount
+          example: -120000
+        due:
+          type: string
+          description: Due
+          example: -120000
+        doc_type:
+          type: string
+          description: Document Type
+          example: credit_note
+        age:
+          type: number
+          description: Age
+          example: 0
+        age_due:
+          type: number
+          description: Age Due
+          example: 0
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

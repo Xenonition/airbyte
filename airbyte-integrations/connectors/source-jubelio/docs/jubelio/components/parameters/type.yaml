@@ -1,0 +1,7 @@
+name: type
+in: query
+required: true
+style: form
+schema:
+  type: string
+  example: notBundle

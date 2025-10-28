@@ -1,0 +1,24 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Action Name
+    example: update-qty
+  item_group_id:
+    type: number
+    description: Item Group ID
+    example: 1
+  item_group_name:
+    type: string
+    description: Item Group Name
+    example: Test barang
+  item_ids:
+    type: array
+    items:
+      type: number
+      description: List Item ID
+      example: 2753
+  location_id:
+    type: number
+    description: Location ID
+    example: 2

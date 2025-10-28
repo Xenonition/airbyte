@@ -1,0 +1,40 @@
+type: object
+required:
+  - doing_by
+  - data
+properties:
+  data:
+    type: array
+    description: List of Bill ID that needs to be putaway & location to placed the items.
+    items:
+      type: object
+      required:
+        - location_id
+        - bill_id
+        - transfer_id
+        - return_id
+      properties:
+        location_id:
+          type: string
+          example: 1
+          description: Warehouse Location
+        bill_id:
+          type: array
+          items:
+            type: number
+            example: 9660
+            description: Bill ID that items needs to be putaway
+        transfer_id:
+          type: array
+          items:
+            type: number
+            description: Transfer ID that items needs to be putaway
+        return_id:
+          type: array
+          items:
+            type: number
+            description: Return ID that items needs to be putaway
+  doing_by:
+    type: string
+    description: Staff that will putaway items (Using employee id)
+    example: ririn@staffgudang.com

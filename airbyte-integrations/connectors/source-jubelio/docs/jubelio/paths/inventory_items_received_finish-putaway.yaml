@@ -1,0 +1,27 @@
+post:
+  tags:
+    - Inventory
+  summary: Set Putaway Process As Finish
+  operationId: postInventoryItemsReceivedFinishPutaway
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: >-
+            ../components/schemas/getInventoryItemsReceivedFinishPutawayRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/getInventoryItemsReceivedFinishPutawayResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

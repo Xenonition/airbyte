@@ -1,0 +1,62 @@
+get:
+  tags:
+    - Purchasing
+  summary: Get All Purchase Return Settlement Bills
+  operationId: getPurchaseReturnsettlementsBills
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/csv.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter Query [Purchase Order Number/Supplier Name]
+      schema:
+        type: string
+    - $ref: ../components/parameters/createdSince.yaml
+    - $ref: ../components/parameters/transactionDateFrom.yaml
+    - $ref: ../components/parameters/transactionDateTo.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/getPurchaseReturnSettlementBillsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Purchasing
+  summary: Create/Edit Purchase Return Settlement Bill
+  operationId: postPurchaseReturnsettlementsBills
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/saveReturnSettlementBillRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

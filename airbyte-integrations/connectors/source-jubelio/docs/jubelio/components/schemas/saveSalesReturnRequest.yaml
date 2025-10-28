@@ -1,0 +1,152 @@
+required:
+  - customer_name
+  - location_id
+  - return_no
+type: object
+properties:
+  return_id:
+    type: number
+    description: Sales Return ID
+    example: 0
+  return_no:
+    type: string
+    description: Sales Return Number
+    example: '[auto]'
+  customer_id:
+    type: number
+    description: Contact ID (Customer)
+    example: 1
+  customer_name:
+    type: string
+    description: Contact Name (Customer)
+    example: 1
+  transaction_date:
+    type: string
+    format: date
+    description: Tranasction Date
+    example: '2019-01-13T21:21:32.261Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Tax is Included
+    example: false
+  note:
+    type: string
+    description: Sales Return Note
+    example: Barang Cacat
+  sub_total:
+    type: number
+    description: Sub Total
+    example: 120000
+  total_disc:
+    type: number
+    description: Total Discount
+    example: 0
+  total_tax:
+    type: number
+    description: Total Tax
+    example: 0
+  grand_total:
+    type: number
+    description: Grand Total
+    example: 120000
+  invoice_id:
+    type: number
+    description: Invoice ID
+    example: 9
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  add_fee:
+    type: number
+    example: 0
+  add_disc:
+    type: number
+    example: 0
+  service_fee:
+    type: number
+    example: 0
+  auto_placement:
+    type: boolean
+    example: false
+    description: if you want to place the items directly to the default rack/shelve.
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        return_detail_id:
+          type: number
+          description: Return Detail ID
+          example: 0
+        invoice_detail_id:
+          type: number
+          description: Invoice Detail ID
+          example: 0
+        serial_no:
+          type: string
+          description: Serial Number
+          example: null
+        batch_no:
+          type: string
+          description: Batch Number
+          example: null
+        expired_date:
+          type: string
+          format: date
+          example: null
+        item_id:
+          type: number
+          description: Item ID
+          example: 5
+        description:
+          type: string
+          description: Item Description
+          example: Kaos DreamCatcher Born to Be Yours
+        sales_acct_id:
+          type: number
+          description: Sales Account ID
+          example: 28
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        price:
+          type: number
+          description: Item Price
+          example: 120000
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity that will be return
+          example: 1
+        original_return_detail_id:
+          type: number
+          example: 0
+        tax_amount:
+          type: number
+          description: Tax Amount
+          example: 0
+        amount:
+          type: number
+          description: Total Amount
+          example: 120000
+        cogs:
+          type: number
+          description: Cost of Goods Sold
+          example: 78000
+        location_id:
+          type: number
+          description: Location ID
+          example: -1
+        disc:
+          type: number
+          description: Discount
+          example: 0
+        disc_amount:
+          type: number
+          description: Total Discount Amount
+          example: 0

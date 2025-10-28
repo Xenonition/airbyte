@@ -1,0 +1,25 @@
+type: object
+description: Adjustment Items
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        account_code:
+          type: string
+          description: Account Code
+          example: 1-1000
+        account_id:
+          type: number
+          description: Account Id
+          example: 1
+        account_name:
+          type: string
+          description: Account Name
+          example: 1-1000 - Kas
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

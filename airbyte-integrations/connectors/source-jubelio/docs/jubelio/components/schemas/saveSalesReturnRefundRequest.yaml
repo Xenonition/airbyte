@@ -1,0 +1,60 @@
+required:
+  - account_id
+  - amount
+  - contact_id
+  - payment_id
+  - payment_no
+  - payment_type
+type: object
+properties:
+  payment_id:
+    type: number
+    description: Sales Return Payment ID
+    example: 0
+  payment_no:
+    type: string
+    description: Sales Return Payment Number
+    example: '[auto]'
+  payment_type:
+    type: number
+    description: Payment Type
+    example: 3
+  contact_id:
+    type: number
+    description: Contact ID (Customer)
+    example: 1
+  contact_name:
+    type: string
+    description: Contact Name (Customer)
+    example: Mikha
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2019-01-13T21:52:45.041Z'
+  account_id:
+    type: number
+    description: Account ID
+    example: 1
+  amount:
+    type: number
+    description: Payment Amount
+    example: 120000
+  items:
+    type: array
+    description: List Sales Return Payment Detail
+    items:
+      type: object
+      properties:
+        payment_detail_id:
+          type: number
+          description: Sales Return Payment Detail ID
+          example: 0
+        sales_return_id:
+          type: number
+          description: Sales Return ID
+          example: 1
+        payment_amount:
+          type: number
+          description: Payment Amount
+          example: 120000

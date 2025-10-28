@@ -1,0 +1,88 @@
+get:
+  tags:
+    - Inventory
+  summary: Get All Stock Adjustments
+  description: You can sort by **transaction_date**
+  operationId: getInventoryAdjustments
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter Query [Item Adjustment Number]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getAllStockAdjustmentsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Inventory
+  summary: Create/Edit Stock Adjustment
+  description: >
+    This API is used to create/edit adjustment stock. To get **bin_id**, you can
+    use
+    [GET/wms/default-bin/{location_id}](https://docs-wms.jubelio.com/#operation/getWMSDefaultBin)
+    or
+    [GET/locations/bin/{location_id}](https://docs-wms.jubelio.com/#operation/getBinbyLocationID).
+    If you don't set your rack plan since the very beginning when moving to
+    Jubelio WMS, your default **bin_id** will be automatically set.
+  operationId: postInventoryAdjustments
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/adjusmentRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+delete:
+  tags:
+    - Inventory
+  summary: Delete Stock Adjustment
+  operationId: deleteInventoryAdjustments
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/deleteNumberRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleteOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

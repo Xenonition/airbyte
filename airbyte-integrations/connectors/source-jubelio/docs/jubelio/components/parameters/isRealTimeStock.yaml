@@ -1,0 +1,7 @@
+name: isRealTimeStock
+in: query
+required: true
+style: form
+schema:
+  type: boolean
+  example: true

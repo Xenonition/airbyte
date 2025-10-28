@@ -1,0 +1,72 @@
+required:
+  - account_id
+  - amount
+  - contact_id
+  - payment_id
+  - payment_no
+  - payment_type
+type: object
+properties:
+  payment_id:
+    type: number
+    description: Purchase Payment ID
+    example: 2
+  payment_no:
+    type: string
+    description: Purchase Payment Number
+    example: 2
+  payment_type:
+    type: number
+    description: Purchase Payment Type
+    example: 2
+  contact_id:
+    type: number
+    description: Contact ID (Supplier)
+    example: 2
+  contact_name:
+    type: string
+    description: Contact Name (Supplier)
+    example: PTYANYWAY
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-02T04:00:00.000Z'
+  account_id:
+    type: number
+    description: Account ID
+    example: 1
+  account_name:
+    type: string
+    description: Account Name
+    example: 1-1000 - Kas
+  amount:
+    type: number
+    description: Payment Amount
+    example: 100000
+  items:
+    type: array
+    description: List Payment Detail
+    items:
+      type: object
+      properties:
+        payment_detail_id:
+          type: number
+          description: Payment Detail ID
+          example: 0
+        payment_id:
+          type: number
+          description: Payment ID
+          example: 1
+        bill_id:
+          type: number
+          description: Bill ID
+          example: 1
+        payment_amount:
+          type: number
+          description: Payment Amount for Bill
+          example: 100000
+        downpayment_amount:
+          type: number
+          description: Down Payment Amount for Bill
+          example: 50000

@@ -1,0 +1,64 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        promotion_name:
+          type: string
+          description: Promotion Name
+          example: BLACK FRIDAY
+        promotion_id:
+          type: number
+          description: Promotion ID
+          example: 1
+        start_date:
+          type: string
+          format: date-time
+          description: Start Promotion Date
+          example: '2018-10-02T04:00:00.000Z'
+        end_date:
+          type: string
+          format: date-time
+          description: End Promotion Date
+          example: '2018-10-03T05:00:00.000Z'
+        details:
+          type: array
+          items:
+            type: object
+            properties:
+              promotion_detail_id:
+                type: string
+                description: Promotion Detail ID
+                example: 0
+              item_id:
+                type: string
+                description: Item ID
+                example: 8
+              item_group_id:
+                type: string
+                description: Item Group ID
+                example: 9
+              promotion_price:
+                type: number
+                description: Promotion Price
+                example: 500000
+        channels:
+          type: array
+          description: List Channels where Promotions applied
+          items:
+            type: object
+            properties:
+              store_id:
+                type: string
+                description: Store ID
+                example: 359
+              channel_id:
+                type: number
+                description: Channel ID
+                example: 64
+              tokopedia_slashprice:
+                type: boolean
+                example: false

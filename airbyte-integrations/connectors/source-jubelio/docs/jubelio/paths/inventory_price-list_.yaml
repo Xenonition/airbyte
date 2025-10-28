@@ -1,0 +1,50 @@
+post:
+  tags:
+    - Product
+  summary: Edit Product Prices
+  description: >
+    ![](https://drive.google.com/uc?id=1p7Jxp8jqbvr4BMl0ijhTEMHmoEP0XeuE)
+
+
+    | No   | Endpoints                          |
+    Function                                                     |
+
+    | ---- | ---------------------------------- |
+    ------------------------------------------------------------ |
+
+    | 1    |
+    [GET/inventory/internal-price-list/](https://docs-wms.jubelio.com/#operation/getInventoryPricelist)
+    | Obtain all of item details that are going to bundle (**item_id,
+    item_group_id, store_id** to later use in endpoint no.2) |
+
+    | 2    |
+    [POST/inventory/price-list/](https://docs-wms.jubelio.com/#operation/postInventoryPricelist)        
+    | Edit products price. Fill in the value as described in the schema and the
+    value that you've got from endpoint no. 1. |
+  operationId: postInventoryPricelist
+  parameters:
+    - name: authorization
+      in: header
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/savePriceListRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

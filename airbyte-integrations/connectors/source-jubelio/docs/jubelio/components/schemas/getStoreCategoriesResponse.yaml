@@ -1,0 +1,13 @@
+type: array
+description: List Items that exists in System
+items:
+  type: object
+  properties:
+    category_id:
+      type: string
+      description: Category Id (UUID)
+      example: ed8e8964-d3ab-4101-834b-426b85b241b0
+    category_name:
+      type: string
+      description: Category Name
+      example: Bottem/Men

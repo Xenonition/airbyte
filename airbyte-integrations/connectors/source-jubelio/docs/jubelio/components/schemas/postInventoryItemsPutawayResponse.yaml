@@ -1,0 +1,6 @@
+type: object
+properties:
+  putaway_detail_id:
+    type: string
+    description: Putaway Detail ID
+    example: 3710

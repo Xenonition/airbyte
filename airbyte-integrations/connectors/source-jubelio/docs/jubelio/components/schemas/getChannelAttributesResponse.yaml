@@ -1,0 +1,42 @@
+type: array
+description: List Items that exists in System
+items:
+  type: object
+  properties:
+    channel_id:
+      type: number
+      description: Channel ID
+      example: 4
+    attribute_name:
+      type: string
+      description: Attribute Name
+      example: color_family
+    attribute_type:
+      type: string
+      description: Attribute Type
+      example: normal
+    category_id:
+      type: string
+      description: Channel Category ID
+      example: 14730
+    default_value:
+      type: string
+      description: Default Value
+      example: null
+    display_name:
+      type: string
+      description: Display Name on Web
+      example: Warranty Period
+    input_type:
+      type: string
+      description: Input Type Attribute
+      example: singleSelect
+    is_required:
+      type: boolean
+      description: Is Attribute Required
+      example: true
+    attribute_values:
+      type: array
+      items:
+        type: object
+      description: Attribute Values

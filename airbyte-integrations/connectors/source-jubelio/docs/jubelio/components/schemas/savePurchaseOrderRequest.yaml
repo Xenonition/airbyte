@@ -1,0 +1,131 @@
+required:
+  - purchaseorder_no
+  - source
+  - supplier_name
+type: object
+properties:
+  purchaseorder_id:
+    type: number
+    description: |
+      Purchase Order ID <br>
+      To create new purchase order => "purchaseorder_id": 0 <br>
+      To edit purchase order => "purchaseorder_id": {purchaseorder_id}
+    example: 0
+  purchaseorder_no:
+    type: string
+    description: |
+      Purchase Order Number <br>
+      To create new purchase order => "purchaseorder_no": "[auto]" <br>
+      To edit purchase order => "purchaseorder_no": {purchaseorder_no}
+    example: '[auto]'
+  contact_id:
+    type: number
+    description: Contact (Supplier) ID
+    example: 2
+  supplier_name:
+    type: string
+    description: Supplier Name
+    example: PTANYWAY
+  transaction_date:
+    type: string
+    format: date-time
+    description: Transaction Date
+    example: '2020-10-02T04:00:00.000Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Tax Included
+    example: false
+  note:
+    type: string
+    description: Purchase Order Note
+    example: Note
+  sub_total:
+    type: number
+    description: Purchase Order sub Total
+    example: 154000
+  total_disc:
+    type: number
+    description: Purchase Order Total Discount
+    example: 0
+  total_tax:
+    type: number
+    description: Purchase Order Total Tax
+    example: 0
+  grand_total:
+    type: number
+    description: Purchase Order Grand Total
+    example: 154000
+  ref_no:
+    type: string
+    description: Reference Number
+    example: 112233
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  is_closed:
+    type: boolean
+    example: false
+  close_reason:
+    type: string
+    example: ''
+  source:
+    type: number
+    description: Source
+    example: 1
+  payment_term:
+    type: number
+    example: null
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        purchaseorder_detail_id:
+          type: number
+          description: Purchase Order Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        description:
+          type: string
+          description: Item Description
+          example: -1
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        price:
+          type: number
+          description: Item Price
+          example: 77000
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity that will be add
+          example: 1
+        disc:
+          type: number
+          description: Discount
+          example: 5
+        disc_amount:
+          type: number
+          description: Discount Amount
+          example: 3850
+        tax_amount:
+          type: number
+          description: Tax Amount
+          example: 0
+        amount:
+          type: number
+          description: Total Amount
+          example: 73150
+        location_id:
+          type: number
+          description: Location ID
+          example: -1

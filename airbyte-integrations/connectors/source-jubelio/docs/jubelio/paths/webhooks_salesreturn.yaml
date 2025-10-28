@@ -1,0 +1,20 @@
+post:
+  tags:
+    - Webhooks
+  summary: New Sales Return
+  operationId: getSalesReturnWebhook
+  description: >
+    This Webhook will be called when a new Sales Return is created from
+    Application.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/webhookSalesReturn.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml

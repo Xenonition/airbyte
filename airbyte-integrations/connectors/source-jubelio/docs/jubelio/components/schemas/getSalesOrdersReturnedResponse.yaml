@@ -1,0 +1,90 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        contact_id:
+          type: number
+          description: Contact ID
+          example: 6
+        invoice_id:
+          type: number
+          description: Invoice ID
+          example: 1123
+        is_instant_courier:
+          type: boolean
+          description: Is Instant Courier
+          example: false
+        picklist_id:
+          type: number
+          description: Picklist Id
+          example: 13324
+        picklist_no:
+          type: string
+          description: Picklist Number
+          example: PICK-000013324
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 6
+        salesorder_no:
+          type: string
+          description: Sales Order Number
+          example: SO-000000006
+        invoice_no:
+          type: string
+          description: Invoice Number
+          example: INV-000000222
+        customer_name:
+          type: string
+          description: Contact Name (Customer)
+          example: Pelanggan Umum
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        created_date:
+          type: string
+          format: date
+          description: Created Date
+          example: '2018-10-20T17:00:00.000Z'
+        channel_name:
+          type: string
+          description: Channel Name
+          example: Tokopedia
+        store_name:
+          type: string
+          description: Source Name
+          example: Toko Bahagia
+        shipper:
+          type: string
+          description: Shipper
+          example: J&T REG
+        tracking_no:
+          type: string
+          description: Tracking Number
+          example: JP2255122
+        store_id:
+          type: string
+          description: Store ID
+          example: 1
+        source:
+          type: string
+          description: Order Source in Id (MP/Channel)
+          example: 64
+        source_name:
+          type: string
+          description: Source Name
+          example: SHOPEE
+        store:
+          type: string
+          description: Store Name
+          example: null
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

@@ -1,0 +1,12 @@
+type: array
+items:
+  type: object
+  properties:
+    row_id:
+      type: number
+      description: Row ID
+      example: 1
+    row_code:
+      type: string
+      description: Row Code
+      example: BX

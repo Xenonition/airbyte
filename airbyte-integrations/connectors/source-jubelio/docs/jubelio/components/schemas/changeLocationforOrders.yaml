@@ -1,0 +1,15 @@
+type: object
+required:
+  - ids
+  - location_id
+properties:
+  ids:
+    type: array
+    items:
+      type: string
+      description: salesorder_id
+      example: 2499956
+  location_id:
+    type: string
+    description: Location ID
+    example: 1

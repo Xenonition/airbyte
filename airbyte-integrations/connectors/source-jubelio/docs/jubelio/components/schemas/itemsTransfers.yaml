@@ -1,0 +1,43 @@
+type: array
+items:
+  type: object
+  properties:
+    item_transfer_detail_id:
+      type: number
+      description: Fill 0 to create
+      example: 0
+    item_id:
+      type: number
+      description: Item ID
+      example: 65476
+    description:
+      type: string
+      description: Item Description, usually exist in item_full_name
+      example: null
+    unit:
+      type: string
+      example: Buah
+    qty_in_base:
+      type: number
+      description: the quantity of items that needs to receive.
+      example: 1
+    bin_id:
+      type: number
+      description: Bin ID
+      example: 3
+    serial_no:
+      type: string
+      description: Item Serial Number
+      example: null
+    batch_no:
+      type: string
+      description: Item Batch Number
+      example: null
+    source_location_id:
+      type: number
+      description: Source Location ID
+      example: 5
+    destination_location_id:
+      type: number
+      description: Destination Location ID. Can't be same with Source Location ID
+      example: 1

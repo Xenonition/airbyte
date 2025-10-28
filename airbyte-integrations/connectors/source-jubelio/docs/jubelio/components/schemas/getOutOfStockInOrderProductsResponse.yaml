@@ -1,0 +1,49 @@
+type: array
+items:
+  type: object
+  properties:
+    available_qty:
+      description: available qty
+      type: number
+      example: -1
+    end_qty:
+      type: number
+      description: Total Inventory on Hand
+      example: 0
+    item_code:
+      type: string
+      description: Item Code/SKU
+      example: chopper dan olive oil
+    item_id:
+      description: Item ID
+      type: number
+      example: 1
+    item_name:
+      description: Item Name
+      type: string
+      example: Addison Jacket
+    location_id:
+      type: number
+      description: Location ID
+      example: -1
+    location_name:
+      type: number
+      description: Location Name
+      example: Pusat
+    order_qty:
+      type: number
+      description: Total Inventory on Order
+      example: 1
+    qty_in_base:
+      type: number
+      description: Quantity that will be add
+      example: 1
+    salesorder_no:
+      type: string
+      description: Sales Order Number
+      example: SO-000000006
+    transaction_date:
+      type: string
+      format: date
+      description: Transaction Date
+      example: '2018-11-19T01:46:21.000Z'

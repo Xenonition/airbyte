@@ -1,0 +1,97 @@
+type: object
+properties:
+  promotion_id:
+    type: number
+    description: Promotion ID
+    example: 0
+  promotion_name:
+    type: string
+    description: Promotion Name
+    example: BLACK FRIDAY
+  start_date:
+    type: string
+    format: date-time
+    description: Start Promotion Date
+    example: '2018-10-02T04:00:00.000Z'
+  end_date:
+    type: string
+    description: End Promotion Date
+    example: '2018-10-03T05:00:00.000Z'
+  is_applied:
+    type: boolean
+    description: Whether Promotion Applied
+    example: false
+  channel_info:
+    type: array
+    description: List Channels Info
+    items:
+      type: object
+      properties:
+        store_id:
+          type: string
+          description: Store ID
+          example: 359
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 64
+        discount_id:
+          type: number
+          description: Discount ID
+          example: 1007180959
+  channels:
+    type: array
+    description: List Channels where Promotions applied
+    items:
+      type: object
+      properties:
+        store_id:
+          type: string
+          description: Store ID
+          example: 359
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 64
+        channel_full_name:
+          type: number
+          description: Channel Full Name
+          example: Bukalapak
+  details:
+    type: array
+    description: List Promotion Detail
+    items:
+      type: object
+      properties:
+        promotion_detail_id:
+          type: number
+          description: Promotion Detail ID
+          example: 0
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 20
+        promotion_price:
+          type: string
+          description: Promotion Price
+          example: 300000
+        item_group_name:
+          type: string
+          description: Item Group Name
+          example: Gembok anti maling warna HITAM
+        price:
+          type: string
+          description: Item Price
+          example: 399000
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        item_code:
+          type: string
+          description: Item code
+          example: null
+        item_short_name:
+          type: string
+          description: Item short name
+          example: Item 1

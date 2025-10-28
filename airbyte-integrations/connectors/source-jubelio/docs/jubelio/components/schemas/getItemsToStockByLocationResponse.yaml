@@ -1,0 +1,79 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Items To Stock By Location
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 194
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 576
+        item_code:
+          type: string
+          description: Item Code
+          example: EIN30
+        item_name:
+          type: string
+          description: Item Name
+          example: KAOS POLOS COTTON COMBED 20S
+        buy_price:
+          type: string
+          description: Buy price of item
+          example: '40000.0000'
+        is_consignment:
+          type: boolean
+          description: Whether the item is a consignment or not
+          example: false
+        buy_unit:
+          type: string
+          description: Buy Unit
+          example: Buah
+        account_code:
+          type: string
+          description: Account Code
+          example: 1-1200
+        account_name:
+          type: string
+          description: Account Name
+          example: 1-1200 - Persediaan Barang
+        uom_id:
+          type: number
+          description: Unit of Measure ID. Default value is -1
+          example: -1
+        invt_acct_id:
+          type: number
+          description: Inventory Account ID (default = 4)
+          example: 4
+        brand_name:
+          type: string
+          description: Brand Name
+          example: null
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: EIN30 - KAOS POLOS COTTON COMBED 20S - sage green, M
+        coalesce:
+          type: string
+          example: '40000.000000000000'
+        average_cost:
+          type: string
+          description: Average Cost
+          example: '40000.000000000000'
+        end_qty:
+          type: number
+          description: Total Inventory on Hand
+          example: 0
+        available_qty:
+          type: number
+          description: End qty
+          example: 0
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: null

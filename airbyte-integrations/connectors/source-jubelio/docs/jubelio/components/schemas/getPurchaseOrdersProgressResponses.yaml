@@ -1,0 +1,57 @@
+type: array
+items:
+  type: object
+  properties:
+    purchaseorder_id:
+      type: number
+      example: 5479
+      description: Purchase Order ID
+    purchaseorder_no:
+      type: string
+      example: PO-000005479
+      description: Purchase Order No.
+    contact_id:
+      type: number
+      example: 30691
+      description: Contact ID
+    supplier_name:
+      type: string
+      example: BINJAY
+      description: Supplier/vendor name in contact menu
+    transaction_date:
+      type: string
+      format: date-time
+      example: '2022-02-15T02:28:41.429Z'
+    grand total:
+      type: number
+      description: Grand Total
+      example: 3371200
+    note:
+      type: string
+      example: ''
+    status:
+      type: string
+      example: ACTIVE
+    location_id:
+      type: number
+      example: 1
+    bills:
+      type: string
+      description: If bill no. already exist means this PO have been received.
+      example: BIL-000009709
+    from_no:
+      type: number
+      example: 20
+    to_no:
+      type: number
+      example: 120
+    percentage:
+      type: number
+      description: Percentage of how much items have been received in the warehouse.
+      example: 16
+    location_name:
+      type: string
+      example: Gudang BESAR
+    button_msg:
+      type: string
+      example: Terima

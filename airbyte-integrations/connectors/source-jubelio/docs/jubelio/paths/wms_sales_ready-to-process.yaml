@@ -1,0 +1,27 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: >-
+    Move orders from the 'empty-stock' and 'failed pick' to 'ready to process'
+    list
+  operationId: postWMSSalesReadyToProcess
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postWMSSalesReadyToProcessRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postWMSSalesReadyToProcessResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

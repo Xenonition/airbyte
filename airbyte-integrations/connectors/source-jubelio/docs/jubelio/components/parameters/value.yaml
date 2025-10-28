@@ -1,0 +1,7 @@
+name: value
+in: query
+required: false
+style: form
+description: Value (SO Number)
+schema:
+  type: string

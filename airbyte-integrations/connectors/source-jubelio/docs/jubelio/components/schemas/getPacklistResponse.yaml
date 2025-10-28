@@ -1,0 +1,362 @@
+type: object
+properties:
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 6
+  salesorder_no:
+    type: string
+    description: Sales Order Number
+    example: SO-000000006
+  customer_name:
+    type: string
+    description: Contact Name (Customer)
+    example: Pelanggan Umum
+  picklist_id:
+    type: number
+    description: Picklist ID
+    example: 3
+  picklist_no:
+    type: number
+    description: Picklist Number
+    example: PICK-000000003
+  invoice_no:
+    type: number
+    description: Invoice Number
+    example: INV-000000003
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-20T17:00:00.000Z'
+  created_date:
+    type: string
+    format: date
+    description: Created Date
+    example: '2018-10-20T17:00:00.000Z'
+  source:
+    type: string
+    description: Source
+    example: 1
+  source_name:
+    type: string
+    description: Source Name
+    example: Internal
+  shipper:
+    type: number
+    description: Shipper
+    example: JNE
+  due_date:
+    type: number
+    description: Payment Due Date
+    example: 0
+  store_id:
+    type: string
+    description: Store ID
+    example: 1
+  store_name:
+    type: string
+    description: Store Name
+    example: Internal
+  shipping_full_name:
+    type: string
+    description: Shipping Full Name (Receiver)
+    example: Mikha
+  shipping_address:
+    type: string
+    description: Shipping Address
+    example: Kutabumi
+  shipping_area:
+    type: string
+    description: Shipping Address Area
+    example: Pasar Kemis
+  shipping_city:
+    type: string
+    description: Shipping Address City
+    example: Tangerang
+  shipping_province:
+    type: string
+    description: Shipping Address Province
+    example: Banten
+  shipping_post_code:
+    type: string
+    description: Shipping Address Post Code
+    example: 11750
+  shipping_country:
+    type: string
+    description: Shipping Address Country
+    example: Indonesia
+  ship_address:
+    type: string
+    description: Shipping Full Address
+    example: KutabumiPasar Kemis/r/nTangerang/r/nBanten/r/n11750
+  tracking_no:
+    type: string
+    description: Tracking Number
+    example: TRC-00000001
+  is_tax_included:
+    type: boolean
+    description: Whether Tax Included
+    example: false
+  note:
+    type: string
+    description: Note
+    example: Kaos Dreamcatcher
+  sub_total:
+    type: string
+    description: Sub Total
+    example: 120000
+  total_disc:
+    type: string
+    description: Total Discount
+    example: 0
+  total_tax:
+    type: string
+    description: Total Tax
+    example: 0
+  grand_total:
+    type: string
+    description: Grand Total
+    example: 120000
+  ref_no:
+    type: string
+    description: Reference Number
+    example: 99
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  is_canceled:
+    type: boolean
+    description: Whether Order is Canceled
+    example: false
+  cancel_reason:
+    type: string
+    description: Cancel Reason
+    example: ''
+  is_paid:
+    type: boolean
+    description: Whether Order have been Paid
+    example: true
+  channel_status:
+    type: string
+    description: Channel Status
+    example: paid
+  shipping_cost:
+    type: string
+    description: Shipping Cost
+    example: 5000
+  insurance_cost:
+    type: string
+    description: Insurance Cost
+    example: 5000
+  contact_id:
+    type: number
+    description: Contact ID
+    example: null
+  payment_method:
+    type: string
+    description: Payment Method
+    example: null
+  cancel_reason_detail:
+    type: string
+    description: Cancel reason
+    example: null
+  last_modified:
+    type: string
+    format: date-time
+    description: Last modified date
+    example: '2020-03-29T05:05:27.326Z'
+  register_session_id:
+    type: number
+    description: Register session ID
+    example: null
+  user_name:
+    type: string
+    description: Username
+    example: null
+  dlvmthdcd:
+    type: string
+    description: .
+    example: null
+  dlvetprscd:
+    type: string
+    description: .
+    example: null
+  dlvetprsnm:
+    type: string
+    description: .
+    example: null
+  dlvno:
+    type: string
+    description: .
+    example: null
+  ordprdseq:
+    type: string
+    description: .
+    example: null
+  marked_as_complete:
+    type: boolean
+    description: .
+    example: null
+  is_tracked:
+    type: boolean
+    description: .
+    example: null
+  store_so_number:
+    type: string
+    description: .
+    example: null
+  is_deleted_from_picklist:
+    type: boolean
+    description: Is Deleted
+    example: false
+  dropshipper:
+    type: string
+    description: Dropshipper
+    example: null
+  dropshipper_address:
+    type: string
+    description: Dropshipper Address
+    example: null
+  is_shipped:
+    type: boolean
+    description: Is shipped
+    example: null
+  received_date:
+    type: string
+    description: Is shipped
+    example: null
+  salesmen_id:
+    type: number
+    description: Salesman ID
+    example: null
+  shipping_phone:
+    type: string
+    description: Is shipped
+    example: 83899988999
+  escrow_amount:
+    type: string
+    description: >-
+      The escrow value is the value to be paid to the seller from the MP after
+      deducting the admin fee.
+    example: 315000
+  is_acknowledge:
+    type: boolean
+    description: .
+    example: null
+  acknowledge_status:
+    type: string
+    description: Acknowledge status
+    example: null
+  deleted_from_picklist_by:
+    type: string
+    description: Deleted by
+    example: null
+  add_disc:
+    type: string
+    description: .
+    example: '0.0000'
+  add_fee:
+    type: string
+    description: .
+    example: '0.0000'
+  is_label_printed:
+    type: boolean
+    description: Label printed
+    example: false
+  is_invoice_printed:
+    type: boolean
+    description: Invoice printed
+    example: false
+  total_amount_mp:
+    type: number
+    description: Total amount mp
+    example: null
+  internal_do_number:
+    type: string
+    description: Internal DO Number
+    example: null
+  internal_so_number:
+    type: string
+    description: Internal SO Number
+    example: null
+  tracking_number:
+    type: string
+    description: Tracking Number
+    example: null
+  courier:
+    type: string
+    description: Courier
+    example: null
+  closure_id:
+    type: number
+    description: Closure ID
+    example: null
+  username:
+    type: string
+    description: Username
+    example: null
+  is_po:
+    type: boolean
+    description: Is PreOrder
+    example: false
+  tn_created_date:
+    type: string
+    format: date
+    description: .
+    example: null
+  picked_in:
+    type: string
+    description: .
+    example: null
+  district_cd:
+    type: string
+    description: .
+    example: null
+  sort_code:
+    type: string
+    description: .
+    example: null
+  shipment_type:
+    type: string
+    description: Type of Shipment
+    example: null
+  status_details:
+    type: string
+    description: Status details
+    example: null
+  service_fee:
+    type: string
+    description: Service fee
+    example: null
+  items:
+    type: array
+    description: Insurance Cost
+    items:
+      type: object
+      properties:
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: 7
+        channel_order_detail_id:
+          type: number
+          description: Channel Order Detail ID
+          example: 0
+        item_code:
+          type: string
+          description: Item Code
+          example: BTY-L
+        description:
+          type: string
+          description: Item Description
+          example: Kaos DreamCatcher Born to Be Yours
+        qty_in_base:
+          type: string
+          description: Quantity that will be purchased
+          example: 1
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah

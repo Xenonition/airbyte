@@ -1,0 +1,8 @@
+type: object
+required:
+  - shipment_no
+properties:
+  shipment_no:
+    type: string
+    description: Shipment No.
+    example: SHP-000010492

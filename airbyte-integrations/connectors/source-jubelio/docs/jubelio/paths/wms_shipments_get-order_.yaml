@@ -1,0 +1,25 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Update quantity of items that has already given to the courier
+  operationId: postWMSShipmentsGetOrder
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postWMSShipmentsGetOrderRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postWMSShipmentsGetOrderResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,14 @@
+type: object
+properties:
+  subdistrict_id:
+    type: string
+    description: Subdistrict ID
+    example: 1105072002
+  district_id:
+    type: string
+    description: District ID
+    example: 110507
+  name:
+    type: string
+    description: Area Name
+    example: Alue Batee

@@ -1,0 +1,13 @@
+type: object
+properties:
+  status:
+    type: string
+    description: status
+    example: ok
+  url:
+    type: string
+    example: >-
+      https://report2.jubelio.com/?&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXBvcnROYW1lIjoiRmFrdHVyIFBlbmp1YWxhbiIsImNvbXBhbnlJZCI6MzIwODIsInRlbmFudElkIjoic3pqZ3B6emlyZWMyeGZuejVuYmJjYSIsImxvZ29fdXJsIjpu
+  title:
+    type: string
+    example: Faktur Penjualan

@@ -1,0 +1,14 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Action Name
+    example: update-price
+  item_group_id:
+    type: number
+    description: Item Group ID
+    example: 1
+  item_group_name:
+    type: string
+    description: Item Group Name
+    example: Test barang

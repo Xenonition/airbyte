@@ -1,0 +1,22 @@
+get:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Get all shipment schedule for regular courier
+  operationId: getWMSSalesShipmentsAll
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getWMSSalesShipmentsAllResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,14 @@
+type: object
+properties:
+  statusCode:
+    type: string
+    description: Error Status Code
+    example: 400
+  error:
+    type: string
+    description: Bad Request
+    example: Internal Server Error
+  message:
+    type: string
+    description: Error Message
+    example: Error when getting AWB

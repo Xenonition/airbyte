@@ -1,0 +1,76 @@
+type: object
+properties:
+  channels:
+    type: array
+    description: List Channels
+    items:
+      type: object
+      properties:
+        store_id:
+          type: string
+          description: Store ID
+          example: 359
+        channel_name:
+          type: number
+          description: Channel Name
+          example: Elevenia
+        store_name:
+          type: string
+          description: Store Name
+          example: truzteeshop
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 1
+        item_id:
+          type: number
+          description: Item ID
+          example: 2273
+        item_name:
+          type: string
+          description: Item Name
+          example: Baju Corak Carik Warna Warni
+        item_code:
+          type: string
+          description: Item Code
+          example: BLACK
+        brand_name:
+          type: string
+          description: Brand Name
+          example: null
+        prices:
+          type: array
+          description: List Item Prices
+          items:
+            type: object
+            properties:
+              store_id:
+                type: string
+                description: Store ID
+                example: 359
+              price:
+                type: number
+                description: Item Price on Store
+                example: 100000
+        last_modified:
+          type: string
+          description: Last Modified
+          example: null
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1
+  modified_by:
+    type: array
+    items:
+      type: string
+  channel_status:
+    type: array
+    items:
+      type: string

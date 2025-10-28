@@ -1,0 +1,29 @@
+post:
+  tags:
+    - Inventory
+  summary: Set items to be Auto-putaway
+  description: >-
+    Bill ID/Transfer ID/Return ID **is required** based on **the type of your
+    items**, whether your items is a received items, transfer items, or return
+    items.
+  operationId: postInventoryItemsAutoputaway
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ItemsAutoPutawayRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PutawayPostResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

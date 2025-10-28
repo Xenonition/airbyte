@@ -1,0 +1,22 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Action Name
+    example: new-stocktransfer
+  item_transfer_id:
+    type: number
+    description: Item Transfer ID
+    example: 1
+  item_transfer_no:
+    type: string
+    description: Item Transfer Number
+    example: TRF-000000001
+  status:
+    type: string
+    description: Status
+    example: CREATED
+  created_by:
+    type: string
+    description: Created By (Name)
+    example: support team

@@ -1,0 +1,8 @@
+type: object
+required:
+  - salesorder_no
+properties:
+  salesorder_no:
+    type: string
+    description: Sales Order No.
+    example: LZ-695749998829055

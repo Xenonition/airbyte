@@ -1,0 +1,30 @@
+type: array
+items:
+  type: object
+  properties:
+    item_id:
+      type: string
+      description: Item ID
+      example: 57009
+    item_code:
+      type: string
+      description: Item Code
+      example: BC90 - MERAH
+    item_name:
+      type: string
+      description: Item Name
+      example: Celana Wanita Trendy
+    item_full_name:
+      type: string
+      description: Item Full Name
+      example: BC90 - Merah - Celana Wanita Trendy
+    available_qty:
+      type: number
+      example: 5
+    item_group_id:
+      type: string
+      description: Item Group ID
+      example: 9194
+    thumbnail:
+      type: string
+      example: https://jubelio.blob.core.windows.net/images/gfdsgfsdgfd

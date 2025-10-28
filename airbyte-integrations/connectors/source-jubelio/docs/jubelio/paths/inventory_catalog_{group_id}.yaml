@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Inventory
+  summary: Get Item Catalog
+  operationId: getItemCatalogId
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: id
+      in: query
+      required: true
+      style: form
+      explode: false
+      description: Item Group ID
+      example: 1
+      schema:
+        type: number
+        format: int32
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getItemCatalogResponse.yaml

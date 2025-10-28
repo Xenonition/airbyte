@@ -1,0 +1,47 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 58605
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: >-
+            Celana Panjang Leging Anak Bayi Newborn (0-12 Bulan) Legging Bayi
+            Polos Kaki Tutup Bawahan CLB-6001 - Polos 0-6 Bulan,Blue 1pcs
+        location_id:
+          type: number
+          description: Location ID
+          example: null
+        bin_id:
+          type: number
+          description: Bin ID
+          example: null
+        serial_no:
+          type: string
+          description: Serial No.
+          example: null
+        batch_no:
+          type: string
+          description: Batch No.
+          example: null
+        qty:
+          type: number
+          description: Quantity
+          example: 0
+        use_serial_number:
+          type: boolean
+          example: false
+        use_batch_number:
+          type: boolean
+          example: false
+  totalCount:
+    type: number
+    description: total count of all data
+    example: 8200

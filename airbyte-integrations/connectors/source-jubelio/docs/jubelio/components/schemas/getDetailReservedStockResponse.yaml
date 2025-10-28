@@ -1,0 +1,83 @@
+type: object
+properties:
+  items:
+    type: array
+    description: Detail of Reserved Stock
+    items:
+      type: object
+      properties:
+        reservedstock_detail_id:
+          type: number
+          description: Reserved Stock Detail ID
+          example: 19
+        item_id:
+          type: number
+          description: Item ID
+          example: 789
+        qty_in_base:
+          type: string
+          description: Item Quantity Updates
+          example: '2.000'
+        store_id:
+          type: string
+          description: Store ID
+          example: null
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: 01-HIT-M - Kaos Pria Hitam Legam S-M
+        channel_full_name:
+          type: string
+          description: Channel Full Name
+          example: ' '
+        item_active:
+          type: boolean
+          description: Whether item is active
+          example: true
+  location_name:
+    type: string
+    description: Location Name
+    example: Jakarta
+  created_by:
+    type: string
+    description: Created By
+    example: ririn@gmail.com
+  reservedstock_id:
+    type: number
+    description: Reserved Stock ID
+    example: 23
+  created_date:
+    type: string
+    format: date-time
+    description: Created Date
+    example: '2023-04-18T06:37:13.860Z'
+  start_date:
+    type: string
+    format: date-time
+    description: Start date for the reserved stock
+    example: '2023-04-19T08:01:00.000Z'
+  end_date:
+    type: string
+    format: date-time
+    description: End date for the reserved stock
+    example: '2023-04-19T08:01:00.000Z'
+  reservedstock_no:
+    type: string
+    description: Reserved Stock Number
+    example: RSRV-000000025
+  note:
+    type: string
+    description: Note
+    example: antisipasi lebaran
+  location_id:
+    type: string
+    description: Location ID
+    example: 3
+  is_active:
+    type: boolean
+    description: Whether reserved stock is active
+    example: false
+  extra_info:
+    type: string
+    description: Extra Info
+    example: null

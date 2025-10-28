@@ -1,0 +1,150 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        item_group_id:
+          type: string
+          description: Item Group ID
+          example: 1931
+        item_name:
+          type: string
+          description: Item Name
+          example: Dompet Jube
+        last_modified:
+          type: string
+          format: date-time
+          example: '2019-01-07T07:53:35.100Z'
+        variations:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: Variation Label
+                example: Warna
+              values:
+                type: string
+                description: values
+                example: Hitam
+        item_category_id:
+          type: string
+          description: Item Category ID
+          example: 690
+        total_composition:
+          type: number
+          description: Total BOM composition
+          example: 2
+        variants:
+          type: array
+          items:
+            type: object
+            properties:
+              item_group_id:
+                type: string
+                description: Item Group ID
+                example: 1931
+              item_id:
+                type: string
+                description: Item ID
+                example: 2976
+              item_code:
+                type: string
+                description: Item Code
+                example: A2143
+              end_qty:
+                type: number
+                description: Total quantity on-Hand/current item quantity
+                example: 10
+              order_qty:
+                type: number
+                description: Total quantity on-Order
+                example: 0
+              item_name:
+                type: string
+                description: Item Name
+                example: Dompet Jube
+              available_qty:
+                type: number
+                description: Total Available Quantity
+                example: 10
+              sell_price:
+                type: number
+                description: Sell Price
+                example: 3600000
+              variation_values:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    label:
+                      type: string
+                      description: Variation Label
+                      example: Warna
+                    value:
+                      type: string
+                      example: Hitam
+              is_bundle:
+                type: boolean
+                description: Whether item is a bundle product
+                example: false
+              thumbnail:
+                type: string
+                example: >-
+                  https://jubelio.blob.core.windows.net/images/sng8ijwwqasgxnomjslrjw/4469a64e-8623-4a8d-9792-f777ff434e97_thumb.jpeg
+              barcode:
+                type: string
+                example: 12435423653
+              tax_rate:
+                type: number
+                description: Tax rate in percentage
+                example: 10
+              store_names:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    store_name:
+                      type: string
+                      description: Store Name
+                      example: Lazada
+        online_status:
+          type: array
+          items:
+            type: object
+            properties:
+              channel_id:
+                type: number
+                description: Channel ID
+                example: 4
+              store_id:
+                type: string
+                description: Store ID
+                example: 553
+              store_name:
+                type: string
+                description: Store Name
+                example: Lazada
+              channel_group_id:
+                type: string
+                description: Channel Group ID
+                example: 1931
+              channel_url:
+                type: string
+                description: Channel URL
+                example: http://www.lazada.co.id/-i402292239-s443195538.html
+              shop_id:
+                type: string
+                description: Shop ID
+                example: 1
+        thumbnail:
+          type: string
+          example: >-
+            https://jubelio.blob.core.windows.net/images/sng8ijwwqasgxnomjslrjw/4469a64e-8623-4a8d-9792-f777ff434e97_thumb.jpeg
+  totalCount:
+    type: number
+    description: total count of all data
+    example: 8200

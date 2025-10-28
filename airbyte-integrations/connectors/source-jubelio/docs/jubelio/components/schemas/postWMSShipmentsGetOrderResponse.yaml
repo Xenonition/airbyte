@@ -1,0 +1,16 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Status
+    example: ok
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 2499908
+  is_canceled:
+    type: boolean
+    example: false
+  internal_status:
+    type: string
+    example: PROCESSING

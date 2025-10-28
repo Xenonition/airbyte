@@ -1,0 +1,44 @@
+post:
+  tags:
+    - Product
+  summary: Create/Edit Product
+  description: ''
+  operationId: postInventoryCatalog
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - $ref: ../components/schemas/createProductRequest.yaml
+            - $ref: >-
+                ../components/schemas/createSingleorMultiVariantProductRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: Save Status
+                example: ok
+              id:
+                type: number
+                description: Item Group ID
+                example: 1
+              item_ids:
+                type: array
+                description: List Item ID
+                items:
+                  type: number
+                  example: 1
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

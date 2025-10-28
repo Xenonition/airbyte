@@ -1,0 +1,10 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Delete Status
+    example: ok
+  id:
+    type: number
+    description: Sales Invoice Number
+    example: 8

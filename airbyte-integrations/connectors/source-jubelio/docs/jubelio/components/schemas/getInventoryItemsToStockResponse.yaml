@@ -1,0 +1,83 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List items that stock needs to adjust
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 58605
+        item_group_id:
+          type: number
+          description: Item Group Id
+          example: 9093
+        item_code:
+          type: string
+          description: Item Code
+          example: SSJDS-6001
+        item_name:
+          type: string
+          description: Item Name
+          example: Aqua 1,5 L
+        buy_price:
+          type: string
+          description: Item Buy Price
+          example: 750
+        is_consignment:
+          type: boolean
+          description: If the product is consignment product
+          example: false
+        invt_acct_id:
+          type: number
+          description: Inventory Account ID
+          example: 4
+        brand_name:
+          type: string
+          description: Brand Name
+          example: null
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: >-
+            Celana Panjang Leging Anak Bayi Newborn (0-12 Bulan) Legging Bayi
+            Polos Kaki Tutup Bawahan CLB-6001 - Polos 0-6 Bulan
+        buy_unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        uom_id:
+          type: number
+          description: Unit of Measure ID
+          example: -1
+        account_name:
+          type: string
+          description: Account Name
+          example: 1-1200 - Persediaan Barang
+        use_serial_number:
+          type: boolean
+          description: If the product has serial number
+          example: false
+        use_batch_number:
+          type: boolean
+          description: If the product has batch number
+          example: false
+        coalesce:
+          type: number
+          example: 833333
+        average_cost:
+          type: number
+          example: 833333
+        end_qty:
+          type: number
+          description: latest stock quantity
+          example: 100
+        available_qty:
+          type: number
+          example: 100
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

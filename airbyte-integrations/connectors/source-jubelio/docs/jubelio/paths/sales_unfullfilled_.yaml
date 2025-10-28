@@ -1,0 +1,74 @@
+get:
+  tags:
+    - Sales
+  summary: Get All Packlist
+  operationId: getSalesUnfullfilled
+  parameters:
+    - name: authorization
+      in: header
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+    - name: page
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        minimum: 1
+        type: number
+        format: int32
+    - name: pageSize
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        minimum: 1
+        type: number
+        format: int32
+    - name: sortDirection
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: sortBy
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: csv
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: createdSince
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+        format: date
+  responses:
+    default:
+      description: Successful
+      content:
+        '*/*':
+          schema:
+            type: string

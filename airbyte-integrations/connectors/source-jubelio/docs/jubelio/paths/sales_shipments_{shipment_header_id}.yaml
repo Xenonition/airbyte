@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Sales
+  summary: Get list of items that are ready to ship based on shipment schedule
+  operationId: getSalesShipmentsShipmentHeaderId
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: shipment_header_id
+      in: path
+      required: true
+      description: Shipment Header ID
+      schema:
+        type: number
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/getSalesShipmentsShipmentHeaderIdResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

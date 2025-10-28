@@ -1,0 +1,87 @@
+type: object
+properties:
+  floors:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int64
+          description: Automatically generated. but to create new, you can fill with 0
+          example: 0
+        text:
+          type: string
+          example: L1
+        rows:
+          type: array
+          items:
+            type: object
+            properties:
+              row_id:
+                type: number
+                example: 0
+              row_code:
+                type: string
+                example: A1
+              columns:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    column_id:
+                      type: number
+                      format: int64
+                      example: 0
+                    column_code:
+                      type: string
+                      example: K1
+                    bins:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          bin_id:
+                            type: number
+                            format: int64
+                            example: 0
+                          bin_code:
+                            type: string
+                            example: R1
+                          bin_final_code:
+                            type: string
+                            example: L1-A1-K1-R1
+                          max_qty:
+                            type: number
+                            example: 1000
+                          acknowledge_stock:
+                            type: boolean
+                            example: true
+                          bin_reject:
+                            type: boolean
+                            example: true
+                          bin_default:
+                            type: string
+                            example: null
+                          is_inbound:
+                            type: boolean
+                            example: false
+  delete:
+    type: object
+    properties:
+      floors:
+        type: array
+        items:
+          type: object
+      rows:
+        type: array
+        items:
+          type: object
+      columns:
+        type: array
+        items:
+          type: object
+      bins:
+        type: array
+        items:
+          type: object

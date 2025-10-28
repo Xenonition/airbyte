@@ -1,0 +1,42 @@
+type: object
+properties:
+  location_id:
+    type: number
+    description: Adjustment Location
+    example: -1
+  location_name:
+    type: string
+    description: Adjustment Location Name
+    example: Pusat
+  item_location:
+    type: array
+    description: List Item Location
+    items:
+      type: object
+      properties:
+        location_id:
+          type: number
+          description: Adjustment Location
+          example: -1
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        qty:
+          type: string
+          description: Total Item Quantity
+          example: -65
+        batchs:
+          type: array
+          description: List Item Location
+          items:
+            type: object
+            properties:
+              batch_no:
+                type: string
+                description: Batch Number
+                example: CF013037-123123
+              qty:
+                type: string
+                description: Total Item Quantity for this Item Batch Number
+                example: -3

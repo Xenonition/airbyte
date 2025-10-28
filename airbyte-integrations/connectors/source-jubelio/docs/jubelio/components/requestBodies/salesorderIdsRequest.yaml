@@ -1,0 +1,11 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        ids:
+          type: array
+          description: List Sales Order ID
+          items:
+            type: number
+            example: 1

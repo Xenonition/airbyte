@@ -1,0 +1,131 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        contact_id:
+          type: number
+          description: Contact ID
+          example: 2
+        contact_name:
+          type: string
+          description: Contact Name
+          example: Radit
+        contact_type:
+          type: number
+          description: Contact Type [0 = Customer/1 = Vendor/2 = Customer and Vendor]
+          example: 0
+        primary_contact:
+          type: string
+          description: Primary Contact Name
+          example: Radit
+        contact_position:
+          type: string
+          description: Contact Position
+          example: Developer
+        email:
+          type: string
+          description: Contact Email
+          example: radit.developer@gmail.com
+        phone:
+          type: string
+          description: Contact Phone Number
+          example: 82297772419
+        mobile:
+          type: string
+          description: Contact Mobile Phone Number
+          example: 82297772419
+        fax:
+          type: string
+          description: Contact Fax Number
+          example: 21547281
+        npwp:
+          type: string
+          description: Contact NPWP Number
+          example: 1234567890
+        payment_term:
+          type: number
+          description: >-
+            Contact Payment Term [-1 = Cash/7 = 7 Days/15 = 15 Days/30 = 30
+            Days]
+          example: -1
+        notes:
+          type: string
+          description: Contact Note/Description
+          example: Radit like to be late when doing payment
+        s_address:
+          type: string
+          description: Shipping Full Address
+          example: Duri Kosambi No 11
+        s_area:
+          type: string
+          description: Shipping Address Area
+          example: Cengkareng
+        s_city:
+          type: string
+          description: Shipping Address City
+          example: Jakarta Barat
+        s_province:
+          type: string
+          description: Shipping Address Province
+          example: DKI Jakarta
+        s_post_code:
+          type: string
+          description: Shipping Address Post Code
+          example: 11750
+        b_address:
+          type: string
+          description: Biling Full Address
+          example: Duri Kosambi No 11
+        b_area:
+          type: string
+          description: Biling Address Area
+          example: Cengkareng
+        b_city:
+          type: string
+          description: Biling Address City
+          example: Jakarta Barat
+        b_province:
+          type: string
+          description: Biling Address Province
+          example: DKI Jakarta
+        b_post_code:
+          type: string
+          description: Biling Address Post Code
+          example: 11750
+        location_id:
+          type: number
+          description: Location ID
+          example: -1
+        is_loyalty_member:
+          type: boolean
+          description: Is Contact a Loyalty Member
+          example: -1
+        b_sex:
+          type: string
+          description: Contact Gender
+          example: L
+        b_birthday:
+          type: string
+          format: date
+          description: Contact Birthday
+          example: '2018-10-20T17:00:00.000Z'
+        contact_full:
+          type: string
+          description: Contact Full Information
+          example: Radit - 082297772417 - radit.developer@gmail.com
+        is_dropshipper:
+          type: boolean
+          description: Is dropshipper
+          example: false
+        is_reseller:
+          type: boolean
+          description: Is reseller
+          example: false
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

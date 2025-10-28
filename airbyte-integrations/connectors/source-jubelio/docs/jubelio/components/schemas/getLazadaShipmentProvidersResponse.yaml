@@ -1,0 +1,17 @@
+type: array
+items:
+  type: object
+  properties:
+    name:
+      type: string
+      description: Shipment Provider Name
+      example: JNE
+    cod:
+      type: number
+      example: 1
+    is_default:
+      type: number
+      example: 1
+    api_integration:
+      type: number
+      example: 1

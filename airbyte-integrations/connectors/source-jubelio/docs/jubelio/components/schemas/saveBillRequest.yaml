@@ -1,0 +1,156 @@
+required:
+  - bill_no
+  - due_date
+  - is_opening_balance
+  - location_id
+  - supplier_name
+type: object
+properties:
+  bill_id:
+    type: number
+    description: Bill ID
+    example: 0
+  bill_no:
+    type: string
+    description: Bill Number
+    example: '[auto]'
+  contact_id:
+    type: number
+    description: Contact ID
+    example: 5
+  supplier_name:
+    type: string
+    description: Supplier Name
+    example: BLANJA
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-11-19T19:37:56.176Z'
+  due_date:
+    type: string
+    format: date
+    description: Due Date
+    example: '2018-11-19T19:37:56.176Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Bill include Tax
+    example: false
+  note:
+    type: string
+    description: Bill Note
+    example: Penerimaan Barang yang sudah dipesan
+  sub_total:
+    type: number
+    description: Bill Sub Total
+    example: 20000
+  total_disc:
+    type: number
+    description: Total Discount
+    example: 0
+  total_tax:
+    type: number
+    description: Total Tax
+    example: 0
+  grand_total:
+    type: number
+    description: Bill Grand Total
+    example: 20000
+  payment_acct_id:
+    type: number
+    description: Payment Account ID
+    example: false
+  payment:
+    type: number
+    description: Payment
+    example: 0
+  ref_no:
+    type: string
+    description: Reference No
+    example: 123654
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  is_opening_balance:
+    type: boolean
+    description: If bill is for Opening Balance
+    example: false
+  purchaseorder_id:
+    type: number
+    description: Purchase Order Id
+    example: 20
+  auto_placement:
+    type: boolean
+    description: If you want to automatically place the products on the default rack
+    example: false
+  items:
+    minItems: 1
+    type: array
+    items:
+      type: object
+      properties:
+        bill_detail_id:
+          type: number
+          description: Bill Detail ID
+          example: 0
+        purchaseorder_detail_id:
+          type: number
+          description: Purchase Order Detail Id
+          example: 30
+        item_id:
+          type: number
+          description: Item ID
+          example: 7
+        description:
+          type: string
+          description: Item Description
+          example: Aqua 1,5 L
+        invt_acct_id:
+          type: number
+          description: Inventory Account ID
+          example: 4
+        tax_id:
+          type: number
+          description: Tax ID
+          example: -1
+        price:
+          type: number
+          description: Item Price
+          example: 4000
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity that will be add
+          example: 5
+        serialno:
+          type: array
+          items:
+            type: string
+        batchno:
+          type: array
+          items:
+            type: string
+        disc:
+          type: number
+          description: Discount
+          example: 0
+        disc_amount:
+          type: number
+          description: Total Discount Amount
+          example: 0
+        tax_amount:
+          type: number
+          description: Tax Amount
+          example: 0
+        amount:
+          type: number
+          description: Total Amount
+          example: 20000
+        location_id:
+          type: number
+          description: Location ID
+          example: -1

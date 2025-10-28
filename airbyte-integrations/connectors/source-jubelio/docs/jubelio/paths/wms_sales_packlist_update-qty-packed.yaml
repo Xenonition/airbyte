@@ -1,0 +1,27 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Update quantity of item that has been packed
+  operationId: postWMSSalesPacklistUpdateQTYPacked
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: >-
+            ../components/schemas/postWMSSalesPacklistUpdateQTYPackedRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/postWMSSalesPacklistUpdateQTYPackedResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

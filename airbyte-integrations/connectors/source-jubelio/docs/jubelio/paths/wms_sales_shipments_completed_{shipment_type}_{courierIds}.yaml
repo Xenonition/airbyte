@@ -1,0 +1,32 @@
+get:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Get the list of shipments which are already on delivery
+  operationId: getWMSSalesShipmentsCompleted
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - name: shipment_type
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: courierIds
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getWMSSalesShipmentsCompletedResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

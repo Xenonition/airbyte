@@ -1,0 +1,6 @@
+type: object
+properties:
+  id:
+    type: number
+    description: Saved ID
+    example: 1

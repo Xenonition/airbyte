@@ -1,0 +1,28 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Action Name
+    example: hook-payment
+  payment_id:
+    type: number
+    description: Payment ID
+    example: 168
+  payment_no:
+    type: string
+    description: Payment Number
+    example: CP-0000090
+  invoices:
+    type: array
+    description: List Invoices
+    items:
+      type: object
+      properties:
+        payment_id:
+          type: number
+          description: Payment Id
+          example: CF013037-123123
+        invoice_id:
+          type: number
+          description: Invoice Id for this Payment
+          example: -3

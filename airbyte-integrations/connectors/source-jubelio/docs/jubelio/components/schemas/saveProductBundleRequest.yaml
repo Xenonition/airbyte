@@ -1,0 +1,314 @@
+required:
+  - item_group_id
+  - item_group_name
+  - uom_id
+  - description
+  - sell_this
+  - sell_tax_id
+  - buy_tax_id
+  - sales_acct_id
+  - cogs_acct_id
+  - invt_acct_id
+  - buy_this
+  - stock_this
+  - sell_unit
+  - buy_unit
+  - is_active
+  - item_category_id
+  - package_weight
+  - channels
+  - variations
+  - sell_price
+  - brand_id
+  - brand_name
+  - use_single_image_set
+  - use_serial_number
+  - product_skus
+  - is_bundle
+  - bundles
+type: object
+properties:
+  item_group_id:
+    type: number
+    description: |
+      Item Group ID <br>
+      To create new prouct => "item_group_id": 0 <br>
+      To edit prouct => "item_group_id": {item_group_id}
+    example: 0
+  item_group_name:
+    type: string
+    description: |
+      Item Group Name (Unique)
+    example: 10.4 10W40
+  uom_id:
+    type: number
+    description: Unit of Measure ID
+    example: -1
+  description:
+    type: string
+    description: Item Description
+    example: semi-synthetic lubricant for 4-stroke motorcycles that ensures
+  sell_this:
+    type: boolean
+    description: Whether Item can be sell
+    example: true
+  buy_this:
+    type: boolean
+    description: Whether Item can be bought
+    example: true
+  stock_this:
+    type: boolean
+    description: Whether Item can be stock
+    example: true
+  buy_price:
+    type: number
+    description: Buy Price
+    example: 0
+  sell_price:
+    type: number
+    description: Item Sell Price
+    example: 3600000
+  sell_tax_id:
+    type: number
+    description: Sell Tax ID Default (PPN = -1, No PPN = 1)
+    example: -1
+  buy_tax_id:
+    type: number
+    description: Buy Tax ID Default (PPN = -1, No PPN = 1)
+    example: -1
+  sales_acct_id:
+    type: number
+    description: Sales Account ID (default = 28)
+    example: 28
+  cogs_acct_id:
+    type: number
+    description: Cost of Goods Sold (COGS) Account Account ID (default = 30)
+    example: 30
+  purch_acct_id:
+    type: number
+    description: Purchase Account ID (default = NULL)
+    example: null
+  invt_acct_id:
+    type: number
+    description: Inventory Account ID (default = 4)
+    example: 4
+  sell_unit:
+    type: string
+    description: Sell Unit
+    example: Buah
+  rop:
+    type: number
+    description: >-
+      Re-Order Point. Stock limit that is used to decide when we need to
+      adjust/update the stock.
+    example: 20
+  item_category_id:
+    type: number
+    description: Item Category ID
+    example: 454
+  store_priority_qty_treshold:
+    type: number
+    description: Store Priority Treshold
+    example: 2
+  channels:
+    type: array
+    description: Sales Channels, could be Marketplace/other channels.
+    items:
+      type: object
+      properties:
+        store_id:
+          type: string
+          description: Store ID
+          example: 359
+        channel_name:
+          type: number
+          description: Channel Name
+          example: Elevenia
+        store_name:
+          type: string
+          description: Store Name
+          example: truzteeshop
+  use_serial_number:
+    type: boolean
+    description: Whether the item use serial number
+    example: false
+  use_single_image_set:
+    type: boolean
+    example: false
+  brand_id:
+    type: string
+    description: Brand ID
+    example: null
+  dropship_this:
+    type: boolean
+    description: Whether Item can be drop ship
+    example: false
+  is_active:
+    type: boolean
+    description: Whether Item is active
+    example: true
+  package_content:
+    type: string
+    description: Package Content
+    example: Plastik and How to Use
+  package_weight:
+    type: number
+    description: Package Weight
+    example: 1000
+  package_height:
+    type: number
+    description: Package Height
+    example: 29
+  package_width:
+    type: number
+    description: Package Width
+    example: 49
+  package_length:
+    type: number
+    description: Package Length
+    example: 39
+  variations:
+    type: array
+    description: List Item Variations, fill only if your products have variations.
+    items:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Variation Label
+          example: Warna
+        values:
+          type: array
+          description: List Variation Values
+          items:
+            type: string
+            example: Putih, Hitam, Biru
+  brand_name:
+    type: string
+    description: Another Brand Name
+    example: Adidas
+  product_skus:
+    type: array
+    description: List Item SKUs
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 0
+        item_code:
+          type: string
+          description: |
+            Item Code (Unique)
+          example: RIC-COO-MIY-RCM-PIN
+        variation_values:
+          type: array
+          description: Item Variations
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: Variation Label
+                example: Warna
+              value:
+                type: string
+                description: Variation Value
+                example: Putih
+        sell_price:
+          type: number
+          description: Item Sell Price Variant
+          example: 240000
+        prices:
+          type: array
+          description: List Price on Channels
+          items:
+            type: object
+            properties:
+              store_id:
+                type: string
+                description: Store ID
+                example: 125
+              channel_id:
+                type: number
+                description: Channel ID
+                example: 4
+              sell_price:
+                type: number
+                description: Sell Price on Channel
+                example: 260000
+        images:
+          type: array
+          description: List Item Variations
+          items:
+            type: object
+            properties:
+              image_id:
+                type: number
+                description: Image Id
+                example: 0
+              thumbnail:
+                type: string
+                description: Image Thumbnail
+                example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+              file_name:
+                type: string
+                description: Image Name
+                example: fde755988e7d8931bea57bdb3c8a64e6
+              sequence_number:
+                type: number
+                description: Image Sequence Number
+                example: 0
+              cloud_key:
+                type: string
+                description: Cloud Key
+                example: >-
+                  https://jubelio.blob.core.windows.net/images/aggesujkt4uo34nu07a7vg/d9e4bb6e-308f-4128-8cdc-3c522279c5df.jpeg
+              channel_info:
+                type: string
+                example: null
+        is_bundle:
+          type: boolean
+          description: Whether product is a bundle item
+          example: true
+  bom_id:
+    type: number
+    description: for Bundles (optional)
+    example: 0
+  bundles:
+    type: array
+    description: List Item SKUs (optional)
+    items:
+      type: object
+      properties:
+        bom_comp_id:
+          type: number
+          description: Bom Comp ID, set as 0 when first create product bundle
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        qty:
+          type: number
+          description: Quantity
+          example: 5
+        uom_id:
+          type: number
+          description: Unit of Measure ID
+          example: 5
+        unit:
+          type: string
+          description: Unit
+          example: Buah
+  unlimited_stock_store_ids:
+    type: number
+    description: |
+      The unlimited stock for selected store ids. <br>
+      Can be filled with "empty array" or "null".
+    example: null
+  buy_unit:
+    type: string
+    description: Buy Unit
+    example: Buah

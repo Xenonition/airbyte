@@ -1,0 +1,13 @@
+required:
+  - email
+  - password
+type: object
+properties:
+  email:
+    type: string
+    description: Registered Email in system
+    example: user@example.com
+  password:
+    type: string
+    description: Password for login authentication
+    example: password

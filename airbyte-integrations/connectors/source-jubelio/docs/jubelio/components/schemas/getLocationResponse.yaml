@@ -1,0 +1,191 @@
+type: object
+properties:
+  location_id:
+    type: number
+    description: Location ID
+    example: 1
+  location_name:
+    type: string
+    description: Location Name
+    example: Kutabumi
+  is_pos_outlet:
+    type: boolean
+    description: Is Location a POS Outlet
+    example: false
+  address:
+    type: string
+    description: Location Full Address
+    example: >-
+      Jl. Raya Kutabumi Ruko Pondok Permai blok CA 1 no 6, Kutabaru, Pasar
+      Kemis, Tangerang /nKec. Pasar Kemis, Kota/Kab. Kab. Tangerang
+  city:
+    type: string
+    description: Location Address City
+    example: Tangerang
+  phone:
+    type: string
+    description: Location Contact Number
+    example: 215442490
+  email:
+    type: string
+    description: Location Contact Email
+    example: kutabumi.warehouse@example.com
+  province:
+    type: string
+    description: Location Address Province
+    example: Banten
+  post_code:
+    type: string
+    description: Location Address Post Code
+    example: 15560
+  is_fbl:
+    type: boolean
+    description: Is Location a FBL
+    example: false
+  location_code:
+    type: string
+    description: Location Code
+    example: Gudang Besar
+  area:
+    type: string
+    description: area
+    example: Tebet
+  is_tcb:
+    type: boolean
+    example: false
+  warehouse_id:
+    type: string
+    example: ''
+  warehouse_store_id:
+    type: string
+    example: null
+  pos_discount:
+    type: number
+    example: null
+  pos_discount_type:
+    type: string
+    example: null
+  pos_email_struct_id:
+    type: string
+    example: -1
+  pos_struct_id:
+    type: string
+    example: -1
+  pos_tax:
+    type: string
+    example: 1
+  is_active:
+    type: boolean
+    example: true
+  pos_discount_max:
+    type: number
+    example: null
+  is_sbs:
+    type: boolean
+    example: false
+  is_multi_origin:
+    type: boolean
+    example: false
+  is_warehouse:
+    type: boolean
+    example: true
+  wms_migration_date:
+    type: string
+    format: date-time
+    example: null
+  default_warehouse_user:
+    type: string
+    example: ''
+  source_replenishment_name:
+    type: string
+    example: ''
+  registers:
+    type: string
+    example: null
+  stores:
+    type: string
+    example: null
+  layout:
+    type: object
+    properties:
+      floors:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: number
+              format: int64
+              description: Automatically generated. but to create new, you can fill with 0
+              example: 0
+            text:
+              type: string
+              example: L1
+            is_default:
+              type: boolean
+              example: true
+            rows:
+              type: array
+              items:
+                type: object
+                properties:
+                  row_id:
+                    type: number
+                    example: 0
+                  row_code:
+                    type: string
+                    example: A1
+                  is_default:
+                    type: boolean
+                    example: true
+                  columns:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        column_id:
+                          type: number
+                          format: int64
+                          example: 0
+                        column_code:
+                          type: string
+                          example: K1
+                        is_default:
+                          type: boolean
+                          example: true
+                        bins:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              bin_id:
+                                type: number
+                                format: int64
+                                example: 0
+                              bin_code:
+                                type: string
+                                example: R1
+                              bin_final_code:
+                                type: string
+                                example: L1-A1-K1-R1
+                              max_qty:
+                                type: number
+                                example: 1000
+                              acknowledge_stock:
+                                type: boolean
+                                example: true
+                              bin_reject:
+                                type: boolean
+                                example: true
+                              is_staging:
+                                type: boolean
+                                example: false
+                              is_station:
+                                type: boolean
+                                example: false
+                              bin_default:
+                                type: string
+                                example: null
+                              is_inbound:
+                                type: boolean
+                                example: false

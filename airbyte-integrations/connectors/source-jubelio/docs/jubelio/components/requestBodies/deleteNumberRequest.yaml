@@ -1,0 +1,11 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        ids:
+          type: array
+          description: List Object ID that will be deleted
+          items:
+            type: number
+            example: 1

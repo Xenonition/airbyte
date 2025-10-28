@@ -1,0 +1,64 @@
+required:
+  - account_id
+  - amount
+  - contact_id
+  - payment_id
+  - payment_no
+  - payment_type
+type: object
+properties:
+  payment_id:
+    type: number
+    description: Purchase Return Setttlement Payment ID
+    example: 0
+  payment_no:
+    type: string
+    description: Purchase Return Setttlement Payment Number
+    example: '[auto]'
+  payment_type:
+    type: number
+    description: Purchase Return Setttlement Payment Type
+    example: 2
+  contact_id:
+    type: number
+    description: Contact ID (Supplier)
+    example: 4
+  contact_name:
+    type: string
+    description: Contact Name (Supplier)
+    example: PTANYWAY
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-02T04:00:00.000Z'
+  account_id:
+    type: number
+    description: Account ID
+    example: 1
+  note:
+    type: string
+    description: Transaction Note
+    example: Return
+  amount:
+    type: number
+    description: Amount
+    example: 25000
+  items:
+    type: array
+    description: List Detail Purchase Return Settlement Refund
+    items:
+      type: object
+      properties:
+        payment_detail_id:
+          type: number
+          description: Purchase Return Setttlement Payment Detail ID
+          example: 0
+        purch_return_id:
+          type: number
+          description: Purchase Return ID
+          example: 1
+        payment_amount:
+          type: number
+          description: Payment Amount
+          example: 25000

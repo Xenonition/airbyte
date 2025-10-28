@@ -1,0 +1,97 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Sales Return Items
+    items:
+      type: object
+      properties:
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 5
+        weight_in_gram:
+          type: number
+          description: Weight of Items
+          example: 1500
+        item_id:
+          type: number
+          description: Item ID
+          example: 5
+        item_code:
+          type: string
+          description: Item Code
+          example: 1203578196
+        item_name:
+          type: number
+          description: Item Name
+          example: Tas selempang Biru Dongker
+        sell_price:
+          type: number
+          description: Sell Price
+          example: 30000
+        promotion_price:
+          type: number
+          description: Promotion Price
+          example: 10000
+        start_date:
+          type: string
+          format: date-time
+          description: Start Date
+          example: null
+        end_date:
+          type: string
+          format: date-time
+          description: End Date
+          example: null
+        sales_acct_id:
+          type: number
+          description: Sales Account ID
+          example: 28
+        sell_tax_id:
+          type: number
+          description: Sell Tax ID
+          example: 1
+        sell_unit:
+          type: string
+          description: Sell Unit Name
+          example: Buah
+        available_qty:
+          type: number
+          description: Available Quantity
+          example: 1000
+        qty_in_base:
+          type: string
+          description: Quantity Item that will be reduced
+          example: 1
+        rate:
+          type: string
+          description: Rate
+          example: 10
+        tax_name:
+          type: string
+          description: Tax Name
+          example: PPN
+        account_code:
+          type: string
+          description: account code
+          example: 4-4000
+        account_name:
+          type: string
+          description: Account Name
+          example: 4-4000 - Penjualan
+        uom_id:
+          type: number
+          description: Uom ID
+          example: -1
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: Tas Keren - Tas Selempang Biru Dongker
+        average_cost:
+          type: string
+          example: 400000
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

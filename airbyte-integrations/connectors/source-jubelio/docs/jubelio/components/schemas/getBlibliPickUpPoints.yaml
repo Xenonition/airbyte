@@ -1,0 +1,12 @@
+type: array
+items:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Blibli location Id
+      example: 2
+    text:
+      type: string
+      description: Blibli location name
+      example: Pusat

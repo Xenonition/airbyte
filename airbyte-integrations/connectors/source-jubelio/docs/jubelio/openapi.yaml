@@ -1,0 +1,2573 @@
+openapi: 3.0.2
+info:
+  title: Jubelio API Reference
+  description: .
+  version: '1.0'
+  x-logo:
+    url: >-
+      https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/220120c4-22b3-481c-a02d-6522175f5a6f.jpg
+    backgroundColor: '#FFFFFF'
+    altText: Jubelio Logo
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://api2.jubelio.com
+security: []
+tags:
+  - name: Getting Started
+    description: >
+      ## Overview
+
+      Welcome to Jubelio API Reference. Jubelio will help you to simplify your
+      business by integrating back office, warehouse, marketplace, webstore and
+      point of sales (POS) into one dashboard. By using Jubelio API, you can
+      create and manage your product (add your product variants, SKU, prices,
+      and stock), upload your product to the marketplace, manage your warehouse,
+      and etc.
+
+        **Jubelio API** is based on **REST principles** so you can interact with Jubelio Server as long as you can send HTTP requests.
+
+
+        But before that, please read the following chart so you can start to use our API smoothly:
+
+        ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/7ec5f437-b857-482c-8723-87fab8eb3d5b.jpg)
+
+
+        **For a quick start,** you can try our API collection with Postman. You can download the Jubelio API collection above (YAML file) and import it to postman. 
+
+      ## Registration Process
+
+
+      ### Existing Jubelio Omnichannel User
+
+
+      You can skip this step if you already have an account on [Jubelio
+      Omnichannel](https://app.jubelio.com). But, please make sure you have
+      finished your migration process before moving to Jubelio WMS (You can
+      contact our Customer Service about this migration process).<br>
+
+
+      Usually, you will be asked to pause your synchronization to the
+      marketplace/other sales channels for a while when you are doing a
+      migration.
+
+      After you have finished your migration process, you can start to use our
+      API by logging in to our [Jubelio WMS](https://app2.jubelio.com) account.
+
+
+      ### **New User**
+
+
+      You will need to create a Jubelio account in order to use our API. Click
+      [here](https://app2.jubelio.com) to register.
+  - name: Authentication
+    description: >
+      To authenticate the requests, you'll need to generate access token using
+      API Login. You will also use this token in your request's Authorization
+      header. This token will be expired after **12-hours.**  If the token has
+      expired, you will get an error response and you should try to get your new
+      token with our API Login. <br>
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/cdd3fbb7-cc8c-4108-9a71-51a2a0fa6e38.jpg)
+  - name: Error Code & Status Code List
+    description: >
+      ## Error Code List
+
+        **Error codes related with warehouse activities (Putaway, stock adjustment, etc)**
+
+        | Code  | Related Activity           | Description                                                  |
+        | ----- | -------------------------- | ------------------------------------------------------------ |
+        | P9001 | Putaway Items              | The number of Qty input exceeds the actual transaction Qty   |
+        | P9002 | Putaway Items              | Serial number only belongs to 1 specific item.               |
+        | P9003 | Putaway Items              | Failed to save the item placement.                           |
+        | P9004 | Putaway Items              | Qty based on certain batch number exceeds the actual qty     |
+        | P9005 | Inventory Stock Adjustment | This transaction will cause the inventory Qty on the shelf to be minus. |
+        | P9006 | Putaway Items              | Expired date cannot be empty                                 |
+        | P9007 | Putaway Items              | Input Bundle SKU                                             |
+        | 30001 | Serial Number & Batch Number Validation   | This item does not have a serial number                                           |
+        | 30002 | Serial Number & Batch Number Validation   | This item does not have a batch number                                            |
+        | 30003 | Serial Number & Batch Number Validation   | Can only use a serial number or a batch number                                    |
+        | 30004 | Serial Number & Batch Number Validation   | Unable to do adjustment for stocks that are already done in stock opname          |
+        | 30005 | Serial Number Movement Validation         | The expired date can be filled only in items that have a batch number                                                         |
+        | 30006 | Serial Number Movement Validation         | The expired date must be filled in items that have a batch number                                                             |
+        | 30007 | Serial Number Movement Validation         | The expired date for the SKU [item code] and the batch number [batch no] is [expiration date].                                |
+        | 30008 | Serial Number Movement Validation         | This transaction will cause the Qty for SKU [item_code] with batch [batch_no], in [location_name][bin] become [negative_end_qty]             |
+        | 30009 | Serial Number Movement Validation         | This transaction will cause the Qty for SKU [item_code] with serial [serial_no], in [location_name][bin] become [negative_end_qty]           |
+        | 30010 | Serial Number Movement Validation         | The serial number must be unique. SKU [item_code], with serial [serial_no], have been registered at location [location_name][bin]            |
+        | 30011 | Serial Number Movement Validation         | The serial number must be unique. Serial number [serial_no] is already used for SKU [item_code].                                             |
+        | 30012 | Serial Number Movement Validation         | The batch number must be unique. Batch number [batch_no] is already used for SKU [item_code]                                                 |
+
+        **Error codes related with transactions, orders, products, etc.**
+
+        | Code      |          Condition Name         |                                    Explanations                                                           |
+        |:---------:|---------------------------------|-----------------------------------------------------------------------------------------------------------|
+        | 23502     | not_null_violation              | Will happen when some required field not filed                                                            |
+        | 23503     | foreign_key_violation           | Will happen when using ID that not exists or Record (that will be deleted) is used in another transaction |
+        | 23505     | unique_violation                | Will happen if Record Number like Sales Order Number, Purchase Order Number, etc have already been exists |
+        | 23113     | journal_unbalance               | Will happen if Transaction Credit and Debit not same                                                      |
+        | 23114     | error_transaction               | Will happen if down payment has been deducted from the bill payment                                       |
+        | 10001     | error_transaction               | Will happen if cannot add, change or delete transactions within a locked period.                          |
+        | 23100     | error_inventory                 | Will happen when the inventory of the transaction value is set to be minus.                               |
+        | 23101     | error_inventory                 | Will happen if the inventory qty of the transaction is set to be 0 but not the inventory value to be 0.   |
+        | 23102     | error_transaction               | Will happen when the transaction is set to be minus.                                                      |
+        | 23504     | error_transaction               | Will happen if the product bundle contents use another product bundle.                                    |
+        | 23103     | error_transaction               | Will happen if there have been payments whose value exceeds the value of this bill.                       |
+        | 23108     | error_transaction               | Will happen if there has been a payment that exceeds the value of this invoice.                           |
+        | 23115     | error_transaction               | Will happen if down payment has been deducted from the invoice payment.                                   |
+        | 23116     | error_transaction               | Will happen if return Qty exceeds in the invoice.                                                         |
+        | 23104     | error_transaction               | Will happen if payment exceeds invoice value.                                                             |
+        | 23106     | error_transaction               | Will happen if payment exceeds bill value.                                                                |
+        | 23105     | error_return_item               | Will happen if refund exceeds the return value.                                                           |
+        | 23107     | error_return_item               | Will happen if refund exceeds the return value.                                                           |
+        | 23109     | error_return_item               | Will happen when invoice deduction exceeds the return value.                                              |
+        | 23111     | error_return_item               | Will happen when bill deduction exceeds the return value.                                                 |
+        | 23110     | error_transaction               | Will happen when invoice deduction exceeds the invoice value.                                             |
+        | 23112     | error_transaction               | Will happen when The bill deduction exceeds the bill value.                                               |
+        | 20501     | error_promotion                 | Will happen if there is another promotion on that date.                                                   |
+        | 90000     | error_auth                      | Will happen if username or password is invalid.                                                           |
+        | 90001     | error_auth                      | Will happen when old password is invalid.                                                                 |
+        | 90002     | error_courier                   | Will happen if this courier cannot be used for your account.                                              |
+        | 90003     | error_product_bundle            | Will happen if products that have transactions cannot be made into product bundles.                       |
+        | E000001   | error_data                      | Will happen if data does not exist in Jubelio system                                                      |
+        | E000002   | error_promotion                 | Promotion overlapping with another promotion.                                                             |
+        | E000003   | error_field                     | Missing required parameter                                                                                |
+        | E000004   | error_transaction               | Will happen if transfer would be changed and it is already on the road (Print Road Mail).                 |
+        | E000005   | error_order                     | Will happen if order status does not support label printing.                                              |
+        | E000006   | error_integration               | Will happen if there is no channel is integrated. At least 1 integrated channel.                          |
+        | E000007   | error_page                      | Will happen if the page has changed since you last opened.                                                |
+
+
+      ## Status Code List
+
+
+      <table data-layout="default"
+      data-local-id="d7b5af43-52f6-4208-8488-99a353d64b3b"
+      class="confluenceTable"><colgroup><col style="width: 285.0px;"><col
+      style="width: 473.0px;"></colgroup><tbody><tr><th
+      data-highlight-colour="#f4f5f7" class="confluenceTh"><p><strong>HTTP
+      Status Code</strong></p></th><td data-highlight-colour="#f4f5f7"
+      class="confluenceTd"><p><strong>Description</strong></p></td></tr><tr><th
+      data-highlight-colour="#ffffff" class="confluenceTh"><p><strong><span
+      style="color: rgb(54,179,126);">200</span></strong> - OK</p></th><td
+      class="confluenceTd"><p>Success - Everything worked as
+      usual.</p></td></tr><tr><th data-highlight-colour="#ffffff"
+      class="confluenceTh"><p><strong><span style="color:
+      rgb(255,86,48);">400</span></strong> - Bad Request</p></th><td
+      class="confluenceTd"><p>Failed - Because missing a required
+      parameter.</p></td></tr><tr><th data-highlight-colour="#ffffff"
+      class="confluenceTh"><p><strong><span style="color:
+      rgb(255,86,48);">401</span></strong> - Unauthorized</p></th><td
+      class="confluenceTd"><p>Failed - Your authentication credentials are
+      invalid. Your access token are maybe missing, incorrect, or
+      expired.</p></td></tr><tr><th data-highlight-colour="#ffffff"
+      class="confluenceTh"><p><strong><span style="color:
+      rgb(255,86,48);">402</span></strong> - Request Failed</p></th><td
+      class="confluenceTd"><p>Failed - The request was valid but the request
+      failed.</p></td></tr><tr><th data-highlight-colour="#ffffff"
+      class="confluenceTh"><p><strong><span style="color:
+      rgb(255,86,48);">403</span></strong> - Forbidden</p></th><td
+      class="confluenceTd"><p>Failed - The API key doesn't have permissions to
+      perform the request.</p></td></tr><tr><th data-highlight-colour="#ffffff"
+      class="confluenceTh"><p><strong><span style="color:
+      rgb(255,86,48);">404</span></strong> - Not Found</p></th><td
+      class="confluenceTd"><p>Failed - The requested resource doesn't
+      exist.</p></td></tr><tr><th data-highlight-colour="#ffffff"
+      class="confluenceTh"><p><strong><span style="color:
+      rgb(255,86,48);">409</span></strong> - Conflict</p></th><td
+      class="confluenceTd"><p>Failed - The request conflicts with another
+      request.</p></td></tr><tr><th data-highlight-colour="#ffffff"
+      class="confluenceTh"><p><strong><span style="color:
+      rgb(255,86,48);">429</span></strong> - Too Many Requests</p></th><td
+      class="confluenceTd"><p>Failed - Too many requests hit the API too
+      quickly. Please wait for 1 minute to make other
+      requests.</p></td></tr><tr><th data-highlight-colour="#ffffff"
+      class="confluenceTh"><p><strong><span style="color: rgb(255,86,48);">500
+      </span></strong>- Server Errors</p></th><td class="confluenceTd"><p>Failed
+      - Something went wrong on Jubelio Server.</p></td></tr></tbody></table>
+  - name: API Rate Limit
+    description: >
+      You can make 600 requests per minute.  If the request is more than that,
+      you should have to wait for **1 minute** to continue. Once you go over the
+      rate limit, you will receive an error response with status code `429` :
+      Too Many Requests.
+  - name: Webhook Signature
+    description: >
+      Signature verification is a form of protection to secure webhooks. The
+      webhook secret key will generate a webhook-signature, which you can use to
+      verify the authenticity and integrity webhook messages that sent by
+      Jubelio to the recipient and vice verca.
+
+
+      To get the sign value, the steps required are:
+
+      1. Make the payload body a string (stringify)
+
+      2. Add a secret key ([result of point 1] + [secret key])
+
+      3. Then, the result of point 2 is encrypted using SHA256
+
+
+      **Node.js Example**
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/50b1e78a-de66-43d2-a11e-bfd7895038ec.png)
+
+
+      **PHP Example**
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/68970010-d38e-4e0a-a71a-79952934e9b4.png)
+  - name: Webhooks
+    description: >
+      To set up Webhook, log in to your Jubelio account and  go to **Pengaturan
+      -> Developer -> Webhook**. You may set your URL path as a Callback URL per
+      event.  But don’t forget to fill in the **Webhook Secret Key** first,
+      because this will be used as an authorization to let Jubelio know that the
+      callback message is sent by you/your company.  <br>
+
+
+      If you return anything other than a `HTTP 200` status, we will try to
+      deliver the webhook up to 3 times.
+
+
+      ![](https://jb-assets-2.jb-assets-alpha-1.sg-sin1.upcloudobjects.com/images/c0845bba-89ff-475d-b62f-270a02df4c26.png)
+      <br> <br>
+
+      ![](https://jb-assets-2.jb-assets-alpha-1.sg-sin1.upcloudobjects.com/images/1b2a46cb-8f51-4e85-8a79-527506e04f6b.png)
+
+      <br> <br>
+
+      ![](https://jb-assets-2.jb-assets-alpha-1.sg-sin1.upcloudobjects.com/images/9513f692-9f03-41a3-8f7c-a688c0b52a03.jpg)
+
+
+      <br>
+
+
+
+      These are the list of webhook that you can use in Jubelio:
+  - name: Product
+    description: >
+      **a. Create/edit product**
+
+
+      **Create products without a variant**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/db5fba66-6813-4f57-93d8-68b091a0f287.jpg)
+
+
+      | No   | Endpoints                                 |
+      Function                                                     |
+
+      | ---- | ----------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/inventory/categories/item-categories/](https://docs-wms.jubelio.com/#operation/getInventoryCategoriesItemcategories)
+      | Use this endpoint to know which categories matched with your products.
+      Obtain the **category_id** to later use as **item_category_id** |
+
+      | 2    |
+      [GET/inventory/search-brands/](https://docs-wms.jubelio.com/#operation/getInventorySearchbrands)             
+      | Use this endpoint to know which brands matched with your products.
+      Obtain the **brand_id, brand_name** |
+
+      | 3    |
+      [POST/inventory/upload-image/](https://docs-wms.jubelio.com/#operation/postInventoryImagesNew)             
+      | Use this endpoint to upload your product image. Obtain **key, url**, and
+      other details (**key, thumbnail**) |
+
+      | 4    |
+      [POST/inventory/catalog/](https://docs-wms.jubelio.com/#operation/postInventoryCatalog)                  
+      | Use this endpoint to upload your products to Jubelio after all items
+      information has been entered. |
+
+
+      **Create single-variant products**
+
+
+      Single-variant product means the product only has 1 variant. For example,
+      the product maybe only has one color/type of size. You can use the
+      [**createSingleorMultiVariantProductRequest**](https://docs-wms.jubelio.com/#operation/postInventoryCatalog)
+      payload. 
+
+
+      **Create multi-variant products**
+
+
+      Multi-variant product means the product has more than 1 variant. For
+      example, the product has more than one color/type of size. 
+
+
+      You can add your variations on the payload for example as stated below:
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/7a6bc228-4fa3-4c4d-b01c-ac3188e5c943.jpg) 
+
+
+      <br>
+
+      <br>
+
+
+      **b. Create product bundles**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/ebe1fe1f-de35-4d5d-8516-5f5cfa11e0e2.jpg)
+
+
+      | No   | Endpoints                                 |
+      Function                                                     |
+
+      | ---- | ----------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/inventory/items/to-sell/](https://docs-wms.jubelio.com/#operation/getItemsToSell)             
+      | Obtain all of item details that are going to bundle (**item_id,
+      item_group_id, item_code, store_id**, etc) |
+
+      | 2    |
+      [GET/inventory/categories/item-categories/](https://docs-wms.jubelio.com/#operation/getInventoryCategoriesItemcategories)
+      | Use this endpoint to know which categories matched with your products.
+      Obtain the **category_id** to later use as **item_category_id** in
+      endpoint no.3 |
+
+      | 3    |
+      [POST/inventory/items/](https://docs-wms.jubelio.com/#operation/getInventoryItems)                    
+      | Create product bundle. Fill in the value as described in the schema and
+      the value that you've got from endpoint no. 1. Set **is_bundle** as
+      **true**. |
+
+
+      <br>
+
+      <br>
+  - name: Product Listing
+    description: >
+
+      **Product listing** is the process when your product is going to
+      push/upload to the marketplace from Jubelio system. You can use the
+      following endpoints: 
+
+
+      <br> 
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/9551dd9e-3479-4a3f-bbb4-860e49d65fd9.jpg)
+
+
+      | No   | Endpoints                                                   |
+      Function                                                     |
+
+      | ---- | ----------------------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/inventory/items/reviews/](https://docs-wms.jubelio.com/#operation/getInventoryItemsReview)
+      or
+      [GET/inventory/items/masters](https://docs-wms.jubelio.com/#operation/getInventoryItemsMaster)
+      | Use this endpoint to obtain **item_group_id**, to later use as **id** in
+      endpoint no. 2 |
+
+      | 2    |
+      [GET/inventory/catalog/for-listing/{id}](https://docs-wms.jubelio.com/#operation/getProductListing)                     
+      | Use this endpoint to get item details that are going to use in endpoint
+      no. 3 & 4. |
+
+      | 3    |
+      [POST/inventory/catalog/listing](https://docs-wms.jubelio.com/#operation/saveProductListing)                             
+      | Use this endpoint to create your product listing before uploading it to
+      the marketplace. |
+
+      | 4    |
+      [POST/inventory/catalog/upload](https://docs-wms.jubelio.com/#operation/uploadProductListing)                              
+      | Upload your product from Jubelio to the marketplace using this
+      endpoint.  Fill in the value as described in the schema and the value that
+      you've got from endpoint no. 1-2 |
+
+
+      If you want **to change the category of your product**, to find a suitable
+      category of your products in the marketplace, you can use endpoint
+      [**GET/inventory/categories/channel-categories/{parent_id}**](https://docs-wms.jubelio.com/#operation/getChannelCategories).
+  - name: Inventory
+    description: >
+      Inventory API is used to manage item stock in your warehouse/store. There
+      are 4 types of item stock available in Jubelio system: 
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/5d706bb3-4750-4bd9-b318-f9249ecc6493.jpg)
+
+
+      **For example, if there are 100 items available (150 = On-hand, 0 =
+      On-Order, 50 = On-Reserved) then someone order 50 items, it will become
+      150 items On-hand, 50 items On-Order, 50 items On-reserved and 50 items
+      available. 
+
+
+      So, the formula for available items in Jubelio:   **On Hand - On Order -
+      On Reserved**
+
+
+      <br>
+
+
+      **Stock Adjustment**
+
+       There are 2 endpoints you can use for adjusting your item stock, which are **POST/inventory/adjustments** and **POST/inventory/adjustments/warehouse**. 
+
+       Here are the following steps if you want to use POST/inventory/adjustments/:
+
+       ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/a62c46ac-fea8-4c12-bc98-a16d5d8b3913.jpg)
+
+       | No   | Endpoints                         | Function                                                     |
+       | ---- | --------------------------------- | ------------------------------------------------------------ |
+       | 1    | [GET/inventory/items/to-stock/](https://docs-wms.jubelio.com/#operation/getInventoryItemsToStock)     | Obtain **item_id** to later use in endpoint no. 5            |
+       | 2    | [GET/systemsetting/account-mapping](https://docs-wms.jubelio.com/#operation/accountMappingSetting) | Obtain **adjm_acct_id/adjp_acct_id** to later use as **account_id** in endpoint no.5 |
+       | 3    | [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)                     | Obtain **location_id**                                       |
+       | 4    | [GET/inventory/stock-opname/bins](https://docs-wms.jubelio.com/#operation/getInventoryStockOpnameBins)   | Obtain **bin_id** using **location_id**                      |
+       | 5    | [POST/inventory/adjustments/](https://docs-wms.jubelio.com/#operation/postInventoryAdjustments)       | Adjust stock.  Fill in the value as described in the schema and the value that you've got from endpoint no. 1-4 |
+  - name: WMS (Warehouse Management System)
+    description: >
+      **What can you do with Jubelio WMS?** <br>
+
+
+      a. **Add your warehouse location** (Address, warehouse staff, which
+      marketplace is fulfilled by the warehouse, etc) <br>
+
+      b. **Set your shelves/racks plan (Optional)** to later be used as guidance
+      to put the products (Starts from the floor location, row & column number,
+      shelf number, and how many products can be stored). <br>
+
+      c. **Track your inbound process**, which includes : <br>
+          <ul>
+            <li> Create Purchase Order. </li>
+            <li> Receive items/goods from supplier </li>
+            <li> Putaway your items to the racks/shelves </li>
+            <li> Product return from customers.</li>
+            <li> Stock adjustment and opname. </li>
+          </ul>
+      e.   **Track your outbound process**, which includes : <br>
+          <ul>
+            <li> Fulfill orders from marketplace or other channels (Start from picking, packing, and shipping process). </li>
+            <li> Stock transfer to another location (Transfer Out) or in the same location (Internal Transfer).</li>
+            <li> Product return to vendors/suppliers. </li>
+            <li> Stock adjustment because of expired, deteriorated or unusable products.</li>
+          </ul>
+
+      To give you a brief knowledge about what could you do with Jubelio WMS
+      API, please read this following diagram :
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/aa4e9f15-aa52-4f58-9f10-e91680f951b0.jpg)
+      <br>
+
+
+      <br>
+
+
+      You can use the <b>light WMS version</b>, which allows you to skip one
+      step between the packing and shipping process, or both processes (packing
+      and shipping process). <br>
+
+      <ul>
+
+      You can set these settings on the Jubelio Dashboard in the menu:
+      <b>Pengaturan > Pemrosesan Pesanan > Pengaturan</b>
+
+
+      Please ensure that you do not have any orders in the shipping process
+      before deactivate the shipping process. You cannot also deactivate the
+      packing process if you still have orders being packed.
+  - name: Location & The Rack Plan
+    description: >-
+      Below are the list of endpoints that are needed to get the warehouse
+      location information, default PIC of the warehouse, and others.
+  - name: Stock Adjustment & Opname
+    description: >
+
+      ## Stock Adjustment
+
+       ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/7a361afd-98ce-41e3-9fbc-fbd72a7dd156.jpg)
+
+      | No.  | Endpoint                             |
+      Notes                                                        |
+
+      | ---- | :----------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)                       
+      | Obtain **location_id**                                       |
+
+      | 2    |
+      [GET/inventory/items/to-stock](https://docs-wms.jubelio.com/#operation/getInventoryItemsToStock)       
+      | Get all the item properties that needs to have a stock adjustment |
+
+      | 3    |
+      [POST/inventory/adjustments/warehouse](https://docs-wms.jubelio.com/#operation/postInventoryAdjustmentsWarehouse)
+      | Create stock adjustment. Fill in the value as described in the schema
+      and the value that you've got from previous endpoints (no. 1-2) |
+
+
+      You can also use the following endpoints :
+
+
+      | Endpoints                                 |
+      Function                       |
+
+      | ----------------------------------------- |
+      ------------------------------ |
+
+      |
+      [GET/reports/adjustment/?tz=Asia%2FBangkok](https://docs-wms.jubelio.com/#operation/getReportsAdjustmentStock)
+      | Print stock adjustment reports |
+
+      |
+      [GET/wms/default-bin/{location_id}](https://docs-wms.jubelio.com/#operation/getWMSDefaultBin)        
+      | Use this endpoint to get **bin_id, location_id**, if you want to use the
+      default bin to put the products. |
+
+      |
+      [GET/locations/bin/{location_id}](https://docs-wms.jubelio.com/#operation/getBinbyLocationID)         
+      | Use this endpoint to get **bin_id, location_id**, if you want to use
+      another bin/rack to put the products |
+
+
+      <br>
+
+
+      ## Stock Opname
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/5adbcae3-46a6-430e-b02a-48eb14d49b2d.jpg)
+
+
+      | No.  | Endpoint                                   |
+      Notes                                                        |
+
+      | ---- | :----------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/systemsetting/users/](https://docs-wms.jubelio.com/#operation/getSystemSettingUser)                  
+      | Obtain **email** user, to later use as **process_by** in endpoint no.8 |
+
+      | 2    |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)                             
+      | Obtain **location_id**                                       |
+
+      | 3    |
+      [GET/inventory/stock-opname/floors](https://docs-wms.jubelio.com/#operation/getInventoryStockOpnameFloors)         
+      | Obtain **floor_id**, to later use to get **row_id** in endpoint no.3 |
+
+      | 4    |
+      [GET/inventory/stock-opname/rows](https://docs-wms.jubelio.com/#operation/getInventoryStockOpnameRows)           
+      | Obtain **row_id**                                            |
+
+      | 5    |
+      [GET/inventory/stock-opname/columns](https://docs-wms.jubelio.com/#operation/getInventoryStockOpnameColumns)        
+      | Obtain **column_id**                                         |
+
+      | 6    |
+      [GET/inventory/stock-opname/items/filtered](https://docs-wms.jubelio.com/#operation/getInventoryStockOpnameItemsFiltered)
+      | By using **row_id** & **column_id**, get all the items that placed in
+      the rack to be use for stock opname. |
+
+      | 7    |
+      [GET/inventory/stock-opname/items](https://docs-wms.jubelio.com/#operation/getInventoryStockOpnameItems)          
+      | Besides filtering by rack/shelf, you can use this endpoint to get all
+      the item properties that needs to opname. |
+
+      | 8    |
+      [POST/inventory/stock-opname](https://docs-wms.jubelio.com/#operation/postInventoryStockOpname)               
+      | Create item list to opname. Fill in the value as described in the schema
+      and the value that you've got from previous endpoints (no. 1-7) |
+
+      | 9    |
+      [GET/reports/stock-opname/](https://docs-wms.jubelio.com/#operation/getReportsStockOpname)                 
+      | Print the already created list of items to do stock opname. (Use the
+      endpoint no.8 first before using this endpoint, and use the generated
+      **opname_header_id**) |
+
+      | 10   |
+      [POST/inventory/stock-opname/finalize](https://docs-wms.jubelio.com/#operation/postInventoryStockOpnameFinalize)      
+      | If the stock opname is already done and you want to push your final
+      stock to the system. |
+
+
+      You can also use the following endpoints :
+
+
+      | Endpoints                                     |
+      Function                                                     |
+
+      | --------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/inventory/stock-opname](https://docs-wms.jubelio.com/#operation/getInventoryStockOpname)                   
+      | Get all the list of stock opname from all status (recently created, on
+      process, or final) |
+
+      |
+      [GET/inventory/stock-opname/{opname_header_id}](https://docs-wms.jubelio.com/#operation/getInventoryStockOpnameOpnameHeaderId)
+      | Get the real-time stock while the stock opname still on progress. |
+
+      |
+      [GET/inventory/stock-opname/bins](https://docs-wms.jubelio.com/#operation/getInventoryStockOpnameBins) 
+      |  Get all the bin id that area available in one location |
+  - name: Inbound Process
+    description: >
+      The inbound process will include the following process as stated in this
+      diagram below:
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/4a58bc5f-ef4d-4e98-a652-36af3c0b0370.jpg)
+
+
+      ## Creating POs
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/538ee41a-37b7-4cf4-bf7c-b56dc208d3dd.jpg)
+
+        | Endpoint                                                     | Notes                                                        |
+        | :----------------------------------------------------------- | ------------------------------------------------------------ |
+        | [GET/contacts/suppliers](https://docs-wms.jubelio.com/#operation/getContactsSuppliers) | Obtain **contact_id, contact_name** (to later use as **supplier_name** in endpoint no.3) |
+        | [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations) | Obtain **location_id**                                       |
+        | [GET/inventory/items/to-buy](https://docs-wms.jubelio.com/#operation/getInventoryItemsToBuy) | Obtain **item_id, item_name** (take only the first part from item_name to later use as description in endpoint no.3) |
+        | [POST/purchase/orders](https://docs-wms.jubelio.com/#operation/postPurchaseOrders) | Create your Purchase Order, make sure to fill in the value as described in the schema and also with the value that you've got from previous endpoints (no. 1-3) |
+
+        You can also use the following endpoints :
+
+        | Endpoints                                                    | Function                                                     |
+        | ------------------------------------------------------------ | ------------------------------------------------------------ |
+        | [GET/purchase/orders](https://docs-wms.jubelio.com/#operation/getPurchaseOrders) | Get all the list of purchase orders that are already created |
+        | [GET/purchase/orders{id}](https://docs-wms.jubelio.com/#operation/getPurchaseOrdersId) | Get specific purchase orders data                            |
+        | [DELETE/purchase/orders](https://docs-wms.jubelio.com/#operation/deletePurchaseOrders) | Delete your purchase orders                                  |
+
+        Read also this hi-level sequence so you could get a better understanding how to use the API:
+
+      ## Receive Items/Goods
+
+
+      Receiving inbound items in warehouse may come from at least 4 resources,
+      which are: <br>
+
+      <ul>
+
+      1. <strong>Billing/POs</strong> <br>
+
+      2. <strong>Items transferred from other locations</strong> <br>
+
+      3. <strong>Sales Return</strong> <br>
+
+      4. <strong>Consignment Products</strong> <br>
+
+      </ul>
+
+
+      Each of the process has its own step and APIs, so please make sure you
+      know what kind of activity you want to do in the warehouse.
+
+
+      <br>
+
+
+      ### **Receiving items from Billing/POs**
+
+
+      <br>
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/c910de59-a129-4959-987c-6337f3fdbf2e.jpg)
+
+
+      | Endpoint                                                     |
+      Notes                                                        |
+
+      | :----------------------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/purchase/orders](https://docs-wms.jubelio.com/#operation/getPurchaseOrders)
+      | Obtain the **purchaseorder_id** (to later use as **id** in path
+      parameter for endpoint no.2). |
+
+      |
+      [GET/purchase/orders/{id}](https://docs-wms.jubelio.com/#operation/getPurchaseOrdersId)
+      | You can copy or save all of the properties because most of them are
+      going to use in endpoints no. 3 |
+
+      | [POST/purchase/bills](https://docs-wms.jubelio.com/postPurchaseBills) |
+      Receive your items from specific PO. Fill in the value as described in the
+      schema and the value that you've got from previous endpoints (no. 1-2) |
+
+
+      You can also use the following endpoints :
+
+
+      | Endpoints                    |
+      Function                                                     |
+
+      | ---------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/reports/receive](https://docs-wms.jubelio.com/#operation/getReportsReceive)          
+      | Create receive reports based on purchase orders              |
+
+      |
+      [GET/purchase/orders/progress](https://docs-wms.jubelio.com/#operation/getPurchaseOrdersProgress)
+      | Get all purchase orders progress, whether it's already received or not
+      yet received. (Received means **bills** and **percentage** already have
+      value) |
+
+
+      <br>
+
+
+      ### **Receiving items transferred from other locations (Transfer In)**
+
+
+      <br>
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/e097e836-037b-428f-be25-8bf2e3afa785.jpg)
+
+
+      | Endpoint                                           |
+      Notes                                                        |
+
+      | :------------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/inventory/transfers/all-transit](https://docs-wms.jubelio.com/#operation/getInventoryTransfersAllTransit)]               
+      | Obtain **item_transfer_id, source_location_id, destination_location_id**
+      to later use in endpoints no.3 |
+
+      |
+      [GET/inventory/items/by-transfer/{item_transfer_id}](https://docs-wms.jubelio.com/#operation/getInventoryItemsbyTransferid)
+      | Obtain **item_id, item_transfer_detail_id** (later use as
+      **received_item_transfer_detail_id** in endpoints no.3), **buy_unit**
+      (later use as **unit** in endpoints no. 3) |
+
+      |
+      [POST/inventory/transfers/](https://docs-wms.jubelio.com/#operation/postInventoryTransfers)   
+      | Receive items from transfer. Fill in the value as describes in the
+      schema and the value that you've got from previous endpoints (no. 1-2) |
+
+
+      You can also use the following endpoint :
+
+
+      | Endpoints                           |
+      Function                                                     |
+
+      | ----------------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/inventory/transfers/all-transit](https://docs-wms.jubelio.com/#operation/getInventoryTransfersAllTransit)
+      | Get all the list of item transfers, whether it's already received or not
+      yet received. (Received means **item_transfer_no** and **percentage**
+      already have value) |
+
+
+      <br>
+
+
+      ### **Receiving items from sales return**
+
+
+      <br>
+
+
+
+
+      **a. Receiving sales return from other sales channels (Outside
+      Marketplace)**
+
+
+      <br>
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/c0153a8d-a1d4-4138-9255-bfdf3b381dc0.jpg)
+
+
+      Receive sales return **with invoice**, can use the following endpoints:
+
+
+      | No.  | Endpoint                                       |
+      Notes                                                        |
+
+      | ---- | :--------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/contact/customers](https://docs-wms.jubelio.com/#operation/getContactsCustomers)                         
+      | Obtain **contact_name**  (to later use as **customer_name** in endpoint
+      no.4) and **contact_id** (to later use to get an invoice_id using endpoint
+      no.2) |
+
+      | 2    |
+      [GET/sales/invoices/for-return-wms/{contact_id}](https://docs-wms.jubelio.com/#operation/getSalesInvoicesbyContactID)
+      | Use this endpoint to get **invoice_id**                      |
+
+      | 3    |
+      [GET/inventory/items/by-invoice/{invoice_id}](https://docs-wms.jubelio.com/#operation/getInventoryItemsbyInvoice)   
+      | Use this endpoint to get **item properties** for return.     |
+
+      | 4    |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)                                 
+      | Obtain **location_id** of the warehouse to receive the return. |
+
+      | 5    |
+      [POST/sales/sales-returns](https://docs-wms.jubelio.com/#operation/postSalesSalesreturns)                   
+      | Receive items from sales return. Fill in the value as described in the
+      schema and the value that you've got from previous endpoints (no. 1-4) |
+
+
+      <br>
+
+
+      Receive sales return **without invoice**, can use the following endpoints:
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/e8cb8f16-b6a2-4bda-8615-484f3ade3c74.jpg)
+
+
+      | No.  | Endpoint                             |
+      Notes                                                        |
+
+      | ---- | :----------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/contact/customers](https://docs-wms.jubelio.com/#operation/getContactsCustomers)               
+      | Obtain **contact_name**  (to later use as **customer_name** in endpoint
+      no.4) |
+
+      | 2    |
+      [GET/inventory/items/to-sales-return](https://docs-wms.jubelio.com/#operation/getInventoryItemsToSalesReturn)
+      | Use this endpoint to get **item properties** for return.     |
+
+      | 3    |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)                       
+      | Obtain **location_id** of the warehouse to receive the return. |
+
+      | 4    |
+      [POST/sales/sales-returns](https://docs-wms.jubelio.com/#operation/postSalesSalesreturns)            
+      | Receive items from sales return. Fill in the value as described in the
+      schema and the value that you've got from previous endpoints (no. 1-3) |
+
+
+      <br>
+
+
+      **b. Receiving sales return from Marketplace**
+
+      <br>
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/ee8f5a35-cadd-4dbd-891f-5f9ad4b12e1c.jpg)
+
+
+      1. Make sure that the sales return is already accepted in the marketplace.
+      <br>
+
+      2. Update the return status in Jubelio by using these API: <br>
+
+
+      | Endpoint                                |
+      Notes                                                        |
+
+      | :-------------------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/sales/returns/items/unprocessed/wms](https://docs-wms.jubelio.com/#operation/getSalesReturnsItemsUnprocessedWMS)
+      | Obtain **salesorder_detail_id** to later use to accept/reject/complete
+      the return. |
+
+      |
+      [POST/inventory/items/to-return](https://docs-wms.jubelio.com/#operation/setItemToReturn)         
+      | Use this endpoint to accept the sales return. Accepting the return
+      **automatically considered as receiving the items.** So, you can continue
+      to putaway process after using this endpoint. |
+
+      |
+      [POST/inventory/items/complete-return](https://docs-wms.jubelio.com/#operation/setItemToNotReturn)   
+      | Use this endpoint if you want to mark that the order is not a return. |
+
+      |
+      [POST/inventory/items/reject-return](https://docs-wms.jubelio.com/#operation/rejectReturnRequest)     
+      | Use this endpoint if you want to reject the return.          |
+
+
+      <br>
+
+
+      ### **Receiving Consignment Products**
+
+      <br>
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/d7824548-75a8-4eb3-b42e-cdbb6bbf77c4.jpg)
+
+
+      | Endpoint                   |
+      Notes                                                        |
+
+      | :------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/contact/suppliers](https://docs-wms.jubelio.com/#operation/getContactsSuppliers)     
+      | Obtain **contact_id**, **contact_name** (to later use as
+      **supplier_name** in endpoint no.4) |
+
+      |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)             
+      | Obtain **location_id**                                       |
+
+      |
+      [GET/inventory/items/to-buy](https://docs-wms.jubelio.com/#operation/getInventoryItemsToBuy)
+      | Obtain **item_id, item_name** (take only the first part from item_name
+      to later use as **description** in endpoint no.4), and **acct_id** (later
+      use as **invt_acct_id** in endpoint no.4) |
+
+      |
+      [POST/purchase/bills](https://docs-wms.jubelio.com/#operation/postPurchaseBills)       
+      | Receive consignment products. Fill in the value as described in the
+      schema and the value that you've got from previous endpoints (no. 1-3) |
+
+
+      You can also use the following endpoint :
+
+
+      | Endpoints           |
+      Function                                            |
+
+      | ------------------- |
+      --------------------------------------------------- |
+
+      |
+      [GET/reports/consign](https://docs-wms.jubelio.com/#operation/getReportsConsign)
+      | Create reports of all consignment products receive. |
+
+
+      <br>
+
+
+
+      ## Putaway Items
+
+
+      <br>
+
+
+      There are **2 types** of putaway process which you can implement based on
+      your usual activity in your warehouse, which is **Auto Putaway** and
+      **Manual Putaway**.
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/7b226fb5-8289-4460-963f-a2c336242e93.jpg)
+
+
+      ### **Auto Putaway**
+
+
+      **Auto Putaway** means you are going to place all of the products received
+      **on your default rack**. Endpoints you can use for this process are:
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/2ff6b465-92de-4a2b-a90a-28aa04f9298f.jpg)
+
+
+      | Endpoint                                   |
+      Notes                                                        |
+
+      | :----------------------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/inventory/items/received](https://docs-wms.jubelio.com/#operation/getInventoryItemsId)              
+      | Obtain **trx_id** (to later use as **bill_id**, **return_id**, or
+      **transfer_id** in the next endpoint) |
+
+      |
+      [POST/inventory/items/received/auto-putaway](https://docs-wms.jubelio.com/#operation/postInventoryItemsAutoputaway)
+      | Set items to be auto-putaway using this endpoint. Fill in the value as
+      described in the schema and the value that you've got from previous
+      endpoints (no. 1) |
+
+
+      or you can set **auto_placement** as **true** when receiving your items.
+
+
+      <br>
+
+      <br>
+
+
+      ### **Manual Putaway**
+
+
+      Manual putaway is a process where you can put your products, **one by
+      one**, in a specific rack/shelve that you've already set. In case you want
+      to put your products in a different number of racks, you can also choose a
+      manual putaway.
+
+
+      But before you start the manual putaway process, you have to assign the
+      staff that will be in charge to do the putaway process.
+
+
+      **Assign Staff**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/e387edd8-0250-4326-8757-2b4eb506c526.jpg)
+
+        | Endpoint                             | Notes                                                        |
+        | :----------------------------------- | ------------------------------------------------------------ |
+        | [GET/locations/list](https://docs-wms.jubelio.com/#operation/getLocations)                   | Obtain * **default_warehouse_user** (later use as **doing_by** in endpoint no. 3) if you want to assign putaway **to default staff** (warehouse PIC) |
+        | [GET/wms/employee/{nik or email}](https://docs-wms.jubelio.com/#operation/getWMSemployee)      | Obtain **employee_id**  (later use as **doing_by** in endpoint no. 3) if you want to assign putaway **to other staff** besides the default staff. |
+        | [GET/inventory/items/received](https://docs-wms.jubelio.com/#operation/getInventoryItemsReceived)         | Obtain **trx_id**  (to later use as **bill_id**, **return_id**, or **transfer_id**), and also **location_id** |
+        | [POST/inventory/items/received/author](https://docs-wms.jubelio.com/#operation/postInventoryItemsReceivedAuthor) | Assign which staff is going to put the products. Fill in the value as described in the schema and the value that you've got from previous endpoints (no. 1-2) |
+
+      *You can use [this](https://docs-wms.jubelio.com/#operation/postLocations)
+      endpoint if you want to add/edit your default staff.
+
+
+      <br>
+
+
+      **Putaway Processs**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/9410d367-5769-46d3-9b4f-f38fdbe5142a.jpg)
+
+
+
+      | No.  | Endpoint                                       |
+      Notes                                                        |
+
+      | ---- | :--------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/inventory/putaway/all](https://docs-wms.jubelio.com/#operation/getInventoryPutawayAll)                     
+      | Obtain **putaway_id** (to later use as path parameter in endpoints no.2
+      ) |
+
+      | 2    |
+      [GET/inventory/items/received/item/{putaway_id}](https://docs-wms.jubelio.com/#operation/getInventoryItemsReceivedPutawayID)|
+      Obtain **item_id**                                           |
+
+      | 3    |
+      [GET/wms/default-bin/{location_id}](https://docs-wms.jubelio.com/#operation/getWMSDefaultBin)             
+      | Obtain **bin_id, location_id**, if you want to use the default bin to
+      put the products. |
+
+      | 4    |
+      [GET/locations/bin/{location_id}](https://docs-wms.jubelio.com/#operation/getBinbyLocationID)               
+      | Obtain **bin_id, location_id**, if you want to use another bin/rack to
+      put the products |
+
+      | 5    |
+      [POST/inventory/items/received/putaway](https://docs-wms.jubelio.com/#operation/postInventoryItemsReceivedPutaway)         
+      | Fill in the value as described in the schema and the value that you've
+      got from previous endpoints (no. 1-4) |
+
+
+      Or, if you want to set your putaway process to be done right away, you can
+      use this following steps:
+
+
+      | No.  | Steps                                                        |
+      Endpoints                                                    |
+
+      | ---- | :----------------------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1.   | Get the list of putaway items which still being progressed or not
+      even started. | Use these
+      endpoints:                                                                          
+      [GET/inventory/putaway/not-start](https://docs-wms.jubelio.com/#operation/getInventoryPutawayNotStart)                                                   
+      [GET/inventory/putaway/processed](https://docs-wms.jubelio.com/#operation/getInventoryPutawayProcessed)
+      |
+
+      | 2.   | Set the putaway process as finish.                           |
+      [POST/inventory/items/received/finish-putaway](https://docs-wms.jubelio.com/#operation/getInventoryItemsReceivedFinishPutaway)                
+      |
+
+
+      You can also use the following endpoints :
+
+
+      | Endpoints                                                    |
+      Function                                                     |
+
+      | ------------------------------------------------------------ |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/inventory/putaway/not-start](https://docs-wms.jubelio.com/#operation/getInventoryPutawayNotStart)                              
+      | Get all the list of putaway items that not yet started       |
+
+      |
+      [GET/inventory/putaway/processed](https://docs-wms.jubelio.com/#operation/getInventoryPutawayProcessed)                             
+      | Get all the list of putaway items that have been processed   |
+
+      |
+      [GET/inventory/putaway/completed](https://docs-wms.jubelio.com/#operation/getInventoryPutawayCompleted)                             
+      | Get all the list of putaway items that already done          |
+
+      |
+      [GET/inventory/putaway/all](https://docs-wms.jubelio.com/#operation/getInventoryPutawayAll)                                   
+      | Get all the list of putaway items (with all type status).    |
+
+      |
+      [GET/reports/putaway](https://docs-wms.jubelio.com/#operation/getReportsPutaway)                                         
+      | Get the reports of putaway items                             |
+
+      |
+      [POST/purchase/serial-number/mark-printed](https://docs-wms.jubelio.com/#operation/postPurchaseSerialNumberMarkPrinted)                   
+      | Print product barcodes that have already been received       |
+
+      |
+      [GET/purchase/serial-number/wms/{bill_detail_id}](https://docs-wms.jubelio.com/#operation/getPurchaseSerialNumberWMS)
+      **or**                              
+      [GET/purchase/batch-number/wms/{bill_detail_id}](getPurchaseSerialNumberWMS)
+      | Get the product serial numbers/batch numbers that have already been
+      received and ready to putaway |
+
+      |
+      [GET/reports/item-receive-notplace](https://docs-wms.jubelio.com/#operation/getReportsItemReceivedNotPlace)                           
+      | Get the list of items that have not been placed already.     |
+  - name: Outbound Process
+    description: >
+      ## Fulfill Orders (Pick,Pack,Ship)
+
+
+      The fulfillment order process will include the following process as stated
+      in this diagram below:
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/f9984cb2-5cbd-4bcb-a33b-ba242ef5c83f.jpg)
+
+
+      Please noted that you can go to each section (Pick, Pack, Ship) for more
+      detail information.
+
+
+      <br>
+
+      <br>
+
+
+      ### **Order & Picking Process**
+
+
+      **a. List Order**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/af339e67-fda4-4380-a924-c8b22b417407.jpg)
+
+
+      | No.  | Endpoint                              |
+      Function                                                     |
+
+      | ---- | :------------------------------------ |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/sales/orders/ready-to-process](https://docs-wms.jubelio.com/#operation/getWMSSalesOrdersReadyToProcess)
+      | Get all ready to process orders from all sales channels and marketplace.
+      |
+
+      | 2    |
+      [GET/sales/orders/completed](https://docs-wms.jubelio.com/#operation/getSalesOrdersCompleted)           
+      | Get all completed orders from all sales channels and marketplace. |
+
+      | 3    |
+      [GET/wms/sales/orders/empty-stock/](https://docs-wms.jubelio.com/#operation/getSalesOrdersEmptyStock)     
+      | Get all orders that stock is empty and need to adjust first. |
+
+      | 4    |
+      [GET/wms/sales/orders/failed-pick](https://docs-wms.jubelio.com/#operation/getWMSSalesOrdersFailedPick)     
+      | Get all orders that are canceled to pick.                    |
+
+      | 5    |
+      [GET/wms/sales/orders/request-cancel](https://docs-wms.jubelio.com/#operation/getWMSSalesOrdersRequestCancel)  
+      | Get all orders that the customers asked to cancel             |
+
+      | 6    |
+      [POST/wms/sales/ready-to-process](https://docs-wms.jubelio.com/#operation/postWMSSalesReadyToProcess)      
+      | Use this endpoint if you want to move your order from the 'empty-stock'
+      and 'failed pick' to 'ready to process' list. |
+
+      | 7    |
+      [POST/wms/sales/ready-to-pick](https://docs-wms.jubelio.com/#operation/postWMSSalesReadyToPick)        
+      | Use this endpoint if you want to move your order from 'ready to process'
+      to 'ready to pick' list |
+
+
+
+      **b. Create Picklist**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/5c35e452-a367-4f03-8a1d-172a72cd4c16.jpg)
+
+
+      | No.  | Endpoint                                      |
+      Notes                                                        |
+
+      | ---- | :-------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    | [GET/wms/employee/{nik or
+      email}](https://docs-wms.jubelio.com/#operation/getWMSemployee)              
+      | Obtain **employee_id** (later will use as **picker_id** in endpoint
+      no.5) |
+
+      | 2    |
+      [GET/wms/sales/orders/ready-to-pick/](https://docs-wms.jubelio.com/#operation/getWMSSalesOrdersReadyToPick)           
+      | Obtain **salesorder_id** you want to pick.                   |
+
+      | 3    |
+      [POST/wms/order/getOrderByNo/](https://docs-wms.jubelio.com/#operation/postWMSOrderGetOrderByNo)                 
+      | Use **salesorder_no** as a payload to obtain **salesorder_id** |
+
+      | 4    |
+      [POST/sales/picklists/items-to-pick](https://docs-wms.jubelio.com/#operation/postSalesPicklistsItemToPick)           
+      | Use **salesorder_id** as a payload to obtain item properties. |
+
+      | 5    |
+      [POST/wms/sales/picklists/](https://docs-wms.jubelio.com/#operation/postWMSSalesPicklists)
+      (**payload create picklist**) | Create picklist. Fill in the value as
+      described in the schema and the value that you've got from previous
+      endpoints (no. 1-4) |
+
+
+      <br>
+
+
+      After the picklist has been created, you can start the picking process:
+
+
+      **c. Picking Process**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/cc2e1072-1181-455b-af6c-61a76f4a3468.jpg)
+
+
+      | Endpoints                                       |
+      Function                                                     |
+
+      | ----------------------------------------------- |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/sales/picklists/{picklist_id}](https://docs-wms.jubelio.com/#operation/getSalesPicklistsbyPicklistID)              
+      | Use **picklist_id** (that is generated from endpoint no. 5 in *Create
+      Picklist* section, or you can also use
+      **GET/wms/sales/picklists/confirm-pick** to get the **picklist_id**) to
+      get item properties that are going to pick by the staff
+      (**picklist_detail_id**, **salesorder_detail_id**, and others). |
+
+      |
+      [GET/locations/bin/{location_id}](https://docs-wms.jubelio.com/#operation/getBinByLocationID)                
+      | Obtain **bin_id**, where the item is placed                  |
+
+      |
+      [POST/wms/sales/picklists](https://docs-wms.jubelio.com/#operation/postWMSSalesPicklists)
+      **(payload update picklist)** | Use this endpoint to count your picking
+      items.  (fill in **qty_picked** value, if you have finished selecting all
+      items you can set **is_completed** as **true**) |
+
+      |
+      [POST/wms/sales/picklists/change-picker](https://docs-wms.jubelio.com/#operation/postWMSSalesPicklistsChangePicker)         
+      | Use this endpoint if you want to change your picker. Make sure you get
+      the NIK/email of the new picker using GET/wms/employee/{nik or email} |
+
+
+
+      You can also use the following endpoints : 
+
+
+      | Endpoints                            |
+      Function                                                |
+
+      | ------------------------------------ |
+      ------------------------------------------------------- |
+
+      |
+      [GET/wms/sales/orders/ready-to-pick/](https://docs-wms.jubelio.com/#operation/getWMSSalesOrdersReadyToPick)  
+      | Get all the list of orders that are ready to pick.      |
+
+      |
+      [GET/wms/sales/picklists/confirm-pick/](https://docs-wms.jubelio.com/#operation/getWMSSalesPicklistsConfirmPick)
+      | Get all the list of orders that are on picking process. |
+
+      |
+      [GET/wms/sales/orders/finish-pick/](https://docs-wms.jubelio.com/#operation/getWMSSalesOrdersFinishPick)    
+      | Get all the list of orders that are finished picking.   |
+
+      |
+      [GET/reports/wms/pick-list/](https://docs-wms.jubelio.com/#operation/getReportsWMSPicklist)          
+      | Print Picklist Items                                    |
+
+
+      <br>
+
+      <br>
+
+
+      ### **Packing Process**
+
+      The following outlines the flow for the packing process: <br><br>
+
+       ![](https://jb-assets-2.jb-assets-alpha-1.sg-sin1.upcloudobjects.com/images/036c4b6d-2541-493c-a921-7788dce608dd.png)
+
+      | No.  | Endpoint                                  |
+      Notes                                                        |
+
+      | ---- | :---------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/sales/packlist/scan-order](https://docs-wms.jubelio.com/#operation/getWMSSalesPacklistVerifySalesOrder) 
+      | Get list of items to pack using **salesorder_id**            |
+
+      | 2    |
+      [POST/wms/sales/packlist](https://docs-wms.jubelio.com/#operation/postWMSSalesPacklists)         
+      | Create Packlist |
+
+      | 3    |
+      [POST/wms/sales/packlist/verify-barcode/](https://doc-wms.jubelio.com/#operation/postWMSSalesPacklistVerifyBarcode)
+      | Verify item/sku/barcode/serial/batch |
+
+      | 4    | 
+      [POST/wms/sales/packlist/update-qty-packed](https://docs-wms.jubelio.com/#operation/postWMSSalesPacklistUpdateQTYPacked)
+      | Update qty of item that has been packed (if packing is done you can set
+      **set_finish_all** as **true**) |
+
+
+      Alternatively, you may use this flow for the process. <br><br>
+       ![](https://jb-assets-2.jb-assets-alpha-1.sg-sin1.upcloudobjects.com/images/8ba3835e-740b-4ab1-abef-033ce24bcf73.png)
+
+      | No.  | Endpoint                                  |
+      Notes                                                        |
+
+      | ---- | :---------------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/sales/orders/finish-pick/](https://docs-wms.jubelio.com/#operation/getWMSSalesOrdersFinishPick) 
+      | Get list of orders that are finished picking            |
+
+      | 2    |
+      [[POST/wms/sales/packlist/update-qty-packed](https://docs-wms.jubelio.com/#operation/postWMSSalesPacklistUpdateQTYPacked)         
+      | Update qty of item that has been packed (if packing is done you can set
+      **set_finish_all** as **true**) |
+
+      | 3    |
+      [POST/wms/sales/packlist/mark-as-complete](https://docs-wms.jubelio.com/#operation/postWMSSalesPacklistMarkAsComplete)     
+      | If the packing process is finished for all items and you want to mark
+      this order as complete and ready to ship. Use salesorder_id as a
+      payload.   |
+
+
+
+      You can also use the following endpoints : 
+
+
+      | No   | Endpoints                           |
+      Function                                                     |
+
+      | ---- | ----------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/sales/orders/finish-pick/](https://docs-wms.jubelio.com/#operation/getWMSSalesOrdersFinishPick)   
+      | Get all the list of orders that are already finished picking and ready
+      to pack. |
+
+      | 2    |
+      [GET/wms/sales/packlists/process/](https://docs-wms.jubelio.com/#operation/getWMSSalesPacklistsProcess)    
+      | Get all the list of orders that are on the packing process.  |
+
+      | 3    |
+      [GET/wms/sales/packlists/finish-pack/](https://docs-wms.jubelio.com/#operation/getWMSSalesPacklistFinishPack)
+      | Get all the list of orders that are finished packing.        |
+
+      | 4    |
+      [POST/wms/sales/shipments/orders/](https://docs-wms.jubelio.com/#operation/postWMSSalesShipmentsOrders)    
+      | Get the AWB (Airway Bill) for the order using **salesorder_id** |
+
+      | 5    |
+      [GET/reports/shipping-label](https://docs-wms.jubelio.com/#operation/getReportShippingLabel)         
+      | Print the shipping label.                                    |
+
+      | 6    |
+      [POST/sales/packlists/create-invoice](https://docs-wms.jubelio.com/#operation/createInvoice)
+      | Create invoice, obtain the **id** to later use to print the invoice. |
+
+      | 7    |
+      [GET/reports/invoice](https://docs-wms.jubelio.com/#operation/getReportsInvoice)                
+      | Use **id** generated from endpoint no. 6 to print invoice using this
+      endpoint. |
+
+
+      <br>
+
+      <br> 
+
+
+      ### **Shipping Process**
+
+
+      **a. Create Shipment Schedule**
+
+
+      Using Jubelio, as a seller, you can create the shipment schedule based on
+      your pickup request to the logistics.  This feature will make the seller
+      easier to categorize which order is needed to be ready based on the
+      shipment schedule. 
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/265d9b30-e665-4d38-b93b-84a06cdf3c02.jpg)
+
+
+      **Create a schedule for regular courier**
+
+        ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/03d0fc91-0218-4052-9bbf-1e45455dcf89.jpg)
+
+      | No.  | Endpoint           |
+      Notes                                                        |
+
+      | ---- | :----------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/couriers](https://docs-wms.jubelio.com/#operation/getWMSCourier)  
+      | Obtain **courier_id** (later will use as **courier_new_id** in endpoint
+      no 3) |
+
+      | 2    |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)     
+      | Obtain **location_id** where the item is located.            |
+
+      | 3    |
+      [POST/wms/shipments/](https://docs-wms.jubelio.com/#operation/postWMSShipments)
+      | Create shipment schedule for regular courier. Fill in the value as
+      described in the schema and the value that you've got from previous
+      endpoints (no. 1-2) |
+
+
+
+      **Create a schedule for instant courier**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/58767f19-d441-4b6a-895f-d27b2110a2b5.jpg)
+
+
+      | No.  | Endpoint                           |
+      Notes                                                        |
+
+      | ---- | :--------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/sales/order/ready-to-ship](https://docs-wms.jubelio.com/#operation/getWMSSalesOrderReadyToShip) 
+      | Obtain **salesorder_id** which is wanted to send with instant courier. |
+
+      | 2    | [GET/wms/employee/{nik or
+      email}](https://docs-wms.jubelio.com/#operation/getWMSemployee)    |
+      Obtain **employee_id** who is in charge of sending the items. |
+
+      | 3    |
+      [POST/wms/shipments/instant-courier/](https://docs-wms.jubelio.com/#operation/postWMSShipmentsInstantCourier)
+      | Create shipment schedule for instant courier. Fill in the value as
+      described in the schema and the value that you've got from previous
+      endpoints (no. 1-2) |
+
+
+
+      You can also use the following endpoints : 
+
+
+      | No   | Endpoints                                                    |
+      Function                                                     |
+
+      | ---- | ------------------------------------------------------------ |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/sales/shipments/all](https://docs-wms.jubelio.com/#operation/getWMSSalesShipmentsAll)      
+      | Get all shipment schedule for regular courier.               |
+
+      | 2    |
+      [GET/wms/sales/shipments/{courier_new_id}](https://docs-wms.jubelio.com/#operation/getWMSSalesShipmentsCourierNewId)                    
+      | Get all shipment list by specific courier (Obtain **courier_new_id** by
+      using endpoint GET/wms/couriers). |
+
+      | 3    |
+      [GET/wms/sales/shipments/instant/all](https://docs-wms.jubelio.com/#operation/getWMSSalesShipmentsAll)                          
+      | Get all shipment schedule for instant courier.               |
+
+
+
+      **b. Add order to the created shipment schedule**
+
+
+      After the shipment schedule is already created, you can add the orders
+      that are ready to ship to the schedule. 
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/48258e00-fade-4dd0-9455-d3f712712fc2.jpg)
+
+
+      | No.  | Endpoint                            |
+      Notes                                                        |
+
+      | ---- | :---------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    | [GET/wms/employee/{nik or
+      email}](https://docs-wms.jubelio.com/#operation/getWMSemployee)     |
+      Obtain **employee_id** who is in charge of sending the items. |
+
+      | 2    |
+      [GET/wms/sales/order/ready-to-ship](https://docs-wms.jubelio.com/#operation/getWMSSalesOrderReadyToShip)  
+      | Obtain **salesorder_id**                                     |
+
+      | 3    |
+      [POST/wms/scan-shipment](https://docs-wms.jubelio.com/#operation/postWMSScanShipment)             
+      | Obtain **shipment_header_id** by scanning shipment number.   |
+
+      | 4    |
+      [GET/wms/sales/shipments/all](https://docs-wms.jubelio.com/#operation/getWMSSalesShipmentsAll)        
+      | Use this endpoint to obtain **shipment_header_id** from regular courier
+      |
+
+      | 5    |
+      [GET/wms/sales/shipments/instant/all](https://docs-wms.jubelio.com/#operation/getWMSSalesShipmentsInstantAll)
+      | Use this endpoint to obtain **shipment_header_id** no from instant
+      courier |
+
+      | 6    |
+      [POST/wms/shipment-detail/](https://docs-wms.jubelio.com/#operation/postEMSShipmentDetail)           
+      | Add order to the schedule. Fill in the value as described in the schema
+      and the value that you've got from previous endpoints (no. 1-2) |
+
+
+      **c. Item Receipt by Courier**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/13c4e70a-304b-4926-b52c-2eefc0beea69.jpg)
+
+
+      | No   | Endpoints                                                    |
+      Function                                                     |
+
+      | ---- | ------------------------------------------------------------ |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/sales/shipments/all](https://docs-wms.jubelio.com/#operation/getWMSSalesShipmentsAll)
+      or
+      [GET/wms/sales/shipments/instant/all](https://docs-wms.jubelio.com/#operation/getWMSSalesShipmentsInstantAll)
+      | Obtain the **shipment_header_id** to later use as path in endpoint no. 2
+      |
+
+      | 2    |
+      [GET/sales/shipments/{shipment_header_id}](https://docs-wms.jubelio.com/#operation/getSalesShipmentsShipmentHeaderId)                    
+      | Use this to open the already created shipment schedule & list of items
+      to ship when the courier has arrived. |
+
+      | 3    |
+      [GET/reports/wms/shipping-manifest](https://docs-wms.jubelio.com/#operation/getReportsWMSShippingManifest)                           
+      | Print Proof Of Delivery report using **shipment_header_id**  |
+
+      | 4    |
+      [POST/wms/shipments/get-order/](https://docs-wms.jubelio.com/#operation/postWMSShipmentsGetOrder)                             
+      | Use this endpoint if you want to record a receipt as soon as the courier
+      receives each order. (Using **shipment_header_id** & **salesorder_id**) |
+
+      | 5    |
+      [POST/sales/shipments](https://docs-wms.jubelio.com/#operation/postSalesShipments)                                        
+      | Use this endpoint if all the orders have been received by the
+      courier/receipt complete.  You can set **is_completed** and **is_picked**
+      as **true.** |
+
+
+      **d. Tracking Orders**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/4ef1feac-bc59-4467-9386-46a8a55ebb93.jpg)
+
+
+      | No   | Endpoints                          |
+      Function                                                     |
+
+      | ---- | ---------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/wms/sales/shipments/completed/{shipmentType}/{courierIds}](https://docs-wms.jubelio.com/#operation/getWMSSalesShipmentsCompleted) 
+      | Get the list of shipments which are already on delivery.     |
+
+      | 2    |
+      [GET/wms/sales/shipped](https://docs-wms.jubelio.com/#operation/getWMSSalesShipped)             
+      | Get the list of orders which are already shipped by the courier. |
+
+      | 3    |
+      [POST/sales/orders/mark-as-complete](https://docs-wms.jubelio.com/#operation/postSalesOrdersMarkascomplete)
+      | If the order is already received by the customer and you want to mark
+      the order as complete. |
+
+      | 4    |
+      [GET/sales/orders/completed](https://docs-wms.jubelio.com/#operation/getSalesOrdersCompleted)        
+      | Get all the list of order that have been completed/received by the
+      customers. |
+
+
+      ## Transfer Out/Internal Transfer
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/d0d026fd-4c6a-4369-ab13-85c30bb78c66.jpg)
+
+
+      Transfer out can be defined as 2 meanings:
+
+
+      1. You want to transfer your items to another location outside your
+      current warehouse **(Transfer out)**. To update your stock, you are
+      **required** to do putaway items.
+
+      2. You want to transfer/move your items within the same location, but
+      different room **(Internal transfer)**. Different with the transfer out
+      activity, when you are making the internal transfer, you are **not
+      required** to do the putaway to update your stock.
+
+
+      <br>
+
+
+      **API Flow for Transfer**
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/8d15c5ba-ab8d-4edb-ba3b-02f28ee6776b.jpg)
+
+
+      | No.  | Endpoint                          |
+      Notes                                                        |
+
+      | ---- | :-------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)                    
+      | Obtain **location_id**, later use to define your source and destination
+      location for the transfer. You can use **the same location** for source &
+      destination if you just want to move your items to another room in 1
+      location. |
+
+      | 2    |
+      [GET/inventory/items/item-on-stock](https://docs-wms.jubelio.com/#operation/getInventoryItemsItemOnStock)
+      | Get all the item properties that needs to transfer           |
+
+      | 3    |
+      [GET/locations/bin/{location_id}](https://docs-wms.jubelio.com/#operation/getBinbyLocationID)  
+      |   Obtain **bin_id**, where the item is placed      |
+
+      | 4    |
+      [POST/inventory/transfers](https://docs-wms.jubelio.com/#operation/postInventoryTransfers)         
+      | Create transfer out for the items. Fill in the value as described in the
+      schema and the value that you've got from previous endpoints (no. 1-2).
+      For **internal transfer**, you can set **is_internal** as **true**. |
+
+      | 5    |
+      [POST/inventory/transfers/mark-printed](https://docs-wms.jubelio.com/#operation/inventoryTransferMarkPrinted)
+      | Print delivery note |
+
+
+      **You can also use the following endpoints :**
+
+
+      | Endpoints                            |
+      Function                                                     |
+
+      | ------------------------------------ |
+      ------------------------------------------------------------ |
+
+      |
+      [GET/inventory/transfers/out-finished](https://docs-wms.jubelio.com/#operation/getInventoryTransferOutFinished)
+      | Get all the list of transfers that have been received.       |
+
+      |
+      [GET/inventory/transfers/transit](https://docs-wms.jubelio.com/#operation/getInventoryTransfersTransit)     
+      | Get all the list of transfers that are on the way to the destination
+      location |
+
+      |
+      [GET/inventory/transfers/out](https://docs-wms.jubelio.com/#operation/getInventoryTransfersOut)         
+      | Get all the list of transfers that are recently created.     |
+
+      |
+      [GET/inventory/transfer/delivery](https://docs-wms.jubelio.com/#operation/getInventoryTransferDelivery)     
+      | Print delivery reports of the transfers                      |
+
+
+      <br>
+
+
+      ## Purchase Return
+
+
+      Purchase return means you want to return the items/products that have been
+      purchased from your suppliers.
+
+
+      Purchase return **based on bill number**, can use the following endpoints:
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/b5752752-a87f-43f5-b328-85a1d1981f53.jpg)
+
+
+      | No.  | Endpoint                             |
+      Notes                                                        |
+
+      | ---- | :----------------------------------- |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/contacts/suppliers](https://docs-wms.jubelio.com/#operation/getContactsSuppliers)              
+      | Obtain **contact_id, contact_name** (to later use as **supplier_id**,
+      **supplier_name** in endpoint no.6) |
+
+      | 2    |
+      [GET/purchase/bills/for-return](https://docs-wms.jubelio.com/#operation/getPurchaseBillsForReturn)       
+      | Obtain **doc_id** later use as **bill_id** in endpoint no.6  |
+
+      | 3    |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)                       
+      | Obtain **location_id**                                       |
+
+      | 4    |
+      [GET/locations/bin/{location_id}](https://docs-wms.jubelio.com/#operation/getBinbyLocationID)       
+      | Obtain **bin_id**, where the item is placed                  |
+
+      | 5    |
+      [GET/inventory/items/by-bill/{doc_id}](https://docs-wms.jubelio.com/#operation/getInventoryItemsByBill)
+      | Obtain all properties related to items return.               |
+
+      | 6    |
+      [POST/purchase/purchase-returns](https://docs-wms.jubelio.com/#operation/postPurchasePurchasereturns)      
+      | Create purchase return. Fill in the value as described in the schema and
+      the value that you've got from previous endpoints (no. 1-5) |
+
+
+      <br>
+
+
+      Purchase return **without bill number**, can use the following endpoints :
+
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/fca27370-0665-4437-bffa-bafdb64d56d5.jpg)
+
+
+      | No.  | Endpoint                        |
+      Notes                                                        |
+
+      | ---- | :------------------------------ |
+      ------------------------------------------------------------ |
+
+      | 1    |
+      [GET/contacts/suppliers](https://docs-wms.jubelio.com/#operation/getContactsSuppliers)         
+      | Obtain **contact_id, contact_name** (to later use as **supplier_id**,
+      **supplier_name** in endpoint no.6) |
+
+      | 2    |
+      [GET/locations](https://docs-wms.jubelio.com/#operation/getLocations)                  
+      | Obtain **location_id**                                       |
+
+      | 3    |
+      [GET/locations/bin/{location_id}](https://docs-wms.jubelio.com/#operation/getBinbyLocationID)
+      | Obtain **bin_id**, where the item is placed                  |
+
+      | 4    |
+      [GET/inventory/items/to-buy](https://docs-wms.jubelio.com/#operation/getInventoryItemsToBuy)     
+      | Obtain all properties related to items return.               |
+
+      | 5    |
+      [POST/purchase/purchase-returns](https://docs-wms.jubelio.com/#operation/postPurchasePurchasereturns)  
+      | Create purchase return. Fill in the value as described in the schema and
+      the value that you've got from previous endpoints (no. 1-4) |
+
+
+      You can also use the following endpoint :
+
+
+      | Endpoints                     | Function                             |
+
+      | ----------------------------- | ------------------------------------ |
+
+      |
+      [GET/purchase/purchase-returns](https://docs-wms.jubelio.com/#operation/getPurchasePurchasereturns)
+      | Get all the list of purchase return. |
+
+
+      <br>
+  - name: Couriers
+    description: >
+      Use this endpoint to manage third party logistics that already connected
+      with your Jubelio Account. To connect your account with Jubelio logistics
+      partner, please contact our partnership team thru our CS. <br>
+
+      <br> Here are the list of all **courier_id** you can use in your shipment
+      activity:
+
+      <br>
+
+      | courier_name  | courier_id |
+
+      | ------------- | ---------- |
+
+      | JNE           | 1          |
+
+      | JET           | 2          |
+
+      | SICEPAT       | 4          |
+
+      | SAPX          | 38         |
+
+      | ANTERAJA      | 100        |
+
+      | JX            | 101        |
+
+      | PAXEL         | 108        |
+
+      | NINJA         | 110        |
+
+      | GRAB_EXPRESS  | 111        |
+
+      | KERRY_EXPRESS | 112        |
+
+      | ID_EXPRESS    | 192        |
+  - name: Sales
+    description: >
+      This endpoint is use to manage orders, picklists, invoices and returns. 
+
+      <br> To create sales order, please read the following steps
+      [HERE](https://docs-wms.jubelio.com/#tag/Sales/operation/postSalesOrders). 
+
+      <br> And If you want to be more clear about the calculation of taxes,
+      discount and product prices, read
+      [HERE](https://docs.google.com/spreadsheets/d/1Nno3UYg7DSR0uLOZWzhRDbwcJWX4hxi6/edit?usp=sharing&ouid=106947434089066420882&rtpof=true&sd=true).
+  - name: Purchasing
+    description: >
+      This endpoint is use to manage purchase orders, receive goods, invoices
+      and returns. 
+
+      <br> To create purchase order, please read the following steps
+      [HERE](https://docs-wms.jubelio.com/#tag/Purchasing/operation/postPurchaseOrders).
+  - name: Channels
+    description: >
+      You can use this endpoint to manage or mapping store channels such as
+      Tokopedia, Shopee, Blibli, etc. <br>
+
+      <br> Here are the list of **channel_id** available in Jubelio : 
+
+      | Store Channel | Channel ID |
+
+      | ------------- | ---------- |
+
+      | INTERNAL      | 1          |
+
+      | BUKALAPAK     | 2          |
+
+      | LAZADA        | 4          |
+
+      | ZALORA        | 8          |
+
+      | ELEVENIA      | 16         |
+
+      | BLIBLI        | 32         |
+
+      | SHOPEE        | 64         |
+
+      | TOKOPEDIA     | 128        |
+
+      | BLANJA        | 512        |
+
+      | ZILINGO       | 2048       |
+
+      | JD            | 4096       |
+
+      | AKULAKU       | 65536      |
+
+      | WEBSTORE      | 131072     |
+
+      | DEALPOS       | 262144     |
+
+      | JUBELIO_POS   | 524288     |
+
+      | SHOPIFY       | 1048576    |
+
+      | TIKTOK        | 131076     |
+  - name: Contact
+    description: Use this endpoint to manage customers and vendors contact
+  - name: Journal
+    description: .
+  - name: Cash & Bank
+    description: .
+  - name: Reports
+    description: .
+  - name: System Setting
+    description: .
+  - name: Region
+    description: .
+  - name: API Flow
+    description: >
+      ## [Inbound Process] - Inbound Process (Summary)
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/fa4adf58-8f23-485c-8a83-f517a8b20b38.jpg)
+
+
+      ## [Inbound Process] - Creating POs
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/46f55d7a-e206-4ccd-bc78-9bbca4a9b953.jpg)
+
+
+      ## [Inbound Process] - Receiving items from Billing/POs
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/695122f0-f195-4d53-86bf-346d9ece4661.jpg)
+
+
+      ## [Inbound Process] - Receiving items transferred from other locations
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/24b2eaf4-c070-4913-b09b-3ef59df734df.jpg)
+
+
+      ## [Inbound Process] - Receive sales return with invoice
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/4bc01322-7ffc-4d4c-b3f1-e385f6408b9b.jpg)
+
+
+      ## [Inbound Process] - Receive sales return without invoice
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/29bc85f7-0836-4f86-a876-02dc2e491edb.jpg)
+
+
+      ## [Inbound Process] - Receiving sales return from Marketplace
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/e2e8dfbf-c3cc-4364-96b9-4d3960e1f414.jpg)
+
+
+      ## [Inbound Process] - Receiving Consignment Products
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/973add14-1cf2-403a-84ad-014ebe64d830.jpg)
+
+
+      ## [Inbound Process] - Auto Putaway
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/8cb02398-cee4-4da5-aaa6-f0c8e451dcec.jpg)
+
+
+      ## [Inbound Process] - Manual Putaway - Assign Staff
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/723078ae-4c48-456e-acbf-d674a9c96707.jpg)
+
+
+      ## [Inbound Process] - Manual Putaway - Putaway Process
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/e2dd355e-018b-47ea-97a3-c4d7b8023318.jpg)
+
+
+      ## [Outbound Process] - Pick, Pack, Ship Process (Summary)
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/444f1fc9-22f8-46e1-aad7-5b2c0428fa1b.jpg) 
+
+
+      ## [Outbound Process] - List Order
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/255e3ad0-6455-4904-a5ee-fa15c5704dc5.jpg) 
+
+
+      ## [Outbound Process] - Create Picklist
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/c5bf9e00-89ae-4e30-ace5-772e26683b2d.jpg)
+
+
+      ## [Outbound Process] - Picking Process
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/110527c6-dd4c-48dd-99cf-253b5ab4759c.jpg)
+
+
+      ## [Outbound Process] - Packing Process
+
+      ![](https://jb-assets-2.jb-assets-alpha-1.sg-sin1.upcloudobjects.com/images/26e05fad-f896-4024-a79a-19dc2c58dd35.png)
+
+
+      ## [Outbound Process] - Create a shipment schedule for regular couriers
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/62effe3a-1f28-4c08-8d7c-a1e2507dd831.jpg)
+
+
+      ## [Outbound Process] - Create a shipment schedule for instant couriers
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/e73600a5-1b83-46ad-ba89-f80dbeb20192.jpg)
+
+
+      ## [Outbound Process] - Add order to shipment schedule
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/c41dc3b0-9b40-41b1-8f64-1fc9cdd29733.jpg)
+
+
+      ## [Outbound Process] - Item Receipt by Courier
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/2259f4c5-53cb-457c-8e54-8637a1a07a5c.jpg)
+
+
+      ## [Outbound Process] - Tracking Orders
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/12a8f6d5-23d7-4c2a-a079-c0e19311cbc3.jpg)
+
+
+      ## [Outbound Process] - Transfer Out
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/06757dee-69be-411c-8176-cbdc4637c2fb.jpg)
+
+
+      ## [Outbound Process] - Purchase Return based on Bill Number
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/a5b04402-b495-452f-8fdc-6777605bd06f.jpg)
+
+
+      ## [Outbound Process] - Purhase Return Without Bill Number
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/cb2b1004-ebf9-44bc-8c19-3741f9a103d9.jpg)
+
+
+      ## Stock Adjustment
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/1229809d-c6fd-43f6-8b16-9e44e2270a80.jpg)
+
+
+      ## Stock Opname
+
+      ![](https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/ba4a8ecb-5c9b-40ca-8ebb-f1a8fe8d64d6.jpg)
+paths:
+  /region/provinces:
+    $ref: paths/region_provinces.yaml
+  /region/subdistricts/{district_id}:
+    $ref: paths/region_subdistricts_{district_id}.yaml
+  /region/cities/{province_id}:
+    $ref: paths/region_cities_{province_id}.yaml
+  /region/districts/{city_id}:
+    $ref: paths/region_districts_{city_id}.yaml
+  /inventory/reserved/:
+    $ref: paths/inventory_reserved_.yaml
+  /inventory/reserved/{id}:
+    $ref: paths/inventory_reserved_{id}.yaml
+  /inventory/items/to-stock/{location_id}:
+    $ref: paths/inventory_items_to-stock_{location_id}.yaml
+  /systemsetting/sales-return-setting:
+    $ref: paths/systemsetting_sales-return-setting.yaml
+  /wms/default-bin/{location_id}:
+    $ref: paths/wms_default-bin_{location_id}.yaml
+  /wms/couriers:
+    $ref: paths/wms_couriers.yaml
+  /wms/sales/shipments/{courier_new_id}:
+    $ref: paths/wms_sales_shipments_{courier_new_id}.yaml
+  /wms/sales/shipments/instant/all:
+    $ref: paths/wms_sales_shipments_instant_all.yaml
+  /wms/scan-shipment:
+    $ref: paths/wms_scan-shipment.yaml
+  /wms/shipments/:
+    $ref: paths/wms_shipments_.yaml
+  /wms/sales/picklists/change-picker/:
+    $ref: paths/wms_sales_picklists_change-picker_.yaml
+  /wms/shipment-detail/:
+    $ref: paths/wms_shipment-detail_.yaml
+  /wms/shipments/instant-courier/:
+    $ref: paths/wms_shipments_instant-courier_.yaml
+  /wms/sales/orders/ready-to-pick/:
+    $ref: paths/wms_sales_orders_ready-to-pick_.yaml
+  /wms/sales/shipments/completed/{shipment_type}/{courierIds}:
+    $ref: paths/wms_sales_shipments_completed_{shipment_type}_{courierIds}.yaml
+  /wms/sales/shipped/:
+    $ref: paths/wms_sales_shipped_.yaml
+  /wms/sales/orders/empty-stock/:
+    $ref: paths/wms_sales_orders_empty-stock_.yaml
+  /wms/sales/picklists/confirm-pick/:
+    $ref: paths/wms_sales_picklists_confirm-pick_.yaml
+  /wms/sales/shipments/all:
+    $ref: paths/wms_sales_shipments_all.yaml
+  /wms/sales/order/ready-to-ship:
+    $ref: paths/wms_sales_order_ready-to-ship.yaml
+  /wms/sales/packlists/finish-pack/:
+    $ref: paths/wms_sales_packlists_finish-pack_.yaml
+  /wms/sales/packlist/scan-order:
+    $ref: paths/wms_sales_packlist_scan-order.yaml
+  /wms/sales/ready-to-process:
+    $ref: paths/wms_sales_ready-to-process.yaml
+  /wms/sales/shipments/orders/:
+    $ref: paths/wms_sales_shipments_orders_.yaml
+  /wms/sales/ready-to-pick:
+    $ref: paths/wms_sales_ready-to-pick.yaml
+  /wms/sales/orders/request-cancel/:
+    $ref: paths/wms_sales_orders_request-cancel_.yaml
+  /wms/sales/orders/failed-pick:
+    $ref: paths/wms_sales_orders_failed-pick.yaml
+  /wms/sales/orders/finish-pick/:
+    $ref: paths/wms_sales_orders_finish-pick_.yaml
+  /sales/orders/completed/:
+    $ref: paths/sales_orders_completed_.yaml
+  /inventory/items/received/author:
+    $ref: paths/inventory_items_received_author.yaml
+  /wms/sales/packlist/update-qty-packed:
+    $ref: paths/wms_sales_packlist_update-qty-packed.yaml
+  /wms/sales/packlist/verify-barcode/:
+    $ref: paths/wms_sales_packlist_verify-barcode_.yaml
+  /wms/sales/packlist/mark-as-complete/:
+    $ref: paths/wms_sales_packlist_mark-as-complete_.yaml
+  /wms/sales/packlists/process/:
+    $ref: paths/wms_sales_packlists_process_.yaml
+  /wms/employee/{NIKorEmail}:
+    $ref: paths/wms_employee_{NIKorEmail}.yaml
+  /wms/sales/orders/ready-to-process/:
+    $ref: paths/wms_sales_orders_ready-to-process_.yaml
+  /accounts/lookup/all:
+    $ref: paths/accounts_lookup_all.yaml
+  /blibli/pickupPoints:
+    $ref: paths/blibli_pickupPoints.yaml
+  /cashbank/payments/:
+    $ref: paths/cashbank_payments_.yaml
+  /cashbank/payments/id:
+    $ref: paths/cashbank_payments_id.yaml
+  /cashbank/receives:
+    $ref: paths/cashbank_receives.yaml
+  /cashbank/receives/id:
+    $ref: paths/cashbank_receives_id.yaml
+  /contact/category/:
+    $ref: paths/contact_category_.yaml
+  /contacts/:
+    $ref: paths/contacts_.yaml
+  /contacts/{id}:
+    $ref: paths/contacts_{id}.yaml
+  /contacts/customers-suppliers/:
+    $ref: paths/contacts_customers-suppliers_.yaml
+  /contacts/customers/:
+    $ref: paths/contacts_customers_.yaml
+  /contacts/suppliers/:
+    $ref: paths/contacts_suppliers_.yaml
+  /couriers:
+    $ref: paths/couriers.yaml
+  /couriers/{id}:
+    $ref: paths/couriers_{id}.yaml
+  /couriers/tenant/{id}:
+    $ref: paths/couriers_tenant_{id}.yaml
+  /inventory/:
+    $ref: paths/inventory_.yaml
+  /inventory/items/group/merge-catalog:
+    $ref: paths/inventory_items_group_merge-catalog.yaml
+  /inventory/putaway/all:
+    $ref: paths/inventory_putaway_all.yaml
+  /inventory/putaway/not-start:
+    $ref: paths/inventory_putaway_not-start.yaml
+  /inventory/putaway/processed:
+    $ref: paths/inventory_putaway_processed.yaml
+  /inventory/putaway/completed:
+    $ref: paths/inventory_putaway_completed.yaml
+  /inventory/items/received/item/{putaway_id}:
+    $ref: paths/inventory_items_received_item_{putaway_id}.yaml
+  /inventory/items/to-buy:
+    $ref: paths/inventory_items_to-buy.yaml
+  /inventory/activity/:
+    $ref: paths/inventory_activity_.yaml
+  /inventory/adjustments/:
+    $ref: paths/inventory_adjustments_.yaml
+  /inventory/adjustments/{id}:
+    $ref: paths/inventory_adjustments_{id}.yaml
+  /inventory/adjustments/warehouse:
+    $ref: paths/inventory_adjustments_warehouse.yaml
+  /inventory/catalog/:
+    $ref: paths/inventory_catalog_.yaml
+  /inventory/catalog/{group_id}:
+    $ref: paths/inventory_catalog_{group_id}.yaml
+  /inventory/catalog/for-listing/{id}:
+    $ref: paths/inventory_catalog_for-listing_{id}.yaml
+  /inventory/catalog/listing:
+    $ref: paths/inventory_catalog_listing.yaml
+  /inventory/catalog/upload:
+    $ref: paths/inventory_catalog_upload.yaml
+  /inventory/categories/{channel_id}/store-categories/{store_id}:
+    $ref: paths/inventory_categories_{channel_id}_store-categories_{store_id}.yaml
+  /inventory/categories/{id}/attributes-value/:
+    $ref: paths/inventory_categories_{id}_attributes-value_.yaml
+  /inventory/categories/{id}/attributes/:
+    $ref: paths/inventory_categories_{id}_attributes_.yaml
+  /inventory/categories/{id}/variations/:
+    $ref: paths/inventory_categories_{id}_variations_.yaml
+  /inventory/categories/category-map/{id}:
+    $ref: paths/inventory_categories_category-map_{id}.yaml
+  /inventory/categories/channel-categories/{parent_id}:
+    $ref: paths/inventory_categories_channel-categories_{parent_id}.yaml
+  /inventory/categories/item-categories/:
+    $ref: paths/inventory_categories_item-categories_.yaml
+  /inventory/categories/item-categories/information/{id}/:
+    $ref: paths/inventory_categories_item-categories_information_{id}_.yaml
+  /inventory/catalog/set-master:
+    $ref: paths/inventory_catalog_set-master.yaml
+  /inventory/items/received/putaway:
+    $ref: paths/inventory_items_received_putaway.yaml
+  /inventory/items/received/finish-putaway:
+    $ref: paths/inventory_items_received_finish-putaway.yaml
+  /inventory/items/to-stock/:
+    $ref: paths/inventory_items_to-stock_.yaml
+  /inventory/items/to-sales-return:
+    $ref: paths/inventory_items_to-sales-return.yaml
+  /inventory/items/by-transfer/{item_transfer_id}:
+    $ref: paths/inventory_items_by-transfer_{item_transfer_id}.yaml
+  /inventory/item-bundles/:
+    $ref: paths/inventory_item-bundles_.yaml
+  /inventory/items/:
+    $ref: paths/inventory_items_.yaml
+  /inventory/items/{id}:
+    $ref: paths/inventory_items_{id}.yaml
+  /inventory/items/archive/:
+    $ref: paths/inventory_items_archive_.yaml
+  /inventory/items/archived/:
+    $ref: paths/inventory_items_archived_.yaml
+  /inventory/items/received:
+    $ref: paths/inventory_items_received.yaml
+  /inventory/items/{id}/batch-number:
+    $ref: paths/inventory_items_{id}_batch-number.yaml
+  /inventory/items/restore/:
+    $ref: paths/inventory_items_restore_.yaml
+  /inventory/items/all-stocks/:
+    $ref: paths/inventory_items_all-stocks_.yaml
+  /inventory/items/split-item:
+    $ref: paths/inventory_items_split-item.yaml
+  /inventory/items/by-invoice/{invoice_id}:
+    $ref: paths/inventory_items_by-invoice_{invoice_id}.yaml
+  /inventory/items/by-sku/{sku}:
+    $ref: paths/inventory_items_by-sku_{sku}.yaml
+  /inventory/items/channel-category-attributes/:
+    $ref: paths/inventory_items_channel-category-attributes_.yaml
+  /inventory/items/channel-category-tree/:
+    $ref: paths/inventory_items_channel-category-tree_.yaml
+  /inventory/items/complete-return/:
+    $ref: paths/inventory_items_complete-return_.yaml
+  /inventory/items/item-variant/:
+    $ref: paths/inventory_items_item-variant_.yaml
+  /inventory/items/errors/:
+    $ref: paths/inventory_items_errors_.yaml
+  /inventory/items/group/{id}:
+    $ref: paths/inventory_items_group_{id}.yaml
+  /inventory/items/prices/:
+    $ref: paths/inventory_items_prices_.yaml
+  /inventory/items/reject-return/:
+    $ref: paths/inventory_items_reject-return_.yaml
+  /inventory/items/reviews/:
+    $ref: paths/inventory_items_reviews_.yaml
+  /inventory/items/masters:
+    $ref: paths/inventory_items_masters.yaml
+  /inventory/items/to-adjust/:
+    $ref: paths/inventory_items_to-adjust_.yaml
+  /inventory/items/to-return/:
+    $ref: paths/inventory_items_to-return_.yaml
+  /inventory/items/to-sell/{location_id}:
+    $ref: paths/inventory_items_to-sell_{location_id}.yaml
+  /inventory/stock-opname/floors:
+    $ref: paths/inventory_stock-opname_floors.yaml
+  /inventory/stock-opname/rows:
+    $ref: paths/inventory_stock-opname_rows.yaml
+  /inventory/stock-opname/columns:
+    $ref: paths/inventory_stock-opname_columns.yaml
+  /inventory/stock-opname:
+    $ref: paths/inventory_stock-opname.yaml
+  /inventory/stock-opname/{opname_header_id}:
+    $ref: paths/inventory_stock-opname_{opname_header_id}.yaml
+  /inventory/stock-opname/bins:
+    $ref: paths/inventory_stock-opname_bins.yaml
+  /inventory/stock-opname/items:
+    $ref: paths/inventory_stock-opname_items.yaml
+  /inventory/stock-opname/finalize:
+    $ref: paths/inventory_stock-opname_finalize.yaml
+  /inventory/need-restock/:
+    $ref: paths/inventory_need-restock_.yaml
+  /inventory/out-of-stock-in-order/:
+    $ref: paths/inventory_out-of-stock-in-order_.yaml
+  /inventory/internal-price-list/:
+    $ref: paths/inventory_internal-price-list_.yaml
+  /inventory/price-list/:
+    $ref: paths/inventory_price-list_.yaml
+  /inventory/promotions/:
+    $ref: paths/inventory_promotions_.yaml
+  /inventory/promotions/{id}:
+    $ref: paths/inventory_promotions_{id}.yaml
+  /inventory/stock-opname/items/filtered:
+    $ref: paths/inventory_stock-opname_items_filtered.yaml
+  /inventory/revaluations/:
+    $ref: paths/inventory_revaluations_.yaml
+  /inventory/search-brands/:
+    $ref: paths/inventory_search-brands_.yaml
+  /inventory/transfer/mark-printed:
+    $ref: paths/inventory_transfer_mark-printed.yaml
+  /inventory/transfers/:
+    $ref: paths/inventory_transfers_.yaml
+  /inventory/transfers/{id}:
+    $ref: paths/inventory_transfers_{id}.yaml
+  /inventory/transfers/in:
+    $ref: paths/inventory_transfers_in.yaml
+  /inventory/transfers/all-transit:
+    $ref: paths/inventory_transfers_all-transit.yaml
+  /inventory/transfers/out:
+    $ref: paths/inventory_transfers_out.yaml
+  /inventory/transfers/out-finished:
+    $ref: paths/inventory_transfers_out-finished.yaml
+  /inventory/transfers/transit:
+    $ref: paths/inventory_transfers_transit.yaml
+  /inventory/transfer/delivery:
+    $ref: paths/inventory_transfer_delivery.yaml
+  /inventory/upload-image:
+    $ref: paths/inventory_upload-image.yaml
+  /inventory/items/by-bill/{doc_id}:
+    $ref: paths/inventory_items_by-bill_{doc_id}.yaml
+  /inventory/items/received/auto-putaway:
+    $ref: paths/inventory_items_received_auto-putaway.yaml
+  /inventory/items/item-on-stock:
+    $ref: paths/inventory_items_item-on-stock.yaml
+  /journal/:
+    $ref: paths/journal_.yaml
+  /journal/{id}:
+    $ref: paths/journal_{id}.yaml
+  /journal/manual-journal/:
+    $ref: paths/journal_manual-journal_.yaml
+  /lazada/get-document/:
+    $ref: paths/lazada_get-document_.yaml
+  /locations/:
+    $ref: paths/locations_.yaml
+  /locations/{id}:
+    $ref: paths/locations_{id}.yaml
+  /locations/bin/{location_id}:
+    $ref: paths/locations_bin_{location_id}.yaml
+  /locations/pos:
+    $ref: paths/locations_pos.yaml
+  /locations/store/:
+    $ref: paths/locations_store_.yaml
+  /login:
+    $ref: paths/login.yaml
+  /marketplace/store/:
+    $ref: paths/marketplace_store_.yaml
+  /purchase/:
+    $ref: paths/purchase_.yaml
+  /purchase/bills/:
+    $ref: paths/purchase_bills_.yaml
+  /purchase/bills/for-return:
+    $ref: paths/purchase_bills_for-return.yaml
+  /purchase/bills/{id}:
+    $ref: paths/purchase_bills_{id}.yaml
+  /purchase/bills/overdue/:
+    $ref: paths/purchase_bills_overdue_.yaml
+  /purchase/bills/unpaid/:
+    $ref: paths/purchase_bills_unpaid_.yaml
+  /purchase/orders/:
+    $ref: paths/purchase_orders_.yaml
+  /purchase/orders/{id}:
+    $ref: paths/purchase_orders_{id}.yaml
+  /purchase/orders/progress:
+    $ref: paths/purchase_orders_progress.yaml
+  /purchase/payments/:
+    $ref: paths/purchase_payments_.yaml
+  /purchase/payments/{id}:
+    $ref: paths/purchase_payments_{id}.yaml
+  /purchase/purchase-returns/:
+    $ref: paths/purchase_purchase-returns_.yaml
+  /purchase/serial-number/mark-printed:
+    $ref: paths/purchase_serial-number_mark-printed.yaml
+  /purchase/purchase-returns/{id}:
+    $ref: paths/purchase_purchase-returns_{id}.yaml
+  /purchase/purchase-returns/unpaid/:
+    $ref: paths/purchase_purchase-returns_unpaid_.yaml
+  /purchase/return-settlements/:
+    $ref: paths/purchase_return-settlements_.yaml
+  /purchase/return-settlements/bills/:
+    $ref: paths/purchase_return-settlements_bills_.yaml
+  /purchase/return-settlements/bills/{id}:
+    $ref: paths/purchase_return-settlements_bills_{id}.yaml
+  /purchase/return-settlements/refunds/:
+    $ref: paths/purchase_return-settlements_refunds_.yaml
+  /purchase/return-settlements/refunds/{id}:
+    $ref: paths/purchase_return-settlements_refunds_{id}.yaml
+  /purchase/serial-number/wms/{bill_detail_id}:
+    $ref: paths/purchase_serial-number_wms_{bill_detail_id}.yaml
+  /reports/receive:
+    $ref: paths/reports_receive.yaml
+  /reports/consign:
+    $ref: paths/reports_consign.yaml
+  /reports/invoice:
+    $ref: paths/reports_invoice.yaml
+  /reports/lable/print/:
+    $ref: paths/reports_lable_print_.yaml
+  /reports/purchaseorder/:
+    $ref: paths/reports_purchaseorder_.yaml
+  /reports/stock-opname:
+    $ref: paths/reports_stock-opname.yaml
+  /reports/shipping-label/:
+    $ref: paths/reports_shipping-label_.yaml
+  /reports/wms/shipping-manifest:
+    $ref: paths/reports_wms_shipping-manifest.yaml
+  /reports/putaway:
+    $ref: paths/reports_putaway.yaml
+  /reports/item-receive-notplace:
+    $ref: paths/reports_item-receive-notplace.yaml
+  /reports/adjustment:
+    $ref: paths/reports_adjustment.yaml
+  /sales/:
+    $ref: paths/sales_.yaml
+  /sales/invoices/:
+    $ref: paths/sales_invoices_.yaml
+  /sales/invoices/for-return-wms/{contact_id}:
+    $ref: paths/sales_invoices_for-return-wms_{contact_id}.yaml
+  /sales/invoices/{id}:
+    $ref: paths/sales_invoices_{id}.yaml
+  /sales/invoices/overdue/:
+    $ref: paths/sales_invoices_overdue_.yaml
+  /sales/invoices/summary/:
+    $ref: paths/sales_invoices_summary_.yaml
+  /sales/invoices/unpaid/:
+    $ref: paths/sales_invoices_unpaid_.yaml
+  /sales/orders/:
+    $ref: paths/sales_orders_.yaml
+  /sales/orders/{id}:
+    $ref: paths/sales_orders_{id}.yaml
+  /sales/orders/cancel/:
+    $ref: paths/sales_orders_cancel_.yaml
+  /sales/orders/delete-canceled:
+    $ref: paths/sales_orders_delete-canceled.yaml
+  /sales/orders/failed/:
+    $ref: paths/sales_orders_failed_.yaml
+  /sales/picklists/{picklist_id}:
+    $ref: paths/sales_picklists_{picklist_id}.yaml
+  /sales/orders/mark-as-complete:
+    $ref: paths/sales_orders_mark-as-complete.yaml
+  /sales/orders/returned-list/:
+    $ref: paths/sales_orders_returned-list_.yaml
+  /sales/orders/save-airwaybill/:
+    $ref: paths/sales_orders_save-airwaybill_.yaml
+  /sales/orders/save-received-date:
+    $ref: paths/sales_orders_save-received-date.yaml
+  /sales/orders/set-as-paid:
+    $ref: paths/sales_orders_set-as-paid.yaml
+  /sales/packlists/:
+    $ref: paths/sales_packlists_.yaml
+  /sales/shipments/{shipment_header_id}:
+    $ref: paths/sales_shipments_{shipment_header_id}.yaml
+  /sales/packlists/{id}:
+    $ref: paths/sales_packlists_{id}.yaml
+  /sales/packlists/create-invoice-payment:
+    $ref: paths/sales_packlists_create-invoice-payment.yaml
+  /sales/packlists/create-invoice:
+    $ref: paths/sales_packlists_create-invoice.yaml
+  /sales/packlists/shipped/:
+    $ref: paths/sales_packlists_shipped_.yaml
+  /sales/payments/:
+    $ref: paths/sales_payments_.yaml
+  /sales/payments/{id}:
+    $ref: paths/sales_payments_{id}.yaml
+  /sales/picklists/items-to-pick:
+    $ref: paths/sales_picklists_items-to-pick.yaml
+  /sales/picklists/to-ship/:
+    $ref: paths/sales_picklists_to-ship_.yaml
+  /sales/request-awb-order/:
+    $ref: paths/sales_request-awb-order_.yaml
+  /sales/return-settlements/:
+    $ref: paths/sales_return-settlements_.yaml
+  /sales/return-settlements/invoices/:
+    $ref: paths/sales_return-settlements_invoices_.yaml
+  /sales/return-settlements/invoices/{id}:
+    $ref: paths/sales_return-settlements_invoices_{id}.yaml
+  /sales/return-settlements/refunds/:
+    $ref: paths/sales_return-settlements_refunds_.yaml
+  /sales/return-settlements/refunds/{id}:
+    $ref: paths/sales_return-settlements_refunds_{id}.yaml
+  /sales/returns/items/:
+    $ref: paths/sales_returns_items_.yaml
+  /sales/returns/items/unprocessed/wms:
+    $ref: paths/sales_returns_items_unprocessed_wms.yaml
+  /sales/returns/items/rejected/:
+    $ref: paths/sales_returns_items_rejected_.yaml
+  /sales/returns/items/resolved/:
+    $ref: paths/sales_returns_items_resolved_.yaml
+  /sales/sales-returns/:
+    $ref: paths/sales_sales-returns_.yaml
+  /sales/sales-returns/{id}:
+    $ref: paths/sales_sales-returns_{id}.yaml
+  /sales/sales-returns/unpaid/:
+    $ref: paths/sales_sales-returns_unpaid_.yaml
+  /sales/settlements/:
+    $ref: paths/sales_settlements_.yaml
+  /sales/settlements/{id}:
+    $ref: paths/sales_settlements_{id}.yaml
+  /wms/sales/orders/change-location/:
+    $ref: paths/wms_sales_orders_change-location_.yaml
+  /sales/shipments/orders/:
+    $ref: paths/sales_shipments_orders_.yaml
+  /sales/unfullfilled/:
+    $ref: paths/sales_unfullfilled_.yaml
+  /shopee/logistics:
+    $ref: paths/shopee_logistics.yaml
+  /store-locations/:
+    $ref: paths/store-locations_.yaml
+  /systemsetting/account-mapping:
+    $ref: paths/systemsetting_account-mapping.yaml
+  /systemsetting/users/:
+    $ref: paths/systemsetting_users_.yaml
+  /systemsetting/webhook:
+    $ref: paths/systemsetting_webhook.yaml
+  /lazada/get-shipment-providers/{storeId}/:
+    $ref: paths/lazada_get-shipment-providers_{storeId}_.yaml
+  /reports/wms/pick-list:
+    $ref: paths/reports_wms_pick-list.yaml
+  /wms/order/getOrderByNo/:
+    $ref: paths/wms_order_getOrderByNo_.yaml
+  /wms/shipments/get-order/:
+    $ref: paths/wms_shipments_get-order_.yaml
+  /sales/shipments/:
+    $ref: paths/sales_shipments_.yaml
+  /sales/picklists/items-to-pick/:
+    $ref: paths/sales_picklists_items-to-pick_.yaml
+  /wms/sales/picklists/:
+    $ref: paths/wms_sales_picklists_.yaml
+  /wms/sales/packlist:
+    $ref: paths/wms_sales_packlist.yaml
+  /taxes/:
+    $ref: paths/taxes_.yaml
+  /tokopedia/showcases:
+    $ref: paths/tokopedia_showcases.yaml
+  /variations:
+    $ref: paths/variations.yaml
+  /webhooks/invoice:
+    $ref: paths/webhooks_invoice.yaml
+  /webhooks/payment:
+    $ref: paths/webhooks_payment.yaml
+  /webhooks/price:
+    $ref: paths/webhooks_price.yaml
+  /webhooks/product:
+    $ref: paths/webhooks_product.yaml
+  /webhooks/purchaseorder:
+    $ref: paths/webhooks_purchaseorder.yaml
+  /webhooks/salesorder:
+    $ref: paths/webhooks_salesorder.yaml
+  /webhooks/salesreturn:
+    $ref: paths/webhooks_salesreturn.yaml
+  /webhooks/stock:
+    $ref: paths/webhooks_stock.yaml
+  /webhooks/stocktransfer:
+    $ref: paths/webhooks_stocktransfer.yaml

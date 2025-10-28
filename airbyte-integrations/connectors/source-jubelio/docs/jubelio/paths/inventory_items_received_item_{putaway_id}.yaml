@@ -1,0 +1,33 @@
+get:
+  tags:
+    - Inventory
+  summary: Get List of Putaway Items
+  description: You can sort by **item_code**.
+  operationId: getInventoryItemsReceivedPutawayID
+  parameters:
+    - name: putaway_id
+      in: path
+      required: true
+      description: Putaway ID
+      example: 123
+      schema:
+        type: string
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/q.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getReceiveItemPutawayResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

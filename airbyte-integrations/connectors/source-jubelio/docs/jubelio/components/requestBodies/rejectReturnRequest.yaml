@@ -1,0 +1,19 @@
+content:
+  application/json:
+    schema:
+      type: array
+      required:
+        - salesorder_detail_id
+        - reject_return_reason
+      description: List Item
+      items:
+        type: object
+        properties:
+          salesorder_detail_id:
+            type: number
+            description: Salesorder Detail ID
+            example: 2993
+          reject_return_reason:
+            type: string
+            description: Reject Return Request
+            example: Barang sudah di pakai

@@ -1,0 +1,13 @@
+type: array
+description: List Items that exists in System
+items:
+  type: object
+  properties:
+    channel_id:
+      type: number
+      description: Channel ID
+      example: 1707
+    channel_category_id:
+      type: string
+      description: Channel Category ID
+      example: 14730

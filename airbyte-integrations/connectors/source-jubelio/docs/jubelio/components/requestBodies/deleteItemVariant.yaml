@@ -1,0 +1,8 @@
+content:
+  application/json:
+    schema:
+      type: array
+      items:
+        type: integer
+        description: List of Item Variant ID that will be deleted
+        example: 14

@@ -1,0 +1,53 @@
+required:
+  - contact_id
+  - customer_name
+  - return_id
+  - settlement_no
+type: object
+properties:
+  settlement_id:
+    type: number
+    description: Sales Return Settlement ID
+    example: 0
+  settlement_no:
+    type: string
+    description: Sales Return Settlement Number
+    example: '[auto]'
+  return_id:
+    type: number
+    description: Sales Return ID
+    example: 1
+  contact_id:
+    type: number
+    description: Contact ID (Customer)
+    example: 1
+  customer_name:
+    type: string
+    description: Contact Name (Customer)
+    example: Mikha
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2019-01-13T22:03:56.972Z'
+  amount:
+    type: number
+    description: Settlement Amount
+    example: 120000
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        settlement_detail_id:
+          type: number
+          description: Sales Return Settlement Detail ID
+          example: 0
+        invoice_id:
+          type: number
+          description: Invoice ID
+          example: 1
+        payment_amount:
+          type: number
+          description: Invoice Payment Amount
+          example: 120000

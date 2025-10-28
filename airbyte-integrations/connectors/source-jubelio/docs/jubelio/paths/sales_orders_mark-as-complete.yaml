@@ -1,0 +1,22 @@
+post:
+  tags:
+    - Sales
+  summary: Mark Sales Order as Complete
+  operationId: postSalesOrdersMarkascomplete
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/markCompleteRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

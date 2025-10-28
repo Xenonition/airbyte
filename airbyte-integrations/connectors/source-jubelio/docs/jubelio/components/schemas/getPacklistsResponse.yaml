@@ -1,0 +1,122 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 6
+        salesorder_no:
+          type: string
+          description: Sales Order Number
+          example: SO-000000006
+        customer_name:
+          type: string
+          description: Contact Name (Customer)
+          example: Pelanggan Umum
+        picklist_id:
+          type: number
+          description: Picklist ID
+          example: 3
+        picklist_no:
+          type: number
+          description: Picklist Number
+          example: PICK-000000003
+        invoice_no:
+          type: number
+          description: Invoice Number
+          example: INV-000000003
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        created_date:
+          type: string
+          format: date
+          description: Created Date
+          example: '2018-10-20T17:00:00.000Z'
+        source:
+          type: string
+          description: Source
+          example: 1
+        source_name:
+          type: string
+          description: Source Name
+          example: Internal
+        shipper:
+          type: number
+          description: Shipper
+          example: JNE
+        due_date:
+          type: number
+          description: Payment Due Date
+          example: 0
+        store_id:
+          type: string
+          description: Store ID
+          example: 1
+        store_name:
+          type: string
+          description: Store Name
+          example: Internal
+        s_address:
+          type: string
+          description: Receiver Address
+          example: Kutabumi
+        address:
+          type: string
+          description: Receiver Address
+          example: Kutabumi
+        s_area:
+          type: string
+          description: Receiver Address Area
+          example: Pasar Kemis
+        s_city:
+          type: string
+          description: Receiver Address City
+          example: Tangerang
+        s_province:
+          type: string
+          description: Receiver Address Province
+          example: Banten
+        s_post_code:
+          type: string
+          description: Receiver Address Post Code
+          example: 11750
+        ship_address:
+          type: string
+          description: Shipping Full Address
+          example: Kutabumi/r/nPasar Kemis/r/nTangerang/r/nBanten/r/n11750
+        marketplace_status:
+          type: string
+          description: Market Place Status
+          example: paid
+        tracking_no:
+          type: string
+          description: Tracking Number
+          example: TRC-00000001
+        ref_no:
+          type: string
+          description: Tracking Number
+          example: null
+        store:
+          type: string
+          description: Store name
+          example: null
+        shipment_type:
+          type: string
+          description: Shipment type
+          example: null
+        status_details:
+          type: string
+          description: Status details
+          example: null
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

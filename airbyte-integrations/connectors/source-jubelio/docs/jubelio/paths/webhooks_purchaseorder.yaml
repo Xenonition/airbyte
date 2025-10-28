@@ -1,0 +1,20 @@
+post:
+  tags:
+    - Webhooks
+  summary: New Purchase Order
+  operationId: getPurchaseOrderWebhook
+  description: >
+    This Webhook will be called when a new Purchase Order is created from
+    Application
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/webhookPurchaseOrder.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml

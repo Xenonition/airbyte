@@ -1,0 +1,32 @@
+post:
+  tags:
+    - Sales
+  summary: Shipment Orders
+  operationId: shipmentOrders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            ids:
+              type: array
+              description: List orders ids
+              items:
+                type: number
+                example: 1
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/shipmentsOrdersResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

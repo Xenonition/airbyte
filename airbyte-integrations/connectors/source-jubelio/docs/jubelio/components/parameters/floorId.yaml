@@ -1,0 +1,8 @@
+name: floorId
+in: query
+required: true
+style: form
+description: Rack Location by Floor
+schema:
+  type: number
+  example: 1

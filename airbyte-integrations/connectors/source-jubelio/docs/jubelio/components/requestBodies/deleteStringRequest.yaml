@@ -1,0 +1,11 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        ids:
+          type: array
+          description: List Object Number that will be deleted
+          items:
+            type: string
+            example: PO-000000005

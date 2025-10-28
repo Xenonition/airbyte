@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Inventory
+  summary: Get Items To Sell
+  operationId: getItemsToSell
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: location_id
+      in: path
+      required: true
+      description: Location ID
+      schema:
+        type: string
+    - $ref: ../components/parameters/type.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getItemsToSellResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,57 @@
+type: object
+properties:
+  token:
+    type: string
+    description: |
+      Authentication Token.
+      Use this token for your subsequent calls to other end points
+    example: >-
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZvdzIybzZjdDNjaTdnbXd5ZWZ0MXciLCJleHAiOjE1NDY3MTgxNjA2NDcsImlhdCI6MTU0NjY3NDk2MH0.KVtDt-aIF05dkYIfD6-ZY8RROi0LiIWRyNGhRFxmqWo
+  passwordExpired:
+    type: string
+    description: Password has expired
+    example: false
+  userName:
+    type: string
+    description: User Login Email
+    example: user@example.com
+  roles:
+    type: array
+    description: List Role ID of Authenticated User
+    items:
+      type: object
+      properties:
+        role_id:
+          type: string
+          description: Role ID
+          example: -1
+  packageId:
+    type: number
+    description: User Package ID
+    example: 2
+  trialLeft:
+    type: number
+    description: User Trial Left Time
+    example: 0
+  showGettingStarted:
+    type: boolean
+    description: Show Getting Started when User Login
+    example: true
+  currentCompany:
+    type: number
+    description: User Current Company ID
+    example: 10
+  companies:
+    type: array
+    description: List Authenticated User Companies
+    items:
+      type: object
+      properties:
+        company_id:
+          type: number
+          description: Company Name
+          example: 10
+        company_name:
+          type: string
+          description: Company Name
+          example: default

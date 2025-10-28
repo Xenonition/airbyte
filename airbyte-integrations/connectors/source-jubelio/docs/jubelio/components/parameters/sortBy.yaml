@@ -1,0 +1,9 @@
+name: sortBy
+in: query
+required: false
+style: form
+explode: true
+description: Sort By Field
+example: name
+schema:
+  type: string

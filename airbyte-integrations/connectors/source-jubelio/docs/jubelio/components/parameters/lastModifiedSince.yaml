@@ -1,0 +1,10 @@
+name: lastModifiedSince
+in: query
+required: false
+style: form
+explode: true
+description: Last Modified Since
+schema:
+  type: string
+  format: date
+  example: '2020-03-04T00:00:00.000Z'

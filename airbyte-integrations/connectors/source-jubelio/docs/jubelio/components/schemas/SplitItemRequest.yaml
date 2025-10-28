@@ -1,0 +1,23 @@
+type: object
+properties:
+  item_group_id:
+    type: string
+    description: Item Group ID
+    example: 5876
+  new_item_group_name:
+    type: string
+    description: The new item group name for the item that has been split
+    example: 3second Kaos M All Colours
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        item_id:
+          type: string
+          description: Item ID
+          example: 11176
+        status:
+          type: boolean
+          description: Set true for items that are going to be split.
+          example: true

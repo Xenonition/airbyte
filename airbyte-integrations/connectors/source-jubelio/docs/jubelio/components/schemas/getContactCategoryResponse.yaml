@@ -1,0 +1,36 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        category_id:
+          type: number
+          description: Category ID
+          example: 2
+        contact_name:
+          type: string
+          description: Contact Name
+          example: Radit
+        category_code:
+          type: string
+          description: Category Code
+          example: '01'
+        created_by:
+          type: string
+          description: Created By
+          example: support@jubelio.com
+        updated_by:
+          type: string
+          description: Updated By
+          example: support@jubelio.com
+        contact_type:
+          type: number
+          description: Contact Type
+          example: 4
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

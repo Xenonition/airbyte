@@ -1,0 +1,35 @@
+get:
+  tags:
+    - Product
+  summary: Get All Channel Attributes
+  operationId: getChannelAttributes
+  parameters:
+    - name: id
+      in: query
+      required: true
+      style: form
+      explode: true
+      description: Channel Category ID
+      schema:
+        type: string
+    - name: channel_id
+      in: query
+      required: true
+      style: form
+      explode: true
+      description: Channel ID
+      schema:
+        type: number
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getChannelAttributesResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

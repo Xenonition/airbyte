@@ -1,0 +1,20 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        brand_id:
+          type: number
+          description: Brand ID
+          example: 3
+        brand_name:
+          type: string
+          description: Brand Name
+          example: 24K
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

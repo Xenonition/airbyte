@@ -1,0 +1,49 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        action:
+          type: string
+          description: Action Name
+          example: create
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 1
+        error_date:
+          type: string
+          format: date-time
+          description: Error date
+          example: '2020-05-14T18:01:42.539Z'
+        error_text:
+          type: string
+          description: Reason error
+          example: No refresh token defined
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 50
+        item_group_name:
+          type: string
+          description: Item Group Name
+          example: 3Second Men Denim Pants 080319
+        store_id:
+          type: string
+          description: Store ID
+          example: 1
+        store_name:
+          type: string
+          description: Store Name
+          example: BUKALAPAK - Toko
+        success:
+          type: boolean
+          description: Status
+          example: false
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

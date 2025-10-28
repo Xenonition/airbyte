@@ -1,0 +1,21 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        user_id:
+          type: number
+          description: User ID
+          example: 61382
+        email:
+          type: string
+          example: lilismanoban@blackpick.com
+        last_login:
+          type: string
+          format: date-time
+          example: '2022-03-21T07:30:17.362Z'
+        is_owner:
+          type: boolean
+          example: false

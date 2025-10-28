@@ -1,0 +1,79 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        doc_id:
+          type: number
+          description: Document ID
+          example: 2
+        doc_number:
+          type: string
+          description: Document Number
+          example: 2
+        contact_id:
+          type: number
+          description: Contact ID (Supplier)
+          example: 2
+        supplier_name:
+          type: string
+          description: Contact Name (Supplier)
+          example: PTYANYWAY
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-02T04:00:00.000Z'
+        purchaseorder_id:
+          type: string
+          description: Purchase Order ID
+          example: null
+        due_date:
+          type: string
+          format: date
+          description: Due Date
+          example: '2018-10-02T04:00:00.000Z'
+        is_opening_balance:
+          type: boolean
+          description: Whether Transaction is an Opening Balance
+          example: false
+        grand_total:
+          type: string
+          description: Grand Total
+          example: -77000
+        due:
+          type: string
+          description: Payment Due
+          example: -77000
+        doc_type:
+          type: string
+          description: Document Type
+          example: debit_note
+        age:
+          type: number
+          description: Purchase Return Age
+          example: 0
+        age_due:
+          type: number
+          description: Purchase Return Due Age
+          example: 0
+        is_consignment:
+          type: boolean
+          description: If product is a consignment product or not
+          example: false
+        note:
+          type: string
+          example: ''
+        location_name:
+          type: string
+          example: Gudang Besar
+        total_qty:
+          type: number
+          example: 100000
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

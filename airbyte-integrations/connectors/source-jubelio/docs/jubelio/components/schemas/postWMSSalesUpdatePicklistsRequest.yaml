@@ -1,0 +1,81 @@
+type: object
+required:
+  - picklist_id
+  - picklist_no
+  - is_completed
+  - items
+  - is_warehouse
+properties:
+  picklist_id:
+    type: number
+    description: Picklist ID
+    example: 32462
+  picklist_no:
+    type: string
+    description: Picklist No.
+    example: PICK-000032462
+  note:
+    type: string
+    description: note
+    example: ''
+  is_completed:
+    type: boolean
+    description: If the picking process is already done
+    example: true
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        bin_id:
+          type: number
+          description: Bin ID
+          example: 2
+        bundle_item_id:
+          type: number
+          description: >-
+            Bundle Item ID, 0 = if item is not a bundle product. Set value as
+            item_id if item is a bundle product.
+          example: 0
+        item_id:
+          type: number
+          description: >-
+            Item ID. if item is a bundle product, set the value with their
+            bundling **item_id**
+          example: 51135
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        picklist_detail_id:
+          type: number
+          description: Picklist Detail ID
+          example: 4323390
+        qty_ordered:
+          type: number
+          description: Quantity that needs to pick
+          example: 10
+        qty_picked:
+          type: number
+          description: Quantity done picking
+          example: 10
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: 5533737
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 2499712
+        invoice_no:
+          type: string
+          description: Invoice No.
+          example: null
+        update:
+          type: boolean
+          description: boolean
+          example: false
+  is_warehouse:
+    type: boolean
+    description: If the location is the warehouse
+    example: true

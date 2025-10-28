@@ -1,0 +1,13 @@
+type: array
+description: List Cashiers if Location is a POS Outlet (Can be filled with empty array [])
+items:
+  type: object
+  properties:
+    register_id:
+      type: number
+      description: Register ID
+      example: 0
+    register_name:
+      type: string
+      description: Register Name
+      example: Denis

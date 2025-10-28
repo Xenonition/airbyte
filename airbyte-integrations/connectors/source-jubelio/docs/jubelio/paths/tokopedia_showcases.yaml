@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Product Listing
+  summary: Get Tokopedia Showcases
+  operationId: getTokopediaShowcases
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: store_id
+      in: query
+      required: true
+      style: form
+      explode: false
+      description: Store ID
+      example: 1
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getTokopediaShowcasesResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

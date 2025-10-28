@@ -1,0 +1,25 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Create Packlist
+  operationId: postWMSSalesPacklists
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postWMSSalesCreatePacklistsRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postWMSSalesPacklistsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

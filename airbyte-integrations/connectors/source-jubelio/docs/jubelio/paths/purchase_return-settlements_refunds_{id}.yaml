@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Purchasing
+  summary: Get Purchase Return Settlement Refund
+  operationId: getPurchaseReturnsettlementsRefundsId
+  parameters:
+    - name: authorization
+      in: header
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+    - name: id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: number
+        format: int32
+  responses:
+    default:
+      description: Successful
+      content:
+        '*/*':
+          schema:
+            type: string

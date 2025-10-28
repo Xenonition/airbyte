@@ -1,0 +1,112 @@
+type: object
+properties:
+  packlist_id:
+    type: number
+    description: Packlist ID
+    example: 4283
+  packlist_no:
+    type: string
+    description: Picklist No.
+    example: PACK-000004283
+  packer_id:
+    type: string
+    description: Packer ID
+    example: dewi@gmail.com
+  tracking_number:
+    type: string
+    description: Tracking Number
+    example: null
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 181344
+  salesorder_no:
+    type: string
+    description: Sales Order No
+    example: SO-000181344
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        packlist_detail_id:
+          type: number
+          description: Packlist Detail ID
+          example: 7255
+        item_id:
+          type: number
+          description: Item ID
+          example: 1611
+        item_code:
+          type: string
+          description: Item Code
+          example: TRS-114/DRESS+BANDO/YELLOW-BROWN
+        variation_name:
+          type: string
+          description: variation Name
+          example: null
+        item_name:
+          type: string
+          description: Item Name
+          example: >-
+            RS-114/DRESS+BANDO/YELLOW-BROWN - [COD] Baju Bayi Perempuan + Bando
+            TRS-114 / Baju Rok Terusan Bayi Tanpa Bando TRS-115 Rok Bayi
+            Perempuan Pakaian Bayi Perempuan Dress Bayi Pesta Motif Lucu
+        qty_ordered:
+          type: number
+          description: Qty Ordered
+          example: 10
+        qty_packed:
+          type: number
+          description: Qty packed
+          example: 0
+        salesorder_detail_id:
+          type: number
+          description: Sales Order detail ID
+          example: 21626
+        package_id:
+          type: number
+          description: Package ID
+          example: null
+        image:
+          type: array
+          items:
+            type: object
+            properties:
+              group_image_id:
+                type: string
+                description: Group Image ID
+                example: 216288
+              url:
+                type: string
+                description: URL
+                example: >-
+                  https://file-service.jb-assets-alpha.sg-sin1.upcloudobjects.com/images/ndnmuriwr1sspttrd3ddig/79ea1c4e156df4c56c1.jpg
+              thumbnail:
+                type: string
+                description: Thumbnail
+                example: images/no-image-icon2.png
+              file_name:
+                type: string
+                description: File Name
+                example: 79ea1c46-93e0-43c9-af6a-e156df4c56c1.jpg
+              sequence_number:
+                type: number
+                description: Sequence number
+                example: 0
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 608
+        thumbnail:
+          type: array
+          description: Thumbnail
+          example: 79ea1c46-93e0-43c9-af6a-e156df4c56c1.jpg
+        package_no:
+          type: string
+          description: Package No
+          example: null
+  total_items:
+    type: number
+    description: Total Items
+    example: 2

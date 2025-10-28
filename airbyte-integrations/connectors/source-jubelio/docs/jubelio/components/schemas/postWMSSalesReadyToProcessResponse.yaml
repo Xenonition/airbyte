@@ -1,0 +1,5 @@
+type: object
+properties:
+  status:
+    type: number
+    example: 150

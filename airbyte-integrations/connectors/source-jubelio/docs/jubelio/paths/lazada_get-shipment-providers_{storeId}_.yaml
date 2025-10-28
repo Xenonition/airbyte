@@ -1,0 +1,27 @@
+get:
+  tags:
+    - System Setting
+  summary: Get Lazada Shipment Providers Information
+  operationId: getLazadaShipmentProviders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: storeId
+      in: path
+      required: true
+      description: Store ID
+      schema:
+        type: number
+        example: 2234
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getLazadaShipmentProvidersResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,277 @@
+required:
+  - salesorder_id
+  - salesorder_no
+  - contact_id
+  - customer_name
+  - transaction_date
+  - sub_total
+  - total_disc
+  - total_tax
+  - grand_total
+  - location_id
+  - source
+  - add_fee
+  - add_disc
+  - service_fee
+  - items
+type: object
+properties:
+  salesorder_id:
+    type: number
+    description: |
+      Sales Order ID <br>
+      To create new sales order => "salesorder_id": 0 <br>
+      To edit sales order => "salesorder_id": {salesorder_id}
+    example: 0
+  salesorder_no:
+    type: string
+    description: |
+      Sales Order Number <br>
+      To create new sales order => "salesorder_no": "[auto]" <br>
+      To edit sales order => "salesorder_no": {salesorder_no}
+    example: '[auto]'
+  contact_id:
+    type: number
+    description: Contact ID (Customer)
+    example: 1
+  customer_name:
+    type: string
+    description: Contact Name (Customer)
+    example: Radit
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2020-10-20T17:00:00.000Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Tax Included
+    example: false
+  note:
+    type: string
+    description: Purchase Order Note
+    example: Tlg packingan yg aman ya kk
+  sub_total:
+    type: number
+    description: Sub Total
+    example: 120000
+  total_disc:
+    type: number
+    description: Total Discount
+    example: 0
+  total_tax:
+    type: number
+    description: Total Tax
+    example: 0
+  grand_total:
+    type: number
+    description: Grand Total
+    example: 120000
+  ref_no:
+    type: string
+    description: Reference Number
+    example: 99
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  source:
+    type: number
+    description: Purchase Source [1 = Internal]
+    example: 1
+  is_canceled:
+    type: boolean
+    description: Whether Purchase is canceled
+    example: false
+  cancel_reason:
+    type: string
+    description: Cancel Reason
+    example: Tidak Punya Uang
+  cancel_reason_detail:
+    type: string
+    description: Cancel Reason Detail
+    example: Tidak Punya Uang
+  channel_status:
+    type: string
+    description: Channel Status
+    example: Pending
+  shipping_cost:
+    type: number
+    description: Shipping Cost
+    example: 5000
+  insurance_cost:
+    type: number
+    description: Insurance Cost
+    example: 5000
+  is_paid:
+    type: boolean
+    description: Whether Purchase is paid
+    example: true
+  shipping_full_name:
+    type: string
+    description: Shipping Full Name (Receiver Name)
+    example: Radit
+  shipping_phone:
+    type: string
+    description: Shipping Phone (Receiver)
+    example: 8227653121
+  shipping_address:
+    type: string
+    description: Shipping Address
+    example: Kutabumi
+  shipping_area:
+    type: string
+    description: Shipping Area
+    example: Sirnagalih
+  shipping_city:
+    type: string
+    description: Shipping City
+    example: Kab. Bogor
+  shipping_subdistrict:
+    type: string
+    description: Shipping Subdistrict
+    example: Tamansari
+  shipping_province:
+    type: string
+    description: Shipping Province
+    example: Jawa Barat
+  shipping_province_id:
+    type: string
+    description: >-
+      Shipping Province ID. To get the value, please read about 'Region'
+      endpoints. Maximal 2 characters.
+    example: 11
+  shipping_district_id:
+    type: string
+    description: >-
+      Shipping District ID. To get the value, please read about 'Region'
+      endpoints.
+    example: 1105
+  shipping_subdistrict_id:
+    type: string
+    description: >-
+      Shipping Subdistrict ID. To get the value, please read about 'Region'
+      endpoints.
+    example: 1105
+  shipping_city_id:
+    type: string
+    description: Shipping City ID. To get the value, please read about 'Region' endpoints.
+    example: 11
+  shipping_post_code:
+    type: string
+    description: Shipping Post COde
+    example: 11750
+  shipping_country:
+    type: string
+    description: Shipping Country
+    example: Indonesia
+  add_disc:
+    type: number
+    description: >-
+      Additional Discount NB: You Need to Calculate the tax for every item if
+      you are using tax like PPN
+    example: 0
+  add_fee:
+    type: number
+    description: Additional Fee
+    example: 0
+  salesmen_id:
+    type: number
+    description: Salesman ID
+    example: null
+  store_id:
+    type: string
+    description: Store ID
+    example: null
+  service_fee:
+    type: number
+    description: Service Fee
+    example: null
+  payment_method:
+    type: string
+    description: Payment method
+    example: null
+  items:
+    type: array
+    description: List Item in Purchase
+    items:
+      required:
+        - amount
+        - tax_amount
+        - disc_amount
+        - disc
+        - qty_in_base
+        - unit
+        - price
+        - tax_id
+        - item_id
+        - location_id
+        - salesorder_detail_id
+      type: object
+      properties:
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 14
+        serial_no:
+          type: string
+          description: Serial Number
+          example: SN001
+        description:
+          type: string
+          description: Item Description
+          example: Kaos DreamCatcher Born to Be Yours
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        price:
+          type: number
+          description: Item Price
+          example: 120000
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity that will be Purchased
+          example: 1
+        disc:
+          type: number
+          description: Item Discount
+          example: 0
+        disc_amount:
+          type: number
+          description: Item Discount Amount
+          example: 0
+        tax_amount:
+          type: number
+          description: >-
+            Item Tax Amount NB: You Need to Calculate the tax for every item if
+            you are using tax like PPN
+          example: 0
+        amount:
+          type: number
+          description: Item Total Amount
+          example: 120000
+        location_id:
+          type: number
+          description: Item Location ID
+          example: -1
+        shipper:
+          type: string
+          description: Shipper
+          example: J&T REG
+        channel_order_detail_id:
+          type: number
+          description: Channel order detail ID
+          example: null
+        tracking_no:
+          type: string
+          description: Tracking Number/ Airway Bill
+          example: CM94382503480

@@ -1,0 +1,91 @@
+type: array
+items:
+  type: object
+  properties:
+    salesorder_id:
+      type: number
+      description: Sales Order ID
+      example: 2499678
+    shipment_header_id:
+      type: number
+      description: Shipment Header ID
+      example: null
+    salesorder_no:
+      type: string
+      description: Sales Order No.
+      example: TP-INV/20210924/MPL/1614552410
+    shipment_no:
+      type: string
+      description: Shipment No.
+      example: null
+    transaction_date:
+      type: string
+      format: date-time
+      description: Transaction Date
+      example: '2021-09-24T07:59:47.000Z'
+    source:
+      type: number
+      description: Source
+      example: 128
+    channel_status:
+      type: string
+      description: Channel Status
+      example: 450
+    internal_status:
+      type: string
+      description: Internal Status
+      example: PROCESSING
+    shipment_date:
+      type: string
+      format: date-time
+      description: Shipment Date
+      example: '2022-02-23T10:16:41.640Z'
+    shipping_full_name:
+      type: string
+      description: Shipping Full Name
+      example: Junaedi
+    location_id:
+      type: number
+      description: Location ID
+      example: 1
+    shipping_full_address:
+      type: string
+      description: Shipping Full Address
+      example: Perum. Galaxy Bumi Permai L5/12A Sukolilo Kota Surabaya Jawa Timur 60119
+    tracking_no:
+      type: string
+      description: Tracking No.
+      example: null
+    ticket_no:
+      type: string
+      description: Ticket No.
+      example: null
+    shipper:
+      type: string
+      description: Shipper
+      example: GoSend Instant Courier
+    marketplace_status:
+      type: string
+      description: Marketplace Status
+      example: >-
+        Pesanan dengan instant courier, langsung panggil driver di tab
+        pengiriman
+    courier_id:
+      type: number
+      description: Courier ID
+      example: null
+    shipment_type:
+      type: string
+      description: Shipment Type
+      example: null
+    store_id:
+      type: string
+      description: Store ID
+      example: 5636
+    district_cd:
+      type: number
+      description: district code
+      example: null
+    label_printed_count:
+      type: number
+      example: 2

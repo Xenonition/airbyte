@@ -1,0 +1,39 @@
+type: object
+required:
+  - courier_new_id
+  - location_id
+  - shipment_type
+  - shipment_header_id
+  - shipment_no
+  - courier_name
+  - shipment_date
+properties:
+  courier_new_id:
+    type: number
+    description: Courier New ID
+    example: 4
+  location_id:
+    type: number
+    description: Location ID
+    example: 1
+  shipment_type:
+    type: string
+    description: Shipment Type
+    example: 2
+  shipment_header_id:
+    type: number
+    description: Shipment Header ID. to create, set as 0.
+    example: 0
+  shipment_no:
+    type: string
+    description: Shipment No.
+    example: '[auto]'
+  courier_name:
+    type: string
+    description: Courier Name
+    example: AnterAja
+  shipment_date:
+    type: string
+    format: date-time
+    description: Shipment Date
+    example: '2022-02-25T08:45:31.575Z'

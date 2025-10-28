@@ -1,0 +1,86 @@
+type: array
+items:
+  type: object
+  properties:
+    item_group_id:
+      description: Item Group Id
+      type: number
+      example: 2642
+    item_id:
+      description: Item ID
+      type: number
+      example: 1
+    item_name:
+      description: Item Name
+      type: string
+      example: Addison Jacket
+    item_code:
+      type: string
+      description: Item Code/SKU
+      example: chopper dan olive oil
+    sell_price:
+      type: number
+      description: Sell Price
+      example: '25000'
+    promotion_price:
+      type: number
+      description: Promotion Price
+      example: null
+    start_date:
+      type: string
+      format: date-time
+      example: null
+    end_date:
+      type: string
+      format: date-time
+      example: null
+    sell_unit:
+      description: Unit
+      type: string
+      example: Buah
+    account_code:
+      description: Account Code
+      type: string
+      example: 4-4000
+    account_name:
+      description: Account Name
+      type: string
+      example: 4-4000 - Penjualan
+    sell_tax_id:
+      type: number
+      description: Sell tax id
+      example: 1
+    rate:
+      type: number
+      example: 11
+    tax_name:
+      type: string
+      description: Tax Name
+      example: PPN 11%
+    uom_id:
+      type: number
+      description: Unit of Measure ID
+      example: -1
+    sales_acct_id:
+      type: string
+      description: Sales Account ID
+      example: 28
+    item_full_name:
+      description: Item Full Name
+      type: string
+      example: EYE-KOS-NAR-WAN-MER - Eyeshadow Kosmetik NARS Wanita - Merah
+    item_short_name:
+      type: string
+      description: Item Short Name
+      example: Eyeshadow Kosmetik NARS Wanita - Merah
+    thumbnail:
+      type: string
+      example: null
+    is_bundle:
+      type: boolean
+      description: Whether product is a bundle item
+      example: false
+    average_cost:
+      description: average_cost
+      type: number
+      example: null

@@ -1,0 +1,28 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        store_id:
+          type: string
+          description: Store ID
+          example: 1
+        store_name:
+          type: string
+          description: Store Name
+          example: Kutabumi
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 1
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

@@ -1,0 +1,68 @@
+required:
+  - account_id
+  - amount
+  - contact_id
+  - payment_id
+  - payment_no
+  - payment_type
+type: object
+properties:
+  payment_id:
+    type: number
+    description: Payment ID
+    example: 0
+  payment_no:
+    type: string
+    description: Payment Number
+    example: '[auto]'
+  payment_type:
+    type: number
+    description: Payment Type
+    example: 0
+  contact_id:
+    type: number
+    description: Payment ID
+    example: 0
+  contact_name:
+    type: string
+    description: Contact ID
+    example: 1
+  transaction_date:
+    type: string
+    format: date
+    description: Tranasction Date
+    example: '2019-01-13T21:07:13.273Z'
+  account_id:
+    type: number
+    description: Account ID
+    example: 1
+  account_name:
+    type: string
+    description: Account Name
+    example: 1-1000 - Kas
+  note:
+    type: string
+    description: Payment Note
+    example: Bayar Faktur INV-00001
+  amount:
+    type: number
+    description: Payment Amount
+    example: 100000
+  items:
+    type: array
+    description: List Payment Detail
+    items:
+      type: object
+      properties:
+        payment_detail_id:
+          type: number
+          description: Payment Detail ID
+          example: 1
+        invoice_id:
+          type: number
+          description: Invoice ID
+          example: 10
+        payment_amount:
+          type: number
+          description: Invoice Amount
+          example: 100000

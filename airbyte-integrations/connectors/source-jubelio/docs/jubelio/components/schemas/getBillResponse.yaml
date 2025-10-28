@@ -1,0 +1,200 @@
+type: object
+properties:
+  bill_id:
+    type: number
+    description: Bill ID
+    example: 0
+  bill_no:
+    type: string
+    description: Bill Number
+    example: '[auto]'
+  contact_id:
+    type: number
+    description: Contact ID
+    example: 5
+  purchaseorder_id:
+    type: number
+    description: Purchase Order ID
+    example: 2
+  purchaseorder_no:
+    type: number
+    description: Purchase Order Number
+    example: PO-000000004
+  supplier_name:
+    type: string
+    description: Supplier Name
+    example: PT.ANYWAY
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-11-19T19:37:56.176Z'
+  created_date:
+    type: string
+    format: date-time
+    description: Created Date
+    example: '2018-11-19T19:37:56.176Z'
+  due_date:
+    type: number
+    format: date-time
+    description: Due Date
+    example: '2018-11-19T19:37:56.176Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Bill include Tax
+    example: false
+  note:
+    type: string
+    description: Bill Note
+    example: Penerimaan Barang yang sudah dipesan
+  sub_total:
+    type: number
+    description: Bill Sub Total
+    example: 20000
+  total_disc:
+    type: number
+    description: Total Discount
+    example: 0
+  total_tax:
+    type: number
+    description: Total Tax
+    example: 0
+  grand_total:
+    type: number
+    description: Bill Grand Total
+    example: 20000
+  payment_acct_id:
+    type: number
+    description: Payment Account ID
+    example: false
+  payment:
+    type: number
+    description: Payment
+    example: 0
+  ref_no:
+    type: string
+    description: Reference No
+    example: 123654
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  location_name:
+    type: number
+    description: Location Name
+    example: Pusat
+  is_opening_balance:
+    type: boolean
+    description: Whether Bill for Opening Balance
+    example: false
+  last_modified:
+    type: string
+    format: date-time
+    description: Last modified
+    example: null
+  items:
+    minItems: 1
+    type: array
+    items:
+      type: object
+      properties:
+        bill_detail_id:
+          type: number
+          description: Bill Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 7
+        item_code:
+          type: string
+          description: Item Code
+          example: 10000631
+        item_name:
+          type: string
+          description: Item Name
+          example: Aqua 1,5 L
+        description:
+          type: string
+          description: Item Description
+          example: Aqua 1,5 L
+        invt_acct_id:
+          type: number
+          description: Inventory Account ID
+          example: 4
+        tax_id:
+          type: number
+          description: Tax ID
+          example: -1
+        price:
+          type: number
+          description: Item Price
+          example: 4000
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity that will be add
+          example: 5
+        qty:
+          type: string
+          description: Item Quantity
+          example: 0
+        uom_id:
+          type: number
+          description: Unit of Measure ID
+          example: -1
+        disc:
+          type: number
+          description: Discount
+          example: 0
+        disc_amount:
+          type: number
+          description: Total Discount Amount
+          example: 0
+        tax_amount:
+          type: number
+          description: Tax Amount
+          example: 0
+        amount:
+          type: number
+          description: Total Amount
+          example: 20000
+        buy_price:
+          type: string
+          description: Item Buy Price
+          example: 750
+        original_price:
+          type: string
+          description: Item Original Price
+          example: 350
+        rate:
+          type: string
+          description: Rate
+          example: 0
+        tax_name:
+          type: string
+          description: Tax Name
+          example: No Tax
+        account_name:
+          type: string
+          description: Account Name
+          example: 1-1200 - Persediaan Barang
+        use_serial_number:
+          type: boolean
+          description: Whether use Serial Number
+          example: false
+        is_serialnumber_printed:
+          type: boolean
+          description: Is Serial Number Printed
+          example: false
+        purchaseorder_detail_id:
+          type: number
+          description: Purchase order detail ID
+          example: null
+        use_batch_number:
+          type: boolean
+          description: .
+          example: null

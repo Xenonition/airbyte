@@ -1,0 +1,23 @@
+get:
+  tags:
+    - Inventory
+  summary: Get all the items to be opname filtered by rack location
+  operationId: getInventoryStockOpnameItemsFiltered
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/rowIds5B05D.yaml
+    - $ref: ../components/parameters/collIds5B05D.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/getInventoryStockOpnameItemsFilteredResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

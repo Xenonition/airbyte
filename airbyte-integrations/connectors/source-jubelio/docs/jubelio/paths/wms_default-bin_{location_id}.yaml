@@ -1,0 +1,26 @@
+get:
+  tags:
+    - Location & The Rack Plan
+  summary: Get Default Bin by Location ID
+  operationId: getWMSDefaultBin
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: location_id
+      in: path
+      required: true
+      description: Location ID
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getDefaultBinResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

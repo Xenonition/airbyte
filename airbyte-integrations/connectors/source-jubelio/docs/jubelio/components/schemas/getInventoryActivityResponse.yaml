@@ -1,0 +1,75 @@
+type: object
+properties:
+  activities:
+    type: array
+    description: List Location that exists in System
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        item_name:
+          type: string
+          description: Item Name
+          example: Barang 1
+        item_code:
+          type: string
+          description: Item Name
+          example: BAR-1
+        location_id:
+          type: number
+          description: Location ID
+          example: -1
+        location_name:
+          type: string
+          description: Location Name
+          example: Pusat
+        ref_no:
+          type: string
+          description: Reference Number
+          example: null
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        created_date:
+          type: string
+          format: date-time
+          description: Adjustment Created Date
+          example: '2018-10-20T17:00:00.000Z'
+        trx_no:
+          type: string
+          description: Transaction Number
+          example: ADJ-000000331
+        source:
+          type: string
+          description: Source of transaction
+          example: ADJUSMENT
+        qty:
+          type: string
+          description: Quantity that is used in transaction
+          example: '1'
+        balance:
+          type: string
+          description: Balance or Current Quantity (Sisa)
+          example: '2557'
+        description:
+          type: string
+          description: Description
+          example: null
+  location_stocks:
+    type: array
+    description: List Stocks of Inventory  for every Locations
+    items:
+      type: object
+  row_count:
+    type: number
+    description: total row
+    example: 10
+  total_stock:
+    type: string
+    description: Total Stock
+    example: '2577'

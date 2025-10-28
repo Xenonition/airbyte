@@ -1,0 +1,9 @@
+name: transactionDateFrom
+in: query
+required: false
+style: form
+explode: true
+description: The Transaction Date From
+schema:
+  type: string
+  format: date ISO UTC

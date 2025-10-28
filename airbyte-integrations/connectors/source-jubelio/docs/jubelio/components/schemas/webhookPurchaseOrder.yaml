@@ -1,0 +1,18 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Action Name
+    example: new-purchaseorder
+  purchaseorder_id:
+    type: number
+    description: Purchase Order ID
+    example: 1
+  purchaseorder_no:
+    type: string
+    description: Purchase Order Number
+    example: ORDER-001
+  status:
+    type: string
+    description: Status
+    example: CREATED

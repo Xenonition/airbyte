@@ -1,0 +1,157 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 6
+        salesorder_no:
+          type: string
+          description: Sales Order Number
+          example: SO-000000006
+        invoice_no:
+          type: string
+          description: Invoice Number
+          example: INV-000000222
+        invoice_created_date:
+          type: string
+          format: date-time
+          example: '2022-03-08T16:20:17.892Z'
+        shipping_full_name:
+          type: string
+          description: Shipping Full Name (Receiver)
+          example: Radit
+        customer_name:
+          type: string
+          description: Contact Name (Customer)
+          example: Pelanggan Umum
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        created_date:
+          type: string
+          format: date
+          description: Created Date
+          example: '2018-10-20T17:00:00.000Z'
+        location_name:
+          type: string
+          description: Location Name
+          example: Pusat
+        grand_total:
+          type: string
+          description: Grand Total
+          example: 120000
+        channel_status:
+          type: string
+          description: Channel Status
+          example: Cancelled
+        internal_status:
+          type: string
+          description: Internal Status
+          example: CANCELLED
+        is_paid:
+          type: boolean
+          description: Whether Purchase Order have been Paid
+          example: true
+        is_canceled:
+          type: boolean
+          description: Whether Purchase Order have been Canceled
+          example: true
+        channel_name:
+          type: string
+          description: Channel Name
+          example: Tokopedia
+        store_name:
+          type: string
+          description: Source Name
+          example: Toko Bahagia
+        shipper:
+          type: string
+          description: Shipper
+          example: J&T REG
+        marked_as_complete:
+          type: boolean
+          description: Whether Purchase Order have been completed
+          example: false
+        store_id:
+          type: string
+          description: Store ID
+          example: 1
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 1
+        internal_do_number:
+          type: string
+          description: Internal DO Number
+          example: null
+        internal_so_number:
+          type: number
+          description: Internal SO Number
+        awb_created_date:
+          type: string
+          format: date
+          description: AWB Created date
+          example: null
+        source:
+          type: string
+          description: .
+          example: null
+        store:
+          type: string
+          description: Store Name
+          example: null
+        shipment_type:
+          type: string
+          description: Type of Shipment
+          example: null
+        status_details:
+          type: string
+          description: Status detail
+          example: null
+        is_instant_courier:
+          type: boolean
+          example: false
+        is_po:
+          type: boolean
+          example: null
+        label_printed_count:
+          type: number
+          example: null
+        is_fbm:
+          type: boolean
+          example: null
+        last_modified:
+          type: string
+          format: date-time
+          example: '2022-03-08T16:21:22.654Z'
+        package_count:
+          type: number
+          example: 1
+        cancel_reason:
+          type: string
+          example: null
+        cancel_reason_detail:
+          type: string
+          example: null
+        wms_status:
+          type: string
+          description: WMS Status
+          example: completed
+        note:
+          type: string
+          example: null
+        action:
+          type: string
+          example: COMPLETED
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

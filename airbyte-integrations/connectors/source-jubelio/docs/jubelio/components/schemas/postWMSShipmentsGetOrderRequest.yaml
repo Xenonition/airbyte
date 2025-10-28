@@ -1,0 +1,13 @@
+type: object
+required:
+  - shipment_detail_id
+  - salesorder_id
+properties:
+  shipment_detail_id:
+    type: number
+    description: Shipment Detail ID
+    example: 594616
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 2499908

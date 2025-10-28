@@ -1,0 +1,14 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Action Name
+    example: new-salesreturn
+  return_id:
+    type: number
+    description: Return ID
+    example: 1
+  return_no:
+    type: string
+    description: Return Number
+    example: SR-000000001

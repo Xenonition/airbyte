@@ -1,0 +1,12 @@
+type: object
+properties:
+  status:
+    type: string
+    example: ok
+  url:
+    type: string
+    example: >-
+      https://report2.jubelio.com/?&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXBvcnROYW1lIjoiUGVueWVzdWFpYW4iLCJjb21wYW55SWQiOjMyMDgyLCJ0ZW5hbnRJZCI6
+  title:
+    type: string
+    example: Penyesuaian

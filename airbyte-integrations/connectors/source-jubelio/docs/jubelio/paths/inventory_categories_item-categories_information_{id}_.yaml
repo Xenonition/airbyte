@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Product
+  summary: Get Category Information
+  operationId: getInventoryCategoriesItemcategoriesInformationId
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: Category ID
+      schema:
+        type: number
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getCategoryResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

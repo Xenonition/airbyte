@@ -1,0 +1,13 @@
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          description: List Object ID that will be marked
+          items:
+            type: number
+            example: 1

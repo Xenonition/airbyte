@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Sales
+  summary: Get All Invoices Based on Store
+  operationId: getSalesInvoicesSummary
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/dateFrom.yaml
+    - $ref: ../components/parameters/dateTo.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getInvoicesSummaryResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

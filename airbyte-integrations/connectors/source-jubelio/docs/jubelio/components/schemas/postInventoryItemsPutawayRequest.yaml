@@ -1,0 +1,44 @@
+type: object
+required:
+  - putaway_detail_id
+  - putaway_id
+  - item_id
+  - qty_in_base
+  - location_id
+  - bin_id
+properties:
+  putaway_detail_id:
+    type: string
+    description: Putaway Detail ID. To create new, fill the value with 0
+    example: 0
+  putaway_id:
+    type: string
+    description: Putaway ID
+    example: 129
+  item_id:
+    type: string
+    description: Item ID
+    example: 66251
+  qty_in_base:
+    type: number
+    description: Item Quantity Updates
+    example: 10
+  location_id:
+    type: string
+    example: 1
+  bin_id:
+    type: string
+    description: Bin ID to place the items
+    example: 126
+  batch_no:
+    type: string
+    description: Batch Number. Fill only if the products have batch no.
+    example: AB-DSFHDJS
+  serial_no:
+    type: string
+    description: Serial Number. Fill only if the products have Serial Number.
+    example: ''
+  expired_date:
+    type: string
+    format: date-time
+    example: '2022-03-10T00:00:00.000Z'

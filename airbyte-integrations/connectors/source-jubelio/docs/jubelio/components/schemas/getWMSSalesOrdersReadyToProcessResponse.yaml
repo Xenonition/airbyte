@@ -1,0 +1,112 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 2499930
+        shipper:
+          type: string
+          description: Shipper
+          example: null
+        stock_status:
+          type: number
+          description: Stock Status
+          example: 1
+        dropshipper:
+          type: string
+          description: Dropshipper
+          example: ''
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        salesorder_no:
+          type: string
+          description: Sales Order No.
+          example: SO-002499930
+        c_salesorder_no:
+          type: string
+          example: SO-002499930
+        transaction_date:
+          type: string
+          format: date-time
+          description: Transaction Date
+          example: '2022-02-22T03:33:26.024Z'
+        note:
+          type: string
+          description: Note
+          example: ''
+        customer_name:
+          type: string
+          description: Customer Name
+          example: Deni Gentong
+        created_date:
+          type: string
+          format: date-time
+          description: Created Date
+          example: '2022-03-16T02:29:39.968Z'
+        grand_total:
+          type: number
+          description: Grand Total
+          example: 130000
+        source_name:
+          type: string
+          description: Source Name
+          example: INTERNAL
+        store_name:
+          type: string
+          description: store name
+          example: INTERNAL
+        due_date:
+          type: number
+          description: Due Date
+          example: 0
+        internal_do_number:
+          type: string
+          example: null
+        location_name:
+          type: string
+          description: Location Name
+          example: Gudang Besar
+        is_po:
+          type: boolean
+          example: null
+        is_instant_courier:
+          type: boolean
+          example: false
+        label_printed_count:
+          type: number
+          example: 2
+        internal_so_number:
+          type: string
+          example: null
+        is_label_printed:
+          type: boolean
+          example: null
+        picked_in:
+          type: string
+          example: null
+        deleted_from_picklist_by:
+          type: string
+          example: null
+        shipment_type:
+          type: string
+          example: null
+        status_details:
+          type: string
+          example: null
+        package_count:
+          type: number
+          example: 1
+        total_qty:
+          type: number
+          example: 10
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

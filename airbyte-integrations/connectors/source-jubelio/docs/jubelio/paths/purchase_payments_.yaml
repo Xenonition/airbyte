@@ -1,0 +1,81 @@
+get:
+  tags:
+    - Purchasing
+  summary: Get All Bill Payments
+  operationId: getPurchasePayments
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/csv.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter Query [Purchase Order Number/Supplier Name]
+      schema:
+        type: string
+    - $ref: ../components/parameters/createdSince.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getPurchaseOrdersResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Purchasing
+  summary: Create/Edit Bill Payment
+  operationId: postPurchasePayments
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/savePurchasePayment.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+delete:
+  tags:
+    - Purchasing
+  summary: Delete Bill Payment
+  operationId: deletePurchasePayments
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/deleteNumberRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleteOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

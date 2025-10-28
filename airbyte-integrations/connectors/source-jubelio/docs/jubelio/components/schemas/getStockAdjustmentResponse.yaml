@@ -1,0 +1,106 @@
+type: object
+properties:
+  item_adj_id:
+    type: number
+    description: Adjustment ID
+    example: -1
+  item_adj_no:
+    type: string
+    description: Adjustment Number
+    example: _ADJ-BB_
+  transaction_date:
+    type: string
+    format: date-time
+    description: Adjustment Transaction Date
+    example: '2018-10-20T17:00:00.000Z'
+  created_date:
+    type: string
+    format: date-time
+    description: Adjustment Created Date
+    example: '2018-10-20T17:00:00.000Z'
+  note:
+    type: string
+    description: Adjustment Note
+    example: Saldo Awal Persediaan
+  is_opening_balance:
+    type: boolean
+    description: Is Adjustment an Opening Balance
+    example: true
+  location_id:
+    type: number
+    description: Adjustment Location
+    example: -1
+  created_by:
+    type: string
+    description: User that create Adjustment
+    example: Saldo Awal Persediaan
+  location_name:
+    type: string
+    description: Adjustment Location Name
+    example: Pusat
+  items:
+    type: array
+    description: List Adjustment Items
+    items:
+      type: object
+      properties:
+        item_adj_detail_id:
+          type: number
+          description: Adjustment Detail ID
+          example: 1
+        item_id:
+          type: number
+          description: Item Adjustment ID
+          example: 1
+        serial_no:
+          type: string
+          description: Serial Number
+          example: S000121
+        qty:
+          type: string
+          description: Item Quantity
+          example: 0
+        qty_in_base:
+          type: string
+          description: Item Quantity that will be add
+          example: 3
+        uom_id:
+          type: number
+          description: Unit of Measure ID
+          example: 1
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        cost:
+          type: string
+          description: Item Cost
+          example: 75000
+        amount:
+          type: string
+          description: Total Item Costs
+          example: 225000
+        account_id:
+          type: number
+          description: Account ID
+          example: 75
+        account_code:
+          type: string
+          description: Account Code
+          example: 7-7004
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: BAR-1-HIT - Barang 1
+        account_name:
+          type: string
+          description: Account Name
+          example: 7-7004 - Penyesuaian Persediaan Barang
+        average_cost:
+          type: number
+          description: Average Cost
+          example: 75000
+        description:
+          type: string
+          description: Item Description
+          example: Item Example Description

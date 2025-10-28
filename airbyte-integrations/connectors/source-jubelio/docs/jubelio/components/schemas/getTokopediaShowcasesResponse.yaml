@@ -1,0 +1,20 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Status
+    example: OK
+  etalase:
+    type: array
+    description: List Etalase
+    items:
+      type: object
+      properties:
+        etalase_id:
+          type: number
+          description: Etalase ID
+          example: 1
+        etalase_name:
+          type: number
+          description: Etalase Name
+          example: PHONE CASE

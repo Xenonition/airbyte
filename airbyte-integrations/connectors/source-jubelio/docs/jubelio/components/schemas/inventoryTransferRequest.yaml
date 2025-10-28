@@ -1,0 +1,60 @@
+required:
+  - destination_location_id
+  - item_transfer_no
+  - source_location_id
+  - transfer_type
+type: object
+properties:
+  item_transfer_id:
+    type: number
+    description: |
+      Transfer ID <br>
+      To create new transfer => "item_transfer_id": 0 <br>
+      To edit transfer => "item_transfer_id": {item_transfer_id}
+    example: 0
+  item_transfer_no:
+    type: string
+    description: |
+      Transfer Number <br>
+      To create new transfer => "item_transfer_no": "[auto]" <br>
+      To edit transfer => "item_transfer_no": {item_transfer_no}
+    example: '[auto]'
+  transaction_date:
+    type: string
+    format: date-time
+    description: Transfer Transaction Date
+    example: '2020-01-06T01:49:21.999Z'
+  created_date:
+    type: string
+    format: date-time
+    description: Record Created Date
+    example: '2020-01-06T01:49:21.999Z'
+  note:
+    type: string
+    description: Transfer Note
+    example: Transfer Request Example
+  source_location_id:
+    type: number
+    description: Source Location ID
+    example: 5
+  destination_location_id:
+    type: number
+    description: Destination Location ID. Can't be same with Source Location ID
+    example: 1
+  source_transfer_no:
+    type: string
+    description: Source Transfer Number
+    example: null
+  is_internal:
+    type: boolean
+    description: Whether or not stock transfer is within 1 location (internal)
+    example: false
+  items:
+    $ref: ./itemsTransfers.yaml
+  transfer_type:
+    type: number
+    description: |
+      Transfer Type <br>
+      0 => Transfer Out <br>
+      1 => Tranfer In
+    example: 0

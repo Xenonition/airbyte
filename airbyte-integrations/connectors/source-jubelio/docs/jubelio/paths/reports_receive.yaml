@@ -1,0 +1,21 @@
+get:
+  tags:
+    - Reports
+  summary: Print Receive Bill for Purchase Order
+  operationId: getReportsReceive
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/tz.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getReportsReceiveResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

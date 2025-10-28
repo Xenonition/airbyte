@@ -1,0 +1,14 @@
+type: array
+description: List Items that exists in System
+items:
+  type: object
+  properties:
+    variant_name:
+      type: string
+      description: Ukuran
+      example: 4
+    variant_values:
+      type: array
+      description: Variant Values
+      items:
+        type: object

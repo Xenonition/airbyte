@@ -1,0 +1,26 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Verify Item/Sku/Barcode/Serial/Batch
+  operationId: postWMSSalesPacklistVerifyBarcode
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postWMSSalesPacklistVerifyBarcode.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/postWMSSalesPacklistVerifyBarcodeResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

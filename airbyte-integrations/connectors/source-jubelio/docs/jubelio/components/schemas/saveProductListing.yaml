@@ -1,0 +1,244 @@
+required:
+  - item_group_id
+  - mp_group_id
+  - item_group_name
+  - channel_category_id
+  - store_id
+  - channel_id
+  - attributes
+  - package_weight
+  - variations
+  - group_variations
+  - selected_variations
+  - images
+type: object
+properties:
+  item_group_id:
+    type: number
+    description: Item Group ID
+    example: 14
+  mp_group_id:
+    type: number
+    description: Marketplace Group ID. To create first time, set value as 0.
+    example: 4
+  item_group_name:
+    type: string
+    description: Item Group Name (Can not be null/empty string)
+    example: Sepatu Kulit Pria Lokal Merk KEREN
+  description:
+    type: string
+    description: Item Description
+    example: >-
+      <p>Model simple dan elegan trend terbaru</p>/n<p>Kualitas bagus harga
+      terjangkau</p>
+  channel_category_id:
+    type: number
+    description: Channel Category ID
+    example: 2463
+  store_id:
+    type: string
+    description: Store ID
+    example: 38735
+  channel_id:
+    type: number
+    description: Channel ID
+    example: 2
+  brand_id:
+    type: number
+    description: Brand ID
+    example: null
+  package_content:
+    type: string
+    description: Package Content
+    example: null
+  package_weight:
+    type: number
+    description: Package Weight
+    example: 1000
+  package_height:
+    type: number
+    description: Package Height
+    example: null
+  package_width:
+    type: number
+    description: Package Width
+    example: null
+  package_length:
+    type: number
+    description: Package Length
+    example: null
+  brand_name:
+    type: string
+    description: Brand Name
+    example: ''
+  images:
+    type: array
+    description: List Item Images
+    items:
+      type: object
+      properties:
+        group_image_id:
+          type: number
+          description: Image ID
+          example: 66
+        url:
+          type: string
+          description: Image URL
+          example: >-
+            https://jubelio.blob.core.windows.net/images/aggesujkt4uo34nu07a7vg/rug-1650247641887-0.jpeg
+        thumbnail:
+          type: string
+          description: Image Thumbnail
+          example: >-
+            https://jubelio.blob.core.windows.net/images/aggesujkt4uo34nu07a7vg/rug-1650247641887-0.jpeg
+        file_name:
+          type: string
+          description: Image Name
+          example: sepatu_kulit.jpg
+        sequence_number:
+          type: number
+          description: Image Sequence Number
+          example: 0
+        channel_info:
+          type: string
+          description: Channel Info
+          example: null
+        uid:
+          type: string
+          description: Image Unique ID
+          example: rug-1589963285145-0
+  attributes:
+    type: array
+    description: Product Attributes
+    items:
+      type: object
+  variations:
+    type: array
+    description: List Item Variations
+    items:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ''
+        barcode:
+          type: string
+          description: Barcode (can be empty string)
+          example: ''
+        item_id:
+          type: number
+          description: Item ID
+          example: 14
+        buy_price:
+          type: number
+          description: Buy Price
+          example: 90000
+        channel_id:
+          type: number
+          description: Channel ID
+          example: ''
+        store_id:
+          type: string
+          description: Store ID
+          example: ''
+        sell_here:
+          type: boolean
+          description: Sell here
+          example: true
+        channel_url:
+          type: string
+          description: Channel URL
+          example: ''
+        channel_item_id:
+          type: number
+          description: Channel Item ID
+          example: ''
+        channel_group_id:
+          type: string
+          description: Channel Group ID
+          example: ''
+        sell_price:
+          type: number
+          description: Sell Price
+          example: 150000
+        item_code:
+          type: string
+          description: Item Code
+          example: SEP-KUL-PRI-LOK-MER-KER--39-
+        variation_name:
+          type: string
+          description: Variation Name
+          example: 39-40
+        variation_values:
+          type: array
+          description: Item Variations
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: Variation Label
+                example: Ukuran
+              value:
+                type: string
+                description: Variation Value
+                example: 39-40
+  variation_images:
+    type: array
+    description: List Item Variations
+    items:
+      type: object
+      properties:
+        item_id:
+          type: string
+          description: Item ID
+          example: 14
+        store_id:
+          type: string
+          description: Store ID
+          example: 38735
+        images:
+          type: array
+          description: List Item Variations
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+                description: Image URL
+                example: >-
+                  https://jubelio.blob.core.windows.net/images/aggesujkt4uo34nu07a7vg/rug-1650247641887-0.jpeg
+              thumbnail:
+                type: string
+                description: Image Thumbnail
+                example: >-
+                  https://jubelio.blob.core.windows.net/images/aggesujkt4uo34nu07a7vg/rug-1650247641887-0.jpeg
+              file_name:
+                type: string
+                description: Image Name
+                example: sepatu_kulit.jpg
+              sequence_number:
+                type: number
+                description: Image Sequence Number
+                example: 0
+              channel_info:
+                type: string
+                example: null
+  selected_variations:
+    type: array
+    items:
+      type: string
+      example: Ukuran
+  group_variations:
+    type: array
+    items:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Variation Label
+          example: Ukuran
+        values:
+          type: string
+          description: Variation Values
+          example: 39-40

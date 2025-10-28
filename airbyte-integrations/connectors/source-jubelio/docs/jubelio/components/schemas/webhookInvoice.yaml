@@ -1,0 +1,18 @@
+type: object
+properties:
+  action:
+    type: string
+    description: Action Name
+    example: hook-invoice
+  return_id:
+    type: number
+    description: Invoice ID
+    example: 1
+  return_no:
+    type: string
+    description: Invoice Number
+    example: SR-000000001
+  ref_no:
+    type: string
+    description: Refference Number
+    example: INV-000000001

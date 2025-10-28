@@ -1,0 +1,40 @@
+required:
+  - item_adj_id
+  - >-
+    is_opening_balance - item_adj_no - location_id - transaction_date -
+    is_opening_balance - items
+type: object
+properties:
+  item_adj_id:
+    type: number
+    description: |
+      Adjustment ID <br>
+      To create new adjustment => "item_adj_id": 0 <br>
+      To edit adjustment => "item_adj_id": {item_adj_id}
+    example: 0
+  item_adj_no:
+    type: string
+    description: |
+      Adjustment Number <br>
+      To create new adjustment => "item_adj_no": "[auto]" <br>
+      To edit adjustment => "item_adj_no": {item_adj_no}
+    example: '[auto]'
+  transaction_date:
+    type: string
+    format: date-time
+    description: Adjustment Transaction Date
+    example: '2018-10-20T17:00:00.000Z'
+  note:
+    type: string
+    description: Adjustment Note
+    example: Saldo Awal Persediaan
+  location_id:
+    type: number
+    description: Adjustment Location
+    example: -1
+  is_opening_balance:
+    type: boolean
+    description: Is Adjustment an Opening Balance
+    example: false
+  items:
+    $ref: ./items.yaml

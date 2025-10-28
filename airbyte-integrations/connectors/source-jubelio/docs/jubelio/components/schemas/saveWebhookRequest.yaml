@@ -1,0 +1,21 @@
+required:
+  - webhooks
+type: object
+properties:
+  webhooks:
+    type: array
+    description: List Items in Webhooks
+    items:
+      type: object
+      properties:
+        action:
+          type: string
+          description: >-
+            Action Type ('secret-key', 'update-product', 'update-salesorder',
+            'update-purchaseorder', 'new-salesreturn', 'new-stocktransfer',
+            'update-qty', 'update-price')
+          example: update-product
+        url:
+          type: string
+          description: Webhook URL
+          example: https://enopl9pouhy4h.x.pipedream.net

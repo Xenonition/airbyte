@@ -1,0 +1,39 @@
+get:
+  tags:
+    - Product
+  summary: Get Store Categories
+  operationId: getStoreCategories
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: channel_id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: Channel ID
+      example: 1
+      schema:
+        type: number
+    - name: store_id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: Store ID
+      example: 1
+      schema:
+        type: number
+        format: int32
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getStoreCategoriesResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

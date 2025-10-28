@@ -1,0 +1,9 @@
+name: authorization
+in: header
+required: true
+style: simple
+explode: false
+description: Authentication Token
+example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTU0NjY3NDk2MH0.KVt...
+schema:
+  type: string

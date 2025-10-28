@@ -1,0 +1,33 @@
+type: array
+items:
+  type: object
+  properties:
+    available_qty:
+      description: available qty
+      type: number
+      example: -1
+    end_qty:
+      type: number
+      description: Total Inventory on Hand
+      example: 0
+    item_code:
+      type: string
+      description: Item Code/SKU
+      example: chopper dan olive oil
+    item_id:
+      description: Item ID
+      type: number
+      example: 1
+    item_name:
+      description: Item Name
+      type: string
+      example: Addison Jacket
+    order_qty:
+      type: number
+      description: Total Inventory on Order
+      example: 1
+    thumbnail:
+      type: string
+      description: Item Thumbnail
+      example: >-
+        https://jubelio.blob.core.windows.net/images/sng8ijwwqasgxnomjslrjw/4469a64e-8623-4a8d-9792-f777ff434e97_thumb.jpeg

@@ -1,0 +1,84 @@
+type: object
+required:
+  - opname_header_id
+  - opname_no
+  - process_by
+  - location_id
+  - filter_floor_id
+  - filter_row_ids
+  - filter_column_ids
+  - items
+properties:
+  opname_header_id:
+    type: number
+    description: Fill in the value as 0 to first create the item list.
+    example: 0
+  opname_no:
+    type: number
+    description: Opname Number. Automatically set by the system.
+    example: '[auto]'
+  process_by:
+    type: string
+    description: Staff who's doing the opname
+    example: ririn@staffgudang.com
+  location_id:
+    type: number
+    description: Location ID
+    example: 1
+  filter_floor_id:
+    type: number
+    description: Floor ID where items are placed
+    example: 1
+  filter_row_ids:
+    type: array
+    items:
+      type: number
+      description: Row ID where items are placed
+      example: 1
+  filter_column_ids:
+    type: array
+    items:
+      type: number
+      description: Column ID where items are placed
+      example: 1
+  note:
+    type: string
+    description: Note
+    example: ''
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 1
+        bin_id:
+          type: number
+          description: Bin ID
+          example: 1
+        serial_no:
+          type: string
+          description: Serial No.
+          example: null
+        batch_no:
+          type: string
+          description: Batch No.
+          example: null
+        qty_system:
+          type: number
+          description: Current quantity for the items in the system
+          example: 900
+        qty:
+          type: number
+          description: Quantity to adjust. Use - to reduce stock, for example -10
+          example: 0
+        expired_date:
+          type: string
+          format: date-time
+          example: null
+        opname_detail_id:
+          type: number
+          description: Opname Detail ID
+          example: 0

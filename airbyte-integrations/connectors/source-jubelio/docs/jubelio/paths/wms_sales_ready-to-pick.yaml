@@ -1,0 +1,25 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Move orders from 'ready to process' to 'ready to pick' list
+  operationId: postWMSSalesReadyToPick
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postWMSSalesReadyToPickRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postWMSSalesReadyToPickResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

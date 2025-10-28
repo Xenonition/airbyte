@@ -1,0 +1,78 @@
+type: object
+properties:
+  item_group_id:
+    description: Item Group Id
+    type: number
+    example: 2642
+  item_id:
+    description: Item ID
+    type: number
+    example: 1
+  item_code:
+    type: string
+    description: Item Code/SKU
+    example: AB10648607583
+  item_name:
+    description: Item Name
+    type: string
+    example: Addison Jacket
+  buy_price:
+    type: number
+    description: buy Price
+    example: 2o.000
+  buy_unit:
+    type: string
+    description: buy unit
+    example: Buah
+  account_code:
+    description: Account Code
+    type: string
+    example: 1-1200
+  account_name:
+    description: Account Name
+    type: string
+    example: 1-1200 - Persediaan Barang
+  last_price_receive:
+    description: Last price receive
+    type: number
+    example: 0
+  buy_tax_id:
+    description: Buy tax for the items
+    format: number
+    example: 1
+  rate:
+    type: string
+    description: Rate
+    example: 0
+  tax_name:
+    type: string
+    description: Tax Name
+    example: No Tax
+  acct_id:
+    type: number
+    example: 0
+  uom_id:
+    type: number
+    description: Uom ID
+    example: -1
+  item_full_name:
+    description: Item Full Name
+    type: string
+    example: DYSW351-Addison Jacket
+  use_serial_number:
+    type: boolean
+    example: false
+  use_batch_number:
+    type: boolean
+    example: false
+  is_consignment:
+    type: boolean
+    example: false
+  average_cost:
+    type: number
+    example: null
+  thumbnail:
+    type: string
+    description: Item Thumbnail
+    example: >-
+      https://jubelio.blob.core.windows.net/images/0swqgtzyqwoti4bwbawsvq/b0071d5448c263a9253dbb0e34fbb8ef_thumb.jpg

@@ -1,0 +1,26 @@
+post:
+  tags:
+    - Inventory
+  summary: Set Product to 'Master' from 'In Review'
+  description: Use this endpoint to push your products to 'Master' menu.
+  operationId: postInventoryCatalogSetMaster
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postInventoryCatalogSetMasterRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postInventoryCatalogSetMasterResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

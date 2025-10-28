@@ -1,0 +1,33 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Create Picklist - Set Picklist Complete
+  description: >-
+    Using this endpoint, you can either create your item picklist **(Create
+    Picklist Request)** or even set your picking process as complete. **(Update
+    Picklist Request)**
+  operationId: postWMSSalesPicklists
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - $ref: ../components/schemas/postWMSSalesCreatePicklistsRequest.yaml
+            - $ref: ../components/schemas/postWMSSalesUpdatePicklistsRequest.yaml
+            - $ref: >-
+                ../components/schemas/postWMSSalesCreatePicklistsAutoComplete.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postWMSSalesPicklistsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

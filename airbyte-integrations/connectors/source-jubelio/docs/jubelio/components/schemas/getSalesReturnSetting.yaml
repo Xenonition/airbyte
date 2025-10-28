@@ -1,0 +1,9 @@
+type: object
+properties:
+  sales_return:
+    type: boolean
+    description: >-
+      If "true," Jubelio will take into account any prices, discounts, or other
+      charges that are listed on the sales order invoice if there is a sales
+      return.
+    example: sales

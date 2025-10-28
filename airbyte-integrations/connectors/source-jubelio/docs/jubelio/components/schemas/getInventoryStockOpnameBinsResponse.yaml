@@ -1,0 +1,12 @@
+type: array
+items:
+  type: object
+  properties:
+    bin_id:
+      type: string
+      description: Bin ID
+      example: 108
+    bin_final_code:
+      type: string
+      description: Bin Final Code
+      example: L1-A1-K1-R1

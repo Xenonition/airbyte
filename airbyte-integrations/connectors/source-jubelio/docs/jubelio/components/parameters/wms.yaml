@@ -1,0 +1,7 @@
+name: wms
+in: query
+required: false
+style: form
+explode: true
+schema:
+  type: string

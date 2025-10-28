@@ -1,0 +1,43 @@
+type: array
+description: List of Items to Transfer
+items:
+  type: object
+  properties:
+    item_id:
+      type: number
+      description: Item ID
+      example: 57366
+    item_code:
+      type: string
+      description: Item Code
+      example: TRB-01/PURPLE-M
+    item_name:
+      type: string
+      description: Item Name
+      example: >-
+        Topi Turban Pita Bayi Anak Perempuan Turban Kerudung Bayi Anak Perempuan
+        Kupluk Bayi Anak Perempuan Penutup Kepala Bayi Anak Perempuan TRB-01
+    order_qty:
+      type: number
+      description: Order QTY
+      example: 10
+    end_qty:
+      type: number
+      example: 10
+    available_qty:
+      type: number
+      example: 10
+    item_full_name:
+      type: string
+      description: Item Full Name
+      example: >-
+        TRB-01/PURPLE-M - Topi Turban Pita Bayi Anak Perempuan Turban Kerudung
+        Bayi Anak Perempuan Kupluk Bayi Anak Perempuan Penutup Kepala Bayi Anak
+        Perempuan TRB-01
+    uom_id:
+      type: number
+      description: Unit of Measure ID
+      example: -1
+    buy_unit:
+      type: string
+      example: Buah

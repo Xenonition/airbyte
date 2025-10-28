@@ -1,0 +1,12 @@
+type: object
+properties:
+  status:
+    type: string
+    example: ok
+  url:
+    type: string
+    example: >-
+      https://report3.jubelio.com/?&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXBvcnROYW1lIjoiUGVuZXJpbWFhbiBCYXJhbmciLCJjb21wYW55SWQiOjMyMDgyLCJ0ZW5hbnRJZCI6InN6amdwenppcmVjMnhmbno1bmJiY2EiLCJsb2dvX3VybCI6bnVsbCwiYWRkcmVzcyI6IiIsImNpdHkiO
+  title:
+    type: string
+    example: Konsinyasi

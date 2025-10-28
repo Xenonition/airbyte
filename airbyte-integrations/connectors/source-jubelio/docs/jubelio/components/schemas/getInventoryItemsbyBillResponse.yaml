@@ -1,0 +1,74 @@
+type: array
+description: List of Sales Return Items
+items:
+  type: object
+  properties:
+    item_id:
+      type: number
+      description: Item ID
+      example: 57366
+    item_code:
+      type: string
+      description: Item Code
+      example: TRB-01/PURPLE-M
+    item_name:
+      type: string
+      description: Item Name
+      example: >-
+        Topi Turban Pita Bayi Anak Perempuan Turban Kerudung Bayi Anak Perempuan
+        Kupluk Bayi Anak Perempuan Penutup Kepala Bayi Anak Perempuan TRB-01
+    bill_detail_id:
+      type: number
+      description: Bill Detail ID
+      example: 37836
+    rate:
+      type: string
+      description: Rate
+      example: 10
+    tax_name:
+      type: string
+      description: Tax Name
+      example: PPN
+    account_code:
+      type: string
+      description: account code
+      example: 1-1200
+    account_name:
+      type: string
+      description: Account Name
+      example: 1-1200 - Persediaan Barang
+    invt_acct_id:
+      type: number
+      description: Inventory Account ID
+      example: 4
+    qty_in_base:
+      type: string
+      description: Quantity of items that wants to return
+      example: 5
+    average_cost:
+      type: number
+      description: Average Cost
+      example: 99998
+    buy_price:
+      type: number
+      description: Buy Price
+      example: 100000
+    buy_unit:
+      type: string
+      description: Unit
+      example: Buah
+    buy_tax_id:
+      type: number
+      description: Buy Tax ID
+      example: 1
+    item_full_name:
+      type: string
+      description: Item Full Name
+      example: >-
+        TRB-01/PURPLE-M - Topi Turban Pita Bayi Anak Perempuan Turban Kerudung
+        Bayi Anak Perempuan Kupluk Bayi Anak Perempuan Penutup Kepala Bayi Anak
+        Perempuan TRB-01
+    is_consignment:
+      type: boolean
+      description: If product is consigment product
+      example: false

@@ -1,0 +1,12 @@
+type: array
+items:
+  type: object
+  properties:
+    floor_id:
+      type: number
+      description: Floor ID
+      example: 1
+    floor_code:
+      type: string
+      description: Floor Code
+      example: LX

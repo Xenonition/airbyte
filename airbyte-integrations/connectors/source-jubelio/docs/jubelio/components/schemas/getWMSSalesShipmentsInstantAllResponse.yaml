@@ -1,0 +1,59 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        shipment_date:
+          type: string
+          format: date-time
+          description: Shipment Date
+          example: '2022-01-29T10:59:44.525Z'
+        shipments:
+          type: array
+          items:
+            type: object
+            properties:
+              shipment_header_id:
+                type: number
+                description: Shipment Header ID
+                example: 118
+              shipment_no:
+                type: string
+                description: Shipment No.
+                example: SHP-000000118
+              courier_id:
+                type: number
+                description: Courier ID
+                example: 2
+              courier_new_id:
+                type: number
+                description: Courier New ID
+                example: 2
+              courier_name:
+                type: string
+                description: Courier Name
+                example: J&T
+              is_completed:
+                type: boolean
+                example: null
+              total_weight_in_kg:
+                type: number
+                example: 0
+              location_name:
+                type: string
+                description: Location Name
+                example: Jimbaran
+              shipment_date:
+                type: string
+                format: date-time
+                description: Shipment Date
+                example: '2022-01-29T10:59:44.525Z'
+              total_salesorder:
+                type: number
+                example: null
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

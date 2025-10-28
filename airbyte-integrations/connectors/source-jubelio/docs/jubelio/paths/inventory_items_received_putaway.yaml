@@ -1,0 +1,28 @@
+post:
+  tags:
+    - Inventory
+  summary: Putaway Items
+  description: >-
+    Use this endpoint to count items that have been placed by input the quantity
+    and bin_id (bin code to place the items)
+  operationId: postInventoryItemsReceivedPutaway
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postInventoryItemsPutawayRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postInventoryItemsPutawayResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

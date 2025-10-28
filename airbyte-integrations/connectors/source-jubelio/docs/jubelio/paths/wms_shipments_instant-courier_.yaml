@@ -1,0 +1,25 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  operationId: postWMSShipmentsInstantCourier
+  summary: Create Shipment Schedule for Instant Courier
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postWMSShipmentsInstantCourierRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postWMSShipmentsInstantCourierResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

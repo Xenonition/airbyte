@@ -1,0 +1,46 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Serial Number & Batch Number of Items
+    items:
+      type: object
+      properties:
+        serial_number_id:
+          type: number
+          example: 121
+        bill_detail_id:
+          type: number
+          example: 51575
+        serial_no:
+          type: string
+          example: HY732849
+        batch_no:
+          type: number
+          example: 3824032
+        expired_date:
+          type: string
+          format: date
+          example: null
+        item_transfer_detail_id:
+          type: number
+          example: null
+        return_detail_id:
+          type: number
+          example: null
+        putaway_reference_id:
+          type: number
+          example: null
+        item_adj_detail_id:
+          type: number
+          example: null
+        bin_id:
+          type: number
+          example: null
+        item_id:
+          type: number
+          example: 66257
+  is_putaway:
+    type: boolean
+    description: If the products is already putaway
+    example: false

@@ -1,0 +1,27 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Mark Order As Ready To Ship (Done Packing)
+  operationId: postWMSSalesPacklistMarkAsComplete
+  description: Use salesorder_id as ids
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postWMSSalesPacklistMarkAsCompleteRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/postWMSSalesPacklistMarkAsCompleteResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

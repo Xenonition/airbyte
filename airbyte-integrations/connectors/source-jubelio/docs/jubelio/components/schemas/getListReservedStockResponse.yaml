@@ -1,0 +1,53 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Reserved Stock
+    items:
+      type: object
+      properties:
+        reservedstock_id:
+          type: number
+          description: Reserved Stock ID
+          example: 194
+        reservedstock_no:
+          type: string
+          description: Reserved Stock Number
+          example: RSRV-000000194
+        location_id:
+          type: string
+          description: Location ID
+          example: -1
+        location_name:
+          type: string
+          description: Location Name
+          example: Pusat
+        start_date:
+          type: string
+          format: date-time
+          description: Time when reserved stock has started
+          example: '2024-05-06T07:00:00.000Z'
+        end_date:
+          type: string
+          format: date-time
+          description: Time when reserved stock has ended
+          example: '2024-05-07T09:00:00.000Z'
+        note:
+          type: string
+          example: null
+        is_active:
+          type: boolean
+          description: Whether the reserved stock active or not
+          example: false
+        created_by:
+          type: string
+          description: Employee who is creating reserved stock
+          example: ririn@gmail.com
+        is_ongoing:
+          type: boolean
+          description: Whether the reserved stock is on going or not
+          example: false
+        is_internal:
+          type: boolean
+          description: Whether the reserved stock is internal or not
+          example: true

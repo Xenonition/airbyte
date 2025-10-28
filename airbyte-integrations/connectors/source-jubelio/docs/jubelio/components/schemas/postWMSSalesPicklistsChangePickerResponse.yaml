@@ -1,0 +1,9 @@
+type: object
+properties:
+  status:
+    type: string
+    example: ok
+  invalidPick:
+    type: array
+    items:
+      type: object

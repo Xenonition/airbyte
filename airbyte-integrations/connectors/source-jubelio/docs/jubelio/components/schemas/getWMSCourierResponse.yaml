@@ -1,0 +1,12 @@
+type: array
+items:
+  type: object
+  properties:
+    courier_id:
+      type: number
+      description: Courier ID
+      example: 4
+    courier_name:
+      type: string
+      description: Courier Name
+      example: AnterAja

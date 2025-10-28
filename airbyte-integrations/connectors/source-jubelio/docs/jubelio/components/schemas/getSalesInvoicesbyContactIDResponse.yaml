@@ -1,0 +1,44 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List items that stock needs to adjust
+    items:
+      type: object
+      properties:
+        invoice_id:
+          type: number
+          description: Invoice ID
+          example: 2237391
+        invoice_no:
+          type: string
+          description: Invoice Number
+          example: INV-002237391
+        is_tax_included:
+          type: boolean
+          description: If price is include tax
+          example: false
+        add_fee:
+          type: number
+          example: 0
+        add_disc:
+          type: number
+          example: 0
+        service_fee:
+          type: number
+          description: Service Fee
+          example: 0
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        location_name:
+          type: string
+          description: Location Name
+          example: Gudang Besar
+        sub_total:
+          type: number
+          example: 100000000
+        total_disc:
+          type: number
+          example: 0

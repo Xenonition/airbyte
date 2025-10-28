@@ -1,0 +1,10 @@
+name: page
+in: query
+required: true
+style: form
+explode: true
+description: Page
+schema:
+  minimum: 1
+  type: number
+  format: int32

@@ -1,0 +1,17 @@
+type: array
+description: List Items that exists in System
+items:
+  type: object
+  properties:
+    category_id:
+      type: string
+      description: Channel Category ID
+      example: 12652
+    category_name:
+      type: string
+      description: Category Name
+      example: Spare Parts
+    parent_id:
+      type: string
+      description: Channel Parent Category ID
+      example: 40

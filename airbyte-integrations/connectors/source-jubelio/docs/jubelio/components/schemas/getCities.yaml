@@ -1,0 +1,14 @@
+type: object
+properties:
+  city_id:
+    type: string
+    description: City ID
+    example: 1105
+  province_id:
+    type: string
+    description: Province ID
+    example: 11
+  name:
+    type: string
+    description: City Name
+    example: KAB. ACEH BARAT DAYA

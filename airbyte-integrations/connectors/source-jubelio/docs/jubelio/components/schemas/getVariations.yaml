@@ -1,0 +1,166 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        item_category_id:
+          type: number
+          description: Item Category ID
+          example: 100
+        brand_id:
+          type: number
+          description: Brand ID
+          example: 169798
+        brand_name:
+          type: string
+          description: Brand Name
+          example: ASUS
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 34
+        item_group_name:
+          type: string
+          description: Item Group Name
+          example: LAPTOP ASUS ROG - BLACK
+        created_date:
+          type: string
+          format: date-time
+          description: Create date
+          example: '2020-07-01T17:00:00.000Z'
+        variations:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: Label of variation
+                example: Ukuran
+              values:
+                type: array
+                items:
+                  type: string
+                  description: Value of variation
+                  example: 13 inch
+        item_id:
+          type: number
+          description: Item ID
+          example: 9
+        item_code:
+          type: string
+          description: SKU
+          example: BAR-LAP-13
+        item_name:
+          type: string
+          description: Item Name
+          example: Barang Laptop
+        variation_values:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                example: Ukuran
+              value:
+                type: string
+                example: 13 inch
+        barcode:
+          type: string
+          description: Barcode
+          example: null
+        is_bundle:
+          type: boolean
+          description: Is bundle
+          example: false
+        rop:
+          type: number
+          description: Return of Purchase
+          example: 0
+        lead_time:
+          type: number
+          description: default is 0
+          example: 0
+        rack_no:
+          type: number
+          description: Rack Number
+          example: null
+        package_weight:
+          type: number
+          description: Package Weight
+          example: 50
+        store_priority_qty_treshold:
+          type: number
+          description: Store Priority Treshold
+          example: 2
+        sell_price:
+          type: number
+          description: Sell price
+          example: 12000000
+        end_qty:
+          type: number
+          description: End QTY
+          example: 1
+        average_cost:
+          type: number
+          description: Average Cost
+          example: null
+        is_variant:
+          type: boolean
+          description: Is Variant
+          example: true
+        is_unlimited_stock:
+          type: boolean
+          description: Is Unlimited Stock
+          example: false
+        last_modified:
+          type: string
+          format: date-time
+          description: Create date
+          example: '2020-07-01T17:00:00.000Z'
+        channels:
+          type: array
+          description: Channel list
+          items:
+            type: object
+            properties:
+              ioc_id:
+                type: number
+                description: Item on Channel ID
+                example: 2
+              channel_id:
+                type: number
+                description: Channel ID
+                example: 2
+              store_id:
+                type: string
+                description: Store ID
+                example: 8529
+              store_name:
+                type: string
+                description: Store Name
+                example: Toko Keren
+              sell_here:
+                type: boolean
+                description: Sell here
+                example: false
+              category_name:
+                type: string
+                description: Category Name
+                example: Laptop
+              selected_brand_name:
+                type: string
+                description: Selected Brand Name
+                example: ASUS
+              have_general_variation:
+                type: boolean
+                description: Have General Variation
+                example: false
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

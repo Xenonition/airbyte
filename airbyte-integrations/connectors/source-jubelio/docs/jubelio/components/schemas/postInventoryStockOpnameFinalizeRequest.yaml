@@ -1,0 +1,8 @@
+type: object
+required:
+  - id
+properties:
+  id:
+    type: number
+    description: Opname Header ID
+    example: 3

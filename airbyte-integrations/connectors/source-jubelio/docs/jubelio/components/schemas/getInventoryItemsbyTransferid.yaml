@@ -1,0 +1,46 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Items based on Transfer No.
+    items:
+      type: object
+      properties:
+        item_transfer_detail_id:
+          type: number
+          example: 4832
+        item_id:
+          type: number
+          example: 65476
+        item_code:
+          type: string
+          example: 101263074573
+        item_name:
+          type: string
+          example: >-
+            ABY LEON Sleepsuit Bayi Baby Sleepsuit COTTON JP-GY-052 Jumpsuit
+            Bayi Laki-laki
+        available_qty:
+          type: number
+          example: 1
+        item_full_name:
+          type: string
+          example: >-
+            101263074573 - BABY LEON Sleepsuit Bayi Baby Sleepsuit COTTON
+            JP-GY-052 Jumspuit Bayi Laki-Laki - RABBIT SINGLE, L (6-12 bln)
+        uom_id:
+          type: number
+          example: -1
+        buy_unit:
+          type: string
+          example: Buah
+        item_group_id:
+          type: number
+          example: 9851
+        thumbnail:
+          type: string
+          example: /images/no-image-icon2.png
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

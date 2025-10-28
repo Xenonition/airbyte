@@ -1,0 +1,250 @@
+required:
+  - item_group_id
+  - item_group_name
+  - uom_id
+  - description
+  - sell_this
+  - sell_tax_id
+  - buy_tax_id
+  - sales_acct_id
+  - cogs_acct_id
+  - invt_acct_id
+  - buy_this
+  - stock_this
+  - dropship_this
+  - sell_unit
+  - buy_unit
+  - is_active
+  - purch_acct_id
+  - item_category_id
+  - store_priority_qty_treshold
+  - package_weight
+  - sell_price
+  - buy_price
+  - brand_id
+  - rop
+  - use_single_image_set
+  - use_serial_number
+  - product_skus
+type: object
+properties:
+  item_group_id:
+    type: number
+    description: |
+      Item Group ID <br>
+      To create new prouct => "item_group_id": 0 <br>
+      To edit prouct => "item_group_id": {item_group_id}
+    example: 0
+  item_group_name:
+    type: string
+    description: |
+      Item Group Name (Unique)
+    example: 10.4 10W40
+  uom_id:
+    type: number
+    description: Unit of Measure ID. Default value is -1
+    example: -1
+  description:
+    type: string
+    description: >-
+      Product Description. Please make sure the minimum length of your
+      description is 30 characters.
+    example: semi-synthetic lubricant for 4-stroke motorcycles that ensures
+  sell_this:
+    type: boolean
+    description: Whether the item can be sold. The default value is 'true'.
+    example: true
+  buy_this:
+    type: boolean
+    description: Whether the item can be bought to supplier. The default value is 'true'.
+    example: true
+  stock_this:
+    type: boolean
+    description: Whether the item can be stocked. The default value is 'true'.
+    example: true
+  buy_price:
+    type: number
+    description: Buy Price. You may set the value as 0.
+    example: 0
+  min:
+    type: number
+    description: You can set 0 as the default value.
+    example: 0
+  max:
+    type: number
+    description: You can set 0 as the default value.
+    example: 0
+  sell_price:
+    type: number
+    description: Sell Price
+    example: 0
+  sell_tax_id:
+    type: number
+    description: Sell Tax ID Default (PPN = -1, No PPN = 1)
+    example: -1
+  sales_acct_id:
+    type: number
+    description: Sales Account ID (default = 28)
+    example: 28
+  buy_tax_id:
+    type: number
+    description: Buy Tax ID Default (PPN = -1, No PPN = 1)
+    example: -1
+  invt_acct_id:
+    type: number
+    description: Inventory Account ID (default = 4)
+    example: 4
+  cogs_acct_id:
+    type: number
+    description: Cost of Goods Sold (COGS) Account Account ID (default = 30)
+    example: 30
+  purch_acct_id:
+    type: number
+    description: Purchase Account ID (default = NULL)
+    example: null
+  sell_unit:
+    type: string
+    description: Sell Unit
+    example: Buah
+  rop:
+    type: number
+    description: >-
+      Re-Order Point. Stock threshold where we need to adjust/update the stock.
+      You may set the value as 0 if you don't have any threshold.
+    example: 20
+  lead_time:
+    type: string
+    description: The time when receiving products from the supplier.
+    example: 0
+  item_category_id:
+    type: number
+    description: >-
+      Item Category ID. Using the API **Get All Categories**, you can find a
+      suitable category for your products.
+    example: 454
+  store_priority_qty_treshold:
+    type: number
+    description: Store Priority Treshold
+    example: 2
+  images:
+    type: array
+    description: List item variations
+    items:
+      type: object
+      properties:
+        url:
+          type: string
+          description: Image URL
+          example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+        thumbnail:
+          type: string
+          description: Image Thumbnail
+          example: http://f.shopee.co.id/file/fde755988e7d8931bea57bdb3c8a64e6
+        file_name:
+          type: string
+          description: Image Name
+          example: fde755988e7d8931bea57bdb3c8a64e6
+        sequence_number:
+          type: number
+          description: Image Sequence Number
+          example: 0
+  variation_images:
+    type: array
+    description: List item variations
+    items:
+      type: object
+  use_serial_number:
+    type: boolean
+    description: Whether the product use serial number
+    example: false
+  use_batch_number:
+    type: boolean
+    description: Whether the product use batch number
+    example: false
+  brand_id:
+    type: string
+    description: Brand ID. You may set the value as "null".
+    example: null
+  dropship_this:
+    type: boolean
+    description: Whether the item can be dropship
+    example: false
+  is_active:
+    type: boolean
+    description: You may set the value as "true" if the product is active for sale.
+    example: true
+  package_content:
+    type: string
+    description: Package content. You may set the value as null.
+    example: null
+  package_weight:
+    type: number
+    description: Package weight in gram.
+    example: 1000
+  package_height:
+    type: number
+    description: Package height.
+    example: null
+  package_width:
+    type: number
+    description: Package width
+    example: null
+  package_length:
+    type: number
+    description: Package length
+    example: null
+  variations:
+    type: array
+    description: List Item Variations
+    items:
+      type: object
+  brand_name:
+    type: string
+    description: Another Brand Name
+    example: Adidas
+  product_skus:
+    type: array
+    items:
+      type: object
+      properties:
+        item_id:
+          type: string
+          description: Item ID
+          example: 0
+        item_code:
+          type: string
+          description: Item SKU, should be unique.
+          example: RM-CHO-IJH
+        variation_values:
+          type: array
+          items:
+            type: object
+        sell_price:
+          type: number
+          description: Sell Price
+          example: null
+        buy_price:
+          type: number
+          description: Buy Price
+          example: 0
+        barcode:
+          type: string
+          description: Barcode
+          example: null
+        is_consignment:
+          type: boolean
+          description: Whether the item is consignment item
+          example: false
+  unlimited_stock_store_ids:
+    type: number
+    description: |
+      The unlimited stock for selected store ids. <br>
+      Can be filled with "empty array" or "null".
+    example: null
+  use_single_image_set:
+    type: boolean
+    description: Whether the item use single image set.
+    example: false
+  buy_unit:
+    type: string
+    example: Buah

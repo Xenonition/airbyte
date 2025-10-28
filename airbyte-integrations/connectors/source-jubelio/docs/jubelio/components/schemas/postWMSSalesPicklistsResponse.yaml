@@ -1,0 +1,30 @@
+type: object
+properties:
+  status:
+    type: string
+    description: status
+    example: ok
+  data:
+    type: object
+    properties:
+      picks:
+        type: array
+        items:
+          type: object
+          properties:
+            picklist_id:
+              type: number
+              description: Picklist ID
+              example: 32467
+            picklist_no:
+              type: string
+              description: Picklist No.
+              example: PICK-000032467
+            status:
+              type: string
+              description: status
+              example: ok
+      invalidSO:
+        type: array
+        items:
+          type: object

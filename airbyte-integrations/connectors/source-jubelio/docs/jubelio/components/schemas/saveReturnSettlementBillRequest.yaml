@@ -1,0 +1,53 @@
+required:
+  - contact_id
+  - return_id
+  - settlement_no
+  - supplier_name
+type: object
+properties:
+  settlement_id:
+    type: number
+    description: Purchase Return Settlement ID
+    example: 0
+  settlement_no:
+    type: string
+    description: Purchase Return Settlement Number
+    example: '[auto]'
+  return_id:
+    type: number
+    description: Purchase Return ID
+    example: 2
+  contact_id:
+    type: number
+    description: Contact ID (Supplier)
+    example: 3
+  supplier_name:
+    type: string
+    description: Contact Name (Supplier)
+    example: PTANYWAY
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-02T04:00:00.000Z'
+  amount:
+    type: number
+    description: Total Amount
+    example: 77000
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        settlement_detail_id:
+          type: number
+          description: Purchase Return Settlement Detail ID
+          example: 1
+        bill_id:
+          type: number
+          description: Bill ID
+          example: 1
+        payment_amount:
+          type: number
+          description: Payment Amount
+          example: 77000

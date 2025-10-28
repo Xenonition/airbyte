@@ -1,0 +1,158 @@
+required:
+  - customer_name
+  - location_id
+  - return_no
+type: object
+properties:
+  return_id:
+    type: number
+    description: Sales Return ID
+    example: 0
+  return_no:
+    type: string
+    description: Sales Return Number
+    example: '[auto]'
+  customer_id:
+    type: number
+    description: Customer ID
+    example: 1
+  customer_name:
+    type: string
+    description: Customer Name
+    example: 1
+  transaction_date:
+    type: string
+    format: date
+    description: Tranasction Date
+    example: '2019-01-13T21:21:32.261Z'
+  created_date:
+    type: string
+    format: date
+    description: Created Date
+    example: '2019-01-13T21:21:32.261Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Tax Included
+    example: false
+  note:
+    type: string
+    description: Sales Return Note
+    example: Barang Cacat
+  sub_total:
+    type: string
+    description: Sub Total
+    example: 120000
+  total_tax:
+    type: string
+    description: Total Tax
+    example: 0
+  grand_total:
+    type: string
+    description: Grand Total
+    example: 120000
+  invoice_id:
+    type: number
+    description: Invoice ID
+    example: 9
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  invoice_no:
+    type: number
+    description: Invoice Number
+    example: INV-000000012
+  location_name:
+    type: number
+    description: Location Name
+    example: Pusat
+  items:
+    type: array
+    description: List Return Detail
+    items:
+      type: object
+      properties:
+        return_detail_id:
+          type: number
+          description: Return Detail ID
+          example: 0
+        invoice_detail_id:
+          type: number
+          description: Invoice Detail ID
+          example: 0
+        serial_no:
+          type: string
+          description: Serial Number
+          example: ''
+        item_id:
+          type: number
+          description: Item ID
+          example: 5
+        item_name:
+          type: number
+          description: Item Name
+          example: Kaos DreamCatcher Born to Be Yours
+        item_code:
+          type: string
+          description: Item Code
+          example: BTY-L
+        description:
+          type: string
+          description: Item Description
+          example: Kaos DreamCatcher Born to Be Yours
+        sales_acct_id:
+          type: number
+          description: Sales Account ID
+          example: 28
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        tax_name:
+          type: string
+          description: Tax Name
+          example: No Tax
+        account_name:
+          type: string
+          description: Account Name
+          example: 4-4000 - Penjualan
+        price:
+          type: string
+          description: Item Price
+          example: 120000
+        sell_price:
+          type: number
+          description: Item Sell Price
+          example: 120000
+        original_price:
+          type: string
+          description: Item Original Price
+          example: 120000
+        rate:
+          type: string
+          description: Rate
+          example: 0
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity that will be return
+          example: 1
+        tax_amount:
+          type: string
+          description: Tax Amount
+          example: 0
+        amount:
+          type: string
+          description: Total Amount
+          example: 120000
+        cogs:
+          type: string
+          description: Cost of Goods Sold
+          example: 78000
+        location_id:
+          type: number
+          description: Location ID
+          example: -1

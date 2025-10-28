@@ -1,0 +1,97 @@
+get:
+  tags:
+    - Product
+  summary: Get All Product Groups
+  operationId: getInventoryItems
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/csv.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter By [item_code/item_name]. Please exclude special character.
+      schema:
+        type: string
+    - name: channelId
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Item on Channel ID
+      schema:
+        type: number
+        format: int32
+    - name: isFavourite
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Is Favorite Item [true/false]
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getProductsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+delete:
+  tags:
+    - Product
+  summary: Delete Product
+  operationId: deleteInventoryItems
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/deleteNumberRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleteOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Product
+  summary: Create/Edit Product Bundle
+  operationId: postProductBundle
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/saveProductBundleRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveProductBundleResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

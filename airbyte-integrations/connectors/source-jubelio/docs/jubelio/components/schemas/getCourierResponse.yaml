@@ -1,0 +1,10 @@
+type: object
+properties:
+  courier_id:
+    type: number
+    description: Courier ID
+    example: 5
+  courier_name:
+    type: string
+    description: Courier Name
+    example: Go-Send

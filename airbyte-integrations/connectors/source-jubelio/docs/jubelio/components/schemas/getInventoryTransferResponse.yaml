@@ -1,0 +1,84 @@
+type: object
+properties:
+  item_transfer_id:
+    type: number
+    description: Transfer ID
+    example: 0
+  item_transfer_no:
+    type: string
+    description: Transfer Number
+    example: '[auto]'
+  transaction_date:
+    type: string
+    format: date-time
+    description: Transfer Transaction Date
+    example: '2020-01-06T01:49:21.999Z'
+  created_date:
+    type: string
+    format: date-time
+    description: Record Created Date
+    example: '2020-01-06T01:49:21.999Z'
+  received_date:
+    type: string
+    format: date-time
+    description: Transfer Received Date
+    example: '2020-01-06T01:49:21.999Z'
+  note:
+    type: string
+    description: Transfer Note
+    example: Transfer Request Example
+  source_location_id:
+    type: number
+    description: Source Location ID
+    example: -1
+  destination_location_id:
+    type: number
+    description: Destination Location ID. Can't be same with Source Location ID
+    example: 1
+  transfer_type:
+    type: number
+    description: Transfer Type
+    example: 0
+  source_transfer_no:
+    type: string
+    description: Source Transfer No
+    example: TR0001
+  created_by:
+    type: string
+    format: date-time
+    description: Created date
+    example: null
+  printed_by:
+    type: string
+    description: Printed by
+    example: null
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        item_transfer_detail_id:
+          type: number
+          description: Item Transfer Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 4
+        serial_no:
+          type: string
+          description: Serial Number
+          example: SN001
+        qty_in_base:
+          minimum: 1
+          type: number
+          description: Item Quantity that will be transfer
+          example: 1
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        description:
+          type: string
+          description: Item Description
+          example: Item Transfer Request Example

@@ -1,0 +1,41 @@
+type: array
+items:
+  type: object
+  properties:
+    channel_id:
+      type: number
+      description: Channel ID
+      example: 2
+    category_id:
+      type: number
+      description: Category ID
+      example: 10100387
+    category_name:
+      type: string
+      description: Category Name
+      example: Audio
+    url:
+      type: string
+      description: URL
+      example: null
+    parent_id:
+      type: number
+      description: Parent ID
+      example: 0
+    variants:
+      type: array
+      items:
+        type: object
+        properties:
+          is_variant:
+            description: Is Variant
+            type: boolean
+            example: true
+    category_name_alt:
+      type: string
+      description: Category Name
+      example: Audio
+    has_children:
+      type: boolean
+      description: Has Children
+      example: true

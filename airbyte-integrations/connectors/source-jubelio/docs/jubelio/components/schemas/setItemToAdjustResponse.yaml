@@ -1,0 +1,44 @@
+type: array
+items:
+  type: object
+  properties:
+    item_id:
+      description: Item ID
+      type: number
+      example: 1
+    item_name:
+      description: Item Name
+      type: string
+      example: Addison Jacket
+    item_full_name:
+      description: Item Full Name
+      type: string
+      example: DYSW351-Addison Jacket
+    unit:
+      description: Unit
+      type: string
+      example: Pcs
+    account_id:
+      description: Account ID
+      type: number
+      example: 1
+    account_code:
+      description: Account Code
+      type: string
+      example: 1-1200
+    account_name:
+      description: Account Name
+      type: string
+      example: 1-1200 - Persediaan Barang
+    cost:
+      description: Cost
+      type: number
+      example: 371777.7777833333
+    end_qty:
+      description: End QTY
+      type: number
+      example: 0
+    resulting_qty:
+      description: Resulting QTY
+      type: number
+      example: 0

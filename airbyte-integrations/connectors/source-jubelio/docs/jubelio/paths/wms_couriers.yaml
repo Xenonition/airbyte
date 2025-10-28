@@ -1,0 +1,20 @@
+get:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Get Courier List
+  operationId: getWMSCourier
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getWMSCourierResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

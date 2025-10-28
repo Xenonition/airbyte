@@ -1,0 +1,15 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Status
+    example: ok
+  url:
+    type: string
+    description: URL
+    example: >-
+      https://report3.jubelio.com/?&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXBvcnROYW1lIjoiTGFwb3JhbiBC
+  title:
+    type: string
+    description: Title
+    example: Laporan Bukti Pengiriman

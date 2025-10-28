@@ -1,0 +1,26 @@
+post:
+  tags:
+    - Inventory
+  summary: Set Stock Opname Process As Done & Push Final Stock
+  operationId: postInventoryStockOpnameFinalize
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postInventoryStockOpnameFinalizeRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/postInventoryStockOpnameFinalizeResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Purchasing
+  summary: Get Serial Number/Batch Number of Items
+  operationId: getPurchaseSerialNumberWMS
+  description: >-
+    You can also use GET/purchase/batch-number/wms/{bill_detail_id} to get the
+    batch number
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: bill_detail_id
+      in: path
+      required: true
+      description: Bill Detail ID
+      schema:
+        type: number
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getPurchaseSerialNumberWMSResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

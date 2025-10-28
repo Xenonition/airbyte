@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Region
+  summary: Get Subdistricts
+  operationId: GetSubdistricts
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: district_id
+      in: path
+      description: District ID
+      required: true
+      schema:
+        type: string
+        example: 110507
+  responses:
+    '200':
+      description: Successfull
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getSubdistricts.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

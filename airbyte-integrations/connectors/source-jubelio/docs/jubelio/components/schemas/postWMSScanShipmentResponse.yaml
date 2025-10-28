@@ -1,0 +1,56 @@
+type: object
+properties:
+  shipment_header_id:
+    type: number
+    description: Shipment Header ID
+    example: 10492
+  shipment_no:
+    type: string
+    description: Shipment No.
+    example: SHP-000010492
+  courier_id:
+    type: number
+    description: Courier ID
+    example: 1
+  transaction_date:
+    type: string
+    format: date-time
+    example: '2022-02-24T09:19:29.029Z'
+  location_id:
+    type: number
+    description: Location ID
+    example: 8
+  note:
+    type: string
+    description: note
+    example: null
+  shipment_type:
+    type: string
+    description: Shipment Type
+    example: 2
+  shipment_date:
+    type: string
+    format: date-time
+    description: Shipment Date
+    example: '2022-02-25T09:19:16.763Z'
+  is_completed:
+    type: boolean
+    example: null
+  employee_id:
+    type: string
+    description: Employee ID
+    example: ririn@staffgudang.com
+  courier_new_id:
+    type: number
+    example: 1
+  completed_date:
+    type: string
+    format: date-time
+    example: null
+  courier_name:
+    type: string
+    description: Courier Name
+    example: JNE
+  type:
+    type: string
+    example: standard

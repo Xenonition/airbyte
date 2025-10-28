@@ -1,0 +1,77 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        cashbank_payment_id:
+          type: number
+          description: Cashbank payment Id
+          example: 4
+        cashbank_payment_no:
+          type: string
+          description: Cashbank payment no
+          example: null
+        cashbank_receive_id:
+          type: number
+          description: Cashbank receive Id
+          example: 118
+        cashbank_receive_no:
+          type: string
+          description: Cashbank receive no
+          example: REC-000000028
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        channel_id:
+          type: number
+          description: The channel Id
+          example: 128
+        invoice_amount:
+          type: string
+          description: Invoice amount
+          example: '0.00000'
+        note:
+          type: string
+          description: Note
+          example: null
+        payment_amount:
+          type: string
+          description: Payment amount
+          example: '0.00000'
+        payment_id:
+          type: number
+          description: Payment Id
+          example: 10
+        payment_no:
+          type: string
+          description: Payment no
+          example: ''
+        receive_amount:
+          type: string
+          description: Receive amount
+          example: '10811049.0000'
+        settlement_header_id:
+          type: number
+          description: Settlement header Id
+          example: 38
+        settlement_no:
+          type: string
+          description: Settlement No
+          example: STL-000000038
+        source:
+          type: string
+          description: Source
+          example: TOKOPEDIA - JubeCorner
+        store_id:
+          type: string
+          description: Store ID
+          example: 23000
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

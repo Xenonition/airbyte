@@ -1,0 +1,96 @@
+get:
+  tags:
+    - Location & The Rack Plan
+  summary: Get All Locations
+  description: |
+    This API is used to show all locations that the user has/saved.
+    The saved location can be used as a store inventory or a shipping address.
+  operationId: getLocations
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/csv.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter Query [Location Name]
+      schema:
+        type: string
+    - $ref: ../components/parameters/createdSince.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getLocationsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Location & The Rack Plan
+  summary: Create/Edit Location & Rack Plan
+  description: >
+    This API is used to create/edit location of the warehouse. You can also set
+    your rack plan (using `layout` property), start from floor level, row
+    number, column number and bin number. You are able to set your default
+    warehouse staff (using `default_warehouse_user`), so later you can set for
+    auto-putaway process after receiving inbound items. <br>
+
+
+    Add rack plan layout and warehouse staff is an **optional** process. Because
+    when you have finished the migration process, those settings are already set
+    in your account. But if you want to add the new rack layout or change your
+    default warehouse staff, you can use this API.
+  operationId: postLocations
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/saveLocationRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+delete:
+  tags:
+    - Location & The Rack Plan
+  summary: Delete Location
+  operationId: deleteLocations
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/deleteNumberRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleteOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,27 @@
+type: object
+required:
+  - salesorder_no
+  - salesorder_id
+  - packer_id
+  - packlist_id
+  - packlist_no
+properties:
+  salesorder_no:
+    type: string
+    description: Sales Order No
+    example: SO-000191533
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 191533
+  packer_id:
+    type: number
+    description: Packer ID
+    example: dewi@gmail.com
+  packlist_id:
+    type: number
+    description: Packlist ID. To create, set as 0.
+  packlist_no:
+    type: string
+    description: Packlist No
+    example: PACK-00000428

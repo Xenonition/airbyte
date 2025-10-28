@@ -1,0 +1,73 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 39737
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: 2991
+        item_id:
+          type: number
+          description: Item ID
+          example: 4671
+        qty_in_base:
+          type: number
+          description: Item Quantity
+          example: 1
+        item_code:
+          type: string
+          description: Item Code
+          example: SK-67565478
+        item_name:
+          type: string
+          description: Item Name
+          example: VASELINE LOTION HIBA LIMITED EDITION JEPANG 200ML
+        reject_return_reason:
+          type: string
+          description: Reject Return Reason
+          example: Ada sobekan
+        is_return_resolved:
+          type: boolean
+          description: Whether Return Resolved
+          example: true
+        customer_name:
+          type: string
+          description: Contact Name (Customer)
+          example: Andy
+        salesorder_no:
+          type: string
+          description: Sales order Number
+          example: ZL-2418274
+        transaction_date:
+          type: string
+          format: date
+          description: Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        source_name:
+          type: string
+          description: Zalora
+          example: false
+        store:
+          type: string
+          description: Store
+          example: info@dodle.co.id
+        store_name:
+          type: string
+          description: Store Name
+          example: Zalora - info@dodle.co.id
+        payment_method:
+          type: string
+          description: Payment method
+          example: null
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

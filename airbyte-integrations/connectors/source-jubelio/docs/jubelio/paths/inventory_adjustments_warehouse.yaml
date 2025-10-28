@@ -1,0 +1,33 @@
+post:
+  tags:
+    - Inventory
+  summary: Create/Edit Stock Adjustment in the Warehouse
+  description: >
+    Use this endpoint to create/edit stock adjustment in your warehouse. To get
+    **bin_id**, you can use
+    [GET/wms/default-bin/{location_id}](https://docs-wms.jubelio.com/#operation/getWMSDefaultBin)
+    or
+    [GET/locations/bin/{location_id}](https://docs-wms.jubelio.com/#operation/getBinbyLocationID).
+    If you don't set your rack plan since the very beginning when moving to
+    Jubelio WMS, your default **bin_id** will be automatically set.
+  operationId: postInventoryAdjustmentsWarehouse
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/adjustmentsWarehouseStock.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

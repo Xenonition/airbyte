@@ -1,0 +1,20 @@
+type: object
+properties:
+  success:
+    type: boolean
+    description: Is Success
+    example: true
+  name:
+    type: string
+    description: Image Name
+    example: Termurah__Rice_Cooker_Miyako_Mcm_606_A___Magic_Com_06l___Pen.jpg
+  key:
+    type: string
+    description: Image URL
+    example: >-
+      https://jubelio.blob.core.windows.net/images/bngb2liirsoobzqmj73egg/636d4589-f8b3-4271-aa96-403d11ce3a6f.jpeg
+  thumbnail:
+    type: string
+    description: Image Thumbnail URL
+    example: >-
+      https://jubelio.blob.core.windows.net/images/bngb2liirsoobzqmj73egg/636d4589-f8b3-4271-aa96-403d11ce3a6f_thumb.jpeg

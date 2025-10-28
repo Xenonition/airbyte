@@ -1,0 +1,163 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 1931
+        item_name:
+          type: string
+          description: Item Name
+          example: >-
+            Aegis Hospitality Brankas Digital Kecil Aegis Safe Deposit Box Hotel
+            A2143 - Hitam
+        last_modified:
+          type: string
+          format: date-time
+          description: Last Modified Time
+          example: '2019-01-07T07:53:35.100Z'
+        variations:
+          type: array
+          description: List Item Variations
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: Variation Label
+                example: color_family
+              values:
+                type: array
+                description: List Variation Values
+                items:
+                  type: string
+                  example: Black
+        item_category_id:
+          type: number
+          description: Item Category ID
+          example: 690
+        variants:
+          type: array
+          description: List Item Variants
+          items:
+            type: object
+            properties:
+              item_group_id:
+                type: number
+                description: Item Group ID
+                example: 1931
+              item_id:
+                type: number
+                description: Item ID
+                example: 2976
+              item_code:
+                type: string
+                description: Item Code/SKU
+                example: A2143
+              end_qty:
+                type: number
+                description: Total Inventory on Hand
+                example: 10
+              order_qty:
+                type: number
+                description: Total Inventory on Order
+                example: 0
+              item_name:
+                type: string
+                description: Item Name
+                example: >-
+                  Aegis Hospitality Brankas Digital Kecil Aegis Safe Deposit Box
+                  Hotel A2143 - Hitam
+              available_qty:
+                type: number
+                description: Total Available Inventory
+                example: 10
+              sell_price:
+                type: number
+                description: Item Sell Price
+                example: 3600000
+              variation_values:
+                type: array
+                description: Item Variations
+                items:
+                  type: object
+                  properties:
+                    label:
+                      type: string
+                      description: Variation Label
+                      example: color_family
+                    value:
+                      type: string
+                      description: Variation Value
+                      example: Black
+              is_bundle:
+                type: boolean
+                description: Is bundle
+                example: false
+              thumbnail:
+                type: string
+                description: Item Thumbnail
+                example: >-
+                  https://jubelio.blob.core.windows.net/images/sng8ijwwqasgxnomjslrjw/4469a64e-8623-4a8d-9792-f777ff434e97_thumb.jpeg
+              barcode:
+                type: string
+                description: Item Barcode
+                example: 128124871847
+              tax_rate:
+                type: number
+                description: Item Tax Rate
+                example: 10
+              store_names:
+                type: array
+                description: List Store Names where Item Exists
+                items:
+                  type: object
+                  properties:
+                    store_name:
+                      type: string
+                      description: Store Name
+                      example: Lazada
+        online_status:
+          type: array
+          description: List Channel where Item Exists
+          items:
+            type: object
+            properties:
+              channel_id:
+                type: number
+                description: Channel ID
+                example: 4
+              store_id:
+                type: string
+                description: Store ID
+                example: 553
+              store_name:
+                type: string
+                description: Store Name
+                example: Lazada
+              channel_group_id:
+                type: string
+                description: Channel Group ID
+                example: 1931
+              channel_url:
+                type: number
+                description: Channel URL
+                example: http://www.lazada.co.id/-i402292239-s443195538.html
+              shop_id:
+                type: number
+                description: Shop ID
+                example: 1
+        thumbnail:
+          type: string
+          description: Item Thumbnail
+          example: >-
+            https://jubelio.blob.core.windows.net/images/sng8ijwwqasgxnomjslrjw/4469a64e-8623-4a8d-9792-f777ff434e97_thumb.jpeg
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

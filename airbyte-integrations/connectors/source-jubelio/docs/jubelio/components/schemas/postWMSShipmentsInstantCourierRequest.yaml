@@ -1,0 +1,14 @@
+type: object
+required:
+  - ids
+  - employee_id
+properties:
+  ids:
+    type: array
+    items:
+      type: object
+      example: 2498753
+  employee_id:
+    type: string
+    description: Employee ID
+    example: ririn@staffgudang.com

@@ -1,0 +1,136 @@
+type: object
+properties:
+  channels:
+    type: array
+    items:
+      type: object
+      properties:
+        channel_name:
+          type: string
+          description: Channel Name
+          example: Lazada
+        store_name:
+          type: string
+          description: User Email in Marketplace
+          example: lisa@dsadkf.com
+        store_id:
+          type: string
+          description: Store ID
+          example: 38565
+        channel_id:
+          type: number
+          description: Channel ID
+          example: 4
+  locations:
+    type: array
+    items:
+      type: object
+      properties:
+        location_id:
+          type: string
+          description: Location ID
+          example: 1
+        location_name:
+          type: string
+          description: Location Name
+          example: Gudang Pusat
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        item_id:
+          type: string
+          description: Item ID
+          example: 8
+        item_code:
+          type: string
+          description: Item Code
+          example: EYE-KOS-NAR-WAN-PINK
+        item_name:
+          type: string
+          description: Item Name
+          example: Eyeshadow Kosmetik NARS Wanita
+        item_group_id:
+          type: string
+          description: Item Group ID
+          example: 9
+        is_bundle:
+          type: boolean
+          description: Whether the product is bundle item
+          example: false
+        variation_values:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: Product label variation
+                example: Warna
+              value:
+                type: string
+                example: pink
+        brand_name:
+          type: string
+          description: Brand Name
+          example: null
+        average_cost:
+          type: number
+          description: Average Cost
+          example: null
+        location_stocks:
+          type: array
+          items:
+            type: object
+            properties:
+              item_id:
+                type: string
+                description: Item ID
+                example: 8
+              location_id:
+                type: string
+                description: Location ID
+                example: 1
+              location_code:
+                type: string
+                description: Location Code
+                example: 1
+              on_hand:
+                type: number
+                description: On-Hand Stock
+                example: 243
+              on_order:
+                type: number
+                description: On-Order Stock
+                example: 0
+              reserved:
+                type: number
+                description: Reserved Stock
+                example: 0
+              available:
+                type: number
+                description: Available Stock
+                example: 243
+        total_stocks:
+          type: object
+          properties:
+            on_hand:
+              type: number
+              description: Total On-Hand Stock
+              example: 243
+            on_order:
+              type: number
+              description: Total On-Order Stock
+              example: 0
+            reserved:
+              type: number
+              description: Total Reserved Stock
+              example: 0
+            available:
+              type: number
+              description: Total Available Stock
+              example: 243
+        thumbnail:
+          type: string
+          example: null

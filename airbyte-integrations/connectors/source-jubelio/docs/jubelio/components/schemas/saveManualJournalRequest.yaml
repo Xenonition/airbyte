@@ -1,0 +1,58 @@
+required:
+  - picklist_id
+  - picklist_no
+  - is_completed
+  - accounts
+type: object
+properties:
+  journal_id:
+    type: number
+    description: |
+      Journal Id <br>
+      To create new journal => "journal_id": 0 <br>
+      To edit journal => "journal_id": {journal_id}
+    example: 0
+  notes:
+    type: string
+    description: The Notes
+    example: ''
+  source_doc_no:
+    type: string
+    description: The Source of number document
+    example: '-1'
+  transaction_date:
+    type: string
+    description: The transaction date
+    example: '2020-07-29T07:15:33.768'
+  accounts:
+    type: array
+    description: List Item in Accounts
+    items:
+      required:
+        - account_id
+        - credit
+        - debit
+        - description
+        - journal_detail_id
+      type: object
+      properties:
+        account_id:
+          type: number
+          description: Account Id
+          example: 5
+        credit:
+          type: number
+          description: Credit
+          example: 1000
+        debit:
+          type: number
+          description: Debit
+          example: 0
+        description:
+          type: string
+          description: The description
+          example: Example
+        journal_detail_id:
+          type: number
+          description: Journal detail Id
+          example: 0

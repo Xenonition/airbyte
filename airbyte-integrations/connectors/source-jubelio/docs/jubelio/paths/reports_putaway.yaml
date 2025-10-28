@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Reports
+  summary: Get The Putaway Reports
+  operationId: getReportsPutaway
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: ids%5B0%5D
+      in: query
+      required: true
+      style: form
+      description: Putaway ID you want to print
+      schema:
+        type: array
+        items:
+          type: object
+          example: 160
+    - $ref: ../components/parameters/tz.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/reportPutawayResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

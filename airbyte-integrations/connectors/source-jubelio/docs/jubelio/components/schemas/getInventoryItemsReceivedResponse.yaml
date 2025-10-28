@@ -1,0 +1,83 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Items Have Been Received
+    items:
+      type: object
+      properties:
+        trx_id:
+          type: string
+          example: 5395
+          description: Transaction ID from Bills, Return, or Transfer
+        trx_no:
+          type: string
+          example: TRFI-000005395
+          description: Transaction Number
+        transaction date:
+          type: string
+          format: date-time
+          example: '2022-02-15T11:05:44.970Z'
+        location_id:
+          type: number
+          example: 1
+          description: Location ID
+        location_name:
+          type: string
+          example: Gudang BESAR
+          description: Location Name
+        note:
+          type: string
+          example: ''
+        source_id:
+          type: number
+          example: 1
+        source_no:
+          type: string
+          example: TRF-000005291
+        created_by:
+          type: string
+          description: Email's staff who received the items
+          example: juberliaa@jubelio.com
+        created_name:
+          type: string
+          description: Staff who received the items
+          example: sofyan
+        doing_by:
+          type: string
+          description: Email's staff who put away the items
+          example: dudung@yopmail.com
+        doing_name:
+          type: string
+          description: Staff name who put away the items
+          example: Ririn
+        putaway_id:
+          type: number
+          description: Putaway ID
+          example: null
+        putaway_no:
+          type: string
+          description: Putaway No.
+          example: ''
+        from_no:
+          type: number
+          description: Qty that have been received
+          example: 0
+        to_no:
+          type: number
+          description: total qty that should be received
+          example: 5
+        wms_migration_date:
+          type: string
+          format: date-time
+          example: '2021-09-28T06:49:05.851Z'
+        msg_serial:
+          type: string
+          example: ''
+        lock_data:
+          type: boolean
+          example: false
+  totalCount:
+    type: number
+    description: total count of all items
+    example: 110

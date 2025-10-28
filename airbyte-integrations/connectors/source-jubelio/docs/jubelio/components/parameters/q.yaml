@@ -1,0 +1,8 @@
+name: q
+in: query
+required: false
+style: form
+explode: true
+description: Filter Query
+schema:
+  type: string

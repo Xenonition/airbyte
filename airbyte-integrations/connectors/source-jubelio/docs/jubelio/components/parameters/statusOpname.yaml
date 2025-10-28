@@ -1,0 +1,10 @@
+name: status
+in: query
+required: true
+style: form
+description: >-
+  Opname Progress Status (Fill with one of these status; created, on_process,
+  finalized).
+schema:
+  type: string
+  example: created

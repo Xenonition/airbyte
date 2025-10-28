@@ -1,0 +1,103 @@
+required:
+  - location_id
+  - location_name
+  - stores
+  - registers
+type: object
+properties:
+  location_id:
+    type: number
+    description: |
+      Location ID <br>
+      To create new location => "location_id": 0 <br>
+      To edit location => "location_id": {location_id}
+    example: 1
+  location_name:
+    type: string
+    description: Location Name (Unique)
+    example: Kutabumi
+  location_code:
+    type: string
+    description: Location code
+    example: null
+  is_pos_outlet:
+    type: boolean
+    description: Is Location a POS Outlet
+    example: true
+  address:
+    type: string
+    description: Location Full Address
+    example: >-
+      Jl. Raya Kutabumi Ruko Pondok Permai blok CA 1 no 6, Kutabaru, Pasar
+      Kemis, Tangerang /nKec. Pasar Kemis, Kota/Kab. Kab. Tangerang
+  phone:
+    type: string
+    description: Location Contact Number
+    example: 215442490
+  province:
+    type: string
+    description: Location Address Province
+    example: Banten
+  area:
+    type: string
+    description: Area
+    example: Tangerang
+  post_code:
+    type: string
+    description: Location Address Post Code
+    example: 15560
+  city:
+    type: string
+    description: Location Address City
+    example: Tangerang
+  email:
+    type: string
+    description: Location Contact Email
+    example: kutabumi.warehouse@example.com
+  is_fbl:
+    type: boolean
+    description: Is Location a FBL
+    example: false
+  is_tcb:
+    type: boolean
+    description: Is Location a TCB
+    example: false
+  is_sbs:
+    type: boolean
+    description: .
+    example: false
+  is_warehouse:
+    type: boolean
+    description: If the location is also used as a warehouse.
+    example: true
+  is_multi_origin:
+    type: boolean
+    description: >-
+      If the location can be assigned to fulfill orders from customers which
+      location is nearby the warehouse (Only works for Jubelio Store's Customer)
+    example: false
+  stores:
+    $ref: ./stores.yaml
+  warehouse_id:
+    type: number
+    description: Warehouse ID
+    example: null
+  warehouse_store_id:
+    type: number
+    description: Warehouse Store ID
+    example: null
+  is_active:
+    type: boolean
+    description: If the location is active as warehouse to fulfill orders
+    example: false
+  default_warehouse_user:
+    type: string
+    description: Email of jubelio user who is going to be set as a default warehouse staff
+    example: juberlians@jubelio.com
+  source_replenishment:
+    type: number
+    example: 8
+  registers:
+    $ref: ./registers.yaml
+  layout:
+    $ref: ./layout.yaml

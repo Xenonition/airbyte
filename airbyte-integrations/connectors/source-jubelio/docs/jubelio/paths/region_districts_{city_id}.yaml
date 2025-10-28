@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Region
+  summary: Get Districts
+  operationId: GetDistricts
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: city_id
+      in: path
+      description: City ID
+      required: true
+      schema:
+        type: string
+        example: 1105
+  responses:
+    '200':
+      description: Successfull
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getDistricts.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

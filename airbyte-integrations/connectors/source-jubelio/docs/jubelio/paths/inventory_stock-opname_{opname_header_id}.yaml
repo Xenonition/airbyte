@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Inventory
+  summary: Get the real-time stock while the stock opname still on progress
+  operationId: getInventoryStockOpnameOpnameHeaderId
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: opname_header_id
+      in: path
+      required: true
+      description: Opname Header ID
+      schema:
+        type: number
+    - $ref: ../components/parameters/isRealTimeStock.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/getInventoryStockOpnameOpnameHeaderIdResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

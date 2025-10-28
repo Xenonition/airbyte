@@ -1,0 +1,26 @@
+post:
+  tags:
+    - Product
+  summary: Archive Product
+  operationId: setItemToArchive
+  description: >-
+    Use this endpoint if you want to archive your product in **Jubelio System**.
+    Remember that you still have to archive your product in the marketplace in
+    order to stop the selling for a while.
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/idsItemArchive.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/statusOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

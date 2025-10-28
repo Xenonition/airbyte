@@ -1,0 +1,119 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Sales Orders that are ready to pick
+    items:
+      type: object
+      properties:
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 249913
+        salesorder_no:
+          type: string
+          description: Sales Order No.
+          example: SO-002499913
+        transaction_date:
+          type: string
+          format: date-time
+          description: Transaction Date
+          example: '2022-02-22T03:33:26.024Z'
+        note:
+          type: string
+          description: Note
+          example: ''
+        contact_id:
+          type: number
+          description: Contact ID
+          example: 2034362
+        customer_name:
+          type: string
+          description: Customer Name
+          example: Deni Gentong
+        grand_total:
+          type: number
+          description: Grand Total
+          example: 130000
+        shipper:
+          type: string
+          description: Shipper
+          example: Grab Instant
+        source:
+          type: number
+          description: Source
+          example: 1
+        store_name:
+          type: string
+          description: store name
+          example: INTERNAL
+        store_id:
+          type: string
+          description: Store ID
+          example: null
+        dropshipper:
+          type: string
+          description: Dropshipper
+          example: Toko Sejahtera
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        qty:
+          type: number
+          example: null
+        due_date:
+          type: number
+          description: Due Date
+          example: 0
+        location_name:
+          type: string
+          description: Location Name
+          example: Gudang Besar
+        total_qty:
+          type: number
+          description: Total Quantity
+          example: 100
+        is_po:
+          type: boolean
+          example: null
+        is_instant_courier:
+          type: boolean
+          example: false
+        label_printed_count:
+          type: number
+          example: 2
+        b_tracking_no:
+          type: boolean
+          example: true|
+        awb_printed_count:
+          type: number
+          example: 2
+        status_details:
+          type: string
+          description: Status Detail
+          example: null
+        source_name:
+          type: string
+          description: Source Name
+          example: INTERNAL
+        tracking_number:
+          type: string
+          description: Tracking Number
+          example: ''
+        tracking_no:
+          type: string
+          description: Tracking Number
+          example: ''
+        district_cd:
+          type: string
+          description: District Code
+          example: CGK01
+        channel_status:
+          type: string
+          description: Channel Status
+          example: Paid
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

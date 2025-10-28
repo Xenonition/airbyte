@@ -1,0 +1,73 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 191
+        salesorder_no:
+          type: string
+          description: Sales Order No.
+          example: SO-000000191
+        transaction_date:
+          type: string
+          format: date-time
+          description: Transaction Date
+          example: '2021-12-17T04:54:10.068Z'
+        order_created_date:
+          type: string
+          format: date-time
+          description: Order Created Date.
+          example: '2021-12-17T04:54:10.068Z'
+        shipment_header_id:
+          type: number
+          description: Shipment Header ID
+          example: 106
+        total_weight_in_kg:
+          type: number
+          description: Total Weight
+          example: 2
+        shipper:
+          type: string
+          description: Shipper
+          example: J&T REG
+        channel_status:
+          type: string
+          description: Channel Status
+          example: Shipped
+        shipment_no:
+          type: string
+          description: Shipment No.
+          example: SHP-000000106
+        shipment_date:
+          type: string
+          description: Shipment Date
+          example: '2022-01-12T02:26:45.554Z'
+        courier_name:
+          type: string
+          description: Courier Name
+          example: J&T
+        employee_name:
+          type: string
+          description: Employee Name
+          example: Ririn
+        shipment_detail_id:
+          type: number
+          example: 96
+        customer_name:
+          type: string
+          example: Zilingo
+        source_name:
+          type: string
+          example: INTERNAL
+        tracking_number:
+          type: number
+          example: 123
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

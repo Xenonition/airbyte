@@ -1,0 +1,10 @@
+name: isPrinted
+in: query
+required: false
+style: form
+explode: true
+description: >-
+  Whether the shipping label is already printed or not, 1 indicates that it has
+  not yet been printed, while 2 indicates that it has already been printed.
+schema:
+  type: string

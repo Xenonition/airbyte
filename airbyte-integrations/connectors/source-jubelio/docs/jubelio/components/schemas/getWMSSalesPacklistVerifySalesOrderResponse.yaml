@@ -1,0 +1,42 @@
+type: object
+properties:
+  salesorder_id:
+    type: number
+    description: Sales Order ID
+    example: 2297702
+  salesorder_no:
+    type: string
+    description: Sales Order No
+    example: SO-002297702
+  is_canceled:
+    type: boolean
+    description: Whether SO is canceled
+    example: false
+  internal_status:
+    type: string
+    description: Internal status
+    example: PROCESSING
+  is_acknowledge:
+    type: boolean
+    description: Is acknowledge
+    example: true
+  acknowledge_status:
+    type: string
+    description: Acknowledge status
+    example: null
+  packages:
+    type: string
+    description: Packages
+    example: null
+  package_count:
+    type: number
+    description: Package count
+    example: 1
+  source:
+    type: number
+    description: Source
+    example: 1
+  wms_status:
+    type: string
+    description: WMS Status
+    example: FINISH_PICK

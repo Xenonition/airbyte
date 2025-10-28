@@ -1,0 +1,25 @@
+post:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Change Location for Orders
+  operationId: changeLocationforOrders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/changeLocationforOrders.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/statusOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

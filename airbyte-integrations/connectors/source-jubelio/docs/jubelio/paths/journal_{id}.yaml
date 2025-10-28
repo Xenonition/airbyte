@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Journal
+  summary: Get Journal By Id
+  operationId: getJournalById
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: Location ID
+      example: 1
+      schema:
+        type: number
+        format: int32
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getJournalByIdResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

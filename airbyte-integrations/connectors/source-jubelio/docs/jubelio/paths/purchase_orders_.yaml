@@ -1,0 +1,110 @@
+get:
+  tags:
+    - Purchasing
+  summary: Get All Purchase Orders
+  operationId: getPurchaseOrders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/csv.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Filter Query [Purchase Order Number/Supplier Name]
+      schema:
+        type: string
+    - $ref: ../components/parameters/createdSince.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getPurchaseOrdersResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Purchasing
+  summary: Create/Edit Purchase Order
+  description: >
+
+    ![](https://drive.google.com/uc?id=1eDwG7qKmr9pgN8sn8KfRCpGhl2KTumsR)
+
+
+    | Endpoint                                                     |
+    Notes                                                        |
+
+    | :----------------------------------------------------------- |
+    ------------------------------------------------------------ |
+
+    |
+    [1.GET/contacts/suppliers/](https://docs.jubelio.com/#operation/getContactsSuppliers)
+    | Obtain **contact_id, contact_name** (to later use as **supplier_name** in
+    endpoint no.3) |
+
+    | [2.GET/locations/](https://docs.jubelio.com/#operation/getLocations) |
+    Obtain **location_id**                                       |
+
+    |
+    [3.GET/inventory/items/to-buy](https://docs.jubelio.com/#operation/getInventoryToBuy)
+    | Obtain **item_id, item_name** (take only the first part from item_name to
+    later use as description in endpoint no.3) |
+
+    |
+    [4.POST/purchase/orders/](https://docs.jubelio.com/#operation/postPurchaseOrders)
+    | Create your Purchase Order, make sure to fill in the value as described in
+    the schema and also with the value that you've got from previous endpoints
+    (no. 1-3) |
+  operationId: postPurchaseOrders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/savePurchaseOrderRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+delete:
+  tags:
+    - Purchasing
+  summary: Delete Purchase Order
+  operationId: deletePurchaseOrders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/deleteNumberRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleteOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

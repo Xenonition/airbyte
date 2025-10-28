@@ -1,0 +1,52 @@
+type: array
+items:
+  type: object
+  properties:
+    item_transfer_id:
+      type: number
+      description: Item Transfer ID
+      example: 5373
+    item_transfer_no:
+      type: string
+      description: Item Transfer No.
+      example: TRFO-000005373
+    source:
+      type: string
+      description: Source Location
+      example: Gedung Besar
+    destination:
+      type: string
+      description: Destination Location
+      example: Gedung Kecil
+    is_printed:
+      type: boolean
+      example: true
+    source_location_id:
+      type: number
+      example: 1
+    destination_location_id:
+      type: number
+      example: -1
+    transaction_date:
+      type: string
+      format: date-time
+      example: '2021-12-21T06:36:09.334Z'
+    qty:
+      type: number
+      example: 100
+    from_no:
+      type: number
+      example: 100
+    to_no:
+      type: number
+      example: 100
+    percentage:
+      type: number
+      description: Progress of items that already received
+      example: 100
+    button_msg:
+      type: string
+      example: Terima
+    receive_tf_no:
+      type: string
+      example: TRFI-000005374

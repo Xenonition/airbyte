@@ -1,0 +1,151 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        picklist_detail_id:
+          type: number
+          description: Picklist Detail ID
+          example: 4323379
+        item_id:
+          type: number
+          description: Item ID
+          example: 53500
+        item_group_id:
+          type: number
+          description: Item Group ID
+          example: 8213
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        qty_ordered:
+          type: number
+          description: Quantity needs to pick
+          example: 20
+        qty_picked:
+          type: number
+          description: Quantity done picking
+          example: 0
+        salesorder_detail_id:
+          type: number
+          description: Sales Order Detail ID
+          example: 5534040
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 2499913
+        source:
+          type: number
+          description: Source
+          example: 1
+        store_id:
+          type: string
+          description: Store ID
+          example: null
+        channel_status:
+          type: string
+          description: Channel Status
+          example: Processing
+        bundle_item_id:
+          type: number
+          example: 0
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: 1025607544 - D'one Parfum Mobil Gantung / variasi mobil Aroma
+        serial_no:
+          type: string
+          description: Serial Number
+          example: null
+        batchs:
+          type: string
+          example: null
+        tracking_no:
+          type: string
+          description: Tracking No.
+          example: ''
+        status:
+          type: string
+          description: status
+          example: null
+        bundle_full_name:
+          type: string
+          description: status
+          example: null
+        unit:
+          type: string
+          description: Unit
+          example: Buah
+        location_name:
+          type: string
+          description: Location Name
+          example: Gudang Besar
+        salesoder_no:
+          type: string
+          description: Sales Order No
+          example: SO-002499913
+        item_code:
+          type: string
+          description: Item Code
+          example: 10283483
+        shipper:
+          type: string
+          description: Shipper
+          example: Grab Instant
+        picked_serials:
+          type: array
+          items:
+            type: object
+        invoice_no:
+          type: string
+          description: Invoice No.
+          example: null
+        bin_id:
+          type: number
+          description: Bin ID
+          example: 2
+        bin_final_code:
+          type: string
+          description: Bin Final Code
+          example: L1-R1-C1
+        end_qty:
+          type: number
+          description: End Quantity
+          example: 100
+        thumbnail:
+          type: string
+          description: thumbnail
+          example: >-
+            https://truzteedev.blob.core.windows.net/images/0swqgtzyqwoti4bwbawsvq/thumb_496e5d7745ce0abf367e60984c96f245
+  picklist_id:
+    type: number
+    description: Picklist ID
+    example: 32458
+  picklist_no:
+    type: number
+    description: Picklist No.
+    example: PICK-000032458
+  created_date:
+    type: string
+    format: date-time
+    description: Created Date
+    example: '2022-02-22T07:14:27.108Z'
+  completed_date:
+    type: string
+    format: date-time
+    description: Completed Date
+    example: null
+  note:
+    type: string
+    description: note
+    example: null
+  is_completed:
+    type: boolean
+    example: false
+  picker_id:
+    type: string
+    description: Picker ID
+    example: ririn@staffgudang.com

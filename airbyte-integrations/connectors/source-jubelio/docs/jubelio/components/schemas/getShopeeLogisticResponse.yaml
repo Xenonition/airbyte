@@ -1,0 +1,43 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Status
+    example: OK
+  data:
+    type: array
+    description: List Logistics
+    items:
+      type: object
+      properties:
+        weight_limits:
+          type: object
+          properties:
+            item_min_weight:
+              type: number
+              description: Min Weight
+              example: 0.001
+            item_max_weight:
+              type: number
+              description: Max Weight
+              example: 0.001
+        has_cod:
+          type: boolean
+          description: Has COD
+          example: false
+        logistic_name:
+          type: string
+          description: Logistic Name
+          example: JNE OKE
+        logistic_id:
+          type: number
+          description: Logistic ID
+          example: 1
+        preferred:
+          type: boolean
+          description: Is Preferred
+          example: true
+        fee_type:
+          type: number
+          description: Fee type
+          example: SIZE_INPUT

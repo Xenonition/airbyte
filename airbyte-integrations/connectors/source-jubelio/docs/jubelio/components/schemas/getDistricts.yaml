@@ -1,0 +1,14 @@
+type: object
+properties:
+  district_id:
+    type: string
+    description: District ID
+    example: 110507
+  city_id:
+    type: string
+    description: City ID
+    example: 1105
+  name:
+    type: string
+    description: District Name
+    example: Arongan Lambalek

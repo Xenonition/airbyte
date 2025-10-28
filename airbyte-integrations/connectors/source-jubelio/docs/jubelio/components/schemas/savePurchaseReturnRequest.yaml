@@ -1,0 +1,132 @@
+required:
+  - location_id
+  - return_no
+  - supplier_name
+type: object
+properties:
+  return_id:
+    type: number
+    description: Purchase Return ID
+    example: 0
+  return_no:
+    type: string
+    description: Purchase Return Number
+    example: '[auto]'
+  supplier_id:
+    type: number
+    description: Contact ID (Supplier)
+    example: 1
+  supplier_name:
+    type: string
+    description: Contact Name (Supplier)
+    example: PTANYWAY
+  transaction_date:
+    type: string
+    format: date
+    description: Transaction Date
+    example: '2018-10-02T04:00:00.000Z'
+  is_tax_included:
+    type: boolean
+    description: Whether Tax Included
+    example: false
+  note:
+    type: string
+    description: Purchase Return Note
+    example: Return
+  sub_total:
+    type: number
+    description: Purchase Return Note
+    example: 77000
+  total_tax:
+    type: number
+    description: Purchase Return Total Tax
+    example: 0
+  grand_total:
+    type: number
+    description: Purchase Return Grand Total
+    example: 77000
+  location_id:
+    type: number
+    description: Location ID
+    example: -1
+  items:
+    type: array
+    description: List Purchase Return Detail
+    items:
+      type: object
+      required:
+        - return_detail_id
+        - item_id
+        - bill_detail_id
+        - description
+        - invt_acc_id
+        - bin_id
+        - price
+        - unit
+        - qty_in_base
+        - amount
+        - location_id
+      properties:
+        return_detail_id:
+          type: number
+          description: Purchase Return Detail ID
+          example: 0
+        item_id:
+          type: number
+          description: Item ID
+          example: 0
+        serial_no:
+          type: string
+          description: Serial Number
+          example: SN001
+        batch_no:
+          type: string
+          description: Batch Number
+          example: null
+        bill_detail_id:
+          type: string
+          description: Bill Detail ID
+          example: 51569
+        description:
+          type: string
+          description: Item Description
+          example: Kaos DreamCatcher Born to Be Yours
+        invt_acct_id:
+          type: number
+          description: Inventory Account ID
+          example: 4
+        bin_id:
+          type: number
+          description: Bin ID
+          example: 3
+        tax_id:
+          type: number
+          description: Tax ID
+          example: 1
+        price:
+          type: number
+          description: Item Price
+          example: 77000
+        cogs:
+          type: number
+          example: 68093.936118
+        unit:
+          type: string
+          description: Unit Name
+          example: Buah
+        qty_in_base:
+          type: number
+          description: Quantity that will be return
+          example: 1
+        tax_amount:
+          type: number
+          description: Tax Amount
+          example: 0
+        amount:
+          type: number
+          description: Total Amount
+          example: 77000
+        location_id:
+          type: number
+          description: Location ID
+          example: -1

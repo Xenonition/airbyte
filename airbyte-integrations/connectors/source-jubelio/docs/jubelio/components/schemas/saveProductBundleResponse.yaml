@@ -1,0 +1,19 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Status
+    example: OK
+  id:
+    type: string
+    description: ID
+    example: 12
+  bom_id:
+    type: string
+    description: Bom ID
+    example: 1
+  bom_comp_ids:
+    type: array
+    items:
+      type: integer
+      example: 1

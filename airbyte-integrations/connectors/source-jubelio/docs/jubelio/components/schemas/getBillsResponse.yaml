@@ -1,0 +1,72 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        doc_id:
+          type: number
+          description: Document ID
+          example: 3
+        doc_number:
+          type: string
+          description: Document Number
+          example: BIL-000000001
+        contact_id:
+          type: number
+          description: Contact ID
+          example: 3
+        supplier_name:
+          type: string
+          description: Bill Number
+          example: PT.ANYWAY
+        transaction_date:
+          type: string
+          format: date-time
+          description: Bill Transaction Date
+          example: '2018-10-20T17:00:00.000Z'
+        due_date:
+          type: number
+          example: 20
+        is_opening_balance:
+          type: boolean
+          description: Is Bill a Opening Balance
+          example: false
+        grand_total:
+          type: string
+          description: Bill Grand Total
+          example: 50000
+        due:
+          type: string
+          description: Bill Due Payment
+          example: 0
+        doc_type:
+          type: string
+          description: Document Type
+          example: bill
+        age:
+          type: number
+          description: Bill Age
+          example: 83
+        age_due:
+          type: number
+          description: Bill Due Age
+          example: 83
+        serial_number:
+          type: string
+          description: Serial Number
+          example: BSHH121848
+        purchaseorder_id:
+          type: number
+          description: Purchase order ID
+          example: null
+        downpayment_amount:
+          type: number
+          description: Downpayment amount
+          example: null
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

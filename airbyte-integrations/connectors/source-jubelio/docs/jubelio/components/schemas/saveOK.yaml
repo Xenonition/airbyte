@@ -1,0 +1,10 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Save Status
+    example: ok
+  id:
+    type: number
+    description: Object ID
+    example: 1

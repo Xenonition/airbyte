@@ -1,0 +1,21 @@
+get:
+  tags:
+    - Reports
+  summary: Get the list of received items that have not been placed.
+  operationId: getReportsItemReceivedNotPlace
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/tz.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getReportsItemReceivedNotPlaceResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

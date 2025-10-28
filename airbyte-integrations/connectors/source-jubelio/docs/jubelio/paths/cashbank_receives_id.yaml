@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Cash & Bank
+  summary: Get Receive By Id
+  operationId: getReceivesById
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getCashbankReceiveByIdResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

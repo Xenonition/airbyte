@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Sales
+  summary: Set Items As Complete/ Is Already Received by The Courier
+  operationId: postSalesShipments
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/postSalesShipmentsRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/postSalesShipmentsResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

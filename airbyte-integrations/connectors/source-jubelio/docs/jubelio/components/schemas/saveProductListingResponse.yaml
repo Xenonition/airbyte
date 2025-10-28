@@ -1,0 +1,14 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Status
+    example: ok
+  mp_group_id:
+    type: number
+    description: Marketplace Group ID.
+    example: 1245
+  store_id:
+    type: string
+    description: Store ID
+    example: 38735

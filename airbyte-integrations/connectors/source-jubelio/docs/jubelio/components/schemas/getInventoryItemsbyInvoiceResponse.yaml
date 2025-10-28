@@ -1,0 +1,92 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List of Items by Invoice No.
+    items:
+      type: object
+      properties:
+        item_id:
+          type: number
+          description: Item ID
+          example: 5
+        item_code:
+          type: string
+          description: Item Code
+          example: 1203578196
+        item_name:
+          type: number
+          description: Item Name
+          example: Tas selempang Biru Dongker
+        invoice_detail_id:
+          type: number
+          description: Invoice Detail ID
+          example: 0
+        sell_price:
+          type: number
+          description: Sell Price
+          example: 30000
+        sales_acct_id:
+          type: number
+          description: Sales Account ID
+          example: 28
+        sell_tax_id:
+          type: number
+          description: Sell Tax ID
+          example: 1
+        sell_unit:
+          type: string
+          description: Sell Unit Name
+          example: Buah
+        available_qty:
+          type: number
+          description: Available Quantity
+          example: 1000
+        qty_in_base:
+          type: string
+          description: Quantity Item that will be reduced
+          example: 1
+        disc:
+          type: string
+          description: Item Discount
+          example: 0
+        disc_amount:
+          type: string
+          description: Item Total Amount
+          example: 0
+        cogs:
+          type: number
+          description: Cost of Goods Sold
+          example: 11666.666667
+        rate:
+          type: string
+          description: Rate
+          example: 10
+        tax_name:
+          type: string
+          description: Tax Name
+          example: PPN
+        account_code:
+          type: string
+          description: account code
+          example: 4-4000
+        account_name:
+          type: string
+          description: Account Name
+          example: 4-4000 - Penjualan
+        uom_id:
+          type: number
+          description: Uom ID
+          example: -1
+        use_batch_number:
+          type: boolean
+          description: Whether the item has a batch number
+          example: false
+        use_serial_number:
+          type: boolean
+          description: Whether the item has serial number
+          example: true
+        item_full_name:
+          type: string
+          description: Item Full Name
+          example: Tas Keren - Tas Selempang Biru Dongker

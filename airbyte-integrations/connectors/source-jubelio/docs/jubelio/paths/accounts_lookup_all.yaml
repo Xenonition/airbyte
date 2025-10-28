@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Journal
+  summary: Get Account Lookup
+  operationId: getAccountLookupAll
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getAccountLookupResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

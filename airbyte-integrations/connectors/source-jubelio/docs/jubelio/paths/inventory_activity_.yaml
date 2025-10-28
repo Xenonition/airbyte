@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Inventory
+  summary: Get Inventory Product Stock History
+  operationId: getInventoryProductActivity
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/dateTo.yaml
+    - name: itemId
+      in: query
+      required: true
+      style: form
+      explode: true
+      description: Item Id
+      schema:
+        type: number
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getInventoryActivityResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

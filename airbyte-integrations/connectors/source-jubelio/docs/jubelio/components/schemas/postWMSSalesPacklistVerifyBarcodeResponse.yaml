@@ -1,0 +1,38 @@
+type: object
+properties:
+  status:
+    type: string
+    description: Status
+    example: ok
+  packlist_id:
+    type: number
+    description: Picklist ID
+    example: 4285
+  item_name:
+    type: string
+    description: Item name
+    example: Addison Jacket
+  barcode:
+    type: string
+    description: Barcode
+    example: padil-barcode
+  item_code:
+    type: string
+    description: Item Code
+    example: BC90 - MERAH
+  serial_no:
+    type: string
+    description: Serial No
+    example: null
+  batch_no:
+    type: string
+    description: Batch No
+    example: null
+  picklist_detail_id:
+    type: number
+    description: Picklist detail ID
+    example: 17578
+  package_id:
+    type: number
+    description: Package ID
+    example: 0

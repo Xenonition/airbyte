@@ -1,0 +1,9 @@
+name: dateTo
+in: query
+required: false
+style: form
+explode: true
+description: The Date To
+schema:
+  type: string
+  format: date

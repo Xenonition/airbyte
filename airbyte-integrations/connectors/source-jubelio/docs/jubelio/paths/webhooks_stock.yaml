@@ -1,0 +1,20 @@
+post:
+  tags:
+    - Webhooks
+  summary: Update Stock
+  operationId: getStockWebhook
+  description: >
+    This Webhook will be called when there is a stock change that can occur when
+    there are orders, stock transfers, returns, etc.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/webhookStock.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ok.yaml

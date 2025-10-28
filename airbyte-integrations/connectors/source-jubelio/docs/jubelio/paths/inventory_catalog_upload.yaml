@@ -1,0 +1,32 @@
+post:
+  tags:
+    - Product Listing
+  summary: Upload Product Listing
+  description: |
+    Use this endpoint to upload your product to a marketplace.
+  operationId: uploadProductListing
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/uploadProductListing.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: number
+                description: Status
+                example: ok
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

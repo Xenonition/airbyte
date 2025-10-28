@@ -1,0 +1,41 @@
+get:
+  tags:
+    - WMS (Warehouse Management System)
+  summary: Get The Employee ID/Warehouse Staff Information
+  operationId: getWMSEmployee
+  parameters:
+    - name: NIKorEmail
+      in: path
+      required: true
+      description: >-
+        Email or NIK (Nomor Induk Karyawan = Employee Identity Number) of the
+        Warehouse Staff.
+      schema:
+        type: string
+    - $ref: ../components/parameters/authorization.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              employee_id:
+                type: string
+                description: email of the employee
+                example: staffwms@gudang.com
+              name:
+                type: string
+                description: Employee Name
+                example: Ririn
+              nik:
+                type: string
+                description: NIK or Employee identity number
+                example: 261736
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

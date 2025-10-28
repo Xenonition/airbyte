@@ -1,0 +1,106 @@
+get:
+  tags:
+    - Product Listing
+  summary: Channel Categories
+  operationId: getChannelCategories
+  description: >
+    To find a category that matched with your products in the marketplace, you
+    can use this endpoint so you can get **category_id** to later get the
+    **channel_category_id**. 
+
+
+    **channel_category_id** is the last 3 digits in **category_id**. For
+    example: If **category_id** is **10100387**, then the
+    **channel_category_id** is **387**
+
+
+    This endpoint uses **id** as query parameter which refers to **channel_id.**
+    These are the list of **channel_id** you can use:  
+
+
+    | Store Channel | Channel ID |
+
+    | ------------- | ---------- |
+
+    | INTERNAL      | 1          |
+
+    | BUKALAPAK     | 2          |
+
+    | LAZADA        | 4          |
+
+    | ZALORA        | 8          |
+
+    | ELEVENIA      | 16         |
+
+    | BLIBLI        | 32         |
+
+    | SHOPEE        | 64         |
+
+    | TOKOPEDIA     | 128        |
+
+    | BLANJA        | 512        |
+
+    | ZILINGO       | 2048       |
+
+    | JD            | 4096       |
+
+    | AKULAKU       | 65536      |
+
+    | WEBSTORE      | 131072     |
+
+    | DEALPOS       | 262144     |
+
+    | JUBELIO_POS   | 524288     |
+
+    | SHOPIFY       | 1048576    |
+
+    | TIKTOK        | 131076     |
+
+    | WEBSTORE      | 131072     |
+
+    | DEALPOS       | 262144     |
+
+    | JUBELIO_POS   | 524288     |
+
+    | SHOPIFY       | 1048576    |
+
+    | TIKTOK        | 131076     |
+
+     Please read the following steps to use the endpoint: 
+
+     ![](https://drive.google.com/uc?id=1kR7VPqDAMK9NAVU7Edkk3jO8tsFsRNe6)
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - name: parent_id
+      in: path
+      required: true
+      style: simple
+      explode: false
+      description: >-
+        Parent ID. Set 0 to get all the list of category_id available on the
+        marketplace.
+      example: 0
+      schema:
+        type: number
+        format: int32
+    - name: id
+      in: query
+      required: true
+      style: form
+      explode: true
+      description: Refers to channel_id. See the table above.
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getChannelCategoriesResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

@@ -1,0 +1,18 @@
+required:
+  - group_id
+  - channel_id
+  - store_id
+type: object
+properties:
+  group_id:
+    type: number
+    description: Item Group ID
+    example: 10
+  channel_id:
+    type: number
+    description: Channel ID
+    example: 2
+  store_id:
+    type: string
+    description: Store ID
+    example: 20

@@ -1,0 +1,47 @@
+type: object
+description: Invoice Summary Items
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        store_id:
+          type: string
+          description: Store Id
+          example: 383
+        store_name:
+          type: string
+          description: Store Name
+          example: Raicha.Store
+        channel_name:
+          type: string
+          description: Channel Name
+          example: SHOPEE
+        detail:
+          type: array
+          description: List Items that exists in System
+          items:
+            type: object
+            properties:
+              item_id:
+                type: number
+                description: Item Id
+                example: 847
+              item_code:
+                type: string
+                description: Item Code
+                example: CD001
+              qty:
+                type: number
+                description: Quantity
+                example: 2
+              sum_total_price:
+                type: number
+                description: Sum of Total Price
+                example: 23500
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1

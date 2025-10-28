@@ -1,0 +1,123 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        salesorder_id:
+          type: number
+          description: Sales Order ID
+          example: 117
+        salesorder_no:
+          type: string
+          description: Sales Order No.
+          example: SO-000000117
+        label_printed_count:
+          type: number
+          description: To describe the number of times the shipping label is printed
+          example: 1
+        customer_name:
+          type: string
+          description: Customer Name
+          example: Lilis Karlina
+        contact_id:
+          type: number
+          description: Contact ID
+          example: 2342173
+        source:
+          type: number
+          description: Source
+          example: 1
+        transaction_date:
+          type: string
+          format: date-time
+          description: Transaction Date
+          example: '2021-07-24T09:04:24.070Z'
+        created_date:
+          type: string
+          format: date-time
+          description: Created Date
+          example: '2021-07-24T09:04:24.070Z'
+        grand_total:
+          type: number
+          description: Grand Total
+          example: 130000
+        shipper:
+          type: string
+          description: Shipper
+          example: JNE REG
+        source_name:
+          type: string
+          description: Source Name
+          example: INTERNAL
+        store_name:
+          type: string
+          description: store name
+          example: INTERNAL
+        store_id:
+          type: string
+          description: Store ID
+          example: null
+        dropshipper:
+          type: string
+          description: Dropshipper
+          example: null
+        location_id:
+          type: number
+          description: Location ID
+          example: 1
+        qty:
+          type: number
+          description: Quantity
+          example: null
+        due_date:
+          type: number
+          description: Due Date
+          example: 0
+        location_name:
+          type: string
+          description: Location Name
+          example: Gudang Besar
+        is_cod:
+          type: boolean
+          example: null
+        total_weight_in_kg:
+          type: number
+          example: 10
+        total_qty:
+          type: number
+          example: 10
+        tracking_no:
+          type: string
+          example: ''
+        note:
+          type: string
+          description: Note
+          example: ''
+        b_tracking_no:
+          type: boolean
+          example: true
+        tracking_number:
+          type: string
+          example: ''
+        packlist_id:
+          type: number
+          description: Picklist ID
+          example: 12466
+        packlist_no:
+          type: string
+          description: Packlist No.
+          example: PACK-000000009
+        packer_id:
+          type: string
+          description: Email Packer Staff
+          example: ririn@staffgudang.com
+        name:
+          type: string
+          description: Packer Name
+          example: Ririn
+  totalCount:
+    type: number
+    description: Total Count of All Data
+    example: 20

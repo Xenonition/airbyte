@@ -1,0 +1,135 @@
+get:
+  tags:
+    - Sales
+  summary: Get All Sales Orders
+  description: >
+    This API is used to get all Orders from Market Place that has been
+    integrated to your Jubelio account.
+  operationId: getSalesOrders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+    - $ref: ../components/parameters/page.yaml
+    - $ref: ../components/parameters/pageSize.yaml
+    - $ref: ../components/parameters/sortDirection.yaml
+    - $ref: ../components/parameters/sortBy.yaml
+    - $ref: ../components/parameters/csv.yaml
+    - name: q
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: >-
+        Filter Query [Sales Order Number/Customer Name/Channel Name/Item
+        Code/Item Name]
+      schema:
+        type: string
+    - $ref: ../components/parameters/createdSince.yaml
+    - $ref: ../components/parameters/transactionDateFrom.yaml
+    - $ref: ../components/parameters/transactionDateTo.yaml
+    - $ref: ../components/parameters/lastModifiedSince.yaml
+    - name: invoiceCreatedSince
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Invoice Created Since
+      schema:
+        type: string
+        format: date
+    - name: isInvoiced
+      in: query
+      required: false
+      style: form
+      explode: true
+      description: Is invoice printed
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getSalesOrdersResponse.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+post:
+  tags:
+    - Sales
+  summary: Create/Edit Sales Order
+  description: >
+
+    ![](https://drive.google.com/uc?id=1Mtydt3SgqnGh6Hn9nCrj9d07BN88cWOh)
+
+
+    | Endpoint                                                     |
+    Notes                                                        |
+
+    | :----------------------------------------------------------- |
+    ------------------------------------------------------------ |
+
+    |
+    [1.GET/contacts/customers/](https://docs.jubelio.com/#operation/getContactsCustomers)
+    | Obtain **contact_id, contact_name** (to later use as **customer_name** in
+    endpoint no.3) |
+
+    | [2.GET/locations/](https://docs.jubelio.com/#operation/getLocations) |
+    Obtain **location_id**                                       |
+
+    |
+    [3.GET/inventory/items/to-sell/{location_id}](https://docs.jubelio.com/#operation/getItemsToSell)
+    | Obtain **item_id, item_name** (take only the first part from item_name to
+    later use as description in endpoint no.3) |
+
+    |
+    [4.POST/sales/orders/](https://docs.jubelio.com/#operation/postSalesOrders)
+    | Create your Sales Order, make sure to fill in the value as described in
+    the schema and also with the value that you've got from previous endpoints
+    (no. 1-3) |
+  operationId: postSalesOrders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/saveSalesOrderRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/saveID.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml
+delete:
+  tags:
+    - Sales
+  summary: Delete Sales Order
+  operationId: deleteSalesOrders
+  parameters:
+    - $ref: ../components/parameters/authorization.yaml
+  requestBody:
+    $ref: ../components/requestBodies/deleteNumberRequest.yaml
+  responses:
+    '200':
+      description: Successful
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleteOK.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/internalServerError.yaml

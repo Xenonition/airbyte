@@ -1,0 +1,104 @@
+type: object
+properties:
+  data:
+    type: array
+    description: List Items that exists in System
+    items:
+      type: object
+      properties:
+        created_by:
+          type: string
+          description: Created By
+          example: support@jubelio.com
+        created_date:
+          type: string
+          format: date-time
+          description: Created date
+          example: '2020-09-07T07:39:41.303Z'
+        destination:
+          type: string
+          description: Destination of the transfer
+          example: Jogja
+        transactionDateFrom:
+          type: string
+          format: date
+          example: null
+        transactionDateTo:
+          type: string
+          format: date
+          example: null
+        locIds:
+          type: string
+          example: 1
+        destination_location_id:
+          type: number
+          description: The Id of location destination
+          example: 15
+        is_printed:
+          type: boolean
+          description: Is the record printed
+          example: false
+        item_transfer_id:
+          type: number
+          description: The Id of item transfer
+          example: 343
+        item_transfer_no:
+          type: string
+          description: The number of item transfer
+          example: TRF-000000343
+        note:
+          type: string
+          description: The note
+          example: Please handle with care.
+        printed_by:
+          type: string
+          description: Name that does print
+          example: Support
+        received_by:
+          type: string
+          description: The receiver name
+          example: Support
+        received_date:
+          type: string
+          format: date-time
+          description: Date when the transfer is received
+          example: '2020-09-07T07:39:41.303Z'
+        return_id:
+          type: number
+          description: The return id. (null if there is no)
+          example: null
+        source:
+          type: string
+          description: The source of the transfer
+          example: Pusat
+        source_location_id:
+          type: number
+          description: The Id of source location
+          example: -1
+        source_transfer_no:
+          type: number
+          description: The number of source transfer. (null of there is no)
+          example: null
+        transaction_date:
+          type: string
+          description: the transaction date
+          example: '2020-09-07T07:39:12.530Z'
+        transfer_type:
+          type: number
+          description: the type of transfer in code/number
+          example: 0
+        updated_by:
+          type: string
+          description: Updated by
+          example: support@jubelio.com
+        auto_placement:
+          type: boolean
+          description: If Item is going auto-placement
+          example: true
+        is_replenishment:
+          type: boolean
+          example: false
+  totalCount:
+    type: number
+    description: Total Count of All Items
+    example: 1
